@@ -14,16 +14,6 @@ public class college {
     private String website;
     private String fax;
     private String address;
-   // @Transient
-   // private int universityid;
-
-   // public int getUniversityid() {
-      //  return universityid;
-   // }
-
-   // public void setUniversityid(int universityid) {
-       // this.universityid = universityid;
-   // }
     @Id
     public int getCollege_id() {
         return college_id;
@@ -80,11 +70,7 @@ public class college {
 
     public void setFax(String fax) {this.fax = fax;}
 
-    public String getAddress() {
-        return address;
-    }
+    public String getAddress() { return address; }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+    public void setAddress(String address) { this.address = address; }
 }
