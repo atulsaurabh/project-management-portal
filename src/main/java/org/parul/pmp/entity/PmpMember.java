@@ -3,8 +3,8 @@ package org.parul.pmp.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PmpMember")
-public class PmpRegistration {
+@Table(name = "Student")
+public class PmpMember {
     private int pmpmemid;
     private String firstname;
     private String middlename;
@@ -15,11 +15,64 @@ public class PmpRegistration {
     private String sem;
     private String dept;
     private String email;
-    private String discipline;
     private String gender;
     private String mobile_no;
-    private String username;
     private String password;
+    private String confirm_password;
+    private String address;
+    private String country;
+    private String state;
+    private String city;
+    private String pincode;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(String pincode) {
+        this.pincode = pincode;
+    }
+
+    @Transient
+    public String getConfirm_password() {
+        return confirm_password;
+    }
+
+    public void setConfirm_password(String confirm_password) {
+        this.confirm_password = confirm_password;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -104,13 +157,6 @@ public class PmpRegistration {
         this.email = email;
     }
 
-    public String getDiscipline() {
-        return discipline;
-    }
-
-    public void setDiscipline(String discipline) {
-        this.discipline = discipline;
-    }
 
     public String getGender() {
         return gender;
@@ -126,14 +172,6 @@ public class PmpRegistration {
 
     public void setMobile_no(String mobile_no) {
         this.mobile_no = mobile_no;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getPassword() {

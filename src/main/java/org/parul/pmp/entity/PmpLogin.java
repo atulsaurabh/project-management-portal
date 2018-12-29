@@ -3,12 +3,13 @@ package org.parul.pmp.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PmpLogin")
+@Table(name = "memLogin")
 public class PmpLogin {
     private String login_id;
     private String mem_role;
     private String username;
     private String password;
+
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 @Column(name = "memloginid")
