@@ -1,6 +1,6 @@
 package org.parul.pmp.controller;
 
-import org.parul.pmp.dto.college;
+import org.parul.pmp.entity.College;
 import org.parul.pmp.repository.collegeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,11 +18,11 @@ public class collegeController {
     @GetMapping
     public String registerCollege(Model model)
     {
-        model.addAttribute("college",new college());
+        model.addAttribute("college",new College());
         return "college";
     }
     @PostMapping
-    public String addCollegePage(@ModelAttribute("college")college college, Model model)
+    public String addCollegePage(@ModelAttribute("college") College college, Model model)
     {
         try
         {

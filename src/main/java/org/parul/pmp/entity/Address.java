@@ -1,4 +1,4 @@
-package org.parul.pmp.dto;
+package org.parul.pmp.entity;
 
 import javax.persistence.*;
 
@@ -15,24 +15,6 @@ public class Address
     private String state;
     private String city;
     private int pincode;
-    private int universityid;
-    private int college_id;
-
-    public int getCollege_id() {
-        return college_id;
-    }
-
-    public void setCollege_id(int college_id) {
-        this.college_id = college_id;
-    }
-
-    public int getUniversityid() {
-        return universityid;
-    }
-
-    public void setUniversityid(int universityid) {
-        this.universityid = universityid;
-    }
 
     public int getAddressid() {
         return addressid;

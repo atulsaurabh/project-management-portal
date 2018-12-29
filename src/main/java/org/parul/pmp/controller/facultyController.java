@@ -1,6 +1,6 @@
 package org.parul.pmp.controller;
 
-import org.parul.pmp.dto.faculty;
+import org.parul.pmp.entity.Faculty;
 import org.parul.pmp.repository.facultyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,17 +20,17 @@ public class facultyController {
     @GetMapping
     public String getFacultyAddPage(Model model)
     {
-        model.addAttribute("faculty",new faculty());
+        model.addAttribute("faculty",new Faculty());
         return "Faculty";
     }
 
 
     @PostMapping
-    public String Add_faculty(@ModelAttribute("faculty")faculty faculty, Model model)
+    public String Add_faculty(@ModelAttribute("faculty") Faculty faculty, Model model)
     {
         try
         {
-            faculty f = faculty_repository.saveAndFlush(faculty);
+            Faculty f = faculty_repository.saveAndFlush(faculty);
             model.addAttribute("message","Faculty added successfully");
         }
         catch (Exception e)

@@ -1,7 +1,7 @@
 package org.parul.pmp.controller;
 
 
-import org.parul.pmp.dto.registerMember;
+import org.parul.pmp.entity.registerMember;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

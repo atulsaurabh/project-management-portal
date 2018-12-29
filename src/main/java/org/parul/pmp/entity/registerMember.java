@@ -1,4 +1,4 @@
-package org.parul.pmp.dto;
+package org.parul.pmp.entity;
 
 public class registerMember {
 

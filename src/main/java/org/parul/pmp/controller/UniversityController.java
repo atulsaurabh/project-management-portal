@@ -1,6 +1,7 @@
 package org.parul.pmp.controller;
-
-import org.parul.pmp.dto.university;
+import org.parul.pmp.dto.UniversityDTO;
+import org.parul.pmp.dto.mapper.UniversityMapper;
+import org.parul.pmp.entity.University;
 import org.parul.pmp.repository.universityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,24 +12,28 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/universityregister")
-public class universityController {
+@RequestMapping("/university")
+public class UniversityController {
+
     @Autowired
     private universityRepository universityRepository;
     @GetMapping
     public String addUniversityPage(Model model)
     {
-        model.addAttribute("university", new university() );
+        model.addAttribute("university", new UniversityDTO() );
         return "university";
     }
-   @PostMapping
-    public String registerUniversity(@ModelAttribute("university")university university, Model model) {
+
+   @PostMapping("/register")
+    public String registerUniversity(@ModelAttribute("university") UniversityDTO university, Model model) {
         try {
-            universityRepository.saveAndFlush(university);
+
+            universityRepository.saveAndFlush(UniversityMapper.toEntity(university));
             model.addAttribute("msg", "Successful");
         }
         catch (Exception e)
         {
+            e.printStackTrace();
             model.addAttribute("msg", "Error");
         }
         return "university";
