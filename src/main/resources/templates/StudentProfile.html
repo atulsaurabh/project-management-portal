@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="profile" method="post" th:object="${profileDTO}">
+    <b>DOB:</b>
+    <input type="text" name="dob"><br>
+    <b>Gender:</b>
+    <input type="text" name="gender"><br>
+    <b>Address:</b>
+    <input type="text" name="address"><br>
+    <b>Country:</b>
+    <input type="text" name="country"><br>
+    <b>State:</b>
+    <input type="text" name="state"><br>
+    <b>City:</b>
+    <input type="text" name="city"><br>
+    <b>Pincode:</b>
+    <input type="text" name="pincode"><br>
+    <button type="submit">Submit</button>
+
+
+</form>
+
+</body>
+</html>
