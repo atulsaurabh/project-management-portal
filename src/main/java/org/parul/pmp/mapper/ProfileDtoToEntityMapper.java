@@ -12,10 +12,7 @@ public class ProfileDtoToEntityMapper {
         registration.setDob(profileDTO.getDob());
         registration.setGender(profileDTO.getGender());
         registration.setAddress(profileDTO.getAddress());
-        registration.setCountry(profileDTO.getCountry());
-        registration.setState(profileDTO.getState());
-        registration.setCity(profileDTO.getCity());
-        registration.setPincode(profileDTO.getPincode());
+
 
         return registration;
     }

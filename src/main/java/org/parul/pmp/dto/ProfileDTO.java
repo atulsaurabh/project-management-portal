@@ -1,13 +1,12 @@
 package org.parul.pmp.dto;
 
+import org.parul.pmp.entity.Address;
+
 public class ProfileDTO {
     private String dob;
     private String gender;
-    private String address;
-    private String country;
-    private String state;
-    private String city;
-    private String pincode;
+    private Address address;
+
 
     public String getDob() {
         return dob;
@@ -25,43 +24,11 @@ public class ProfileDTO {
         this.gender = gender;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getPincode() {
-        return pincode;
-    }
-
-    public void setPincode(String pincode) {
-        this.pincode = pincode;
     }
 }
