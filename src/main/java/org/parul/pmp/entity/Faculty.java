@@ -9,6 +9,9 @@ public class Faculty extends User {
     private String email;
     private String phone;
     private Department department;
+    private String education;
+    private String skill;
+    private String Published_papers;
 
 
     public String getFaculty_name() { return faculty_name; }
@@ -38,4 +41,27 @@ public class Faculty extends User {
         this.department = department;
     }
 
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
+    public String getSkill() {
+        return skill;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
+
+    public String getPublished_papers() {
+        return Published_papers;
+    }
+
+    public void setPublished_papers(String published_papers) {
+        Published_papers = published_papers;
+    }
 }

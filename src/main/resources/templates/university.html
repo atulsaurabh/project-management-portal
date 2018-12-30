@@ -24,8 +24,8 @@
                 <div class="form-group"><input type="email" class="form-control my-2" id="form29" placeholder="Email" th:field="*{email}"></div>
                 <div class="form-group"><input type="number" class="form-control" id="form30" placeholder="Phone No" th:field="*{contact_no}"></div>
                 <div class="form-group"> <input type="text" class="form-control" id="form31" placeholder="fax" th:field="*{fax}"> </div>
-                <div class="form-group"><input type="text" class="form-control" id="form32" placeholder="address" th:field="*{address.address1}"></div>
-                    <div class="form-group"><input type="text" class="form-control" id="form32" placeholder="address" th:field="*{address.address2}"></div>
+                <div class="form-group"><input type="text" class="form-control" id="form32" placeholder="address" th:field="${address.address1}">
+                    <div class="form-group"><input type="text" class="form-control" id="form33" placeholder="address" th:field="*{address.address2}"></div>
                 <button type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>
