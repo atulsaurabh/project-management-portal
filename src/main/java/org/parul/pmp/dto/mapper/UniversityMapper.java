@@ -7,6 +7,8 @@ import org.parul.pmp.entity.University;
 import org.parul.pmp.entity.User;
 import org.parul.pmp.entity.enumeration.Roles;
 
+import javax.persistence.Entity;
+
 public class UniversityMapper
 {
     public static University toEntity(UniversityDTO dto)
