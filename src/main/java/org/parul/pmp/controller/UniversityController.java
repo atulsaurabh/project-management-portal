@@ -23,7 +23,7 @@ public class UniversityController {
         return "university";
     }
 
-   @PostMapping("/register")
+    @PostMapping("/register")
     public String registerUniversity(@ModelAttribute("university") UniversityDTO university, Model model) {
         try {
 

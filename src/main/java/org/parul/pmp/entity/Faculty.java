@@ -74,7 +74,7 @@ public class Faculty extends User {
     }
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(name = "departmentid")
+    @JoinColumn(name = "department_id")
     public Department getDepartment() {
         return department;
     }
