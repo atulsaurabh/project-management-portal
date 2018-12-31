@@ -2,7 +2,6 @@ package org.parul.pmp.controller;
 
 import org.parul.pmp.dto.ProfileDTO;
 import org.parul.pmp.dto.UserDTO;
-import org.parul.pmp.entity.PmpMember;
 import org.parul.pmp.mapper.ProfileDtoToEntityMapper;
 import org.parul.pmp.mapper.UserDtoToEntityMapper;
 import org.parul.pmp.repository.PmpRepository;

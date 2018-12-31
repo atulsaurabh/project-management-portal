@@ -14,6 +14,19 @@ public class User {
     private Address address;
 
 
+    private University university;
+
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "universityid")
+    public University getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(University university) {
+        this.university = university;
+    }
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "addressid")
     public Address getAddress() {

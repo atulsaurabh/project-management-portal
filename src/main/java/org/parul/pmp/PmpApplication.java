@@ -11,7 +11,6 @@ import java.io.File;
 public class PmpApplication {
 
 	public static void main(String[] args) {
-		new File(FileUploadController.uploadDirectory).mkdir();
 		SpringApplication.run(PmpApplication.class, args);
 	}
 

@@ -11,7 +11,7 @@ public class Department {
     private int department_id;
     private String department_name;
     private College college;
-
+    private Set<Student>students=new HashSet<>();
     private Set<Faculty>faculties=new HashSet<>();
     @Id
 
@@ -39,4 +39,13 @@ public class Department {
     public Set<Faculty> getFaculties() { return faculties; }
 
     public void setFaculties(Set<Faculty> faculties) { this.faculties = faculties; }
+
+    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
 }

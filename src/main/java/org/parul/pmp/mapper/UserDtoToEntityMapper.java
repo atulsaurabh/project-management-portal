@@ -3,14 +3,14 @@ package org.parul.pmp.mapper;
 
 
 import org.parul.pmp.dto.UserDTO;
-import org.parul.pmp.entity.PmpMember;
+import org.parul.pmp.entity.Student;
 
 public class UserDtoToEntityMapper
 {
 
-    public PmpMember toEnity(UserDTO userDTO)
+    public Student toEnity(UserDTO userDTO)
     {
-        PmpMember registration = new PmpMember();
+        Student registration = new Student();
         registration.setFirstname(userDTO.getFirstname());
         registration.setMiddlename(userDTO.getMiddlename());
         registration.setLastname(userDTO.getLastname());
@@ -20,8 +20,6 @@ public class UserDtoToEntityMapper
         registration.setDept(userDTO.getDept());
         registration.setEmail(userDTO.getEmail());
         registration.setMobile_no(userDTO.getMobile_no());
-        registration.setPassword(userDTO.getPassword());
-        registration.setConfirm_password(userDTO.getConfirm_password());
 
 
         return registration;

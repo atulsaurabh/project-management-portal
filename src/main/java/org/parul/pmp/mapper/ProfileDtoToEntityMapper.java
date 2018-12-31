@@ -2,12 +2,12 @@ package org.parul.pmp.mapper;
 
 import org.parul.pmp.dto.ProfileDTO;
 
-import org.parul.pmp.entity.PmpMember;
+import org.parul.pmp.entity.Student;
 
 public class ProfileDtoToEntityMapper {
-    public PmpMember toEnity(ProfileDTO profileDTO)
+    public Student toEnity(ProfileDTO profileDTO)
     {
-        PmpMember registration = new PmpMember();
+        Student registration = new Student();
 
         registration.setDob(profileDTO.getDob());
         registration.setGender(profileDTO.getGender());

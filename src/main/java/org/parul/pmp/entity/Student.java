@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Student")
-public class PmpMember {
+public class Student extends User {
     private int pmpmemid;
     private String firstname;
     private String middlename;
@@ -17,28 +17,8 @@ public class PmpMember {
     private String email;
     private String gender;
     private String mobile_no;
-    private String password;
-    private String confirm_password;
-    private Address address;
+    private Department department;
 
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name = "addressid")
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    @Transient
-    public String getConfirm_password() {
-        return confirm_password;
-    }
-
-    public void setConfirm_password(String confirm_password) {
-        this.confirm_password = confirm_password;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -140,12 +120,15 @@ public class PmpMember {
         this.mobile_no = mobile_no;
     }
 
-    public String getPassword() {
-        return password;
+
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "departmentid")
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }
 

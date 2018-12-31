@@ -1,6 +1,7 @@
 package org.parul.pmp.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,6 +17,20 @@ public class University {
     private String website;
     private Address address;
     private Set<College>colleges=new HashSet<>();
+    private LocalDateTime dateOfRegistration;
+    private LocalDateTime dateOfModification;
+
+    private User universityAdmin;
+
+
+    @OneToOne(mappedBy = "university",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
+    public User getUniversityAdmin() {
+        return universityAdmin;
+    }
+
+    public void setUniversityAdmin(User universityAdmin) {
+        this.universityAdmin = universityAdmin;
+    }
 
     @Id
     //@Column(name = "university_id" )
@@ -68,5 +83,21 @@ public class University {
     public Set<College> getColleges() { return colleges; }
 
     public void setColleges(Set<College> colleges) { this.colleges = colleges; }
+
+    public LocalDateTime getDateOfRegistration() {
+        return dateOfRegistration;
+    }
+
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
+        this.dateOfRegistration = dateOfRegistration;
+    }
+
+    public LocalDateTime getDateOfModification() {
+        return dateOfModification;
+    }
+
+    public void setDateOfModification(LocalDateTime dateOfModification) {
+        this.dateOfModification = dateOfModification;
+    }
 }
 
