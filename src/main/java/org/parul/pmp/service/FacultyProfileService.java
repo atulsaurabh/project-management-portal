@@ -7,21 +7,17 @@ import org.parul.pmp.dto.mapper.FacultyProfileMapper;
 import org.parul.pmp.entity.Faculty;
 import org.parul.pmp.repository.FacultyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 import java.time.LocalDateTime;
 
-@Service
-public class FacultyService {
+public class FacultyProfileService {
     @Autowired
     private FacultyRepository facultyRepository;
-    public void addFaculty(FacultyDTO facultyDTO)
+    public void addFacultyProfile(FacultyProfileDTO facultyProfileDTO)
     {
-        Faculty faculty = FacultyMapper.toEntity(facultyDTO);
+        Faculty faculty = FacultyProfileMapper.toEntity(facultyProfileDTO);
         LocalDateTime localDateTime = LocalDateTime.now();
         faculty.setDateOfModification(localDateTime);
-        faculty.setDateOfRegistration(localDateTime);
         facultyRepository.saveAndFlush(faculty);
     }
-
-
 }

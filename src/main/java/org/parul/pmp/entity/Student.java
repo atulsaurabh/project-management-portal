@@ -22,7 +22,6 @@ public class Student extends User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "memid")
     public int getPmpmemid() {
         return pmpmemid;
     }
