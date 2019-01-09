@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/college")
-public class collegeController {
+public class CollegeController {
     @Autowired
     private collegeRepository collegeRepository;
     @GetMapping
