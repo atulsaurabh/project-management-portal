@@ -24,7 +24,7 @@
             <div class="form-group"><input type="text" class="form-control" id="form30" placeholder="Phone No" th:field="*{phone}"></div>
             <!--<div class="form-group"> <input type="text" class="form-control" id="form31" placeholder="Collage" th:field="*{college.college_name}"></div>
             <div class="form-group"><input type="text" class="form-control" id="form32" placeholder="University" th:field="*{university.university_name}"></div>-->
-            <input type="text" name="department_id" th:value="${department.department_id}">
+            <div class="form-group"><input type="text" name="department_id" th:value="*{department.department_id}"></div>
             <button type="submit" class="btn btn-primary">Save</button>
           </form>
         </div>

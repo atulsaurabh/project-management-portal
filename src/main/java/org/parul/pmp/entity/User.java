@@ -4,7 +4,7 @@ package org.parul.pmp.entity;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 
     private int userid;
@@ -18,7 +18,7 @@ public class User {
 
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "universityid")
+    @JoinColumn(name = "university_code")
     public University getUniversity() {
         return university;
     }
@@ -38,6 +38,7 @@ public class User {
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getUserid() {
         return userid;
     }
