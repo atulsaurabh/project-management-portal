@@ -1,4 +1,4 @@
-package org.parul.pmp.mapper;
+package org.parul.pmp.dto.mapper;
 
 import org.parul.pmp.dto.ProfileDTO;
 

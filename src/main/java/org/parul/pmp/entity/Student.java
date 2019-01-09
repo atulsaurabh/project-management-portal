@@ -1,6 +1,7 @@
 package org.parul.pmp.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Student")
@@ -18,7 +19,8 @@ public class Student extends User {
     private String gender;
     private String mobile_no;
     private Department department;
-
+    private LocalDateTime dateOfRegistration;
+    private LocalDateTime dateOfModification;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -102,7 +104,6 @@ public class Student extends User {
         this.email = email;
     }
 
-
     public String getGender() {
         return gender;
     }
@@ -128,6 +129,22 @@ public class Student extends User {
 
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    public LocalDateTime getDateOfRegistration() {
+        return dateOfRegistration;
+    }
+
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
+        this.dateOfRegistration = dateOfRegistration;
+    }
+
+    public LocalDateTime getDateOfModification() {
+        return dateOfModification;
+    }
+
+    public void setDateOfModification(LocalDateTime dateOfModification) {
+        this.dateOfModification = dateOfModification;
     }
 }
 

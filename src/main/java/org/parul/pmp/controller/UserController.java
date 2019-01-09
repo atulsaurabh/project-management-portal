@@ -1,7 +1,7 @@
 package org.parul.pmp.controller;
 
 import org.parul.pmp.dto.UserDTO;
-import org.parul.pmp.mapper.UserDtoToEntityMapper;
+import org.parul.pmp.dto.mapper.UserDtoToEntityMapper;
 import org.parul.pmp.repository.PmpRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
