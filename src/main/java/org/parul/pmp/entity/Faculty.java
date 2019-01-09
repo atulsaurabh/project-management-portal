@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "Faculty")
 public class Faculty extends User {
-    private String id;
+
     private String faculty_id;
     private String faculty_firstname;
     private String faculty_middlename;
@@ -19,15 +19,7 @@ public class Faculty extends User {
     private String Published_papers;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getFaculty_id() {
         return faculty_id;

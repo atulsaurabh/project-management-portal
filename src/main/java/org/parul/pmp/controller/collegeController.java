@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/collegeregister")
-public class CollegeController {
+@RequestMapping("/college")
+public class collegeController {
     @Autowired
     private collegeRepository collegeRepository;
     @GetMapping

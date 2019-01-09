@@ -18,7 +18,7 @@ public class User {
 
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "universityid")
+    @JoinColumn(name = "university_code")
     public University getUniversity() {
         return university;
     }

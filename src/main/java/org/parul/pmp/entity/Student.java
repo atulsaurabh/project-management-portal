@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "Student")
 public class Student extends User {
-    private int pmpmemid;
+
     private String firstname;
     private String middlename;
     private String lastname;
@@ -21,16 +21,6 @@ public class Student extends User {
     private Department department;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getPmpmemid() {
-        return pmpmemid;
-    }
-
-    public void setPmpmemid(int pmpmemid) {
-        this.pmpmemid = pmpmemid;
-    }
 
     public String getFirstname() {
         return firstname;

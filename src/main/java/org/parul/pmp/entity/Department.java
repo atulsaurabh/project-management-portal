@@ -13,8 +13,8 @@ public class Department {
     private College college;
     private Set<Student>students=new HashSet<>();
     private Set<Faculty>faculties=new HashSet<>();
-    @Id
 
+    @Id
     public int getDepartment_id() { return department_id; }
 
     public void setDepartment_id(int department_id) { this.department_id = department_id; }

@@ -1,5 +1,7 @@
 package org.parul.pmp.entity;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -9,7 +11,8 @@ import java.util.Set;
 @Table(name = "University")
 public class University {
 
-    private int university_code;
+    private long universityid;
+    private String university_code;
     private String university_name;
     private String contact_no;
     private String email;
@@ -22,6 +25,15 @@ public class University {
 
     private User universityAdmin;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public long getUniversityid() {
+        return universityid;
+    }
+
+    public void setUniversityid(long universityid) {
+        this.universityid = universityid;
+    }
 
     @OneToOne(mappedBy = "university",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
     public User getUniversityAdmin() {
@@ -32,11 +44,10 @@ public class University {
         this.universityAdmin = universityAdmin;
     }
 
-    @Id
     //@Column(name = "university_id" )
-    public int getUniversity_code() { return university_code; }
+    public String getUniversity_code() { return university_code; }
 
-    public void setUniversity_code(int university_code) { this.university_code = university_code; }
+    public void setUniversity_code(String university_code) { this.university_code = university_code; }
 
     public String getUniversity_name() { return university_name; }
 

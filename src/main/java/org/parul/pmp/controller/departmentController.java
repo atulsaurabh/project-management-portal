@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/departmentRegistration")
-public class DepartmentController {
+@RequestMapping("/department")
+public class departmentController {
 
     @Autowired
     private departmentRepository departmentRepository;

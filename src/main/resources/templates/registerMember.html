@@ -1,25 +1,36 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="theme.css" type="text/css">
+  <link rel="stylesheet" href="../css/theme.css" type="text/css">
 </head>
 
 <body>
-  <div class="py-5 text-center text-primary bg-light">
+  <div class="py-5 mt-5">
     <div class="container">
       <div class="row">
-        <div class="p-5 col-lg-6 col-10 mx-auto border">
-          <h1 class="mb-4">Log in</h1>
-          <form action="account/login" method="post" th:object="${loginDTO}">
-            <div class="form-group"> <input type="text" class="form-control" id="form14" placeholder="Enrollment"> </div>
-            <div class="form-group"> <input type="password" class="form-control" placeholder="Password" id="form15"> <small class="form-text text-muted text-right">
-                <a href="#">forget Password?</a>
-              </small> </div> <button type="submit" class="btn btn-primary">Register</button><button type="submit" class="btn btn-primary ml-2" style="">Login</button>
-          </form><img class="img-fluid d-block" src="http://pumis.in/Images/Parul-University-Logo.jpg&lt;/p&gt;"><img class="img-fluid d-block ml-5 pl-4" src="http://pumis.in/Images/Parul-University-Logo.jpg">
+        <div class="col-md-12"><img class="img-fluid d-block mx-auto" src="C:/Users/shubh/Pictures/925717896s.jpg" width="250"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center mt-3">Register Members</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+<form action="registerMember" method="post" th:object="${registerMember}"></form>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <a href="university" class="mx-5"> University</a></br>
+          <a href="college" class="mx-5">College</a></br>
+          <a href="department" class="mx-5">Department</a></br>
+          <a href="faculty" class="mx-5">Faculty</a></br>
+          <a href="account" class="mx-5">login</a></br>
         </div>
       </div>
     </div>

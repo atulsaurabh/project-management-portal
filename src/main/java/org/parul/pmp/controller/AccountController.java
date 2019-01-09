@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -20,7 +21,13 @@ public class AccountController
 
     @Autowired
     private AcountService acountService;
-    @PostMapping("/login")
+    @GetMapping
+    public String loginpage(Model model)
+    {
+        model.addAttribute("loginDTO",new LoginDTO());
+        return "login";
+    }
+    @PostMapping("account/login")
     public String login(LoginDTO loginDTO, Model model) throws UserNotExistException
     {
         Credential credential =acountService.performLoginAndFetchRole(loginDTO);
