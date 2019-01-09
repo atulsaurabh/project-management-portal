@@ -2,7 +2,7 @@ package org.parul.pmp.dto;
 
 public class LoginDTO {
     private String username;
-    private String pasword;
+    private String password;
 
     public String getUsername() {
         return username;
@@ -12,11 +12,11 @@ public class LoginDTO {
         this.username = username;
     }
 
-    public String getPasword() {
-        return pasword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasword(String pasword) {
-        this.pasword = pasword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

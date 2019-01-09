@@ -53,7 +53,7 @@ public class Credential
 
 
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne( cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "userid")
     public User getUser() {
         return user;

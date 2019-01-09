@@ -2,7 +2,7 @@ package org.parul.pmp.dto;
 
 public class UniversityDTO {
 
-    private int university_code;
+    private String university_code;
     private String university_name;
     private String contact_no;
     private String email;
@@ -28,11 +28,11 @@ public class UniversityDTO {
         this.password = password;
     }
 
-    public int getUniversity_code() {
+    public String getUniversity_code() {
         return university_code;
     }
 
-    public void setUniversity_code(int university_code) {
+    public void setUniversity_code(String university_code) {
         this.university_code = university_code;
     }
 

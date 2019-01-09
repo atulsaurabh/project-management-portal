@@ -20,16 +20,21 @@ public class UniversityMapper
         university.setUniversity_name(dto.getUniversity_name());
         university.setUniversity_code(dto.getUniversity_code());
         university.setWebsite(dto.getWebsite());
+        return university;
+    }
+
+    public static User toUserEntity(UniversityDTO universityDTO)
+    {
         User admin = new User();
         Credential credential = new Credential();
-        credential.setUsername(dto.getUsername());
-        credential.setPassword(dto.getPassword());
+        credential.setUsername(universityDTO.getUsername());
+        credential.setPassword(universityDTO.getPassword());
         Role role = new Role();
         role.setName(Roles.ROLE_ADMIN.name());
         role.getCredential().add(credential);
         credential.getRoles().add(role);
         credential.setUser(admin);
         admin.setCredential(credential);
-        return university;
+        return admin;
     }
 }

@@ -17,7 +17,7 @@ public class AcountService {
 
     public Credential performLoginAndFetchRole(LoginDTO loginDTO) throws UserNotExistException
     {
-         Optional<Credential> expectedCredential=credentialRepository.findByUsernameAndPassword(loginDTO.getUsername(),loginDTO.getPasword());
+         Optional<Credential> expectedCredential=credentialRepository.findByUsernameAndPassword(loginDTO.getUsername(),loginDTO.getPassword());
          expectedCredential.orElseThrow(()->new UserNotExistException());
          return expectedCredential.get();
     }

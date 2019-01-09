@@ -23,12 +23,14 @@ public class UniversityController {
         return "university";
     }
 
-    @PostMapping("/register")
+
+   @PostMapping()
     public String registerUniversity(@ModelAttribute("university") UniversityDTO university, Model model) {
         try {
 
             universityService.addUniversity(university);
             model.addAttribute("msg", "Successful");
+            
         }
         catch (Exception e)
         {

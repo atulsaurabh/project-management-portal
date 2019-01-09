@@ -1,9 +1,9 @@
 package org.parul.pmp.repository;
 
-import org.parul.pmp.entity.Department;
+import org.parul.pmp.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface departmentRepository extends JpaRepository<Department, String> {
+public interface UserRepository extends JpaRepository<User,Integer> {
 }

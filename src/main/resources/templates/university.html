@@ -13,19 +13,19 @@
         <div class="row mb-2">
             <div class="mx-auto p-4 col-lg-7" style="">
                 <h1 class="mb-4">University</h1>
-                <form ACTION="university" method="post" th:object="${university}">
-
+                <form action="university" method="post" th:object="${university}">
                 <div class="form-row">
                     <div class="form-group col-md-12" style=""> </div>
                     <div class="form-group col-md-6" style=""> </div>
                 </div>
-                <div class="form-group"><input type="number" class="form-control" id="form27" placeholder="university code" th:field="*{university_code}"></div>
+                <div class="form-group"><input type="text" class="form-control" id="form27" placeholder="university code" th:field="*{university_code}"></div>
                 <div class="form-group"><input type="text" class="form-control" id="form28" placeholder="university Name" th:field="*{university_name}" ></div>
                 <div class="form-group"><input type="email" class="form-control my-2" id="form29" placeholder="Email" th:field="*{email}"></div>
                 <div class="form-group"><input type="number" class="form-control" id="form30" placeholder="Phone No" th:field="*{contact_no}"></div>
                 <div class="form-group"> <input type="text" class="form-control" id="form31" placeholder="fax" th:field="*{fax}"> </div>
-                    <div class="form-group"><input type="text" class="form-control" id="form32" placeholder="address" th:value="${address.address1}"></div>
-                    <div class="form-group"><input type="text" class="form-control" id="form33" placeholder="address" >
+                <div class="form-group"> <input type="text" class="form-control" id="form32" placeholder="Website" th:field="*{website}"></div>
+                <div class="form-group"> <input type="text" class="form-control" id="form33" placeholder="Username" th:field="*{username}"></div>
+                <div class="form-group"> <input type="password" class="form-control" id="form34" placeholder="Password" th:field="*{password}"></div>
                 <button type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>
