@@ -26,15 +26,21 @@ public class UniversityMapper
     public static User toUserEntity(UniversityDTO universityDTO)
     {
         User admin = new User();
-        Credential credential = new Credential();
-        credential.setUsername(universityDTO.getUsername());
-        credential.setPassword(universityDTO.getPassword());
-        Role role = new Role();
+
+        /*Role role = new Role();
         role.setName(Roles.ROLE_ADMIN.name());
         role.getCredential().add(credential);
         credential.getRoles().add(role);
         credential.setUser(admin);
-        admin.setCredential(credential);
+        admin.setCredential(credential);*/
         return admin;
+    }
+
+    public static Credential toCredentialEntity(UniversityDTO universityDTO)
+    {
+        Credential credential = new Credential();
+        credential.setUsername(universityDTO.getUsername());
+        credential.setPassword(universityDTO.getPassword());
+        return credential;
     }
 }
