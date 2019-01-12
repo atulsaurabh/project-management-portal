@@ -8,6 +8,7 @@ public class FacultyProfileDTO {
     private String Published_papers;
     private Address address;
 
+
     public Address getAddress() {
         return address;
     }

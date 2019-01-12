@@ -5,28 +5,50 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Faculty")
-public class Faculty extends User {
+public class Faculty  {
 
-    private String faculty_id;
+    private long facultyid;
+    private String faculty_code;
     private String faculty_firstname;
     private String faculty_middlename;
     private String faculty_lastname;
     private String email;
     private String phone;
-    private Department department;
+    private Department department_id;
     private String education;
     private String skill;
     private String Published_papers;
+    private Address address;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
 
+    private User userfaculty;
 
-    public String getFaculty_id() {
-        return faculty_id;
+    @OneToOne(mappedBy = "faculty",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
+    public User getUserfaculty() {
+        return userfaculty;
     }
 
-    public void setFaculty_id(String faculty_id) {
-        this.faculty_id = faculty_id;
+    public void setUserfaculty(User userfaculty) {
+        this.userfaculty = userfaculty;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public long getFacultyid() {
+        return facultyid;
+    }
+
+    public void setFacultyid(long facultyid) {
+        this.facultyid = facultyid;
+    }
+
+    public String getFaculty_code() {
+        return faculty_code;
+    }
+
+    public void setFaculty_code(String faculty_code) {
+        this.faculty_code = faculty_code;
     }
 
     public String getFaculty_firstname() {
@@ -68,11 +90,11 @@ public class Faculty extends User {
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     public Department getDepartment() {
-        return department;
+        return department_id;
     }
 
     public void setDepartment(Department department) {
-        this.department = department;
+        this.department_id = department;
     }
 
     public String getEducation() {
@@ -111,7 +133,18 @@ public class Faculty extends User {
         return dateOfModification;
     }
 
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "addressid")
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     public void setDateOfModification(LocalDateTime dateOfModification) {
         this.dateOfModification = dateOfModification;
+
     }
 }

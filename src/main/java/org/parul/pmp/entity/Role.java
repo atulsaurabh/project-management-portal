@@ -1,8 +1,6 @@
 package org.parul.pmp.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,6 +24,7 @@ public class Role {
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getRoleid() {
         return roleid;
     }

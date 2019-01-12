@@ -16,6 +16,17 @@ public class User {
 
     private University university;
 
+    private Faculty faculty;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "faculty_code")
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "university_code")

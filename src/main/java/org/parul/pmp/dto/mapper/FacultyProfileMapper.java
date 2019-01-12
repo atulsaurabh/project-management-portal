@@ -9,7 +9,7 @@ public class FacultyProfileMapper {
         profile.setEducation(facultyProfileDTO.getEducation());
         profile.setSkill(facultyProfileDTO.getSkill());
         profile.setPublished_papers(facultyProfileDTO.getPublished_papers());
-        profile.setAddress(facultyProfileDTO.getAddress());
+
         return profile;
     }
 }
