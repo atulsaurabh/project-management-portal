@@ -1,13 +1,8 @@
-package org.parul.pmp.entity;
+package org.parul.pmp.dto;
 
+import org.parul.pmp.entity.Address;
 
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
-
-@Entity
-@Table(name = "College")
-public class College {
+public class CollegeDTO {
     private String college_code;
     private String college_name;
     private String contact_no;
@@ -15,11 +10,8 @@ public class College {
     private String website;
     private String fax;
     private Address address;
-    private University university_id;
+    private int university_id;
 
-    private Set<Department>departments = new HashSet<>();
-
-    @Id
     public String getCollege_code() {
         return college_code;
     }
@@ -64,28 +56,23 @@ public class College {
         return fax;
     }
 
-    public void setFax(String fax) {this.fax = fax;}
+    public void setFax(String fax) {
+        this.fax = fax;
+    }
 
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name = "addressid")
-    public Address getAddress() { return address; }
+    public Address getAddress() {
+        return address;
+    }
 
-    public void setAddress(Address address) { this.address = address; }
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
-
-    @OneToMany(mappedBy = "college",cascade = CascadeType.ALL)
-    public Set<Department> getDepartments() { return departments; }
-
-    public void setDepartments(Set<Department> departments) { this.departments = departments; }
-
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "university_code")
-    public University getUniversity() {
+    public int getUniversity_id() {
         return university_id;
     }
 
-    public void setUniversity(University university) {
-        this.university_id = university;
+    public void setUniversity_id(int university_id) {
+        this.university_id = university_id;
     }
 }

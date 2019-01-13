@@ -16,7 +16,7 @@ public class User {
 
     private University university;
 
-    private Faculty faculty;
+    /*private Faculty faculty;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "faculty_code")
@@ -26,7 +26,7 @@ public class User {
 
     public void setFaculty(Faculty faculty) {
         this.faculty = faculty;
-    }
+    }*/
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "university_code")

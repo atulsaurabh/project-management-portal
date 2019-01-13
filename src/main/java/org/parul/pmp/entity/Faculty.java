@@ -5,9 +5,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Faculty")
-public class Faculty  {
+public class Faculty extends User  {
 
-    private long facultyid;
     private String faculty_code;
     private String faculty_firstname;
     private String faculty_middlename;
@@ -21,28 +20,6 @@ public class Faculty  {
     private Address address;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
-
-    private User userfaculty;
-
-    @OneToOne(mappedBy = "faculty",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
-    public User getUserfaculty() {
-        return userfaculty;
-    }
-
-    public void setUserfaculty(User userfaculty) {
-        this.userfaculty = userfaculty;
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getFacultyid() {
-        return facultyid;
-    }
-
-    public void setFacultyid(long facultyid) {
-        this.facultyid = facultyid;
-    }
-
     public String getFaculty_code() {
         return faculty_code;
     }
