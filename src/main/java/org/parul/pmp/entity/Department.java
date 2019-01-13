@@ -9,12 +9,22 @@ import java.util.Set;
 public class Department {
 
     private int department_id;
+    private String department_code;
     private String department_name;
-    private College college;
-
+    private College college_id;
+    private Set<Student>students=new HashSet<>();
     private Set<Faculty>faculties=new HashSet<>();
 
+    public String getDepartment_code() {
+        return department_code;
+    }
+
+    public void setDepartment_code(String department_code) {
+        this.department_code = department_code;
+    }
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getDepartment_id() { return department_id; }
 
     public void setDepartment_id(int department_id) { this.department_id = department_id; }
@@ -28,15 +38,24 @@ public class Department {
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "collegeid")
     public College getCollege() {
-        return college;
+        return college_id;
     }
 
     public void setCollege(College college) {
-        this.college = college;
+        this.college_id = college;
     }
 
     @OneToMany(mappedBy = "department",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public Set<Faculty> getFaculties() { return faculties; }
 
     public void setFaculties(Set<Faculty> faculties) { this.faculties = faculties; }
+
+    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
 }
