@@ -1,11 +1,11 @@
 package org.parul.pmp.dto.mapper;
 
-import org.parul.pmp.dto.ProfileDTO;
+import org.parul.pmp.dto.StudentProfileDTO;
 
 import org.parul.pmp.entity.Student;
 
 public class ProfileDtoToEntityMapper {
-    public Student toEnity(ProfileDTO profileDTO)
+    public Student toEnity(StudentProfileDTO profileDTO)
     {
         Student registration = new Student();
 

@@ -1,7 +1,7 @@
 package org.parul.pmp.controller;
 
-import org.parul.pmp.dto.ProfileDTO;
-import org.parul.pmp.dto.UserDTO;
+import org.parul.pmp.dto.StudentProfileDTO;
+import org.parul.pmp.dto.StudentDTO;
 import org.parul.pmp.dto.mapper.ProfileDtoToEntityMapper;
 import org.parul.pmp.dto.mapper.UserDtoToEntityMapper;
 import org.parul.pmp.repository.PmpRepository;
@@ -19,18 +19,18 @@ public class PmpAccountController {
     @GetMapping("/member")
     public String addMember(Model model)
     {
-        model.addAttribute("userDTO",new UserDTO());
+        model.addAttribute("userDTO",new StudentDTO());
         return "User";
     }
 
     @GetMapping("/profile")
     public String addProfile(Model model){
-        model.addAttribute("profileDTO",new ProfileDTO());
+        model.addAttribute("profileDTO",new StudentProfileDTO());
         return "StudentProfile";
     }
 
     @PostMapping("/member")
-    public String pmpMember(@ModelAttribute("userDTO") UserDTO userDTO,Model model)
+    public String pmpMember(@ModelAttribute("userDTO") StudentDTO userDTO, Model model)
     {
         UserDtoToEntityMapper mapper=new UserDtoToEntityMapper();
         pmpRepository.saveAndFlush(mapper.toEnity(userDTO));
@@ -39,7 +39,7 @@ public class PmpAccountController {
     }
 
     @PostMapping("/profile")
-    public String pmpProfile(@ModelAttribute("profileDTO") ProfileDTO profileDTO,Model model)
+    public String pmpProfile(@ModelAttribute("profileDTO") StudentProfileDTO profileDTO, Model model)
     {
         ProfileDtoToEntityMapper mapper=new ProfileDtoToEntityMapper();
         pmpRepository.saveAndFlush(mapper.toEnity(profileDTO));

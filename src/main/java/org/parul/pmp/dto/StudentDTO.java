@@ -1,6 +1,6 @@
 package org.parul.pmp.dto;
 
-public class UserDTO {
+public class StudentDTO {
 
     private String firstname;
     private String middlename;

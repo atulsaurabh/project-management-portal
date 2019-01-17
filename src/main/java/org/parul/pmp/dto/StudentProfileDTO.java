@@ -2,7 +2,7 @@ package org.parul.pmp.dto;
 
 import org.parul.pmp.entity.Address;
 
-public class ProfileDTO {
+public class StudentProfileDTO {
     private String dob;
     private String gender;
     private Address address;

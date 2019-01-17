@@ -1,6 +1,6 @@
 package org.parul.pmp.controller;
 
-import org.parul.pmp.dto.ProfileDTO;
+import org.parul.pmp.dto.StudentProfileDTO;
 import org.parul.pmp.dto.mapper.ProfileDtoToEntityMapper;
 import org.parul.pmp.repository.PmpRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,12 @@ public class ProfileController {
 
     @GetMapping
     public String addProfile(Model model){
-        model.addAttribute("profileDTO",new ProfileDTO());
+        model.addAttribute("profileDTO",new StudentProfileDTO());
         return "StudentProfile";
     }
 
     @PostMapping
-    public String pmpProfile(@ModelAttribute("profileDTO") ProfileDTO profileDTO, Model model)
+    public String pmpProfile(@ModelAttribute("profileDTO") StudentProfileDTO profileDTO, Model model)
     {
         ProfileDtoToEntityMapper mapper=new ProfileDtoToEntityMapper();
         pmpRepository.saveAndFlush(mapper.toEnity(profileDTO));
