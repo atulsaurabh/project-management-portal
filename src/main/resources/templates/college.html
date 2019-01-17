@@ -18,12 +18,19 @@
                         <div class="form-group col-md-12" style=""> </div>
                         <div class="form-group col-md-6" style=""> </div>
                     </div>
-                    <div class="form-group"><input type="number" class="form-control" id="form27" placeholder="college code" th:field="*{college_code}"></div>
+                    <b>University:</b><select th:field="*{university_id}">
+                        <option th:each="university : ${univercities}"
+                                th:value="${university.university_code}" th:text="${university.university_name}"></option>
+                    </select>
+                    <div class="form-group"><input type="text" class="form-control" id="form27" placeholder="college code" th:field="*{college_code}"></div>
                     <div class="form-group"><input type="text" class="form-control" id="form28" placeholder="Name"th:field="*{college_name}"></div>
-                    <div class="form-group"><input type="email" class="form-control my-2" id="form29" placeholder="Email" th:field="*{email}"></div>
-                    <div class="form-group"><input type="number" class="form-control" id="form30" placeholder="Phone No" th:field="*{contact_no}"></div>
+                    <!--<div class="form-group"><input type="email" class="form-control my-2" id="form29" placeholder="Email" th:field="*{email}"></div>-->
+                    <div class="form-group"><input type="text" class="form-control" id="form30" placeholder="Phone No" th:field="*{contact_no}"></div>
                     <div class="form-group"> <input type="text" class="form-control" id="form31" placeholder="fax" th:field="*{fax}"></div>
-                    <div class="form-group"><input type="text" class="form-control" id="form32" placeholder="address" th:field="*{address.address1}"></div>
+                    <div class="form-group"> <input type="text" class="form-control" id="form32" placeholder="username" th:field="*{username}"></div>
+                    <div class="form-group"> <input type="password" class="form-control" id="form33" placeholder="password" th:field="*{password}"></div>
+                    <div class="form-group"> <input type="email" class="form-control" id="form34" placeholder="email" th:field="*{email}"></div>
+
                     <button type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>

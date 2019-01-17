@@ -2,12 +2,14 @@ package org.parul.pmp.entity;
 
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "College")
 public class College {
+    private long college_id;
     private String college_code;
     private String college_name;
     private String contact_no;
@@ -16,10 +18,32 @@ public class College {
     private String fax;
     private Address address;
     private University university_id;
-
     private Set<Department>departments = new HashSet<>();
+    private LocalDateTime dateOfRegistration;
+    private LocalDateTime dateOfModification;
+
+    private User collegeAdmin;
+
+    @OneToOne(mappedBy = "college",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
+    public User getCollegeAdmin() {
+        return collegeAdmin;
+    }
+
+    public void setCollegeAdmin(User collegeAdmin) {
+        this.collegeAdmin = collegeAdmin;
+    }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public long getCollege_id() {
+        return college_id;
+    }
+
+    public void setCollege_id(long college_id) {
+        this.college_id = college_id;
+    }
+
+
     public String getCollege_code() {
         return college_code;
     }
@@ -87,5 +111,21 @@ public class College {
 
     public void setUniversity(University university) {
         this.university_id = university;
+    }
+
+    public LocalDateTime getDateOfRegistration() {
+        return dateOfRegistration;
+    }
+
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
+        this.dateOfRegistration = dateOfRegistration;
+    }
+
+    public LocalDateTime getDateOfModification() {
+        return dateOfModification;
+    }
+
+    public void setDateOfModification(LocalDateTime dateOfModification) {
+        this.dateOfModification = dateOfModification;
     }
 }

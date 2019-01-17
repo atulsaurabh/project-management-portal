@@ -22,6 +22,13 @@ public class UniversityMapper
         university.setWebsite(dto.getWebsite());
         return university;
     }
+    public static UniversityDTO toDTO(University university)
+    {
+        UniversityDTO dto = new UniversityDTO();
+        dto.setUniversity_code(university.getUniversity_code());
+        dto.setUniversity_name(university.getUniversity_name());
+        return dto;
+    }
 
     public static User toUserEntity(UniversityDTO universityDTO)
     {

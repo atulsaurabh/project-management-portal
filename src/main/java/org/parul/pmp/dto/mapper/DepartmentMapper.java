@@ -8,8 +8,8 @@ public class DepartmentMapper
     public static DepartmentDTO toDTO(Department department)
     {
         DepartmentDTO dto = new DepartmentDTO();
-        dto.setDeptid(department.getDepartment_id());
-        dto.setDeptName(department.getDepartment_name());
+        dto.setDepartment_code(department.getDepartment_code());
+        dto.setDepartment_name(department.getDepartment_name());
         return dto;
     }
 }

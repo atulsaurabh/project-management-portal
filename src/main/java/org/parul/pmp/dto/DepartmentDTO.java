@@ -1,23 +1,34 @@
 package org.parul.pmp.dto;
 
+import org.parul.pmp.entity.College;
+
 public class DepartmentDTO
 {
-    private int deptid;
-    private String deptName;
+    private String department_code;
+    private String department_name;
+    private int college_id;
 
-    public int getDeptid() {
-        return deptid;
+    public String getDepartment_code() {
+        return department_code;
     }
 
-    public void setDeptid(int deptid) {
-        this.deptid = deptid;
+    public void setDepartment_code(String department_code) {
+        this.department_code = department_code;
     }
 
-    public String getDeptName() {
-        return deptName;
+    public String getDepartment_name() {
+        return department_name;
     }
 
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
+    public void setDepartment_name(String department_name) {
+        this.department_name = department_name;
+    }
+
+    public int getCollege_id() {
+        return college_id;
+    }
+
+    public void setCollege_id(int college_id) {
+        this.college_id = college_id;
     }
 }

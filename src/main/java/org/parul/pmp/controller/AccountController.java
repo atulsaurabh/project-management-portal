@@ -39,14 +39,17 @@ public class AccountController
             case "ROLE_ADMIN":
                 uiname="admin";
                 break;
-            case "ROLE_SUPER_ADMIN":
-                uiname="superadmin";
+            case "ROLE_COLLEGE_ADMIN":
+                uiname="Welcome";
                 break;
             case "ROLE_UNIVERSITY_ADMIN":
                 uiname="";
                 break;
             case "ROLE_FACULTY":
-                uiname="Welcome";
+                uiname="facultyHome";
+                break;
+            case "ROLE_STUDENT":
+                uiname="studenthome";
 
         }
         model.addAttribute("username",credential.getUsername());

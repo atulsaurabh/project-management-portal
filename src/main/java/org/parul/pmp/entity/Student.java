@@ -12,13 +12,13 @@ public class Student extends User {
     private String lastname;
     private String dob;
     private String enrollment_no;
-    private String college;
+    //private University university_id;
+   // private College college_id;
     private String sem;
-    private String dept;
     private String email;
     private String gender;
     private String mobile_no;
-    private Department department;
+    private Department department_id;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
 
@@ -62,28 +62,12 @@ public class Student extends User {
         this.enrollment_no = enrollment_no;
     }
 
-    public String getCollege() {
-        return college;
-    }
-
-    public void setCollege(String college) {
-        this.college = college;
-    }
-
     public String getSem() {
         return sem;
     }
 
     public void setSem(String sem) {
         this.sem = sem;
-    }
-
-    public String getDept() {
-        return dept;
-    }
-
-    public void setDept(String dept) {
-        this.dept = dept;
     }
 
     public String getEmail() {
@@ -114,11 +98,11 @@ public class Student extends User {
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "departmentid")
     public Department getDepartment() {
-        return department;
+        return department_id;
     }
 
     public void setDepartment(Department department) {
-        this.department = department;
+        this.department_id = department;
     }
 
     public LocalDateTime getDateOfRegistration() {
@@ -135,6 +119,7 @@ public class Student extends User {
 
     public void setDateOfModification(LocalDateTime dateOfModification) {
         this.dateOfModification = dateOfModification;
+
     }
 }
 

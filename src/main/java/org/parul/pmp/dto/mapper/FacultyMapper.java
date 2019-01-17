@@ -1,10 +1,7 @@
 package org.parul.pmp.dto.mapper;
 
 import org.parul.pmp.dto.FacultyDTO;
-import org.parul.pmp.entity.Credential;
-import org.parul.pmp.entity.Faculty;
-import org.parul.pmp.entity.Role;
-import org.parul.pmp.entity.User;
+import org.parul.pmp.entity.*;
 import org.parul.pmp.entity.enumeration.Roles;
 
 public class FacultyMapper {

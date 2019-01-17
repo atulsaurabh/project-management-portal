@@ -8,7 +8,7 @@ import java.util.Set;
 @Table(name = "Department")
 public class Department {
 
-    private int department_id;
+    private long department_id;
     private String department_code;
     private String department_name;
     private College college_id;
@@ -25,9 +25,9 @@ public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getDepartment_id() { return department_id; }
+    public long getDepartment_id() { return department_id; }
 
-    public void setDepartment_id(int department_id) { this.department_id = department_id; }
+    public void setDepartment_id(long department_id) { this.department_id = department_id; }
 
     public String getDepartment_name() { return department_name; }
 
