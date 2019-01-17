@@ -2,12 +2,14 @@ package org.parul.pmp.entity;
 
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "College")
 public class College {
+
     private String college_code;
     private String college_name;
     private String contact_no;
@@ -15,11 +17,16 @@ public class College {
     private String website;
     private String fax;
     private Address address;
-    private University university;
+    private University university_id;
+    private LocalDateTime dateOfRegistration;
+    private LocalDateTime dateOfModification;
+
+    private User collegeAdmin;
 
     private Set<Department>departments = new HashSet<>();
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public String getCollege_code() {
         return college_code;
     }
@@ -78,14 +85,23 @@ public class College {
 
     public void setDepartments(Set<Department> departments) { this.departments = departments; }
 
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "university_code")
-    public University getUniversity() {
-        return university;
-    }
+    @JoinColumn(name = "university_id")
+    public University getUniversity_id() { return university_id; }
 
-    public void setUniversity(University university) {
-        this.university = university;
-    }
+    public void setUniversity_id(University university_id) { this.university_id = university_id; }
+
+    public LocalDateTime getDateOfRegistration() { return dateOfRegistration; }
+
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) { this.dateOfRegistration = dateOfRegistration; }
+
+    public LocalDateTime getDateOfModification() { return dateOfModification; }
+
+    public void setDateOfModification(LocalDateTime dateOfModification) { this.dateOfModification = dateOfModification; }
+
+    @OneToOne(mappedBy = "college",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
+    public User getCollegeAdmin() { return collegeAdmin; }
+
+    public void setCollegeAdmin(User collegeAdmin) { this.collegeAdmin = collegeAdmin; }
+
 }

@@ -18,7 +18,11 @@
                         <div class="form-group col-md-12" style=""> </div>
                         <div class="form-group col-md-6" style=""> </div>
                     </div>
-                    <div class="form-group"><input type="number" class="form-control" id="form27" placeholder="college code" th:field="*{college_code}"></div>
+                    <b>University:</b><select th:field="*{university_id}">
+                    <option th:each="university : ${uni}"
+                            th:value="${university.university_id}" th:text="${university.university_name}">x</option>
+                </select>
+                    <div class="form-group"><input type="text" class="form-control" id="form27" placeholder="college code" th:field="*{college_code}"></div>
                     <div class="form-group"><input type="text" class="form-control" id="form28" placeholder="Name"th:field="*{college_name}"></div>
                     <div class="form-group"><input type="email" class="form-control my-2" id="form29" placeholder="Email" th:field="*{email}"></div>
                     <div class="form-group"><input type="number" class="form-control" id="form30" placeholder="Phone No" th:field="*{contact_no}"></div>
