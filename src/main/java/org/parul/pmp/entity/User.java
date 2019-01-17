@@ -13,10 +13,15 @@ public class User {
 
     private Address address;
 
-
     private University university;
-
     private Faculty faculty;
+    private College college;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "college_code")
+    public College getCollege() { return college; }
+
+    public void setCollege(College college) { this.college = college; }
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "faculty_code")
