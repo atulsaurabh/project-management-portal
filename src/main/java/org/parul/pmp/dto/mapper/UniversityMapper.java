@@ -43,12 +43,4 @@ public class UniversityMapper
         credential.setPassword(universityDTO.getPassword());
         return credential;
     }
-
-    public static UniversityDTO toDTO(University university) {
-
-        UniversityDTO dto= new UniversityDTO();
-        dto.setUniversity_id(university.getUniversity_id());
-        dto.setUniversity_name(university.getUniversity_name());
-        return dto;
-    }
 }

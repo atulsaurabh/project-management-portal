@@ -11,12 +11,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.persistence.criteria.CriteriaBuilder;
 
 @Controller
-@RequestMapping("/account")
+@Repository("/account")
 public class AccountController
 {
 
@@ -28,7 +27,7 @@ public class AccountController
         model.addAttribute("loginDTO",new LoginDTO());
         return "login";
     }
-    @PostMapping("/login")
+    @PostMapping("account/login")
     public String login(LoginDTO loginDTO, Model model) throws UserNotExistException
     {
         Credential credential =acountService.performLoginAndFetchRole(loginDTO);
@@ -42,9 +41,7 @@ public class AccountController
             case "ROLE_SUPER_ADMIN":
                 uiname="superadmin";
                 break;
-            case "ROLE_UNIVERSITY_ADMIN":
-                uiname="registerMember";
-                break;
+
         }
         model.addAttribute("username",credential.getUsername());
         return uiname;

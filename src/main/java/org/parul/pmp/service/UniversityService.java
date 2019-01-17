@@ -39,7 +39,7 @@ public class UniversityService {
         User storedUser = userRepository.saveAndFlush(user);
         Credential credential = UniversityMapper.toCredentialEntity(universityDTO);
 
-        Optional<Role> optionalRole=roleRepository.findByName(Roles.ROLE_UNIVERSITY_ADMIN.name());
+        Optional<Role> optionalRole=roleRepository.findByName(Roles.ROLE_ADMIN.name());
         Role role = optionalRole.orElseThrow(()-> new RoleNotAvailableException());
         credential.getRoles().add(role);
         role.getCredential().add(credential);

@@ -11,7 +11,7 @@ import java.util.Set;
 @Table(name = "University")
 public class University {
 
-    private long university_id;
+    private long universityid;
     private String university_code;
     private String university_name;
     private String contact_no;
@@ -27,9 +27,13 @@ public class University {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getUniversity_id() { return university_id; }
+    public long getUniversityid() {
+        return universityid;
+    }
 
-    public void setUniversity_id(long university_id) { this.university_id = university_id; }
+    public void setUniversityid(long universityid) {
+        this.universityid = universityid;
+    }
 
     @OneToOne(mappedBy = "university",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
     public User getUniversityAdmin() {
