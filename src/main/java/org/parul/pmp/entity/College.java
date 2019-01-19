@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "College")
-public class College {
+public class College extends User{
 
     private long college_id;
     private String college_code;

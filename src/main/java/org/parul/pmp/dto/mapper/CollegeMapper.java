@@ -13,6 +13,7 @@ public class CollegeMapper {
         register.setCollege_name(dto.getCollege_name());
         register.setContact_no(dto.getContact_no());
         register.setEmail(dto.getEmail());
+
         return register;
     }
     public static User toUserEntity(CollegeDTO collegeDTO)
