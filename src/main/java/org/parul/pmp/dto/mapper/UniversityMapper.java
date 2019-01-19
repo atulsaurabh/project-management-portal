@@ -2,12 +2,8 @@ package org.parul.pmp.dto.mapper;
 
 import org.parul.pmp.dto.UniversityDTO;
 import org.parul.pmp.entity.Credential;
-import org.parul.pmp.entity.Role;
 import org.parul.pmp.entity.University;
 import org.parul.pmp.entity.User;
-import org.parul.pmp.entity.enumeration.Roles;
-
-import javax.persistence.Entity;
 
 public class UniversityMapper
 {
@@ -19,6 +15,7 @@ public class UniversityMapper
         university.setFax(dto.getFax());
         university.setUniversity_name(dto.getUniversity_name());
         university.setUniversity_code(dto.getUniversity_code());
+        university.setUniversity_id(dto.getUniversity_id());
         university.setWebsite(dto.getWebsite());
         return university;
     }

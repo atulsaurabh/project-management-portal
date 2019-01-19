@@ -5,8 +5,9 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Student")
-public class Student extends User {
+public class Student {
 
+    private long student_id;
     private String firstname;
     private String middlename;
     private String lastname;
@@ -21,6 +22,17 @@ public class Student extends User {
     private Department department;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
+    private Address address;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public long getStudent_id() {
+        return student_id;
+    }
+
+    public void setStudent_id(long student_id) {
+        this.student_id = student_id;
+    }
 
     public String getFirstname() {
         return firstname;
@@ -135,6 +147,16 @@ public class Student extends User {
 
     public void setDateOfModification(LocalDateTime dateOfModification) {
         this.dateOfModification = dateOfModification;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "addressid")
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
 

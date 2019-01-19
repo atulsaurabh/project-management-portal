@@ -7,6 +7,7 @@ import org.parul.pmp.entity.College;
 import org.parul.pmp.entity.University;
 import org.parul.pmp.repository.CollegeRepository;
 import org.parul.pmp.repository.UniversityRepository;
+import org.parul.pmp.service.CollegeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,17 +25,20 @@ public class CollegeController {
     @Autowired
     private CollegeRepository collegeRepository;
     @Autowired
+    private CollegeService collegeService;
+    @Autowired
     private UniversityRepository universityRepository;
-    @GetMapping
 
+    @GetMapping
     public String addCollege(Model model)
     {
         List<University> universities= universityRepository.findAll();
         List<UniversityDTO> dtos= universities.stream().map(UniversityMapper::toDTO).collect(Collectors.toList());
-        model.addAttribute("uni", dtos);
+        model.addAttribute("unis", dtos);
         model.addAttribute("college",new CollegeDTO());
         return "college";
     }
+
     public String registerCollege(Model model)
     {
         model.addAttribute("college",new College());

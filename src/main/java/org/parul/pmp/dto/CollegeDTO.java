@@ -17,7 +17,7 @@ public class CollegeDTO {
 
     public long getUniversity_id() { return university_id; }
 
-    public void setUniversity_id(long universityid) { this.university_id = university_id; }
+    public void setUniversity_id(long university_id) { this.university_id = university_id; }
 
     public String getCollege_code() {
         return college_code;
@@ -75,19 +75,11 @@ public class CollegeDTO {
         this.address = address;
     }
 
-    public String getUsername() {
-        return username;
-    }
+    public String getUsername() { return username; }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    public void setUsername(String username) { this.username = username; }
 
-    public String getPassword() {
-        return password;
-    }
+    public String getPassword() { return password; }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public void setPassword(String password) { this.password = password; }
 }

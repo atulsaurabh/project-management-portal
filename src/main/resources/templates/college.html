@@ -14,13 +14,9 @@
             <div class="mx-auto p-4 col-lg-7" style="">
                 <h1 class="mb-4">College</h1>
                 <form ACTION="college" method="post" th:object="${college}">
-                    <div class="form-row">
-                        <div class="form-group col-md-12" style=""> </div>
-                        <div class="form-group col-md-6" style=""> </div>
-                    </div>
-                    <b>University:</b><select th:field="*{university_id}">
-                    <option th:each="university : ${uni}"
-                            th:value="${university.university_id}" th:text="${university.university_name}">x</option>
+                    <b>Universities:</b><select th:field="*{university_id}">
+                    <option th:each="uni: ${unis}"
+                            th:value="${uni.university_id}" th:text="${uni.university_name}">x</option>
                 </select>
                     <div class="form-group"><input type="text" class="form-control" id="form27" placeholder="college code" th:field="*{college_code}"></div>
                     <div class="form-group"><input type="text" class="form-control" id="form28" placeholder="Name"th:field="*{college_name}"></div>
@@ -28,6 +24,8 @@
                     <div class="form-group"><input type="number" class="form-control" id="form30" placeholder="Phone No" th:field="*{contact_no}"></div>
                     <div class="form-group"> <input type="text" class="form-control" id="form31" placeholder="fax" th:field="*{fax}"></div>
                     <div class="form-group"><input type="text" class="form-control" id="form32" placeholder="address" th:field="*{address.address1}"></div>
+                    <div class="form-group"><input type="text" class="form-control" id="form33" placeholder="username" th:field="*{username}"></div>
+                    <div class="form-group"><input type="password" class="form-control" id="form34" placeholder="username" th:field="*{password}"></div>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>

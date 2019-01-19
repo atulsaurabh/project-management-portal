@@ -33,8 +33,6 @@ public class Department {
 
     public void setDepartment_name(String department_name) { this.department_name = department_name; }
 
-
-
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "collegeid")
     public College getCollege() {

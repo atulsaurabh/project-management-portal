@@ -1,7 +1,5 @@
 package org.parul.pmp.entity;
 
-import org.hibernate.annotations.Cascade;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -10,6 +8,7 @@ import java.util.Set;
 @Entity
 @Table(name = "University")
 public class University {
+
 
     private long university_id;
     private String university_code;
@@ -85,8 +84,7 @@ public class University {
 
     public void setAddress(Address address) { this.address = address; }
 
-
-    @OneToMany(mappedBy = "university", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "university_id", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<College> getColleges() { return colleges; }
 
     public void setColleges(Set<College> colleges) { this.colleges = colleges; }

@@ -16,9 +16,7 @@ public class UniversityDTO {
 
     public void setUniversity_id(long university_id) { this.university_id = university_id; }
 
-    public String getUsername() {
-        return username;
-    }
+    public String getUsername() { return username; }
 
     public void setUsername(String username) {
         this.username = username;

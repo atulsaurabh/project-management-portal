@@ -10,6 +10,7 @@ import java.util.Set;
 @Table(name = "College")
 public class College {
 
+    private long college_id;
     private String college_code;
     private String college_name;
     private String contact_no;
@@ -27,6 +28,10 @@ public class College {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public long getCollege_id() { return college_id; }
+
+    public void setCollege_id(long college_id) { this.college_id = college_id; }
+
     public String getCollege_code() {
         return college_code;
     }
@@ -85,14 +90,7 @@ public class College {
 
     public void setDepartments(Set<Department> departments) { this.departments = departments; }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "university_id")
-    public University getUniversity_id() { return university_id; }
-
-    public void setUniversity_id(University university_id) { this.university_id = university_id; }
-
     public LocalDateTime getDateOfRegistration() { return dateOfRegistration; }
-
     public void setDateOfRegistration(LocalDateTime dateOfRegistration) { this.dateOfRegistration = dateOfRegistration; }
 
     public LocalDateTime getDateOfModification() { return dateOfModification; }
@@ -103,5 +101,11 @@ public class College {
     public User getCollegeAdmin() { return collegeAdmin; }
 
     public void setCollegeAdmin(User collegeAdmin) { this.collegeAdmin = collegeAdmin; }
+
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "university_id")
+    public University getUniversity_id() { return university_id; }
+
+    public void setUniversity_id(University university_id) { this.university_id = university_id; }
 
 }
