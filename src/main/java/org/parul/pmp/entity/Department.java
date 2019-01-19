@@ -1,6 +1,7 @@
 package org.parul.pmp.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,12 +9,14 @@ import java.util.Set;
 @Table(name = "Department")
 public class Department {
 
-    private long department_id;
+    private int department_id;
     private String department_code;
     private String department_name;
     private College college_id;
     private Set<Student>students=new HashSet<>();
     private Set<Faculty>faculties=new HashSet<>();
+    private LocalDateTime dateOfRegistration;
+    private LocalDateTime dateOfModification;
 
     public String getDepartment_code() {
         return department_code;
@@ -25,9 +28,9 @@ public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getDepartment_id() { return department_id; }
+    public int getDepartment_id() { return department_id; }
 
-    public void setDepartment_id(long department_id) { this.department_id = department_id; }
+    public void setDepartment_id(int department_id) { this.department_id = department_id; }
 
     public String getDepartment_name() { return department_name; }
 
@@ -57,5 +60,21 @@ public class Department {
 
     public void setStudents(Set<Student> students) {
         this.students = students;
+    }
+
+    public LocalDateTime getDateOfRegistration() {
+        return dateOfRegistration;
+    }
+
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
+        this.dateOfRegistration = dateOfRegistration;
+    }
+
+    public LocalDateTime getDateOfModification() {
+        return dateOfModification;
+    }
+
+    public void setDateOfModification(LocalDateTime dateOfModification) {
+        this.dateOfModification = dateOfModification;
     }
 }

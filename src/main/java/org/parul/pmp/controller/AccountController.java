@@ -36,14 +36,14 @@ public class AccountController
         String uiname="";
         switch (rolename)
         {
-            case "ROLE_ADMIN":
-                uiname="admin";
+            case "ROLE_HOD":
+                uiname="hodHomePage";
                 break;
             case "ROLE_COLLEGE_ADMIN":
-                uiname="Welcome";
+                uiname="collegeAdminHomePage";
                 break;
             case "ROLE_UNIVERSITY_ADMIN":
-                uiname="";
+                uiname="universityAdminHomePage";
                 break;
             case "ROLE_FACULTY":
                 uiname="facultyHome";

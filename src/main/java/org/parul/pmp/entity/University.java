@@ -11,7 +11,7 @@ import java.util.Set;
 @Table(name = "University")
 public class University {
 
-    private long universityid;
+    private int universityid;
     private String university_code;
     private String university_name;
     private String contact_no;
@@ -27,11 +27,11 @@ public class University {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getUniversityid() {
+    public int getUniversityid() {
         return universityid;
     }
 
-    public void setUniversityid(long universityid) {
+    public void setUniversityid(int universityid) {
         this.universityid = universityid;
     }
 
@@ -90,7 +90,7 @@ public class University {
     public void setAddress(Address address) { this.address = address; }
 
 
-    @OneToMany(mappedBy = "university", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "university_id", cascade = CascadeType.ALL)
     public Set<College> getColleges() { return colleges; }
 
     public void setColleges(Set<College> colleges) { this.colleges = colleges; }

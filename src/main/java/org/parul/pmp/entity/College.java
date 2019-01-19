@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 @Table(name = "College")
 public class College {
-    private long college_id;
+    private int college_id;
     private String college_code;
     private String college_name;
     private String contact_no;
@@ -35,11 +35,11 @@ public class College {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getCollege_id() {
+    public int getCollege_id() {
         return college_id;
     }
 
-    public void setCollege_id(long college_id) {
+    public void setCollege_id(int college_id) {
         this.college_id = college_id;
     }
 
