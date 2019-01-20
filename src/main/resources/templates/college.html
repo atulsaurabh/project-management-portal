@@ -30,9 +30,9 @@
                     <form ACTION="college" method="post" th:object="${college}">
                     <div class="btn-group mr-auto ml-auto w-100"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="btn dropdown-toggle w-75 ml-5 btn-secondary py-2" data-toggle="dropdown" aria-expanded="false"> University </button>
 
-                        <select th:field="*{university}">
-                            <option th:each="uni: $(unit)"
-                                    th:value="$(uni.university_id)" th:text="$(uni.university_name)"></option>
+                        <select th:field="*{university_id}">
+                            <option th:each="uni:${unis}"
+                                    th:value="${uni.university_id}" th:text="${uni.university_name}"></option>
                         </select>
                     </div>
                     <div class="form-group">
