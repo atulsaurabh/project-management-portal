@@ -1,5 +1,6 @@
 package org.parul.pmp.entity;
 
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -8,7 +9,6 @@ import java.util.Set;
 @Entity
 @Table(name = "University")
 public class University {
-
 
     private long university_id;
     private String university_code;
@@ -23,6 +23,7 @@ public class University {
     private LocalDateTime dateOfModification;
 
     private User universityAdmin;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -90,7 +90,6 @@ public class Faculty extends User{
     public Department getDepartment() {
         return department;
     }
-
     public void setDepartment(Department department) {
         this.department = department;
     }

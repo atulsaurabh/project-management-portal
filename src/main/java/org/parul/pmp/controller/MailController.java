@@ -16,9 +16,9 @@ public class MailController {
     public String sendMail()
     {
         MailDTO mailDTO = new MailDTO();
-        mailDTO.setName("Atul Saurabh");
+        mailDTO.setName("Shubhangini Khare");
         mailDTO.setPassword("123");
-        mailDTO.setTo("atul.saurabh@gmail.com");
+        mailDTO.setTo("khare7shubh@gmail.com");
         mailDTO.setSubject("Account Activation");
         mailDTO.setLink("http://localhost:8080/activate");
         mailService.sendActivationMailWithCredential(mailDTO);
