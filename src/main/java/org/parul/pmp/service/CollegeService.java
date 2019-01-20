@@ -51,6 +51,7 @@ public class CollegeService {
         storedUser.setCollege(college);
         College savedCollege = collegeRepository.saveAndFlush(college);
         u.getColleges().add(savedCollege);
+        savedCollege.setUniversity_id(u);
         universityRepository.saveAndFlush(u);
     }
 }
