@@ -38,4 +38,6 @@ public class CollegeMapper {
         dto.setCollege_name(college.getCollege_name());
         return dto;
     }
+
 }
+

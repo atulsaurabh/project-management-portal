@@ -22,17 +22,17 @@ public class Faculty extends User{
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
 
-    private User userfaculty;
-
-    @OneToOne(mappedBy = "faculty",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
-    public User getUserfaculty() {
-        return userfaculty;
-    }
-
-    public void setUserfaculty(User userfaculty) {
-        this.userfaculty = userfaculty;
-    }
-
+//    private User userfaculty;
+//
+//    @OneToOne(mappedBy = "faculty",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
+//    public User getUserfaculty() {
+//        return userfaculty;
+//    }
+//
+//    public void setUserfaculty(User userfaculty) {
+//        this.userfaculty = userfaculty;
+//    }
+//
     public long getFacultyid() {
         return facultyid;
     }

@@ -9,15 +9,15 @@ public class StudentMapper
 {
 
     public static Student toEntity(StudentDTO studentDTO) {
-        Student registration = new Student();
-        registration.setFirstname(studentDTO.getFirstname());
-        registration.setMiddlename(studentDTO.getMiddlename());
-        registration.setLastname(studentDTO.getLastname());
-        registration.setEnrollment_no(studentDTO.getEnrollment_no());
-        registration.setSem(studentDTO.getSem());
-        registration.setEmail(studentDTO.getEmail());
-        registration.setMobile_no(studentDTO.getMobile_no());
-        return registration;
+        Student student = new Student();
+        student.setFirstname(studentDTO.getFirstname());
+        student.setMiddlename(studentDTO.getMiddlename());
+        student.setLastname(studentDTO.getLastname());
+        student.setEnrollment_no(studentDTO.getEnrollment_no());
+        student.setSem(studentDTO.getSem());
+        student.setEmail(studentDTO.getEmail());
+        student.setMobile_no(studentDTO.getMobile_no());
+        return student;
     }
 
     public static User toUserEntity(StudentDTO studentDTO)

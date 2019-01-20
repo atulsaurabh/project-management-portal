@@ -26,7 +26,7 @@ public class StudentController {
     @Autowired
     private DepartmentRepository departmentRepository;
 
-    @GetMapping
+    @GetMapping("/register")
     public String addStudent(Model model)
     {
         List<Department> departments= departmentRepository.findAll();

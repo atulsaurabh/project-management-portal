@@ -3,6 +3,7 @@ package org.parul.pmp.controller;
 import org.parul.pmp.dto.DepartmentDTO;
 import org.parul.pmp.dto.FacultyDTO;
 import org.parul.pmp.dto.FacultyProfileDTO;
+import org.parul.pmp.dto.MailDTO;
 import org.parul.pmp.dto.mapper.DepartmentMapper;
 import org.parul.pmp.entity.Department;
 import org.parul.pmp.repository.DepartmentRepository;
@@ -73,6 +74,17 @@ public class FacultyController {
             model.addAttribute("msg", "Error");
         }
         return "Welcome";
+    }
+    public String sendMail()
+    {
+        MailDTO mailDTO = new MailDTO();
+        //mailDTO.setName();
+        mailDTO.setPassword("123");
+        mailDTO.setTo("atul.saurabh@gmail.com");
+        mailDTO.setSubject("Account Activation");
+        mailDTO.setLink("http://localhost:8080/activate");
+        //mailService.sendActivationMailWithCredential(mailDTO);
+        return "abc";
     }
 
 }

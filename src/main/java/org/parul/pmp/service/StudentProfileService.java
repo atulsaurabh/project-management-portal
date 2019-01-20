@@ -7,4 +7,5 @@ import org.springframework.stereotype.Service;
 public class StudentProfileService {
     public void addStudentProfile(StudentProfileDTO profileDTO) {
     }
+
 }

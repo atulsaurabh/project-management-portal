@@ -52,6 +52,7 @@ public class CollegeController {
         }
         catch (Exception e)
         {
+            e.printStackTrace();
             model.addAttribute("msg","College not Registered");
         }
 

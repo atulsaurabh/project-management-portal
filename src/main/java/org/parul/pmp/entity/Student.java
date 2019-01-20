@@ -118,17 +118,26 @@ public class Student extends User{
         this.mobile_no = mobile_no;
     }
 
+//    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//    @JoinColumn(name = "department_id")
+//
+//    public Department getDepartment_id() {
+//        return department_id;
+//    }
+//
+//    public void setDepartment_id(Department department_id) {
+//        this.department_id = department_id;
+//    }
+
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
-
-    public Department getDepartment_id() {
+    public Department getDepartment() {
         return department_id;
     }
 
-    public void setDepartment_id(Department department_id) {
-        this.department_id = department_id;
+    public void setDepartment(Department department) {
+        this.department_id = department;
     }
-
     public LocalDateTime getDateOfRegistration() {
         return dateOfRegistration;
     }

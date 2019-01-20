@@ -50,6 +50,7 @@ public class FacultyService {
         //storedUser.setFaculty(faculty);
         Faculty savedFaculty=facultyRepository.saveAndFlush(faculty);
         d.getFaculties().add(savedFaculty);
+        savedFaculty.setDepartment(d);
         departmentRepository.saveAndFlush(d);
 
     }
