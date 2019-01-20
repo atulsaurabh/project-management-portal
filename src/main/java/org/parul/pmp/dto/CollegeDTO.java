@@ -3,15 +3,24 @@ package org.parul.pmp.dto;
 
 
 public class CollegeDTO {
+    private long college_id;
     private String college_code;
     private String college_name;
     private String contact_no;
     private String email;
     private String website;
     private String fax;
-    private int university_id;
+    private long university_id;
     private String username;
     private String password;
+
+    public long getCollege_id() {
+        return college_id;
+    }
+
+    public void setCollege_id(long college_id) {
+        this.college_id = college_id;
+    }
 
     public String getUsername() {
         return username;
@@ -78,11 +87,11 @@ public class CollegeDTO {
     }
 
 
-    public int getUniversity_id() {
+    public long getUniversity_id() {
         return university_id;
     }
 
-    public void setUniversity_id(int university_id) {
+    public void setUniversity_id(long university_id) {
         this.university_id = university_id;
     }
 }

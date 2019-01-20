@@ -20,7 +20,7 @@
                     </div>
                     <b>University:</b><select th:field="*{university_id}">
                         <option th:each="university : ${univercities}"
-                                th:value="${university.university_code}" th:text="${university.university_name}"></option>
+                                th:value="${university.university_id}" th:text="${university.university_name}"></option>
                     </select>
                     <div class="form-group"><input type="text" class="form-control" id="form27" placeholder="college code" th:field="*{college_code}"></div>
                     <div class="form-group"><input type="text" class="form-control" id="form28" placeholder="Name"th:field="*{college_name}"></div>

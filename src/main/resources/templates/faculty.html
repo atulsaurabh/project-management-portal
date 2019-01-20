@@ -7,8 +7,8 @@
 <body>
 <form action="faculty" method="post" th:object="${faculty}">
   <b>Departments:</b><select th:field="*{department_id}">
-      <option th:each="dept : ${depts}"
-              th:value="${dept.department_code}" th:text="${dept.department_name}"></option>
+      <option th:each="dept: ${depts}"
+              th:value="${dept.deptid}" th:text="${dept.department_name}"></option>
 </select>
   <b>Faculty ID:</b>
   <input type="text" name="faculty_code"><br>

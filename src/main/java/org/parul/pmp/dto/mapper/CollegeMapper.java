@@ -9,21 +9,22 @@ import org.parul.pmp.entity.User;
 public class CollegeMapper {
     public static College toEntity(CollegeDTO dto)
     {
-        College college = new College();
-        college.setCollege_code(dto.getCollege_code());
-        college.setCollege_name(dto.getCollege_name());
-        college.setContact_no(dto.getContact_no());
-        college.setEmail(dto.getEmail());
-        college.setWebsite(dto.getWebsite());
-        college.setFax(dto.getFax());
+        College register = new College();
+        register.setCollege_code(dto.getCollege_code());
+        register.setCollege_name(dto.getCollege_name());
+        register.setContact_no(dto.getContact_no());
+        register.setEmail(dto.getEmail());
+        register.setWebsite(dto.getWebsite());
+        register.setFax(dto.getFax());
 
-        return college;
+        return register;
     }
     public static CollegeDTO toDTO(College college)
     {
         CollegeDTO dto = new CollegeDTO();
         dto.setCollege_code(college.getCollege_code());
         dto.setCollege_name(college.getCollege_name());
+        dto.setCollege_id(college.getCollege_id());
         return dto;
     }
 

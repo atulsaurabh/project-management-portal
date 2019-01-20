@@ -1,6 +1,5 @@
 package org.parul.pmp.entity;
 
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,7 +10,7 @@ import java.util.Set;
 @Table(name = "University")
 public class University {
 
-    private int universityid;
+    private long university_id;
     private String university_code;
     private String university_name;
     private String contact_no;
@@ -25,14 +24,15 @@ public class University {
 
     private User universityAdmin;
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getUniversityid() {
-        return universityid;
+    public long getUniversity_id() {
+        return university_id;
     }
 
-    public void setUniversityid(int universityid) {
-        this.universityid = universityid;
+    public void setUniversity_id(long university_id) {
+        this.university_id = university_id;
     }
 
     @OneToOne(mappedBy = "university",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)

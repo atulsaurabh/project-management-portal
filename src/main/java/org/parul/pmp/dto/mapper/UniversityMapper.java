@@ -27,6 +27,7 @@ public class UniversityMapper
         UniversityDTO dto = new UniversityDTO();
         dto.setUniversity_code(university.getUniversity_code());
         dto.setUniversity_name(university.getUniversity_name());
+        dto.setUniversity_id(university.getUniversity_id());
         return dto;
     }
 

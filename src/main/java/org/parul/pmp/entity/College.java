@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 @Table(name = "College")
 public class College {
-    private int college_id;
+    private long college_id;
     private String college_code;
     private String college_name;
     private String contact_no;
@@ -35,11 +35,11 @@ public class College {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getCollege_id() {
+    public long getCollege_id() {
         return college_id;
     }
 
-    public void setCollege_id(int college_id) {
+    public void setCollege_id(long college_id) {
         this.college_id = college_id;
     }
 
@@ -104,14 +104,16 @@ public class College {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "university_code")
-    public University getUniversity() {
+    @JoinColumn(name = "university_id")
+    public University getUniversity_id() {
         return university_id;
     }
 
-    public void setUniversity(University university) {
-        this.university_id = university;
+    public void setUniversity_id(University university_id) {
+        this.university_id = university_id;
     }
+
+
 
     public LocalDateTime getDateOfRegistration() {
         return dateOfRegistration;

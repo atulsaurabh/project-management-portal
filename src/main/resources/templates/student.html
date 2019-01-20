@@ -7,10 +7,9 @@
 <body>
 
 <form action="student/register" method="post" th:object="${student}">
-    <b>Departments:</b>
-    <select th:field="*{department_id}">
+    <b>Department:</b><select th:field="*{department_id}">
     <option th:each="dept : ${depts}"
-            th:value="${dept.department_code}" th:text="${dept.department_name}"></option>
+            th:value="${dept.deptid}" th:text="${dept.department_name}"></option>
     </select>
     <b>Enrollment Number:</b>
     <input type="text" name="enrollment_no"><br>
