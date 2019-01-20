@@ -17,7 +17,7 @@ public class College {
     private String website;
     private String fax;
     private Address address;
-    private University university_id;
+    private University university;
     private Set<Department>departments = new HashSet<>();
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
@@ -105,13 +105,16 @@ public class College {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "university_id")
-    public University getUniversity_id() {
-        return university_id;
+    public University getUniversity() {
+        return university;
     }
 
-    public void setUniversity_id(University university_id) {
-        this.university_id = university_id;
+    public void setUniversity(University university) {
+        this.university = university;
     }
+
+
+
 
 
 

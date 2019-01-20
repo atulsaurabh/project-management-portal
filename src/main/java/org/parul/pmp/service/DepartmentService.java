@@ -29,7 +29,7 @@ public class DepartmentService {
     RoleRepository roleRepository;
 
     @Transactional
-    public void addDepartment(DepartmentDTO departmentDTO) throws RoleNotAvailableException
+    public void addDepartment(DepartmentDTO departmentDTO)
     {
         Department department = DepartmentMapper.toEntity(departmentDTO);
         College clg = collegeRepository.findById(departmentDTO.getCollege_id()).get();

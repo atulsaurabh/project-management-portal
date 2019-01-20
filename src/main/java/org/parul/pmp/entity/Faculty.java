@@ -13,7 +13,7 @@ public class Faculty extends User  {
     private String faculty_lastname;
     private String email;
     private String phone;
-    private Department department_id;
+    private Department department;
     private String education;
     private String skill;
     private String Published_papers;
@@ -67,11 +67,10 @@ public class Faculty extends User  {
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     public Department getDepartment() {
-        return department_id;
+        return department;
     }
-
     public void setDepartment(Department department) {
-        this.department_id = department;
+        this.department = department;
     }
 
     public String getEducation() {
