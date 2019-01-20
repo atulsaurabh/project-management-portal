@@ -14,7 +14,7 @@ public class HomePageController {
     @GetMapping
     public String homepage(Model model)
     {
-        model.addAttribute("registerMember",new registerMember());
+
         return "registerMember";
     }
 
