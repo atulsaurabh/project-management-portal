@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "College")
-public class College extends User{
+public class College {
 
     private long college_id;
     private String college_code;
@@ -18,7 +18,7 @@ public class College extends User{
     private String website;
     private String fax;
     private Address address;
-    private University university_id;
+    private University university;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
 
@@ -104,8 +104,8 @@ public class College extends User{
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "university_id")
-    public University getUniversity_id() { return university_id; }
+    public University getUniversity() { return university; }
 
-    public void setUniversity_id(University university_id) { this.university_id = university_id; }
+    public void setUniversity(University university) { this.university = university; }
 
 }

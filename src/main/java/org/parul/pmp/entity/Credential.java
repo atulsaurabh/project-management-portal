@@ -49,10 +49,6 @@ public class Credential
         this.roles = roles;
     }
 
-
-
-
-
     @OneToOne( cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "userid")
     public User getUser() {

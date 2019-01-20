@@ -15,7 +15,6 @@ public class UniversityMapper
         university.setFax(dto.getFax());
         university.setUniversity_name(dto.getUniversity_name());
         university.setUniversity_code(dto.getUniversity_code());
-        university.setUniversity_id(dto.getUniversity_id());
         university.setWebsite(dto.getWebsite());
         return university;
     }
@@ -45,6 +44,7 @@ public class UniversityMapper
 
         UniversityDTO dto= new UniversityDTO();
         dto.setUniversity_id(university.getUniversity_id());
+        dto.setUniversity_code(university.getUniversity_code());
         dto.setUniversity_name(university.getUniversity_name());
         return dto;
     }

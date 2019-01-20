@@ -13,7 +13,9 @@ public class CollegeMapper {
         register.setCollege_name(dto.getCollege_name());
         register.setContact_no(dto.getContact_no());
         register.setEmail(dto.getEmail());
-
+        register.setAddress(dto.getAddress());
+        register.setFax(dto.getFax());
+        register.setWebsite(dto.getWebsite());
         return register;
     }
     public static User toUserEntity(CollegeDTO collegeDTO)

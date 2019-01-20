@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Faculty")
-public class Faculty   {
+public class Faculty{
 
     private long facultyid;
     private String faculty_code;

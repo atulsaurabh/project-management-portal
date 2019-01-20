@@ -35,9 +35,7 @@ public class Department {
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "collegeid")
-    public College getCollege() {
-        return college_id;
-    }
+    public College getCollege() { return college_id; }
 
     public void setCollege(College college) {
         this.college_id = college;

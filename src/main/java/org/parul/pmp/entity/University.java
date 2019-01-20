@@ -84,7 +84,7 @@ public class University {
 
     public void setAddress(Address address) { this.address = address; }
 
-    @OneToMany(mappedBy = "university_id", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "university", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<College> getColleges() { return colleges; }
 
     public void setColleges(Set<College> colleges) { this.colleges = colleges; }
@@ -93,16 +93,12 @@ public class University {
         return dateOfRegistration;
     }
 
-    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
-        this.dateOfRegistration = dateOfRegistration;
-    }
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) { this.dateOfRegistration = dateOfRegistration; }
 
     public LocalDateTime getDateOfModification() {
         return dateOfModification;
     }
 
-    public void setDateOfModification(LocalDateTime dateOfModification) {
-        this.dateOfModification = dateOfModification;
-    }
+    public void setDateOfModification(LocalDateTime dateOfModification) { this.dateOfModification = dateOfModification; }
 }
 

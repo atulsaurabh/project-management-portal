@@ -5,7 +5,6 @@ import org.parul.pmp.dto.UniversityDTO;
 import org.parul.pmp.dto.mapper.UniversityMapper;
 import org.parul.pmp.entity.College;
 import org.parul.pmp.entity.University;
-import org.parul.pmp.repository.CollegeRepository;
 import org.parul.pmp.repository.UniversityRepository;
 import org.parul.pmp.service.CollegeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +21,7 @@ import java.util.stream.Collectors;
 @Controller
 @RequestMapping("/college")
 public class CollegeController {
-    @Autowired
-    private CollegeRepository collegeRepository;
+
     @Autowired
     private CollegeService collegeService;
     @Autowired
@@ -45,11 +43,11 @@ public class CollegeController {
         return "college";
     }
     @PostMapping
-    public String addCollegePage(@ModelAttribute("college") College college, Model model)
+    public String addCollegePage(@ModelAttribute("college") CollegeDTO college, Model model)
     {
         try
         {
-            collegeRepository.saveAndFlush(college);
+            collegeService.addCollege(college);
             model.addAttribute("msg","College Successfully Registered");
         }
         catch (Exception e)
