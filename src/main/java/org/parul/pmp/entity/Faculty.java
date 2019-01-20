@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Faculty")
-public class Faculty{
+public class Faculty extends User{
 
     private long facultyid;
     private String faculty_code;
@@ -33,8 +33,6 @@ public class Faculty{
         this.userfaculty = userfaculty;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getFacultyid() {
         return facultyid;
     }

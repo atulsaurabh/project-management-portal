@@ -19,7 +19,7 @@ public class Department {
     private LocalDateTime dateOfModification;
 
 
-      public String getDepartment_code() {
+    public String getDepartment_code() {
         return department_code;
     }
 
@@ -39,13 +39,9 @@ public class Department {
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "college_id")
-    public College getCollege() {
-        return college;
-    }
+    public College getCollege() { return college; }
 
-    public void setCollege(College college) {
-        this.college = college;
-    }
+    public void setCollege(College college) { this.college = college; }
 
     @OneToMany(mappedBy = "department",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public Set<Faculty> getFaculties() { return faculties; }

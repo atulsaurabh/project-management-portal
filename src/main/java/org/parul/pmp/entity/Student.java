@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Student")
-public class Student {
+public class Student extends User{
 
     private long student_id;
     private String firstname;
@@ -13,19 +13,17 @@ public class Student {
     private String lastname;
     private String dob;
     private String enrollment_no;
-    private String college;
+    //private String college;
     private String sem;
     private String dept;
     private String email;
     private String gender;
     private String mobile_no;
-    private Department department;
+    private Department department_id;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
     private Address address;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getStudent_id() {
         return student_id;
     }
@@ -74,13 +72,13 @@ public class Student {
         this.enrollment_no = enrollment_no;
     }
 
-    public String getCollege() {
-        return college;
-    }
-
-    public void setCollege(String college) {
-        this.college = college;
-    }
+//    public String getCollege() {
+//        return college;
+//    }
+//
+//    public void setCollege(String college) {
+//        this.college = college;
+//    }
 
     public String getSem() {
         return sem;
@@ -94,9 +92,7 @@ public class Student {
         return dept;
     }
 
-    public void setDept(String dept) {
-        this.dept = dept;
-    }
+    public void setDept(String dept) { this.dept = dept; }
 
     public String getEmail() {
         return email;
@@ -122,15 +118,15 @@ public class Student {
         this.mobile_no = mobile_no;
     }
 
-
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
-    public Department getDepartment() {
-        return department;
+
+    public Department getDepartment_id() {
+        return department_id;
     }
 
-    public void setDepartment(Department department) {
-        this.department = department;
+    public void setDepartment_id(Department department_id) {
+        this.department_id = department_id;
     }
 
     public LocalDateTime getDateOfRegistration() {

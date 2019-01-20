@@ -13,7 +13,7 @@ public class User {
 
     private Address address;
 
-
+// addes
     private University university;
 
     private College college;
@@ -37,9 +37,7 @@ public class User {
         return college;
     }
 
-    public void setCollege(College college) {
-        this.college = college;
-    }
+    public void setCollege(College college) { this.college = college; }
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "university_id")

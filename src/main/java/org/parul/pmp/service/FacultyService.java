@@ -46,8 +46,8 @@ public class FacultyService {
         role.getCredential().add(credential);
         credential.setUser(storedUser);
         storedUser.setCredential(credential);
-        faculty.setUserfaculty(storedUser);
-        storedUser.setFaculty(faculty);
+        //faculty.setUserfaculty(storedUser);
+        //storedUser.setFaculty(faculty);
         Faculty savedFaculty=facultyRepository.saveAndFlush(faculty);
         d.getFaculties().add(savedFaculty);
         departmentRepository.saveAndFlush(d);

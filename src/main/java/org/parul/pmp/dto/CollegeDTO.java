@@ -9,7 +9,7 @@ public class CollegeDTO {
     private String email;
     private String website;
     private String fax;
-    private int university_id;
+    private long university_id;
     private String username;
     private String password;
 
@@ -77,12 +77,11 @@ public class CollegeDTO {
         this.fax = fax;
     }
 
-
-    public int getUniversity_id() {
+    public long getUniversity_id() {
         return university_id;
     }
 
-    public void setUniversity_id(int university_id) {
+    public void setUniversity_id(long university_id) {
         this.university_id = university_id;
     }
 }

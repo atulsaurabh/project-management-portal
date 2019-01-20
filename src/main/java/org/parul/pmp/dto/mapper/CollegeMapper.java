@@ -31,4 +31,11 @@ public class CollegeMapper {
         credential.setPassword(collegeDTO.getPassword());
         return credential;
     }
+    public static CollegeDTO toDTO(College college)
+    {
+        CollegeDTO dto = new CollegeDTO();
+        dto.setCollege_code(college.getCollege_code());
+        dto.setCollege_name(college.getCollege_name());
+        return dto;
+    }
 }
