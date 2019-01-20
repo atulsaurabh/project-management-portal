@@ -52,7 +52,7 @@ public class Department {
 
     public void setFaculties(Set<Faculty> faculties) { this.faculties = faculties; }
 
-    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     public Set<Student> getStudents() {
         return students;
     }

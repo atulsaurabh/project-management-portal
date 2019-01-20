@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form action="student/register" method="post" th:object="${student}">
+<form action="/student/register" method="post" th:object="${student}">
 
     <b>University:</b><select th:field="*{university_id}">
     <option th:each="university : ${univercities}"
