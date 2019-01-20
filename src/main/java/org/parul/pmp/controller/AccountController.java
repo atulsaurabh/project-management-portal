@@ -18,7 +18,7 @@ public class AccountController
 
     @Autowired
     private AcountService acountService;
-    @GetMapping
+    @GetMapping("/login")
     public String loginpage(Model model)
     {
         model.addAttribute("loginDTO",new LoginDTO());
@@ -35,15 +35,17 @@ public class AccountController
             case "ROLE_ADMIN":
                 uiname="admin";
                 break;
-            case "ROLE_SUPER_ADMIN":
-                uiname="superadmin";
+            case "ROLE_COLLEGE_ADMIN":
+                uiname="Welcome";
                 break;
             case "ROLE_UNIVERSITY_ADMIN":
-                uiname="universityadmin";
+                uiname="";
                 break;
-            case "ROLE_COLLEGE_ADMIN":
-                uiname="collegeadmin";
+            case "ROLE_FACULTY":
+                uiname="facultyHome";
                 break;
+            case "ROLE_STUDENT":
+                uiname="studenthome";
 
         }
         model.addAttribute("username",credential.getUsername());

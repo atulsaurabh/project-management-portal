@@ -13,15 +13,13 @@ public class User {
 
     private Address address;
 
+
     private University university;
-    private Faculty faculty;
+
     private College college;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "college_id")
-    public College getCollege() { return college; }
 
-    public void setCollege(College college) { this.college = college; }
+    /*private Faculty faculty;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "faculty_code")
@@ -31,10 +29,20 @@ public class User {
 
     public void setFaculty(Faculty faculty) {
         this.faculty = faculty;
+    }*/
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "college_id")
+    public College getCollege() {
+        return college;
+    }
+
+    public void setCollege(College college) {
+        this.college = college;
     }
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "university_code")
+    @JoinColumn(name = "university_id")
     public University getUniversity() {
         return university;
     }

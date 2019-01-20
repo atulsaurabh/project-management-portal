@@ -1,8 +1,5 @@
 package org.parul.pmp.dto.mapper;
 
-
-
-import org.parul.pmp.dto.FacultyDTO;
 import org.parul.pmp.dto.StudentDTO;
 import org.parul.pmp.entity.Credential;
 import org.parul.pmp.entity.Student;

@@ -1,8 +1,13 @@
 package org.parul.pmp.dto;
 
+import org.parul.pmp.entity.Department;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class FacultyDTO {
 
-    private int department_id;
+    private long department_id;
     private String faculty_code;
     private String faculty_firstname;
     private String faculty_middlename;
@@ -21,9 +26,11 @@ public class FacultyDTO {
         this.departmentDTOS = departmentDTOS;
     }*/
 
-    public int getDepartment_id() { return department_id; }
+    public long getDepartment_id() {
+        return department_id;
+    }
 
-    public void setDepartment_id(int department_id) {
+    public void setDepartment_id(long department_id) {
         this.department_id = department_id;
     }
 

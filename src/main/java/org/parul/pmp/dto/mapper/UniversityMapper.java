@@ -2,8 +2,12 @@ package org.parul.pmp.dto.mapper;
 
 import org.parul.pmp.dto.UniversityDTO;
 import org.parul.pmp.entity.Credential;
+import org.parul.pmp.entity.Role;
 import org.parul.pmp.entity.University;
 import org.parul.pmp.entity.User;
+import org.parul.pmp.entity.enumeration.Roles;
+
+import javax.persistence.Entity;
 
 public class UniversityMapper
 {
@@ -17,6 +21,13 @@ public class UniversityMapper
         university.setUniversity_code(dto.getUniversity_code());
         university.setWebsite(dto.getWebsite());
         return university;
+    }
+    public static UniversityDTO toDTO(University university)
+    {
+        UniversityDTO dto = new UniversityDTO();
+        dto.setUniversity_code(university.getUniversity_code());
+        dto.setUniversity_name(university.getUniversity_name());
+        return dto;
     }
 
     public static User toUserEntity(UniversityDTO universityDTO)
@@ -38,14 +49,5 @@ public class UniversityMapper
         credential.setUsername(universityDTO.getUsername());
         credential.setPassword(universityDTO.getPassword());
         return credential;
-    }
-
-    public static UniversityDTO toDTO(University university) {
-
-        UniversityDTO dto= new UniversityDTO();
-        dto.setUniversity_id(university.getUniversity_id());
-        dto.setUniversity_code(university.getUniversity_code());
-        dto.setUniversity_name(university.getUniversity_name());
-        return dto;
     }
 }

@@ -1,23 +1,33 @@
 package org.parul.pmp.dto;
 
-import org.parul.pmp.entity.Address;
+
 
 public class CollegeDTO {
-
-    private long university_id;
     private String college_code;
     private String college_name;
     private String contact_no;
     private String email;
     private String website;
     private String fax;
-    private Address address;
+    private int university_id;
     private String username;
     private String password;
 
-    public long getUniversity_id() { return university_id; }
+    public String getUsername() {
+        return username;
+    }
 
-    public void setUniversity_id(long university_id) { this.university_id = university_id; }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getCollege_code() {
         return college_code;
@@ -67,24 +77,12 @@ public class CollegeDTO {
         this.fax = fax;
     }
 
-    public Address getAddress() {
-        return address;
+
+    public int getUniversity_id() {
+        return university_id;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setUniversity_id(int university_id) {
+        this.university_id = university_id;
     }
-
-    public String getUsername() { return username; }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() { return password; }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
 }

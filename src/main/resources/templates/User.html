@@ -6,13 +6,13 @@
 </head>
 <body>
 
-<form action="registration" method="post" th:object="${userDTO}">
+<form action="student/register" method="post" th:object="${student}">
+    <b>Department:</b><select th:field="*{department_id}">
+    <option th:each="dept : ${depts}"
+            th:value="${dept.deptid}" th:text="${dept.department_name}"></option>
+    </select>
     <b>Enrollment Number:</b>
     <input type="text" name="enrollment_no"><br>
-    <b>College:</b>
-    <input type="text" name="college"><br>
-    <b>Department:</b>
-    <input type="text" name="dept"><br>
     <b>Semester:</b>
     <input type="text" name="sem"><br>
     <b>FirstName:</b>
@@ -25,10 +25,10 @@
     <input type="text" name="email"><br>
     <b>Mobile Number:</b>
     <input type="text" name="mobile_no"><br>
+    <b>Username:</b>
+    <input type="text" name="username"><br>
     <b>Password:</b>
     <input type="text" name="password"><br>
-    <b>Confirm Password:</b>
-    <input type="text" name="confirm_password"><br>
     <button type="submit">Submit</button>
 
 

@@ -8,27 +8,27 @@ import org.parul.pmp.entity.User;
 public class CollegeMapper {
     public static College toEntity(CollegeDTO dto)
     {
-        College register = new College();
-        register.setCollege_code(dto.getCollege_code());
-        register.setCollege_name(dto.getCollege_name());
-        register.setContact_no(dto.getContact_no());
-        register.setEmail(dto.getEmail());
-        register.setAddress(dto.getAddress());
-        register.setFax(dto.getFax());
-        register.setWebsite(dto.getWebsite());
-        return register;
-    }
-    public static User toUserEntity(CollegeDTO collegeDTO)
-    {
-        User college = new User();
+        College college = new College();
+        college.setCollege_code(dto.getCollege_code());
+        college.setCollege_name(dto.getCollege_name());
+        college.setContact_no(dto.getContact_no());
+        college.setEmail(dto.getEmail());
+        college.setWebsite(dto.getWebsite());
+        college.setFax(dto.getFax());
         return college;
     }
-    public static Credential toCredentialEntity(CollegeDTO collegeDTO)
+
+    public static User toUserEntity(CollegeDTO collegeDTO )
+    {
+        User admin = new User();
+        return admin;
+    }
+
+    public static Credential toCredentialEntity(CollegeDTO collegeDTO )
     {
         Credential credential = new Credential();
         credential.setUsername(collegeDTO.getUsername());
         credential.setPassword(collegeDTO.getPassword());
         return credential;
     }
-
 }
