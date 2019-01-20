@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Student")
+@Table(name = "student")
 public class Student extends User{
 
     private long student_id;
@@ -19,7 +19,7 @@ public class Student extends User{
     private String email;
     private String gender;
     private String mobile_no;
-    private Department department_id;
+    private Department department;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
     private Address address;
@@ -132,11 +132,11 @@ public class Student extends User{
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     public Department getDepartment() {
-        return department_id;
+        return department;
     }
 
     public void setDepartment(Department department) {
-        this.department_id = department;
+        this.department = department;
     }
     public LocalDateTime getDateOfRegistration() {
         return dateOfRegistration;
