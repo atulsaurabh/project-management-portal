@@ -2,6 +2,7 @@ package org.parul.pmp.entity;
 
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,8 +17,28 @@ public class College {
     private String fax;
     private Address address;
     private University university;
+    private LocalDateTime dateOfRegistration;
+    private LocalDateTime dateOfModification;
+    private long college_id;
+
 
     private Set<Department>departments = new HashSet<>();
+
+    public LocalDateTime getDateOfRegistration() {
+        return dateOfRegistration;
+    }
+
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
+        this.dateOfRegistration = dateOfRegistration;
+    }
+
+    public LocalDateTime getDateOfModification() {
+        return dateOfModification;
+    }
+
+    public void setDateOfModification(LocalDateTime dateOfModification) {
+        this.dateOfModification = dateOfModification;
+    }
 
     @Id
     public String getCollege_code() {
@@ -87,5 +108,13 @@ public class College {
 
     public void setUniversity(University university) {
         this.university = university;
+    }
+
+    public long getCollege_id() {
+        return college_id;
+    }
+
+    public void setCollege_id(long college_id) {
+        this.college_id = college_id;
     }
 }

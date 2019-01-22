@@ -1,7 +1,7 @@
 package org.parul.pmp.controller;
 
 import org.parul.pmp.entity.Faculty;
-import org.parul.pmp.repository.facultyRepository;
+import org.parul.pmp.repository.FacultyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class FacultyController {
 
     @Autowired
-    private facultyRepository faculty_repository;
+    private FacultyRepository faculty_repository;
 
     @GetMapping
     public String getFacultyAddPage(Model model)

@@ -1,7 +1,7 @@
 package org.parul.pmp.controller;
 
 import org.parul.pmp.entity.College;
-import org.parul.pmp.repository.collegeRepository;
+import org.parul.pmp.repository.CollegeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/college")
 public class CollegeController {
     @Autowired
-    private collegeRepository collegeRepository;
+    private CollegeRepository collegeRepository;
     @GetMapping
     public String registerCollege(Model model)
     {

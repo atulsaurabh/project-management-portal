@@ -1,6 +1,7 @@
 package org.parul.pmp.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Faculty")
@@ -12,7 +13,24 @@ public class Faculty extends User {
     private String education;
     private String skill;
     private String Published_papers;
+    private LocalDateTime dateOfRegistration;
+    private LocalDateTime dateOfModification;
 
+    public LocalDateTime getDateOfRegistration() {
+        return dateOfRegistration;
+    }
+
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
+        this.dateOfRegistration = dateOfRegistration;
+    }
+
+    public LocalDateTime getDateOfModification() {
+        return dateOfModification;
+    }
+
+    public void setDateOfModification(LocalDateTime dateOfModification) {
+        this.dateOfModification = dateOfModification;
+    }
 
     public String getFaculty_name() { return faculty_name; }
 

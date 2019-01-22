@@ -3,7 +3,7 @@ package org.parul.pmp.controller;
 import org.parul.pmp.entity.Department;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.parul.pmp.repository.departmentRepository;
+import org.parul.pmp.repository.DepartmentRepository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DepartmentController {
 
     @Autowired
-    private departmentRepository departmentRepository;
+    private DepartmentRepository departmentRepository;
 
     @GetMapping
     public String getDepartment(Model model){
