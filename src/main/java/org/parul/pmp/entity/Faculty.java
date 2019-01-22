@@ -7,6 +7,8 @@ import java.time.LocalDateTime;
 @Table(name = "Faculty")
 public class Faculty extends User {
     private String faculty_name;
+
+    private String faculty_code;
     private String email;
     private String phone;
     private Department department;
@@ -15,6 +17,14 @@ public class Faculty extends User {
     private String Published_papers;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
+
+    public String getFaculty_code() {
+        return faculty_code;
+    }
+
+    public void setFaculty_code(String faculty_code) {
+        this.faculty_code = faculty_code;
+    }
 
     public LocalDateTime getDateOfRegistration() {
         return dateOfRegistration;
@@ -42,7 +52,6 @@ public class Faculty extends User {
     public void setEmail(String email) {
         this.email = email;
     }
-
     public String getPhone() { return phone; }
 
     public void setPhone(String phone) {
@@ -54,7 +63,6 @@ public class Faculty extends User {
     public Department getDepartment() {
         return department;
     }
-
     public void setDepartment(Department department) {
         this.department = department;
     }

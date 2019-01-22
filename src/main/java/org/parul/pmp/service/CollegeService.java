@@ -19,19 +19,19 @@ import java.util.Optional;
 @Service
 public class CollegeService {
     @Autowired
-    CollegeRepository collegeRepository;
+    private CollegeRepository collegeRepository;
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
     @Autowired
-    RoleRepository roleRepository;
+    private RoleRepository roleRepository;
     @Autowired
-    UniversityRepository universityRepository;
+    private UniversityRepository universityRepository;
 
     @Transactional
     public void addCollege(CollegeDTO collegeDTO) throws RoleNotAvailableException
     {
         College college = CollegeMapper.toEntity(collegeDTO);
-        University u=universityRepository.findById()
+        University u=universityRepository.findById(collegeDTO.getCollege_id()).get();
         LocalDateTime localDateTime = LocalDateTime.now();
         college.setDateOfModification(localDateTime);
         college.setDateOfRegistration(localDateTime);
@@ -51,7 +51,7 @@ public class CollegeService {
         storedUser.setCollege(college);
         College savedCollege = collegeRepository.saveAndFlush(college);
         u.getColleges().add(savedCollege);
-        savedCollege.setUniversity_id(u);
+        savedCollege.setUniversity(u);
         universityRepository.saveAndFlush(u);
     }
 }

@@ -8,7 +8,7 @@ public class FacultyMapper {
     public static Faculty toEntity(FacultyDTO dto)
     {
         Faculty register = new Faculty();
-        register.setFaculty_code(dto.getFaculty_code());
+        register.
         register.setFaculty_firstname(dto.getFaculty_firstname());
         register.setFaculty_middlename(dto.getFaculty_middlename());
         register.setFaculty_lastname(dto.getFaculty_lastname());
