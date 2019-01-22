@@ -47,7 +47,7 @@ public class StudentController {
         List<DepartmentDTO> dtos=departments.stream().map(DepartmentMapper::toDTO).collect(Collectors.toList());
         model.addAttribute("depts",dtos);
         model.addAttribute("student",new StudentDTO());
-        return "student";
+        return "studentRegistration";
     }
 
     @PostMapping("/register")
@@ -64,7 +64,7 @@ public class StudentController {
             e.printStackTrace();
             model.addAttribute("msg", "Error");
         }
-        return "Welcome";
+        return "studentRegistration";
     }
 
     @GetMapping("/profile")
