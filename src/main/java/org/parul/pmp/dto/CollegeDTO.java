@@ -77,9 +77,8 @@ public class CollegeDTO {
         this.fax = fax;
     }
 
-    public long getUniversity_id() {
-        return university_id;
-    }
+
+    public long getUniversity_id() { return university_id; }
 
     public void setUniversity_id(long university_id) {
         this.university_id = university_id;

@@ -1,6 +1,5 @@
 package org.parul.pmp.controller;
 import org.parul.pmp.dto.UniversityDTO;
-import org.parul.pmp.service.MailService;
 import org.parul.pmp.service.UniversityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +16,6 @@ public class UniversityController {
     @Autowired
     private UniversityService universityService;
 
-    private MailService mailService;
     @GetMapping
     public String addUniversityPage(Model model)
     {
@@ -40,6 +38,7 @@ public class UniversityController {
             model.addAttribute("msg", "Error");
         }
         return "university";
-        }   }
+        }
+    }
 
 

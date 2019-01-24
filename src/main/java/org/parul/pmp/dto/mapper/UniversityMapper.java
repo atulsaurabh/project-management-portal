@@ -33,13 +33,6 @@ public class UniversityMapper
     public static User toUserEntity(UniversityDTO universityDTO)
     {
         User admin = new User();
-
-        /*Role role = new Role();
-        role.setName(Roles.ROLE_ADMIN.name());
-        role.getCredential().add(credential);
-        credential.getRoles().add(role);
-        credential.setUser(admin);
-        admin.setCredential(credential);*/
         return admin;
     }
 

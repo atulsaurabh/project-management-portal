@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 @Table(name = "student")
 public class Student extends User{
 
-    private long student_id;
     private String firstname;
     private String middlename;
     private String lastname;
@@ -15,22 +14,12 @@ public class Student extends User{
     private String enrollment_no;
     //private String college;
     private String sem;
-    private String dept;
     private String email;
     private String gender;
     private String mobile_no;
     private Department department;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
-    private Address address;
-
-    public long getStudent_id() {
-        return student_id;
-    }
-
-    public void setStudent_id(long student_id) {
-        this.student_id = student_id;
-    }
 
     public String getFirstname() {
         return firstname;
@@ -72,14 +61,6 @@ public class Student extends User{
         this.enrollment_no = enrollment_no;
     }
 
-//    public String getCollege() {
-//        return college;
-//    }
-//
-//    public void setCollege(String college) {
-//        this.college = college;
-//    }
-
     public String getSem() {
         return sem;
     }
@@ -87,12 +68,6 @@ public class Student extends User{
     public void setSem(String sem) {
         this.sem = sem;
     }
-
-    public String getDept() {
-        return dept;
-    }
-
-    public void setDept(String dept) { this.dept = dept; }
 
     public String getEmail() {
         return email;
@@ -118,16 +93,6 @@ public class Student extends User{
         this.mobile_no = mobile_no;
     }
 
-//    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-//    @JoinColumn(name = "department_id")
-//
-//    public Department getDepartment_id() {
-//        return department_id;
-//    }
-//
-//    public void setDepartment_id(Department department_id) {
-//        this.department_id = department_id;
-//    }
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
@@ -138,6 +103,7 @@ public class Student extends User{
     public void setDepartment(Department department) {
         this.department = department;
     }
+
     public LocalDateTime getDateOfRegistration() {
         return dateOfRegistration;
     }
@@ -152,16 +118,7 @@ public class Student extends User{
 
     public void setDateOfModification(LocalDateTime dateOfModification) {
         this.dateOfModification = dateOfModification;
-    }
 
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name = "addressid")
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
     }
 }
 

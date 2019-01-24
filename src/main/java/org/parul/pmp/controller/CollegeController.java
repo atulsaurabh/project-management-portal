@@ -3,7 +3,6 @@ package org.parul.pmp.controller;
 import org.parul.pmp.dto.CollegeDTO;
 import org.parul.pmp.dto.UniversityDTO;
 import org.parul.pmp.dto.mapper.UniversityMapper;
-import org.parul.pmp.entity.College;
 import org.parul.pmp.entity.University;
 import org.parul.pmp.repository.UniversityRepository;
 import org.parul.pmp.service.CollegeService;
@@ -14,35 +13,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/college")
+@RequestMapping("college")
 public class CollegeController {
-
     @Autowired
-    private CollegeService collegeService;
+    private CollegeService collegeService ;
     @Autowired
     private UniversityRepository universityRepository;
-
     @GetMapping
-    public String addCollege(Model model)
+    public String addCollegePage(Model model)
     {
-        List<University> universities= universityRepository.findAll();
-        List<UniversityDTO> dtos= universities.stream().map(UniversityMapper::toDTO).collect(Collectors.toList());
-        model.addAttribute("unis", dtos);
+        List<University> universities=universityRepository.findAll();
+        List<UniversityDTO> dtos=universities.stream().map(UniversityMapper::toDTO).collect(Collectors.toList());
+        model.addAttribute("univercities",dtos);
         model.addAttribute("college",new CollegeDTO());
         return "college";
     }
-
-    public String registerCollege(Model model)
-    {
-        model.addAttribute("college",new College());
-        return "college";
-    }
-    @PostMapping
+    @PostMapping()
     public String addCollegePage(@ModelAttribute("college") CollegeDTO college, Model model)
     {
         try

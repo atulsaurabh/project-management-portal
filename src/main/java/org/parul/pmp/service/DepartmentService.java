@@ -1,9 +1,10 @@
 package org.parul.pmp.service;
 
 import org.parul.pmp.dto.DepartmentDTO;
+import org.parul.pmp.dto.mapper.CollegeMapper;
 import org.parul.pmp.dto.mapper.DepartmentMapper;
-import org.parul.pmp.entity.College;
-import org.parul.pmp.entity.Department;
+import org.parul.pmp.entity.*;
+import org.parul.pmp.entity.enumeration.Roles;
 import org.parul.pmp.exception.RoleNotAvailableException;
 import org.parul.pmp.repository.CollegeRepository;
 import org.parul.pmp.repository.DepartmentRepository;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class DepartmentService {

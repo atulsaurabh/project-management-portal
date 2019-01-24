@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+
 @Service
 public class CollegeService {
     @Autowired
@@ -31,21 +32,21 @@ public class CollegeService {
     {
         College college = CollegeMapper.toEntity(collegeDTO);
         University u=universityRepository.findById(collegeDTO.getUniversity_id()).get();
-
         LocalDateTime localDateTime = LocalDateTime.now();
         college.setDateOfModification(localDateTime);
         college.setDateOfRegistration(localDateTime);
 
+
         User user = CollegeMapper.toUserEntity(collegeDTO);
         User storedUser = userRepository.saveAndFlush(user);
-        Credential credential1 = CollegeMapper.toCredentialEntity(collegeDTO);
+        Credential credential = CollegeMapper.toCredentialEntity(collegeDTO);
 
         Optional<Role> optionalRole=roleRepository.findByName(Roles.ROLE_COLLEGE_ADMIN.name());
         Role role = optionalRole.orElseThrow(()-> new RoleNotAvailableException());
-        credential1.getRoles().add(role);
-        role.getCredential().add(credential1);
-        credential1.setUser(storedUser);
-        storedUser.setCredential(credential1);
+        credential.getRoles().add(role);
+        role.getCredential().add(credential);
+        credential.setUser(storedUser);
+        storedUser.setCredential(credential);
         college.setCollegeAdmin(storedUser);
         storedUser.setCollege(college);
         College savedCollege = collegeRepository.saveAndFlush(college);
@@ -53,5 +54,4 @@ public class CollegeService {
         savedCollege.setUniversity(u);
         universityRepository.saveAndFlush(u);
     }
-
 }
