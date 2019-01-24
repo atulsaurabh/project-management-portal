@@ -26,7 +26,7 @@ public class AccountController
     public String loginpage(Model model)
     {
         model.addAttribute("loginDTO",new LoginDTO());
-        return "login";
+        return "userLogin";
     }
     @PostMapping("/login")
     public String login(LoginDTO loginDTO, Model model) throws UserNotExistException
