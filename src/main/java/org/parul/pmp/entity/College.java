@@ -2,10 +2,6 @@ package org.parul.pmp.entity;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,7 +10,7 @@ import java.util.Set;
 @Table(name = "College")
 public class College {
     private long college_id;
-    private String college_code;
+    private String collegeCode;
     private String college_name;
     private String contact_no;
     private String email;
@@ -28,7 +24,7 @@ public class College {
 
     private User collegeAdmin;
 
-    @OneToOne(mappedBy = "college",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToOne(mappedBy = "college",fetch = FetchType.LAZY,cascade = CascadeType.ALL,orphanRemoval = true)
     public User getCollegeAdmin() {
         return collegeAdmin;
     }
@@ -47,15 +43,13 @@ public class College {
         this.college_id = college_id;
     }
 
-    @NotNull(message = "clg code cannot be null")
-    public String getCollege_code() {
-        return college_code;
+    public String getCollegeCode() {
+        return collegeCode;
     }
-    public void setCollege_code(String college_code) {
-        this.college_code = college_code;
+    public void setCollegeCode(String collegeCode) {
+        this.collegeCode = collegeCode;
     }
 
-    @NotNull(message = "clg name cannot be null")
     public String getCollege_name() {
         return college_name;
     }
@@ -63,9 +57,6 @@ public class College {
         this.college_name = college_name;
     }
 
-    @NotNull
-    @Size(min = 10, max = 10)
-    @Positive
     public String getContact_no() {
         return contact_no;
     }
@@ -73,8 +64,6 @@ public class College {
         this.contact_no = contact_no;
     }
 
-    @NotNull
-    @Email(message = "email should be valid")
     public String getEmail() {
         return email;
     }
@@ -82,7 +71,6 @@ public class College {
         this.email = email;
     }
 
-    @NotNull(message = "website cannot be null")
     public String getWebsite() {
         return website;
     }
@@ -93,20 +81,18 @@ public class College {
     public String getFax() { return fax; }
     public void setFax(String fax) {this.fax = fax;}
 
-    @NotNull(message = "address cannot be null")
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+
+    @OneToOne(optional = true)
     @JoinColumn(name = "addressid")
     public Address getAddress() { return address; }
 
     public void setAddress(Address address) { this.address = address; }
 
-    @NotNull
     @OneToMany(mappedBy = "college",cascade = CascadeType.ALL)
     public Set<Department> getDepartments() { return departments; }
 
     public void setDepartments(Set<Department> departments) { this.departments = departments; }
 
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "university_id")
     public University getUniversity() { return university; }
@@ -117,15 +103,11 @@ public class College {
         return dateOfRegistration;
     }
 
-    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
-        this.dateOfRegistration = dateOfRegistration;
-    }
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) { this.dateOfRegistration = dateOfRegistration; }
 
     public LocalDateTime getDateOfModification() {
         return dateOfModification;
     }
 
-    public void setDateOfModification(LocalDateTime dateOfModification) {
-        this.dateOfModification = dateOfModification;
-    }
+    public void setDateOfModification(LocalDateTime dateOfModification) { this.dateOfModification = dateOfModification; }
 }

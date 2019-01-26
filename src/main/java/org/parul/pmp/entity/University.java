@@ -11,7 +11,7 @@ import java.util.Set;
 public class University {
 
     private long university_id;
-    private String university_code;
+    private String universityCode;
     private String university_name;
     private String contact_no;
     private String email;
@@ -41,9 +41,9 @@ public class University {
     }
 
     //@Column(name = "university_id" )
-    public String getUniversity_code() { return university_code; }
+    public String getUniversityCode() { return universityCode; }
 
-    public void setUniversity_code(String university_code) { this.university_code = university_code; }
+    public void setUniversityCode(String universityCode) { this.universityCode = universityCode; }
 
     public String getUniversity_name() { return university_name; }
 

@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-light" style="">
-<form>
+
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
             <img src="http://www.paruluniversity.ac.in/wp-content/themes/parul/images/logonew.png" alt="Logo" title="Logo" class="rounded" style="">
@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-md-12" style="">
                     <h3 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">Department</h3>
-                    <form action="department" method="post" th:object="${department}">
+                    <form action="/department" method="post" th:object="${department}">
                     <button class="btn dropdown-toggle w-75 ml-5 btn-secondary py-2 text-left" data-toggle="dropdown" aria-expanded="false"> college</button>
                         <b>college:</b>
                         <select th:field="*{college_id}">
@@ -37,7 +37,7 @@
                                     th:value="${college.college_code}" th:text="${college.college_name}"></option>
                         </select>
                     <div class="form-group">&nbsp;&nbsp;
-                        <input class="form-control w-75 form-control-lg mx-5" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" placeholder="DepartmentID" th:field="*{department_code}"> </div>
+                        <input class="form-control w-75 form-control-lg mx-5" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="DepartmentID" th:field="*{departmentCode}" required="required"> </div>
                     <div class="form-group">
                         <input class="form-control w-75 form-control-lg mx-5" placeholder="Name" th:field="*{department_name}" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required"> </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-secondary ml-3" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;">
                     <b class="" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;">Save</b>
@@ -47,7 +47,7 @@
             </div>
         </div>
     </div>
-</form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <div class="row bg-dark">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <div class="row bg-dark">
     <div class="col-md-12 mt-3">
         <p class="text-center bg-dark text-light">© 2019 Project Management Portal. </p>
     </div>

@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @Controller
-@RequestMapping("college")
+@RequestMapping("/college")
 public class CollegeController {
     @Autowired
     private CollegeService collegeService ;
@@ -26,13 +27,14 @@ public class CollegeController {
     @GetMapping
     public String addCollegePage(Model model)
     {
+
         List<University> universities=universityRepository.findAll();
         List<UniversityDTO> dtos=universities.stream().map(UniversityMapper::toDTO).collect(Collectors.toList());
         model.addAttribute("univercities",dtos);
         model.addAttribute("college",new CollegeDTO());
         return "college";
     }
-    @PostMapping()
+    @PostMapping
     public String addCollegePage(@ModelAttribute("college") CollegeDTO college, Model model)
     {
         try
@@ -46,7 +48,7 @@ public class CollegeController {
             model.addAttribute("msg","College not Registered");
         }
 
-       return "college";
+       return "welcome";
     }
 
 }

@@ -2,16 +2,16 @@ package org.parul.pmp.dto;
 
 public class DepartmentDTO
 {
-    private String department_code;
+    private String departmentCode;
     private String department_name;
-    private long college_id;
+    private String college_id;
     private long deptid;
 
-    public long getCollege_id() {
+    public String getCollege_id() {
         return college_id;
     }
 
-    public void setCollege_id(long college_id) {
+    public void setCollege_id(String college_id) {
         this.college_id = college_id;
     }
 
@@ -23,10 +23,10 @@ public class DepartmentDTO
         this.deptid = deptid;
     }
 
-    public String getDepartment_code() { return department_code; }
+    public String getDepartmentCode() { return departmentCode; }
 
-    public void setDepartment_code(String department_code) {
-        this.department_code = department_code;
+    public void setDepartmentCode(String departmentCode) {
+        this.departmentCode = departmentCode;
     }
 
     public String getDepartment_name() { return department_name; }

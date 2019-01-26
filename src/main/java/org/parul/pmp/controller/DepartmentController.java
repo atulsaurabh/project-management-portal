@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("department")
+@RequestMapping("/department")
 public class DepartmentController {
 
     @Autowired
