@@ -4,21 +4,20 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Student")
-public class Student extends User {
+@Table(name = "student")
+public class Student extends User{
 
     private String firstname;
     private String middlename;
     private String lastname;
     private String dob;
     private String enrollment_no;
-    //private University university_id;
-   // private College college_id;
+    //private String college;
     private String sem;
     private String email;
     private String gender;
     private String mobile_no;
-    private Department department_id;
+    private Department department;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
 
@@ -98,11 +97,11 @@ public class Student extends User {
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     public Department getDepartment() {
-        return department_id;
+        return department;
     }
 
     public void setDepartment(Department department) {
-        this.department_id = department;
+        this.department = department;
     }
 
     public LocalDateTime getDateOfRegistration() {

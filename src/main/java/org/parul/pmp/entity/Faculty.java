@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Faculty")
-public class Faculty extends User  {
+public class Faculty extends User{
 
     private String faculty_code;
     private String faculty_firstname;
@@ -101,13 +101,13 @@ public class Faculty extends User  {
         return dateOfRegistration;
     }
 
-    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
-        this.dateOfRegistration = dateOfRegistration;
-    }
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) { this.dateOfRegistration = dateOfRegistration; }
 
     public LocalDateTime getDateOfModification() {
         return dateOfModification;
     }
+
+    public void setDateOfModification(LocalDateTime dateOfModification) { this.dateOfModification = dateOfModification; }
 
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "addressid")
@@ -119,8 +119,5 @@ public class Faculty extends User  {
         this.address = address;
     }
 
-    public void setDateOfModification(LocalDateTime dateOfModification) {
-        this.dateOfModification = dateOfModification;
 
-    }
 }

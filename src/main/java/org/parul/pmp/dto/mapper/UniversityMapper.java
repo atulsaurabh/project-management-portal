@@ -14,29 +14,21 @@ public class UniversityMapper
         university.setEmail(dto.getEmail());
         university.setFax(dto.getFax());
         university.setUniversity_name(dto.getUniversity_name());
-        university.setUniversity_code(dto.getUniversity_code());
+        university.setUniversityCode(dto.getUniversity_code());
         university.setWebsite(dto.getWebsite());
         return university;
     }
     public static UniversityDTO toDTO(University university)
     {
         UniversityDTO dto = new UniversityDTO();
-        dto.setUniversity_code(university.getUniversity_code());
+        dto.setUniversity_code(university.getUniversityCode());
         dto.setUniversity_name(university.getUniversity_name());
-        //dto.setUniversity_id(university.getUniversity_id());
         return dto;
     }
 
     public static User toUserEntity(UniversityDTO universityDTO)
     {
         User admin = new User();
-
-        /*Role role = new Role();
-        role.setName(Roles.ROLE_ADMIN.name());
-        role.getCredential().add(credential);
-        credential.getRoles().add(role);
-        credential.setUser(admin);
-        admin.setCredential(credential);*/
         return admin;
     }
 

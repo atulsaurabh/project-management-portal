@@ -31,11 +31,11 @@ public class CollegeService {
     public void addCollege(CollegeDTO collegeDTO) throws RoleNotAvailableException
     {
         College college = CollegeMapper.toEntity(collegeDTO);
-        University u=universityRepository.findById(collegeDTO.getUniversity_id()).get();
+        University u=universityRepository.findByUniversityCode(collegeDTO.getUniversity_id());
+
         LocalDateTime localDateTime = LocalDateTime.now();
         college.setDateOfModification(localDateTime);
         college.setDateOfRegistration(localDateTime);
-
 
         User user = CollegeMapper.toUserEntity(collegeDTO);
         User storedUser = userRepository.saveAndFlush(user);

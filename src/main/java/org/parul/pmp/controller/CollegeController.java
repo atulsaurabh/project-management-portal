@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @Controller
 @RequestMapping("/college")
 public class CollegeController {
@@ -26,6 +27,7 @@ public class CollegeController {
     @GetMapping
     public String addCollegePage(Model model)
     {
+
         List<University> universities=universityRepository.findAll();
         List<UniversityDTO> dtos=universities.stream().map(UniversityMapper::toDTO).collect(Collectors.toList());
         model.addAttribute("univercities",dtos);
@@ -33,20 +35,20 @@ public class CollegeController {
         return "college";
     }
     @PostMapping
-    public String registerCollege(@ModelAttribute("college") CollegeDTO college, Model model)
+    public String addCollegePage(@ModelAttribute("college") CollegeDTO college, Model model)
     {
         try
         {
             collegeService.addCollege(college);
-            model.addAttribute("msg", "Successful");
+            model.addAttribute("msg","College Successfully Registered");
         }
         catch (Exception e)
         {
             e.printStackTrace();
-            model.addAttribute("msg", "Error");
+            model.addAttribute("msg","College not Registered");
         }
 
-       return "college";
+       return "welcome";
     }
 
 }

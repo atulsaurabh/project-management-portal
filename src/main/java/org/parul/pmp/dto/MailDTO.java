@@ -7,23 +7,6 @@ public class MailDTO {
     private String password;
     private String name;
 
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getTo() {
         return to;
     }
@@ -48,7 +31,21 @@ public class MailDTO {
         this.link = link;
     }
 
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     public String activationMessage()
     {
         String message="Dear "+name+",\n\n";
@@ -65,4 +62,5 @@ public class MailDTO {
         return message;
 
     }
+
 }

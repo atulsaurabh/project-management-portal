@@ -10,7 +10,7 @@ import java.util.Set;
 public class Department {
 
     private long department_id;
-    private String department_code;
+    private String departmentCode;
     private String department_name;
     private College college;
     private Set<Student>students=new HashSet<>();
@@ -19,12 +19,12 @@ public class Department {
     private LocalDateTime dateOfModification;
 
 
-      public String getDepartment_code() {
-        return department_code;
+    public String getDepartmentCode() {
+        return departmentCode;
     }
 
-    public void setDepartment_code(String department_code) {
-        this.department_code = department_code;
+    public void setDepartmentCode(String departmentCode) {
+        this.departmentCode = departmentCode;
     }
 
     @Id
@@ -39,13 +39,9 @@ public class Department {
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "college_id")
-    public College getCollege() {
-        return college;
-    }
+    public College getCollege() { return college; }
 
-    public void setCollege(College college) {
-        this.college = college;
-    }
+    public void setCollege(College college) { this.college = college; }
 
     @OneToMany(mappedBy = "department",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public Set<Faculty> getFaculties() { return faculties; }

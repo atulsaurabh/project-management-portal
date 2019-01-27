@@ -11,7 +11,7 @@ import java.util.Set;
 public class University {
 
     private long university_id;
-    private String university_code;
+    private String universityCode;
     private String university_name;
     private String contact_no;
     private String email;
@@ -27,13 +27,9 @@ public class University {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getUniversity_id() {
-        return university_id;
-    }
+    public long getUniversity_id() { return university_id; }
 
-    public void setUniversity_id(long university_id) {
-        this.university_id = university_id;
-    }
+    public void setUniversity_id(long university_id) { this.university_id = university_id; }
 
     @OneToOne(mappedBy = "university",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
     public User getUniversityAdmin() {
@@ -45,9 +41,9 @@ public class University {
     }
 
     //@Column(name = "university_id" )
-    public String getUniversity_code() { return university_code; }
+    public String getUniversityCode() { return universityCode; }
 
-    public void setUniversity_code(String university_code) { this.university_code = university_code; }
+    public void setUniversityCode(String universityCode) { this.universityCode = universityCode; }
 
     public String getUniversity_name() { return university_name; }
 
@@ -89,8 +85,7 @@ public class University {
 
     public void setAddress(Address address) { this.address = address; }
 
-
-    @OneToMany(mappedBy = "university", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "university", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<College> getColleges() { return colleges; }
 
     public void setColleges(Set<College> colleges) { this.colleges = colleges; }
@@ -99,16 +94,12 @@ public class University {
         return dateOfRegistration;
     }
 
-    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
-        this.dateOfRegistration = dateOfRegistration;
-    }
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) { this.dateOfRegistration = dateOfRegistration; }
 
     public LocalDateTime getDateOfModification() {
         return dateOfModification;
     }
 
-    public void setDateOfModification(LocalDateTime dateOfModification) {
-        this.dateOfModification = dateOfModification;
-    }
+    public void setDateOfModification(LocalDateTime dateOfModification) { this.dateOfModification = dateOfModification; }
 }
 

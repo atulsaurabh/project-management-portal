@@ -13,7 +13,6 @@ public class User {
 
     private Address address;
 
-
     private University university;
 
     private College college;

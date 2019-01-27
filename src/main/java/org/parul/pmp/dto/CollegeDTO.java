@@ -3,28 +3,22 @@ package org.parul.pmp.dto;
 
 
 public class CollegeDTO {
-    private long college_id;
+    private String college_id;
     private String college_code;
     private String college_name;
     private String contact_no;
     private String email;
     private String website;
     private String fax;
-    private long university_id;
+    private String university_id;
     private String username;
     private String password;
 
-    public long getCollege_id() {
-        return college_id;
-    }
+    public String getCollege_id() { return college_id; }
 
-    public void setCollege_id(long college_id) {
-        this.college_id = college_id;
-    }
+    public void setCollege_id(String college_id) { this.college_id = college_id; }
 
-    public String getUsername() {
-        return username;
-    }
+    public String getUsername() { return username; }
 
     public void setUsername(String username) {
         this.username = username;
@@ -38,9 +32,7 @@ public class CollegeDTO {
         this.password = password;
     }
 
-    public String getCollege_code() {
-        return college_code;
-    }
+    public String getCollege_code() { return college_code; }
 
     public void setCollege_code(String college_code) {
         this.college_code = college_code;
@@ -70,9 +62,7 @@ public class CollegeDTO {
         this.email = email;
     }
 
-    public String getWebsite() {
-        return website;
-    }
+    public String getWebsite() { return website; }
 
     public void setWebsite(String website) {
         this.website = website;
@@ -86,10 +76,7 @@ public class CollegeDTO {
         this.fax = fax;
     }
 
+    public String getUniversity_id() { return university_id; }
 
-    public long getUniversity_id() { return university_id; }
-
-    public void setUniversity_id(long university_id) {
-        this.university_id = university_id;
-    }
+    public void setUniversity_id(String university_id) { this.university_id = university_id; }
 }
