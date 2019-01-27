@@ -5,19 +5,21 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Faculty")
-public class Faculty extends User {
-    private String faculty_name;
+public class Faculty extends User  {
 
     private String faculty_code;
+    private String faculty_firstname;
+    private String faculty_middlename;
+    private String faculty_lastname;
     private String email;
     private String phone;
     private Department department;
     private String education;
     private String skill;
     private String Published_papers;
+    private Address address;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
-
     public String getFaculty_code() {
         return faculty_code;
     }
@@ -26,32 +28,36 @@ public class Faculty extends User {
         this.faculty_code = faculty_code;
     }
 
-    public LocalDateTime getDateOfRegistration() {
-        return dateOfRegistration;
+    public String getFaculty_firstname() {
+        return faculty_firstname;
     }
 
-    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
-        this.dateOfRegistration = dateOfRegistration;
+    public void setFaculty_firstname(String faculty_firstname) {
+        this.faculty_firstname = faculty_firstname;
     }
 
-    public LocalDateTime getDateOfModification() {
-        return dateOfModification;
+    public String getFaculty_middlename() {
+        return faculty_middlename;
     }
 
-    public void setDateOfModification(LocalDateTime dateOfModification) {
-        this.dateOfModification = dateOfModification;
+    public void setFaculty_middlename(String faculty_middlename) {
+        this.faculty_middlename = faculty_middlename;
     }
 
-    public String getFaculty_name() { return faculty_name; }
+    public String getFaculty_lastname() {
+        return faculty_lastname;
+    }
 
-    public void setFaculty_name(String faculty_name) { this.faculty_name = faculty_name; }
-
+    public void setFaculty_lastname(String faculty_lastname) {
+        this.faculty_lastname = faculty_lastname;
+    }
 
     public String getEmail() { return email; }
 
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getPhone() { return phone; }
 
     public void setPhone(String phone) {
@@ -89,5 +95,32 @@ public class Faculty extends User {
 
     public void setPublished_papers(String published_papers) {
         Published_papers = published_papers;
+    }
+
+    public LocalDateTime getDateOfRegistration() {
+        return dateOfRegistration;
+    }
+
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
+        this.dateOfRegistration = dateOfRegistration;
+    }
+
+    public LocalDateTime getDateOfModification() {
+        return dateOfModification;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "addressid")
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void setDateOfModification(LocalDateTime dateOfModification) {
+        this.dateOfModification = dateOfModification;
+
     }
 }

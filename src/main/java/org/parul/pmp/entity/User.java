@@ -16,9 +16,33 @@ public class User {
 
     private University university;
 
+    private College college;
+
+
+    /*private Faculty faculty;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "university_code")
+    @JoinColumn(name = "faculty_code")
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }*/
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "college_id")
+    public College getCollege() {
+        return college;
+    }
+
+    public void setCollege(College college) {
+        this.college = college;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "university_id")
     public University getUniversity() {
         return university;
     }

@@ -31,7 +31,7 @@ public class CollegeService {
     public void addCollege(CollegeDTO collegeDTO) throws RoleNotAvailableException
     {
         College college = CollegeMapper.toEntity(collegeDTO);
-        University u=universityRepository.findById(collegeDTO.getCollege_id()).get();
+        University u=universityRepository.findById(collegeDTO.getUniversity_id()).get();
         LocalDateTime localDateTime = LocalDateTime.now();
         college.setDateOfModification(localDateTime);
         college.setDateOfRegistration(localDateTime);
