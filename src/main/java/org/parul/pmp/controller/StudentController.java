@@ -10,6 +10,7 @@ import org.parul.pmp.entity.University;
 import org.parul.pmp.repository.CollegeRepository;
 import org.parul.pmp.repository.DepartmentRepository;
 import org.parul.pmp.repository.UniversityRepository;
+import org.parul.pmp.service.MailService;
 import org.parul.pmp.service.StudentProfileService;
 import org.parul.pmp.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,8 @@ public class StudentController {
     private CollegeRepository collegeRepository;
     @Autowired
     private UniversityRepository universityRepository;
+    @Autowired
+    private MailService mailService;
 
     @GetMapping("/register")
     public String addStudent(Model model)
@@ -56,7 +59,16 @@ public class StudentController {
         try {
 
             studentService.addStudent(student);
-            model.addAttribute("msg", "Successful");
+           // model.addAttribute("msg", "Successful");
+            MailDTO mailDTO = new MailDTO();
+            mailDTO.setName(student.getFirstname());
+            mailDTO.setPassword(student.getPassword());
+            mailDTO.setTo(student.getEmail());
+            mailDTO.setSubject("Account Activation");
+            mailDTO.setLink("http://localhost:8080/activate");
+            mailService.sendActivationMailWithCredential(mailDTO);
+            model.addAttribute("emailId",student.getEmail());
+            return "successfulRegistration";
 
         }
         catch (Exception e)

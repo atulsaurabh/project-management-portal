@@ -4,15 +4,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="D:\final-year-project\src\main\resources\static\css\studentRegistrationCss.css" type="text/css">
-    <link rel="stylesheet" href="D:\final-year-project\src\main\resources\static\css\studentThreg.css" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/studentRegistrationCss.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/studentThreg.css}" type="text/css">
+    <!--<script type="text/javascript">
+        function copyValue(id, caption) {
+
+            document.getElementById("firstName").value = id;
+            document.getElementById("clgDrpDn").innerText = caption;
+        }
+    </script>-->
 </head>
 
 <body>
 <form action="/student/register" method="post" th:object="${student}">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">n
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
-            <img alt="Logo" title="Logo" class="rounded" style="" src="D:/final-year-project/src/main/resources/static/images/download.png">
+            <img alt="Logo" title="Logo" class="rounded" style="" src="/images/download.png">
         </a>
         <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
             <span class="navbar-toggler-icon"></span>
@@ -20,7 +27,7 @@
         <div class="collapse navbar-collapse" id="navbar10">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>
-                <li class="nav-item"> <a class="nav-link" style="color:white;font-size:25px;font-weight:500;" href="file:///D:/prmp/useralogin.html">Login</a> </li>
+                <li class="nav-item"> <a class="nav-link" style="color:white;font-size:25px;font-weight:500;" href="templates/userLogin.html">Login</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Profile</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">LogOut</a> </li>
             </ul>
@@ -29,52 +36,63 @@
     <div class="form-group">
         <h4 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">NEW USER REGISTRATION</h4>
     </div>
-    <div class="form-group" style="">
-        <button class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true"> University</button>
+    <div class="form-group ml-5 pl-5" style="">
+       <!-- <button class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true"> University</button>
+        <a href="#" th:each="university:${univercities}"
+           th:value="${university.university_id}"
+           th:text="${university.university_name}"
+           th:onclick="${'copyValue('+${university.university_id}+',\''+${university.university_name}+'\');'}"></a>
+
         <select th:field="*{university_id}">
-            <option th:each="university:${univercities}"
-                    th:value="${university.university_id}" th:text="${university.university_name}">
+            <option  >
             </option>
+        </select>-->
+        <select class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true" th:field="*{university_id}">
+            <option th:each="university : ${univercities}"
+                    th:value="${university.university_id}" th:text="${university.university_name}">University</option>
         </select>
+
     </div>
-    <div class="form-group"> <button class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="true" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;"> College</button>
-        <select th:field="*{college_id}">
+    <div class="form-group ml-5 pl-5"> <!--<button class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="true" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;"> College</button>-->
+        <select class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true" th:field="*{college_id}">
             <option th:each="college : ${colleges}"
-                    th:value="${college.college_id}" th:text="${college.college_name}"></option>
+                    th:value="${college.college_id}" th:text="${college.college_name}">College</option>
         </select>
     </div>
-    <div class="form-group">
-        <button class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;"> Department</button>
-        <select th:field="*{department_id}">
+    <div class="form-group ml-5 pl-5">
+       <!-- <button class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;"> Department</button>-->
+        <select class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true" th:field="*{department_id}">
             <option th:each="dept : ${depts}"
-                    th:value="${dept.deptid}" th:text="${dept.department_name}"></option>
+                    th:value="${dept.deptid}" th:text="${dept.department_name}">Department</option>
         </select>
     </div>
-    <div class="form-group">
+    <div class="form-group ml-5 pl-5">
         <input class="form-control w-75 ml-5" placeholder="First Name" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{firstname}">
     </div>
-    <div class="form-group">
+    <div class="form-group ml-5 pl-5">
         <input class="form-control w-75 ml-5" placeholder="Middle Name" style="	font-color:blue;box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{middlename}">
     </div>
-    <div class="form-group">
+    <div class="form-group ml-5 pl-5">
         <input class="form-control w-75 ml-5" placeholder="Last Name" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{lastname}">
     </div>
-    <div class="form-group">
+    <div class="form-group ml-5 pl-5">
         <input class="form-control w-75 ml-5" placeholder="Enrollment No" style="	font-color:blue;text-shadow: 0px 0px 4px blue;	box-shadow: 0px 0px 4px  blue;" required="required" type="number" th:field="*{enrollment_no}">
     </div>
-    <div class="form-group">
+    <div class="form-group ml-5 pl-5">
         <input class="form-control w-75 ml-5" placeholder="Email Id" style="	font-color:blue;box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" type="email" th:field="*{email}">
     </div>
-    <div class="form-group">
+    <div class="form-group ml-5 pl-5">
         <input class="form-control w-75 ml-5" placeholder="Mobile Number" style="	font-color:blue;box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" type="number" th:field="*{mobile_no}">
     </div>
-    <div class="form-group">
+    <div class="form-group ml-5 pl-5">
         <input class="form-control w-75 ml-5" placeholder="User Name" style="	font-color:blue;box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{username}">
     </div>
-    <div class="form-group">
+    <div class="form-group ml-5 pl-5">
         <input class="form-control w-75 ml-5" placeholder="Password" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" type="password"  th:field="*{password}">
-    </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="submit" class="btn btn-secondary ml-5" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;"> Register </button>
-    <div class="py-3 bg-dark">
+    </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="submit" class="btn btn-secondary ml-5 w-25" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;"> Register </button>
+
+</form>
+<div class="py-3 bg-dark">
         <div class="container">
             <div class="row" style="">
                 <div class="col-md-12 text-center">
@@ -83,11 +101,10 @@
             </div>
         </div>
     </div>
-</form>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
+<script src="/js/js1.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="/js/js2.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="/js/js3.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

@@ -3,11 +3,13 @@ package org.parul.pmp.controller;
 import org.parul.pmp.dto.DepartmentDTO;
 import org.parul.pmp.dto.FacultyDTO;
 import org.parul.pmp.dto.FacultyProfileDTO;
+import org.parul.pmp.dto.MailDTO;
 import org.parul.pmp.dto.mapper.DepartmentMapper;
 import org.parul.pmp.entity.Department;
 import org.parul.pmp.repository.DepartmentRepository;
 import org.parul.pmp.service.FacultyProfileService;
 import org.parul.pmp.service.FacultyService;
+import org.parul.pmp.service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +31,8 @@ public class FacultyController {
 
     @Autowired
     private DepartmentRepository departmentRepository;
+    @Autowired
+    private MailService mailService;
     @GetMapping
     public String addFaculty(Model model)
     {
@@ -43,7 +47,16 @@ public class FacultyController {
         try {
 
             facultyService.addFaculty(faculty);
-            model.addAttribute("msg", "Successful");
+            //model.addAttribute("msg", "Successful");
+            MailDTO mailDTO = new MailDTO();
+            mailDTO.setName(faculty.getFaculty_firstname());
+            mailDTO.setPassword(faculty.getPassword());
+            mailDTO.setTo(faculty.getEmail());
+            mailDTO.setSubject("Account Activation");
+            mailDTO.setLink("http://localhost:8080/activate");
+            mailService.sendActivationMailWithCredential(mailDTO);
+            model.addAttribute("emailId",faculty.getEmail());
+            return "successfulRegistration";
 
         }
         catch (Exception e)
