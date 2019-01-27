@@ -40,10 +40,10 @@ public class AccountController
                 uiname="hodHomePage";
                 break;
             case "ROLE_COLLEGE_ADMIN":
-                uiname="collegeAdminHomePage";
+                uiname="collegeAdmin";
                 break;
             case "ROLE_UNIVERSITY_ADMIN":
-                uiname="universityAdminHomePage";
+                uiname="universityAdmin";
                 break;
             case "ROLE_FACULTY":
                 uiname="facultyHome";
