@@ -2,31 +2,60 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" th:href="@{/css/studentRegistrationCss.css}" type="text/css">
+  <link rel="stylesheet" th:href="@{/css/studentThreg.css}" type="text/css">
 </head>
 <body>
 <form action="faculty" method="post" th:object="${faculty}">
-
-  <b>Departments:</b><select th:field="*{department_id}">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      <img alt="Logo" title="Logo" class="rounded" style="" src="/images/download.png">
+    </a>
+    <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar10">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>
+        <li class="nav-item"> <a class="nav-link" style="color:white;font-size:25px;font-weight:500;" th:href="@{/account/login}">Login</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Profile</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">LogOut</a> </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="form-group" >
+    <h4 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">NEW FACULTY REGISTRATION</h4>
+  </div>
+  <div class="form-group ml-5 pl-5"  style="">
+  <select class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true" th:field="*{department_id}">
       <option th:each="dept: ${depts}"
               th:value="${dept.deptid}" th:text="${dept.department_name}"></option>
-</select>
+  </select></div>
   <b>Faculty ID:</b>
-  <input type="text" name="faculty_code"><br>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" name="faculty_code"></div>
   <b>FirstName:</b>
-  <input type="text" name="faculty_firstname"><br>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" name="faculty_firstname"></div>
   <b>MiddleName:</b>
-  <input type="text" name="faculty_middlename"><br>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" name="faculty_middlename"></div>
   <b>LastName:</b>
-  <input type="text" name="faculty_lastname"><br>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" name="faculty_lastname"></div>
   <b>Email:</b>
-  <input type="text" name="email"><br>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" name="email"></div>
   <b>Mobile Number:</b>
-  <input type="text" name="phone"><br>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" name="phone"></div>
   <b>Username:</b>
-  <input type="text" name="username"><br>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" name="username"></div>
   <b>Password:</b>
-  <input type="text" name="password"><br>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" name="password"></div>
   <button type="submit">Submit</button>
 
 
