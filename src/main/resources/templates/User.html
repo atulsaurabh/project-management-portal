@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/student/register" method="post" th:object="${student}">
+
+    <b>University:</b><select th:field="*{university_id}">
+    <option th:each="university : ${univercities}"
+            th:value="${university.university_id}" th:text="${university.university_name}"></option>
+    </select>
+    <b>College:</b><select th:field="*{college_id}">
+    <option th:each="college : ${colleges}"
+            th:value="${college.college_id}" th:text="${college.college_name}"></option>
+    </select>
+    <b>Department:</b><select th:field="*{department_id}">
+    <option th:each="dept : ${depts}"
+            th:value="${dept.deptid}" th:text="${dept.department_name}"></option>
+    </select>
+    <b>Enrollment Number:</b>
+    <input type="text" name="enrollment_no"><br>
+    <b>Semester:</b>
+    <input type="text" name="sem"><br>
+    <b>FirstName:</b>
+    <input type="text" name="firstname"><br>
+    <b>MiddleName:</b>
+    <input type="text" name="middlename"><br>
+    <b>LastName:</b>
+    <input type="text" name="lastname"><br>
+    <b>Email ID:</b>
+    <input type="text" name="email"><br>
+    <b>Mobile Number:</b>
+    <input type="text" name="mobile_no"><br>
+    <b>Username:</b>
+    <input type="text" name="username"><br>
+    <b>Password:</b>
+    <input type="text" name="password"><br>
+    <button type="submit">Submit</button>
+
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/cg1.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/cg2.css}" type="text/css" >
+</head>
+
+<body class="bg-light" style="">
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" draggable="true">
+    <a class="navbar-brand" href="#">
+        <img src="/image/logonew.png" alt="Logo" title="Logo" class="rounded" style="">
+    </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
+    <span class="navbar-toggler-icon"></span>
+</button>
+    <div class="collapse navbar-collapse" id="navbar10">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Login</a> </li>
+        </ul>
+    </div>
+</nav>
+<form action="/college" method="post" th:object="${college}">
+    <div class="align-items-center d-flex section-primary py-2 bg-light" style="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="">
+                <h2 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;" contenteditable="true">College</h2>
+                    <div class="btn-group mr-auto ml-auto w-100"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <select class="btn dropdown-toggle w-75 ml-5 btn-secondary py-2" data-toggle="dropdown" aria-expanded="false" th:field="*{university_id}">
+                            <option th:each="uni: ${univercities}"
+                                    th:value="${uni.getUniversity_code()}" th:text="${uni.university_name}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group"><label></label>
+                            <div class="form-group">
+                                <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="college code" required="required" th:field="*{college_code}" > </div>
+                            <div class="form-group">
+                                <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="Name" required="required" th:field="*{college_name}" > </div>
+                            <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="Email" required="required" th:field="*{email}" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="Phone No" th:field="*{contact_no}" required="required"> </div>
+                    <div class="form-group">
+                        <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="fax" th:field="*{fax}" required="required"> </div>
+                    <div class="form-group">
+                        <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="website"th:field="*{website}" required="required"> </div>
+                    <div class="form-group">
+                        <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="user" th:field="*{username}" required="required"> </div>
+                        <div class="form-group">
+                            <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="password" th:field="*{password}" required="required"> </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-secondary ml-5" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+<div class="row bg-light">
+    <div class="col-md-12 mt-3">
+    </div>
+</div>
+<div class="row bg-light">
+    <div class="col-md-12 mt-3">
+    </div>
+</div>
+<div class="row bg-light">
+    <div class="col-md-12 mt-3">
+    </div>
+</div>
+<div class="row bg-dark">
+    <div class="col-md-12 mt-3">
+        <p class="text-center bg-dark text-light">© 2019 Project Management Portal. </p>
+    </div>
+</div>
+
+
+<script src="/js/js1.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="/js/js2.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="/js/js3.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>
