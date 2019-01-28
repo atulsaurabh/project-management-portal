@@ -49,4 +49,6 @@ public class StudentService {
         savedStudent.setDepartment(dept);
         departmentRepository.saveAndFlush(dept);
     }
+
+
 }

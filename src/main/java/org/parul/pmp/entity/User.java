@@ -16,6 +16,7 @@ public class User {
     private University university;
 
     private College college;
+    private String password;
 
 
     /*private Faculty faculty;
@@ -78,4 +79,5 @@ public class User {
     public void setCredential(Credential credential) {
         this.credential = credential;
     }
+
 }

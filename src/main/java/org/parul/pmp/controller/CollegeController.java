@@ -40,15 +40,15 @@ public class CollegeController {
         try
         {
             collegeService.addCollege(college);
-            model.addAttribute("msg","College Successfully Registered");
+            model.addAttribute("message","success");
         }
         catch (Exception e)
         {
             e.printStackTrace();
-            model.addAttribute("msg","College not Registered");
+            model.addAttribute("message", "fail");
         }
 
-       return "welcome";
+       return "universityadmin";
     }
 
 }

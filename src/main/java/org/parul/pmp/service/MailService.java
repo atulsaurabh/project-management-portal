@@ -27,4 +27,8 @@ public class MailService
         mailMessage.setText(mailDTO.activationMessage());
         javaMailSender.send(mailMessage);
     }
+
+    public void setEmail(SimpleMailMessage email) {
+        javaMailSender.send(email);
+    }
 }
