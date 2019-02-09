@@ -1,11 +1,13 @@
 package org.parul.pmp.controller;
 
 import org.parul.pmp.dto.CollegeDTO;
+import org.parul.pmp.dto.MailDTO;
 import org.parul.pmp.dto.UniversityDTO;
 import org.parul.pmp.dto.mapper.UniversityMapper;
 import org.parul.pmp.entity.University;
 import org.parul.pmp.repository.UniversityRepository;
 import org.parul.pmp.service.CollegeService;
+import org.parul.pmp.service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +25,8 @@ public class CollegeController {
     private CollegeService collegeService ;
     @Autowired
     private UniversityRepository universityRepository;
+    @Autowired
+    private MailService mailService;
     @GetMapping
     public String addCollegePage(Model model)
     {
@@ -38,7 +42,16 @@ public class CollegeController {
         try
         {
             collegeService.addCollege(college);
-            model.addAttribute("msg", "Successful");
+            //model.addAttribute("msg", "Successful");
+            MailDTO mailDTO = new MailDTO();
+            mailDTO.setName(college.getCollege_name());
+            mailDTO.setPassword(college.getPassword());
+            mailDTO.setTo(college.getEmail());
+            mailDTO.setSubject("Account Activation");
+            mailDTO.setLink("http://localhost:8080/activate");
+            mailService.sendActivationMailWithCredential(mailDTO);
+            model.addAttribute("emailId",college.getEmail());
+            return "successfulRegistration";
         }
         catch (Exception e)
         {

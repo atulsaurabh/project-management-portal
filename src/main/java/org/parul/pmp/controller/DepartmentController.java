@@ -54,6 +54,6 @@ public class DepartmentController {
             e.printStackTrace();
             model.addAttribute("msg", "Error");
         }
-        return "Welcome";
+        return "department";
     }
 }
