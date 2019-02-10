@@ -14,6 +14,7 @@ public class FacultyMapper {
         register.setFaculty_lastname(dto.getFaculty_lastname());
         register.setEmail(dto.getEmail());
         register.setPhone(dto.getPhone());
+        register.setHod(true);
         return register;
     }
     public static User toUserEntity(FacultyDTO facultyDTO)

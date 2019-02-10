@@ -53,6 +53,7 @@ public class FacultyService {
         savedFaculty.setDepartment(d);
         departmentRepository.saveAndFlush(d);
 
+
     }
 
 

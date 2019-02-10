@@ -17,7 +17,7 @@ public class Department {
     private Set<Faculty>faculties=new HashSet<>();
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
-
+    private Faculty hod;
 
     public String getDepartmentCode() {
         return departmentCode;
@@ -61,15 +61,16 @@ public class Department {
         return dateOfRegistration;
     }
 
-    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
-        this.dateOfRegistration = dateOfRegistration;
-    }
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) { this.dateOfRegistration = dateOfRegistration; }
 
     public LocalDateTime getDateOfModification() {
         return dateOfModification;
     }
 
-    public void setDateOfModification(LocalDateTime dateOfModification) {
-        this.dateOfModification = dateOfModification;
-    }
+    public void setDateOfModification(LocalDateTime dateOfModification) { this.dateOfModification = dateOfModification; }
+
+    @OneToOne(mappedBy = "department",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    public Faculty getHod() { return hod; }
+
+    public void setHod(Faculty hod) { this.hod = hod; }
 }

@@ -16,6 +16,7 @@ public class FacultyDTO {
     private String phone;
     private String username;
     private String password;
+    private Boolean isHod;
     /*private List<DepartmentDTO> departmentDTOS = new ArrayList<>();
 
     public List<DepartmentDTO> getDepartmentDTOS() {
@@ -97,4 +98,8 @@ public class FacultyDTO {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public Boolean getHod() { return isHod; }
+
+    public void setHod(Boolean hod) { isHod = hod; }
 }

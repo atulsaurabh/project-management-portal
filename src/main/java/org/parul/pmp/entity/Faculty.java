@@ -20,6 +20,8 @@ public class Faculty extends User{
     private Address address;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
+    private boolean isHod;
+
     public String getFaculty_code() {
         return faculty_code;
     }
@@ -60,9 +62,7 @@ public class Faculty extends User{
 
     public String getPhone() { return phone; }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+    public void setPhone(String phone) { this.phone = phone; }
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
@@ -119,5 +119,7 @@ public class Faculty extends User{
         this.address = address;
     }
 
+    public boolean isHod() { return isHod; }
 
+    public void setHod(boolean hod) { isHod = hod; }
 }

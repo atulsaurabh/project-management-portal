@@ -1,12 +1,14 @@
 package org.parul.pmp.dto;
 
+import org.parul.pmp.entity.Faculty;
+
 public class DepartmentDTO
 {
     private String departmentCode;
     private String department_name;
     private String college_id;
     private long deptid;
-
+    private Faculty hod;
     public String getCollege_id() {
         return college_id;
     }
@@ -35,4 +37,11 @@ public class DepartmentDTO
         this.department_name = department_name;
     }
 
+    public Faculty getHod() {
+        return hod;
+    }
+
+    public void setHod(Faculty hod) {
+        this.hod = hod;
+    }
 }

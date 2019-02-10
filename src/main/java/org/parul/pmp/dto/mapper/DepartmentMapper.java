@@ -12,6 +12,7 @@ public class DepartmentMapper
         Department department = new Department();
         department.setDepartmentCode(dto.getDepartmentCode());
         department.setDepartment_name(dto.getDepartment_name());
+        department.setHod(dto.getHod());
         return department;
     }
     public static DepartmentDTO toDTO(Department department)
