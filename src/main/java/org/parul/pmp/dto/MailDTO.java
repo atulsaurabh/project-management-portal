@@ -51,7 +51,7 @@ public class MailDTO {
         String message="Dear "+name+",\n\n";
         message+="Thank you for selecting PMP. Your account with PMP is created.\n";
         message+="Kindly click on the following link to activate your account with us.\n";
-        message+="<a href=\""+link+"\">Click Here</a>\n\n";
+        message+="<a href=\""+link+"\"><</a>\n\n";
         message+="Your credential is as below:\n\n";
         message+="User Name:"+to+"\n";
         message+="Password="+password+"\n";

@@ -49,7 +49,7 @@ public class FacultyController {
             facultyService.addFaculty(faculty);
             //model.addAttribute("msg", "Successful");
             MailDTO mailDTO = new MailDTO();
-            mailDTO.setName(faculty.getFaculty_firstname());
+            mailDTO.setName(faculty.getFacultyFirstname());
             mailDTO.setPassword(faculty.getPassword());
             mailDTO.setTo(faculty.getEmail());
             mailDTO.setSubject("Account Activation");
@@ -66,6 +66,7 @@ public class FacultyController {
         }
         return "Welcome";
     }
+
     @GetMapping("/profile")
     public String addFacultyProfile(Model model)
     {

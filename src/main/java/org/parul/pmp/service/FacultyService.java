@@ -26,6 +26,7 @@ public class FacultyService {
     private RoleRepository roleRepository;
     @Autowired
     private DepartmentRepository departmentRepository;
+
     @Transactional
     public void addFaculty(FacultyDTO facultyDTO) throws RoleNotAvailableException
     {
@@ -53,8 +54,29 @@ public class FacultyService {
         savedFaculty.setDepartment(d);
         departmentRepository.saveAndFlush(d);
 
-
     }
 
+    public void addHod(FacultyDTO facultyDTO) throws RoleNotAvailableException {
+        Faculty faculty = FacultyMapper.toEntity(facultyDTO);
+        Faculty hod=facultyRepository.findByFacultyCode(facultyDTO.getFacultyCode()).get();
+        //Faculty savedFaculty=facultyRepository.saveAndFlush(faculty);
+        User user = FacultyMapper.toUserEntity(facultyDTO);
+        User storedUser = userRepository.saveAndFlush(user);
+        Credential credential = FacultyMapper.toCredentialEntity(facultyDTO);
 
+        Optional<Role> optionalRole=roleRepository.findByName(Roles.ROLE_HOD.name());
+        Role role = optionalRole.orElseThrow(()-> new RoleNotAvailableException());
+        credential.getRoles().add(role);
+        role.getCredential().add(credential);
+        credential.setUser(storedUser);
+        storedUser.setCredential(credential);
+
+        hod.setHod(true);
+    }
+
+    public void departmentViseFaculty(FacultyDTO facultyDTO)
+    {
+        Faculty hod=facultyRepository.findByDepartment(facultyDTO.getFacultyCode());
+        Faculty faculty=facultyRepository.findById(facultyDTO.getFacultyCode()).get();
+    }
 }

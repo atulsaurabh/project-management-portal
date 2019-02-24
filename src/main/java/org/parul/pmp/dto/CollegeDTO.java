@@ -1,6 +1,10 @@
 package org.parul.pmp.dto;
 
 
+import org.parul.pmp.entity.Faculty;
+
+import javax.persistence.CascadeType;
+import javax.persistence.OneToMany;
 
 public class CollegeDTO {
     private String college_id;
@@ -13,6 +17,7 @@ public class CollegeDTO {
     private String university_id;
     private String username;
     private String password;
+    private Faculty Hod;
 
     public String getCollege_id() { return college_id; }
 
@@ -46,9 +51,7 @@ public class CollegeDTO {
         this.college_name = college_name;
     }
 
-    public String getContact_no() {
-        return contact_no;
-    }
+    public String getContact_no() { return contact_no; }
 
     public void setContact_no(String contact_no) {
         this.contact_no = contact_no;
@@ -79,4 +82,12 @@ public class CollegeDTO {
     public String getUniversity_id() { return university_id; }
 
     public void setUniversity_id(String university_id) { this.university_id = university_id; }
+
+    public Faculty getHod() {
+        return Hod;
+    }
+
+    public void setHod(Faculty hod) {
+        Hod = hod;
+    }
 }

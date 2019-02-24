@@ -26,7 +26,7 @@ public class AccountController
     public String loginpage(Model model)
     {
         model.addAttribute("loginDTO",new LoginDTO());
-        return "login";
+        return "userLogin";
     }
     @PostMapping("/login")
     public String login(LoginDTO loginDTO, Model model) throws UserNotExistException
@@ -40,10 +40,10 @@ public class AccountController
                 uiname="hodHomePage";
                 break;
             case "ROLE_COLLEGE_ADMIN":
-                uiname="collegeAdminHomePage";
+                uiname="collegeAdmin";
                 break;
             case "ROLE_UNIVERSITY_ADMIN":
-                uiname="universityAdminHomePage";
+                uiname="universityAdmin";
                 break;
             case "ROLE_FACULTY":
                 uiname="facultyHome";

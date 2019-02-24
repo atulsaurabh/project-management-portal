@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>add hod</title>
+   <script type="text/javascript" src="/js/jquery3.3.1.js"></script>
+   <script type="text/javascript" src="/js/db_ajax.js"></script>
+</head>
+<body>
+    <label> select department</label>
+    <select name="department" id="dept">
+        <option th:each="dept : ${depts}"
+                th:value="${dept.deptid}" th:text="${dept.department_name}">Department</option>
+    </select>
+    <button type="button" onclick="fetchFaculties()">Go</button><br>
+
+<div>
+    <form action="/addHod/promote" method="post">
+        <table>
+           <thead>
+            <tr>
+                <th>faculty code</th>
+                <th>faculty name</th>
+                <th>department</th>
+                <th>Promote HOD</th>
+            </tr>
+           </thead>
+            <tbody id="fac_place"></tbody>
+            <tfoot>
+            <tr>
+                <td> <input type="submit"> </td>
+            </tr>
+            </tfoot>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>

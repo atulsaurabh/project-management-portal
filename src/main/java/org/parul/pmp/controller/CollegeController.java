@@ -1,9 +1,13 @@
 package org.parul.pmp.controller;
 
 import org.parul.pmp.dto.CollegeDTO;
+import org.parul.pmp.dto.FacultyDTO;
 import org.parul.pmp.dto.UniversityDTO;
+import org.parul.pmp.dto.mapper.FacultyMapper;
 import org.parul.pmp.dto.mapper.UniversityMapper;
+import org.parul.pmp.entity.Faculty;
 import org.parul.pmp.entity.University;
+import org.parul.pmp.repository.FacultyRepository;
 import org.parul.pmp.repository.UniversityRepository;
 import org.parul.pmp.service.CollegeService;
 import org.springframework.beans.factory.annotation.Autowired;
