@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/studentRegistrationCss.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/studentThreg.css}" type="text/css">
+    <title>College Details</title>
 </head>
-<body>
-<b>Welcome Student</b>
+<br>
+
+<form ACTION="" method="post">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img alt="Logo" title="Logo" class="rounded" style="" src="/images/logo.png">
+        </a>
+        <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar10">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item"> <a class="nav-link" style="color:white;font-size:25px;font-weight:500;" th:href="@{/account/login}">LogOut</a> </li>
+
+            </ul>
+        </div>
+    </nav>
+<table>
+    <tr>
+        <td>
+            <a class="text-primary" th:href="@{/project/projectDetails}">Add Project Details</a>
+        </td>
+    </tr>
+        <td>
+            <a class="text-primary" th:href="@{/project/group}">Create Project Group</a>
+        </td>
+    <tr>
+    </tr>
+
+</table>
+</form>
+<div class="py-3 bg-dark">
+    <div class="container">
+        <div class="row" style="">
+            <div class="col-md-12 text-center">
+                <p class="mb-0 text-light">� 2014-2018 Pingendo. All rights reserved</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/js1.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="/js/js2.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="/js/js3.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>

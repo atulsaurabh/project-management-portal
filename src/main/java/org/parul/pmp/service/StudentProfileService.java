@@ -7,12 +7,14 @@ import org.parul.pmp.dto.mapper.StudentProfileMapper;
 import org.parul.pmp.entity.Faculty;
 import org.parul.pmp.entity.Student;
 import org.parul.pmp.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
 @Service
 public class StudentProfileService {
+    @Autowired
     private StudentRepository studentRepository;
     public void addStudentProfile(StudentProfileDTO studentProfileDTO)
     {

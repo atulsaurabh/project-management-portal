@@ -17,9 +17,18 @@ public class Department {
     private Set<Faculty>faculties=new HashSet<>();
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
+    private Set<GroupDetails> projectGroup = new HashSet<>();
 
+    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL, orphanRemoval = true)
+    public Set<GroupDetails> getProjectGroup() {
+        return projectGroup;
+    }
 
-      public String getDepartment_code() {
+    public void setProjectGroup(Set<GroupDetails> projectGroup) {
+        this.projectGroup = projectGroup;
+    }
+
+    public String getDepartment_code() {
         return department_code;
     }
 

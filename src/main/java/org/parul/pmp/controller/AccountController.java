@@ -1,6 +1,7 @@
 package org.parul.pmp.controller;
 
 import org.parul.pmp.dto.LoginDTO;
+import org.parul.pmp.dto.UniversityDTO;
 import org.parul.pmp.entity.Credential;
 import org.parul.pmp.entity.enumeration.Roles;
 import org.parul.pmp.exception.UserNotExistException;

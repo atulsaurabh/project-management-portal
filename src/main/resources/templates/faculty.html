@@ -26,7 +26,8 @@
   </div>
   <div class="form-group ml-5 pl-5"  style="">
   <select class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true" th:field="*{department_id}">
-      <option th:each="dept: ${depts}"
+    <option value="0" disabled>Select Department</option>
+    <option th:each="dept: ${depts}"
               th:value="${dept.deptid}" th:text="${dept.department_name}"></option>
   </select></div>
   <div class="form-group ml-5 pl-5">

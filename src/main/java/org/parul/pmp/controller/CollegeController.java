@@ -51,6 +51,7 @@ public class CollegeController {
             mailDTO.setLink("http://localhost:8080/activate");
             mailService.sendActivationMailWithCredential(mailDTO);
             model.addAttribute("emailId",college.getEmail());
+
             return "successfulRegistration";
         }
         catch (Exception e)

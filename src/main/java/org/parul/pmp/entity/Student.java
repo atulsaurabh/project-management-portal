@@ -21,6 +21,16 @@ public class Student extends User {
     private Department department_id;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
+    private GroupDetails projectGroup;
+
+    @OneToOne(mappedBy = "members",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
+    public GroupDetails getProjectGroup() {
+        return projectGroup;
+    }
+
+    public void setProjectGroup(GroupDetails projectGroup) {
+        this.projectGroup = projectGroup;
+    }
 
     public String getFirstname() {
         return firstname;
