@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/addhod1.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/addhod2.css}" type="text/css">
+    <title></title>
+</head>
+
+<body class="bg-light" style="">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <img src="http://www.paruluniversity.ac.in/wp-content/themes/parul/images/logonew.png" alt="Logo" title="Logo" class="rounded" style="">
+    </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
+    <span class="navbar-toggler-icon"></span>
+</button>
+    <div class="collapse navbar-collapse" id="navbar10">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Login</a> </li>
+        </ul>
+    </div>
+</nav>
+<div class="align-items-center d-flex section-primary py-2 bg-light" style="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="">
+                <form class="section-light bg-light" method="post" action="/addhod/promote" style="">
+                    <br>
+                    <h3 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">Add Hod</h3><br>
+                    <select name="departmnt" id="dept" class="btn dropdown-toggle w-75 ml-5 btn-secondary py-2 text-left" data-toggle="dropdown" aria-expanded="false" th:field="*{college_id}">
+                        <option th:each="dept : ${depts}"
+                                th:value="${dept.deptid}" th:text="${dept.department_name}">Department</option>
+                    </select>
+                    <button type="button" onclick="fetchFaculties()" class="btn btn-secondary ml-3" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;">
+                    <b class="" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;">Go</b>
+                </button>
+                    <div class="form-group">&nbsp;&nbsp;
+                        <input class="form-control w-75 form-control-lg mx-5 py-3" placeholder="faculty code"th:field="*{faculty code}" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required"> </div>
+                    <div class="form-group">
+                        <input class="form-control w-75 form-control-lg mx-5 py-3" placeholder="faculty Name"th:field="*{faculty name}" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required"> </div>
+                    <div class="form-group">
+                        <input class="form-control w-75 form-control-lg mx-5" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" placeholder="Department"th:field="*{department}"> </div>
+                    <div class="form-group">
+                        <input class="form-control w-75 form-control-lg mx-5" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" placeholder="Promot Hod"th:field="*{Promothod}"> </div> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-secondary ml-3" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;">
+                    <b class="" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;">Submit</b>
+                </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br>
+<div class="row bg-dark">
+    <div class="col-md-12 mt-3">
+        <p class="text-center bg-dark text-light">© 2019 Project Management Portal. </p>
+    </div>
+</div>
+<script src="/js/js1.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="/js/js2.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="/js/js3.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
+    </body>
+
+    </html>
