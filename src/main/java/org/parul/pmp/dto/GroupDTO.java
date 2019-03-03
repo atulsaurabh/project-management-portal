@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GroupDTO {
     private long groupId;
-    private Year year;
+    private int year;
     private long department_id;
     private String groupName;
     private long faculty_id;
@@ -33,10 +33,10 @@ public class GroupDTO {
         this.groupName = groupName;
     }
 
-    public Year getYear() {
+   public int getYear() {
         return year;
     }
-    public void setYear(Year year) {
+    public void setYear(int year) {
         this.year = year;
     }
 

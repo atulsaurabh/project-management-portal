@@ -41,11 +41,11 @@
     </form>
       </div>-->
 <form action="/project" method="post" th:object="${groupDTO}">
-    <select th:field="*{year}" >
+    <!--<select th:field="*{year}" >
         <option th:each="year : ${#numbers.sequence(2000, #dates.year(#dates.createNow()))}"
                 th:value="${year}" th:text="${year}">
         </option>
-    </select>
+    </select>-->
 
     <input type="text" placeholder="Enter group name" th:field="*{groupName}">
     <input type="submit">

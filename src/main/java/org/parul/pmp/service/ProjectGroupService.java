@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.time.LocalDate;
 
 
 @Service
@@ -27,25 +28,27 @@ public class ProjectGroupService {
     @Autowired
     private DepartmentRepository departmentRepository;
 
-    public void createGroup(GroupDTO groupDTO)
+    public void createGroup(GroupDTO groupDTO,Student student)
     {
         GroupDetails grp = GroupMapper.toEntity(groupDTO);
-        //Department dept=departmentRepository.findById(groupDTO.getDepartment()).get();
+        grp.getMembers().add(student);
+        grp.setYear(LocalDate.now().getYear());
+        Department dept=student.getDepartment();
        // Student student=studentRepository.findById(groupDTO.getStudentId()).get();
        // Faculty faculty=facultyRepository.findById(groupDTO.getFaculty_id()).get();
-        Instant i = Instant.now();
-        grp.setDateOfGroupCreation(i);
+        Instant today = Instant.now();
+        grp.setDateOfGroupCreation(today);
 
         GroupDetails savedGroup =groupRepository.saveAndFlush(grp);
-        /*dept.getProjectGroup().add(savedGroup);
+        dept.getProjectGroup().add(savedGroup);
         savedGroup.setDepartment(dept);
         departmentRepository.saveAndFlush(dept);
-        faculty.getProjectGroup().add(savedGroup);
-        savedGroup.setMentor(faculty);
-        facultyRepository.saveAndFlush(faculty);
+        //faculty.getProjectGroup().add(savedGroup);
+        //savedGroup.setMentor(faculty);
+        //facultyRepository.saveAndFlush(faculty);
         student.setProjectGroup(savedGroup);
         savedGroup.setCordinator(student);
-        studentRepository.saveAndFlush(student);*/
+        studentRepository.saveAndFlush(student);
 
 
     }

@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -56,12 +57,20 @@ public class ProjectController {
     {
         long userid = (long)session.getAttribute("userid");
          Student student = studentRepository.findById(userid).get();
-         Optional<GroupDetails> groupName = groupRepository.findByGroupName(groupDTO.getGroupName());
+        int thisyear = LocalDate.now().getYear();
+         Optional<GroupDetails> groupName = groupRepository.findByGroupNameAndYear(groupDTO.getGroupName(),thisyear);
         if(groupName.isPresent())
         {
             model.addAttribute("msg","Group Name is already avilable");
         }
-        projectGroupService.createGroup(groupDTO);
+        else {
+            if(student.getProjectGroup() != null)
+            {
+                model.addAttribute("msg","Already created a group");
+            }
+            else
+            projectGroupService.createGroup(groupDTO,student);
+        }
         return "projectGroup";
     }
     /*@PostMapping("/promoteCordinator")

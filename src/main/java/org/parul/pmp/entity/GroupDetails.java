@@ -11,7 +11,7 @@ import java.util.Set;
 @Entity
 public class GroupDetails {
     private long groupId;
-    private Year year;
+    private int year;
     private String groupName;
     private Department department;
     private Faculty mentor;
@@ -29,11 +29,11 @@ public class GroupDetails {
         this.department = department;
     }
 
-    public Year getYear() {
+   public int getYear() {
         return year;
     }
 
-    public void setYear(Year year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
