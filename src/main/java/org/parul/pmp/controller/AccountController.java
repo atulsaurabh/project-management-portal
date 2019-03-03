@@ -1,10 +1,15 @@
 package org.parul.pmp.controller;
 
+import org.parul.pmp.dto.FacultyDTO;
 import org.parul.pmp.dto.LoginDTO;
+import org.parul.pmp.dto.mapper.FacultyMapper;
 import org.parul.pmp.entity.Credential;
+import org.parul.pmp.entity.Faculty;
 import org.parul.pmp.entity.enumeration.Roles;
 import org.parul.pmp.exception.UserNotExistException;
+import org.parul.pmp.repository.FacultyRepository;
 import org.parul.pmp.service.AcountService;
+import org.parul.pmp.service.FacultyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
@@ -14,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/account")
@@ -22,6 +28,9 @@ public class AccountController
 
     @Autowired
     private AcountService acountService;
+    @Autowired
+    private FacultyRepository facultyRepository;
+
     @GetMapping("/login")
     public String loginpage(Model model)
     {
@@ -36,9 +45,9 @@ public class AccountController
         String uiname="";
         switch (rolename)
         {
-            case "ROLE_HOD":
-                uiname="hodHomePage";
-                break;
+//            case "ROLE_HOD":
+//                uiname="hodHomePage";
+//                break;
             case "ROLE_COLLEGE_ADMIN":
                 uiname="collegeAdmin";
                 break;
@@ -46,7 +55,7 @@ public class AccountController
                 uiname="universityAdmin";
                 break;
             case "ROLE_FACULTY":
-                uiname="facultyHome";
+                    uiname="facultyHome";
                 break;
             case "ROLE_STUDENT":
                 uiname="studenthome";

@@ -6,9 +6,12 @@ import org.parul.pmp.dto.mapper.DepartmentMapper;
 import org.parul.pmp.dto.mapper.FacultyMapper;
 import org.parul.pmp.entity.Department;
 import org.parul.pmp.entity.Faculty;
+import org.parul.pmp.entity.Role;
+import org.parul.pmp.exception.RoleNotAvailableException;
 import org.parul.pmp.repository.DepartmentRepository;
 import org.parul.pmp.repository.FacultyRepository;
 import org.parul.pmp.service.FacultyService;
+import org.parul.pmp.service.HodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,7 +32,8 @@ public class HodController {
     private FacultyService facultyService;
     @Autowired
     private FacultyRepository facultyRepository;
-
+    @Autowired
+    private HodService hodService;
     @GetMapping
     public String addHod(Model model) {
 
@@ -62,6 +66,7 @@ public class HodController {
             Faculty previousHOD= facultyHOD.get();
             previousHOD.setHod(false);
             facultyRepository.saveAndFlush(previousHOD);
+
         }
 
         faculty.setHod(true);

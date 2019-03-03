@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Activation for PMP</title>
+</head>
+<body>
+<div align="center">
+    <img src="/images/logo.png"/>
+</div>
+<div>
+    <p th:text="'Dear '+${mail.name}"></p>
+    <p>you can change your password here,</p>
+    <p>Kindly <a th:href="${mail.link}"><button>Click Here</button></a> to change password</p>
+  <!--  <p>Your credentials are as below:</p>
+    <p>User Name : <b th:text="${mail.to}"></b></p>
+    <p>Password : <b th:text="${mail.password}"></b></p>
+    <p>Use this credential to login into your account after activation.
+        Please do not share the information or email to any unauthorized body</p>-->
+</div>
+<div>
+    <p><i>Thanks and Regards</i></p>
+    <p>PMP Team</p>
+</div>
+</body>
+</html>

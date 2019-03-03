@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 @Table(name = "Faculty")
 public class Faculty extends User{
 
+
     private Long facultyCode;
     private String facultyFirstname;
     private String facultyMiddlename;

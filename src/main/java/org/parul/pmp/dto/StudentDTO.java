@@ -8,7 +8,7 @@ public class StudentDTO {
     private String firstname;
     private String middlename;
     private String lastname;
-    private String enrollment_no;
+    private Long enrollment_no;
     private String sem;
     private String email;
     private String mobile_no;
@@ -87,11 +87,11 @@ public class StudentDTO {
         this.lastname = lastname;
     }
 
-    public String getEnrollment_no() {
+    public Long getEnrollment_no() {
         return enrollment_no;
     }
 
-    public void setEnrollment_no(String enrollment_no) {
+    public void setEnrollment_no(Long enrollment_no) {
         this.enrollment_no = enrollment_no;
     }
 

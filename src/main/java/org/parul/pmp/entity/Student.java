@@ -11,7 +11,7 @@ public class Student extends User{
     private String middlename;
     private String lastname;
     private String dob;
-    private String enrollment_no;
+    private Long enrollmentNo;
     //private String college;
     private String sem;
     private String email;
@@ -21,13 +21,9 @@ public class Student extends User{
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
 
-    public String getFirstname() {
-        return firstname;
-    }
+    public String getFirstname() { return firstname; }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
+    public void setFirstname(String firstname) { this.firstname = firstname; }
 
     public String getMiddlename() {
         return middlename;
@@ -53,12 +49,13 @@ public class Student extends User{
         this.dob = dob;
     }
 
-    public String getEnrollment_no() {
-        return enrollment_no;
+    @Column(unique = true)
+    public Long getEnrollmentNo() {
+        return enrollmentNo;
     }
 
-    public void setEnrollment_no(String enrollment_no) {
-        this.enrollment_no = enrollment_no;
+    public void setEnrollmentNo(Long enrollmentNo) {
+        this.enrollmentNo = enrollmentNo;
     }
 
     public String getSem() {

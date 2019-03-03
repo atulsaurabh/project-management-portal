@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/assigngrptofact" method="post" th:object="${facts}">
+<select name="facutly" id="fact">
+    <option th:each="fact : ${facts}"
+            th:value="${fact.facultyCode}"
+            th:text="${fact.facultyFirstname+fact.facultyMiddlename+fact.facultyLastname}">Faculties</option>
+    </option>
+</select>
+    <button type="button" onclick="fetchFaculties()">Groups</button>
+
+
+</form>
+</body>
+</html>

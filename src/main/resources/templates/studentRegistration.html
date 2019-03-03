@@ -51,7 +51,7 @@
         <select class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true" th:field="*{university_id}">
             <option value="0" disabled>Select University</option>
             <option th:each="university : ${univercities}"
-                    th:value="${university.university_id}" th:text="${university.university_name}">University</option>
+                    th:value="${university.university_code}" th:text="${university.university_name}">University</option>
         </select>
 
     </div>
@@ -78,7 +78,7 @@
         <input class="form-control w-75 ml-5" placeholder="Last Name" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{lastname}">
     </div>
     <div class="form-group ml-5 pl-5">
-        <input class="form-control w-75 ml-5" placeholder="Enrollment No" style="	font-color:blue;text-shadow: 0px 0px 4px blue;	box-shadow: 0px 0px 4px  blue;" required="required" type="number" th:field="*{enrollment_no}">
+        <input class="form-control w-75 ml-5" placeholder="Enrollment No" style="	font-color:blue;text-shadow: 0px 0px 4px blue;	box-shadow: 0px 0px 4px  blue;" required="required" type="number" th:field="*{enrollmentNo}">
     </div>
     <div class="form-group ml-5 pl-5">
         <input class="form-control w-75 ml-5" placeholder="Email Id" style="	font-color:blue;box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" type="email" th:field="*{email}">
