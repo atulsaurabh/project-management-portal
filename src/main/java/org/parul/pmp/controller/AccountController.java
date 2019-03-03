@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/account")
@@ -30,9 +31,10 @@ public class AccountController
         return "userLogin";
     }
     @PostMapping("/login")
-    public String login(LoginDTO loginDTO, Model model) throws UserNotExistException
+    public String login(LoginDTO loginDTO, Model model, HttpSession session) throws UserNotExistException
     {
         Credential credential =acountService.performLoginAndFetchRole(loginDTO);
+        session.setAttribute("userid",credential.getUser().getUserid());
         String rolename=credential.getRoles().stream().findFirst().get().getName();
         String uiname="";
         switch (rolename)

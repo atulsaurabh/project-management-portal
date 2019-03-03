@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
-import java.util.Collections;
 
 
 @Service
@@ -31,14 +30,14 @@ public class ProjectGroupService {
     public void createGroup(GroupDTO groupDTO)
     {
         GroupDetails grp = GroupMapper.toEntity(groupDTO);
-        Department dept=departmentRepository.findById(groupDTO.getDepartment_id()).get();
-        Student student=studentRepository.findByEnrollment_no(groupDTO.getEnrollment()).get();
-        Faculty faculty=facultyRepository.findById(groupDTO.getFaculty_id()).get();
+        //Department dept=departmentRepository.findById(groupDTO.getDepartment()).get();
+       // Student student=studentRepository.findById(groupDTO.getStudentId()).get();
+       // Faculty faculty=facultyRepository.findById(groupDTO.getFaculty_id()).get();
         Instant i = Instant.now();
         grp.setDateOfGroupCreation(i);
 
         GroupDetails savedGroup =groupRepository.saveAndFlush(grp);
-        dept.getProjectGroup().add(savedGroup);
+        /*dept.getProjectGroup().add(savedGroup);
         savedGroup.setDepartment(dept);
         departmentRepository.saveAndFlush(dept);
         faculty.getProjectGroup().add(savedGroup);
@@ -46,7 +45,7 @@ public class ProjectGroupService {
         facultyRepository.saveAndFlush(faculty);
         student.setProjectGroup(savedGroup);
         savedGroup.setCordinator(student);
-        studentRepository.saveAndFlush(student);
+        studentRepository.saveAndFlush(student);*/
 
 
     }

@@ -28,7 +28,7 @@ public class StudentService {
     public void addStudent(StudentDTO studentDTO) throws RoleNotAvailableException
     {
         Student student = StudentMapper.toEntity(studentDTO);
-        Department dept=departmentRepository.findById(studentDTO.getDepartment_id()).get();
+        Department dept=departmentRepository.findById(studentDTO.getDepartment()).get();
 
         LocalDateTime localDateTime = LocalDateTime.now();
         student.setDateOfModification(localDateTime);

@@ -36,7 +36,6 @@ public class GroupDTO {
     public Year getYear() {
         return year;
     }
-
     public void setYear(Year year) {
         this.year = year;
     }
