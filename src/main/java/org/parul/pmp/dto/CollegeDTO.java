@@ -3,11 +3,8 @@ package org.parul.pmp.dto;
 
 import org.parul.pmp.entity.Faculty;
 
-import javax.persistence.CascadeType;
-import javax.persistence.OneToMany;
-
 public class CollegeDTO {
-    private String college_id;
+    private long college_id;
     private String college_code;
     private String college_name;
     private String contact_no;
@@ -19,9 +16,9 @@ public class CollegeDTO {
     private String password;
     private Faculty Hod;
 
-    public String getCollege_id() { return college_id; }
+    public long getCollege_id() { return college_id; }
 
-    public void setCollege_id(String college_id) { this.college_id = college_id; }
+    public void setCollege_id(long college_id) { this.college_id = college_id; }
 
     public String getUsername() { return username; }
 

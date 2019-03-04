@@ -13,8 +13,8 @@ public class UserDtoToEntityMapper
         registration.setFirstname(userDTO.getFirstname());
         registration.setMiddlename(userDTO.getMiddlename());
         registration.setLastname(userDTO.getLastname());
-        registration.setEnrollmentNo(userDTO.getEnrollment_no());
-        //registration.setEnrollmentNo(userDTO.getEnrollment_no());
+        registration.setEnrollmentNo(userDTO.getEnrollmentNo());
+        //registration.setEnrollmentNo(userDTO.getEnrollmentNo());
         //registration.setCollege(userDTO.getCollege());
         registration.setSem(userDTO.getSem());
         //registration.setDept(userDTO.getDept());
