@@ -9,3 +9,16 @@ function fetchstudents()
         }
     )
 }
+function addmembers()
+{
+
+    var enrollmentID = $("#enrollID").val();
+    $.post(
+        "/project/addmember",
+        {enrollment:enrollmentID},
+        function (data) {
+            $("#member_place").html(data);
+        }
+    )
+}
+}

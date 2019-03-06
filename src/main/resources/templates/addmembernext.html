@@ -1,0 +1,6 @@
+<tr th:each="member: ${student}">
+    <td th:text="${member.getEnrollment()}"></td>
+    <td th:text="${member.getFirstname()}"></td>
+    <td th:text="${member.getLastname()}"></td>
+    <td th:text="${member.getEmail()}"></td>
+</tr>
