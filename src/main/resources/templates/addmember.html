@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/project/addmember">
+        <table>
+            <thead>
+                <th>Enrollment</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+            </thead>
+            <tbody>
+                <tr th:each="cordinator: ${student}">
+                    <td th:text="${cordinator.getEnrollment()}"></td>
+                    <td th:text="${cordinator.getFirstname()}"></td>
+                    <td th:text="${cordinator.getLastname()}"></td>
+                    <td th:text="${cordinator.getEmail()}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </form>
+
+</body>
+</html>

@@ -110,5 +110,19 @@ public class ProjectController {
         }
         return "project";
     }
+    @GetMapping("/addmember")
+    public String addmember(Model model,HttpSession session)
+    {
+        Long userid = (Long) session.getAttribute("userid");
+        Student student =studentRepository.findById(userid).get();
+        Department dept = student.getDepartment();
+        List<Student> students = studentRepository.findByDepartment(dept);
+        List<StudentDTO> studentDTOS = students.stream().map(StudentMapper::toDTO).collect(Collectors.toList());
+        model.addAttribute("student",studentDTOS);
+        GroupDetails grpid = student.getProjectGroup();
+        model.addAttribute("student",student);
+        model.addAttribute("group",grpid);
+        return "addmember";
+    }
 
 }
