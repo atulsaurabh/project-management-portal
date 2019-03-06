@@ -7,7 +7,11 @@ import org.springframework.stereotype.Repository;
 import java.util.Map;
 import java.util.Optional;
 
+import java.util.Optional;
+
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
-    Optional<Student> findByEnrollmentNo(long student);
+
+    Optional<Student> findByEnrollment(String enrollment);
+    Student findByDepartment(Long department_id);
 }

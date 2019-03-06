@@ -9,7 +9,7 @@ import java.util.Set;
 @Table(name = "Department")
 public class Department {
 
-    private long department_id;
+    private Long department_id;
     private String departmentCode;
     private String department_name;
     private College college;
@@ -18,6 +18,19 @@ public class Department {
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
     private Faculty hod;
+
+    private Set<GroupDetails> projectGroup = new HashSet<>();
+
+
+
+    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL, orphanRemoval = true)
+    public Set<GroupDetails> getProjectGroup() {
+        return projectGroup;
+    }
+
+    public void setProjectGroup(Set<GroupDetails> projectGroup) {
+        this.projectGroup = projectGroup;
+    }
 
     public String getDepartmentCode() {
         return departmentCode;
@@ -29,9 +42,9 @@ public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getDepartment_id() { return department_id; }
+    public Long getDepartment_id() { return department_id; }
 
-    public void setDepartment_id(long department_id) { this.department_id = department_id; }
+    public void setDepartment_id(Long department_id) { this.department_id = department_id; }
 
     public String getDepartment_name() { return department_name; }
 

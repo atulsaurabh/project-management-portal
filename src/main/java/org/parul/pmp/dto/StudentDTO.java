@@ -2,41 +2,41 @@ package org.parul.pmp.dto;
 
 public class StudentDTO {
 
-    private long department_id;
-    private long university_id;
-    private long college_id;
+    private long department;
+    private long university;
+    private long college;
     private String firstname;
     private String middlename;
     private String lastname;
-    private Long enrollmentNo;
+    private String enrollment;
     private String sem;
     private String email;
     private String mobile_no;
     private String username;
     private String password;
 
-    public long getUniversity_id() {
-        return university_id;
+    public long getUniversity() {
+        return university;
     }
 
-    public void setUniversity_id(long university_id) {
-        this.university_id = university_id;
+    public void setUniversity(long university) {
+        this.university = university;
     }
 
-    public long getCollege_id() {
-        return college_id;
+    public long getCollege() {
+        return college;
     }
 
-    public void setCollege_id(long college_id) {
-        this.college_id = college_id;
+    public void setCollege(long college) {
+        this.college = college;
     }
 
-    public long getDepartment_id() {
-        return department_id;
+    public long getDepartment() {
+        return department;
     }
 
-    public void setDepartment_id(long department_id) {
-        this.department_id = department_id;
+    public void setDepartment(long department) {
+        this.department = department;
     }
 
     public String getUsername() {
@@ -87,12 +87,12 @@ public class StudentDTO {
         this.lastname = lastname;
     }
 
-    public Long getEnrollmentNo() {
-        return enrollmentNo;
+    public String getEnrollment() {
+        return enrollment;
     }
 
-    public void setEnrollmentNo(Long enrollmentNo) {
-        this.enrollmentNo = enrollmentNo;
+    public void setEnrollment(String enrollment) {
+        this.enrollment = enrollment;
     }
 
     public String getSem() {

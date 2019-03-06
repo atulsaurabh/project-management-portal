@@ -2,6 +2,8 @@ package org.parul.pmp.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "Faculty")
@@ -22,11 +24,22 @@ public class Faculty extends User{
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
     private boolean isHod;
+    private Set<GroupDetails> projectGroup = new HashSet<>();
+
+    //@OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "groupId")
+    @OneToMany(mappedBy = "mentor",cascade = CascadeType.ALL, orphanRemoval = true)
+
+    public Set<GroupDetails> getProjectGroup() {
+        return projectGroup;
+    }
+
+    public void setProjectGroup(Set<GroupDetails> projectGroup) {
+        this.projectGroup = projectGroup;
+    }
 
     @Column(unique = true)
-    public Long getFacultyCode() {
-        return facultyCode;
-    }
+    public Long getFacultyCode() { return facultyCode; }
 
     public void setFacultyCode(Long facultyCode) {
         this.facultyCode = facultyCode;

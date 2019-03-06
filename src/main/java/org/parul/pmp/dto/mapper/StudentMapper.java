@@ -13,7 +13,7 @@ public class StudentMapper
         student.setFirstname(studentDTO.getFirstname());
         student.setMiddlename(studentDTO.getMiddlename());
         student.setLastname(studentDTO.getLastname());
-        student.setEnrollmentNo(studentDTO.getEnrollmentNo());
+        student.setEnrollment(studentDTO.getEnrollment());
         student.setSem(studentDTO.getSem());
         student.setEmail(studentDTO.getEmail());
         student.setMobile_no(studentDTO.getMobile_no());
@@ -31,6 +31,15 @@ public class StudentMapper
         credential.setUsername(studentDTO.getUsername());
         credential.setPassword(studentDTO.getPassword());
         return credential;
+    }
+    public static StudentDTO toDTO(Student student)
+    {
+        StudentDTO dto = new StudentDTO();
+        dto.setEnrollment(student.getEnrollment());
+        dto.setFirstname(student.getFirstname());
+        dto.setLastname(student.getLastname());
+        dto.setEmail(student.getEmail());
+        return dto;
     }
 
 }

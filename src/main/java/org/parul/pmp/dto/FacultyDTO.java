@@ -4,7 +4,7 @@ public class FacultyDTO {
 
     private long department_id;
 
-    private Long facultyCode;
+    private long facultyCode;
     private String facultyFirstname;
     private String facultyMiddlename;
     private String facultyLastname;
@@ -31,11 +31,11 @@ public class FacultyDTO {
         this.department_id = department_id;
     }
 
-    public Long getFacultyCode() {
+    public long getFacultyCode() {
         return facultyCode;
     }
 
-    public void setFacultyCode(Long facultyCode) {
+    public void setFacultyCode(long facultyCode) {
         this.facultyCode = facultyCode;
     }
 

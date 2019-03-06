@@ -11,8 +11,9 @@ public class Student extends User{
     private String middlename;
     private String lastname;
     private String dob;
-    private Long enrollmentNo;
-    //private String college;
+    private String enrollment;
+    //private University university_id;
+   // private College college_id;
     private String sem;
     private String email;
     private String gender;
@@ -20,6 +21,36 @@ public class Student extends User{
     private Department department;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
+    private GroupDetails projectGroup;
+    private boolean isCordinator;
+    private boolean isGroupMember;
+
+    public boolean isCordinator() {
+        return isCordinator;
+    }
+
+    public void setCordinator(boolean cordinator) {
+        isCordinator = cordinator;
+    }
+
+    public boolean isGroupMember() {
+        return isGroupMember;
+    }
+
+    public void setGroupMember(boolean groupMember) {
+        isGroupMember = groupMember;
+    }
+
+    //@OneToOne(mappedBy = "members",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "groupId")
+    public GroupDetails getProjectGroup() {
+        return projectGroup;
+    }
+
+    public void setProjectGroup(GroupDetails projectGroup) {
+        this.projectGroup = projectGroup;
+    }
 
     public String getFirstname() { return firstname; }
 
@@ -50,12 +81,12 @@ public class Student extends User{
     }
 
     @Column(unique = true)
-    public Long getEnrollmentNo() {
-        return enrollmentNo;
+    public String getEnrollment() {
+        return enrollment;
     }
 
-    public void setEnrollmentNo(Long enrollmentNo) {
-        this.enrollmentNo = enrollmentNo;
+    public void setEnrollment(String enrollment) {
+        this.enrollment = enrollment;
     }
 
     public String getSem() {

@@ -6,6 +6,7 @@ import org.parul.pmp.dto.FacultyProfileDTO;
 import org.parul.pmp.dto.MailDTO;
 import org.parul.pmp.dto.mapper.DepartmentMapper;
 import org.parul.pmp.entity.Department;
+import org.parul.pmp.entity.Faculty;
 import org.parul.pmp.repository.DepartmentRepository;
 import org.parul.pmp.service.FacultyProfileService;
 import org.parul.pmp.service.FacultyService;
@@ -45,7 +46,6 @@ public class FacultyController {
     @PostMapping
     public String registerFaculty(@ModelAttribute("faculty") FacultyDTO faculty, Model model) {
         try {
-
             facultyService.addFaculty(faculty);
             //model.addAttribute("msg", "Successful");
             MailDTO mailDTO = new MailDTO();

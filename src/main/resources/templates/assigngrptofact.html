@@ -2,19 +2,45 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>add grp to faculty</title>
+  <script type="text/javascript" src="/js/jquery3.3.1.js"></script>
+    <script type="text/javascript" src="/js/db_ajax.js"></script>
 </head>
 <body>
-<form action="/assigngrptofact" method="post" th:object="${facts}">
-<select name="facutly" id="fact">
-    <option th:each="fact : ${facts}"
-            th:value="${fact.facultyCode}"
-            th:text="${fact.facultyFirstname+fact.facultyMiddlename+fact.facultyLastname}">Faculties</option>
-    </option>
-</select>
-    <button type="button" onclick="fetchFaculties()">Groups</button>
+<!--<form action="/assigngrptofact" method="post" th:object="${facts}">-->
+<label>select faculty</label>
 
 
+    <div>
+        <form action="/assigngrptofact/showgrp" method="post" th:object="${facandgrp}">
+            <select th:field="*{facultyId}" id="fact">
+                <option th:each="fact : ${facts}"
+                        th:value="${fact.facultyCode}"
+                        th:text="${fact.facultyFirstname+fact.facultyMiddlename+fact.facultyLastname}">Faculties</option>
+                </option>
+            </select>
+            <table>
+                <thead>
+                <tr>
+                    <th>Group Id</th>
+                    <th>Group name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="Group : ${groups}">
+                    <td th:text="${Group.getGroupId()}">
+                    <td th:text="${Group.getGroupName()}">
+                    <td><input type="checkbox" th:field="*{groupid}" th:value="${Group.getGroupId()}"></td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td> <input type="submit"> </td>
+                </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>
 </form>
 </body>
 </html>

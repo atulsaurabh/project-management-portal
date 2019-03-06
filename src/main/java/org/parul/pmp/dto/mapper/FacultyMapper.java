@@ -28,15 +28,15 @@ public class FacultyMapper {
         credential.setPassword(facultyDTO.getPassword());
         return credential;
     }
-
     public static FacultyDTO toDTO(Faculty faculty)
     {
         FacultyDTO dto = new FacultyDTO();
         dto.setFacultyCode(faculty.getFacultyCode());
         dto.setFacultyFirstname(faculty.getFacultyFirstname());
-        dto.setFacultyMiddlename(faculty.getFacultyMiddlename());
         dto.setFacultyLastname(faculty.getFacultyLastname());
+        dto.setEmail(faculty.getEmail());
         dto.setHod(faculty.isHod());
         return dto;
     }
+
 }
