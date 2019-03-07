@@ -1,7 +1,7 @@
 <tr th:each="faculty : ${faculties}">
-        <td th:text="${faculty.getFacultyCode()}">
-        <td th:text="${faculty.getFacultyFirstname()}">
-        <td th:text="${faculty.getFacultyMiddlename()}">
-        <td th:text="${faculty.getFacultyLastname()}">
-        <td><input type="radio" name="facultycode" th:value="${faculty.facultyCode}" th:checked="${faculty.getHod()}"></td>
+        <td class="center middle" th:text="${faculty.getFacultyCode()}">
+        <td class="center middle" th:text="${faculty.getFacultyFirstname()}">
+       <!-- <td th:text="${faculty.getFacultyMiddlename()}">
+        <td th:text="${faculty.getFacultyLastname()}">-->
+        <td><input type="radio" name="facultycode" th:value="${faculty.facultyCode}" th:checked="${faculty.getHod()}" class="center middle"></td>
 </tr>

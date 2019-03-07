@@ -11,7 +11,7 @@ public class Student extends User{
     private String middlename;
     private String lastname;
     private String dob;
-    private String enrollment;
+    private Long enrollment;
     //private University university_id;
    // private College college_id;
     private String sem;
@@ -81,11 +81,11 @@ public class Student extends User{
     }
 
     @Column(unique = true)
-    public String getEnrollment() {
+    public Long getEnrollment() {
         return enrollment;
     }
 
-    public void setEnrollment(String enrollment) {
+    public void setEnrollment(Long enrollment) {
         this.enrollment = enrollment;
     }
 

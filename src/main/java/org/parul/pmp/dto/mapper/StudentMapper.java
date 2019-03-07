@@ -39,6 +39,7 @@ public class StudentMapper
         dto.setFirstname(student.getFirstname());
         dto.setLastname(student.getLastname());
         dto.setEmail(student.getEmail());
+        dto.setEnrollment(student.getEnrollment());
         return dto;
     }
 

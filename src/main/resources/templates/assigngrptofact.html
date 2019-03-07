@@ -16,7 +16,7 @@
             <select th:field="*{facultyId}" id="fact">
                 <option th:each="fact : ${facts}"
                         th:value="${fact.facultyCode}"
-                        th:text="${fact.facultyFirstname+fact.facultyMiddlename+fact.facultyLastname}">Faculties</option>
+                        th:text="${fact.facultyFirstname + fact.facultyMiddlename + fact.facultyLastname}">Faculties</option>
                 </option>
             </select>
             <table>

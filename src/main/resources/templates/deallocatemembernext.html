@@ -1,0 +1,6 @@
+<tr th:each="stdealct : ${deallocate}">
+    <td th:text="${stdealct.getEnrollment()}">
+    <td th:text="${stdealct.getFirstname() + student.getMiddlename() + student.getLastname()}">
+    <td th:text="${stdealct.getDepartment()}">
+    <td th:text="${stdealct.getProjectGroup}">
+</tr>

@@ -66,7 +66,6 @@ public class HodController {
             Faculty previousHOD= facultyHOD.get();
             previousHOD.setHod(false);
             facultyRepository.saveAndFlush(previousHOD);
-
         }
 
         faculty.setHod(true);

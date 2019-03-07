@@ -12,14 +12,14 @@ function fetchFaculties()
 
 }
 
-function fetchGroups()
+/*function fetchStudent()
 {
-    var department_id = $("#dept").val();
+    var Enrollment = $("#student").val();
     $.post(
-        "/assigngrptofact",
-        {department:department_id},
+        "/deallocatemember",
+        {enrollment:Enrollment},
         function (data) {
-            $("#grp_place").html(data);
+            $("#std_place").html(data);
         }
     )
-}
+}*/
