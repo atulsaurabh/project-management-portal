@@ -12,13 +12,12 @@ function fetchstudents()
 function addmembers()
 {
 
-    var enrollmentID = $("#enrollID").val();
+    var enrollmentID = $("#student").val();
     $.post(
-        "/project/addmember",
+        "project/addmember",
         {enrollment:enrollmentID},
         function (data) {
             $("#member_place").html(data);
         }
     )
-}
 }

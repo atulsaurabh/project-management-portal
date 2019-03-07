@@ -6,7 +6,7 @@
 </head>
 <body>
 <div style="width:100%; height: 100px; background-color: grey;">
-    <select name="enrollment" id="enrollID">
+    <select name="enrollment" id="student">
     <option th:each="student : ${students}"
             th:value="${student.enrollment}"
             th:text="${student.enrollment}"></option>
