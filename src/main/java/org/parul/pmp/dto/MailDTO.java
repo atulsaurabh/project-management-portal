@@ -6,7 +6,7 @@ public class MailDTO {
     private String link;
     private String password;
     private String name;
-
+    private long userid;
 
     public String getName() {
         return name;
@@ -48,6 +48,13 @@ public class MailDTO {
         this.link = link;
     }
 
+    public long getUserid() {
+        return userid;
+    }
+
+    public void setUserid(long userid) {
+        this.userid = userid;
+    }
 
     public String activationMessage()
     {

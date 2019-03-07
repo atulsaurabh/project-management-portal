@@ -8,6 +8,7 @@ import javax.persistence.*;
 public class User {
 
     private long userid;
+    private boolean isActivate;
 
     private Credential credential;
 
@@ -17,6 +18,13 @@ public class User {
 
     private College college;
 
+    public boolean isActivate() {
+        return isActivate;
+    }
+
+    public void setActivate(boolean activate) {
+        isActivate = activate;
+    }
 
     /*private Faculty faculty;
 
