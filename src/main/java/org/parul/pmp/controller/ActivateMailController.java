@@ -5,6 +5,7 @@ import org.parul.pmp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -12,11 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ActivateMailController {
     @Autowired
     UserRepository userRepository;
+    @GetMapping
     public String activateUser(Model model, long userid)
     {
         User user= userRepository.findById(userid).get();
         user.setActivate(true);
         userRepository.saveAndFlush(user);
-        return "http://localhost:8080/accountactivationpage";
+        return "accountactivationpage";
     }
 }
