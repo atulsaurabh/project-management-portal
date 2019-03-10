@@ -71,7 +71,7 @@ public class ProjectController {
             else
             projectGroupService.createGroup(groupDTO,student);
         }
-        return "studenthome";
+        return "projectGroup";
     }
     /*@PostMapping("/promoteCordinator")
     @Transactional
@@ -109,6 +109,27 @@ public class ProjectController {
             model.addAttribute("msg", "Error");
         }
         return "project";
+    }
+    @GetMapping("/addmember")
+    public String addmember(Model model,HttpSession session)
+    {
+        Long userid = (Long) session.getAttribute("userid");
+        Student student =studentRepository.findById(userid).get();
+        Department dept = student.getDepartment();
+        List<Student> students = studentRepository.findByDepartment(dept);
+        List<StudentDTO> studentDTOS = students.stream().map(StudentMapper::toDTO).collect(Collectors.toList());
+        model.addAttribute("students",studentDTOS);
+        GroupDetails grpid = student.getProjectGroup();
+        model.addAttribute("student",student);
+        model.addAttribute("group",grpid);
+        return "addmember";
+    }
+    @PostMapping("/addmember")
+    public String addothormember(@RequestParam("enrollment") String enrollment,Model model)
+    {
+        Student student = studentRepository.findByEnrollment(enrollment).get();
+        model.addAttribute("student",student);
+        return "addmembernext";
     }
 
 }

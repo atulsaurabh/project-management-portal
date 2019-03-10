@@ -16,7 +16,6 @@ public class GroupDTO {
     private long faculty_id;
     private String enrollment;
 
-
     public long getGroupId() {
         return groupId;
     }

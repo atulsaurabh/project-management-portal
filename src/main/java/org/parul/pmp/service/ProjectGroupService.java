@@ -32,6 +32,8 @@ public class ProjectGroupService {
     {
         GroupDetails grp = GroupMapper.toEntity(groupDTO);
         grp.getMembers().add(student);
+
+
         grp.setYear(LocalDate.now().getYear());
         Department dept=student.getDepartment();
        // Student student=studentRepository.findById(groupDTO.getStudentId()).get();
@@ -48,6 +50,7 @@ public class ProjectGroupService {
         //facultyRepository.saveAndFlush(faculty);
         student.setProjectGroup(savedGroup);
         savedGroup.setCordinator(student);
+        student.setCordinator(true);
         studentRepository.saveAndFlush(student);
 
 

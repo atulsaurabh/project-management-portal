@@ -59,7 +59,7 @@ public class StudentController {
         try {
 
             studentService.addStudent(student);
-           // model.addAttribute("msg", "Successful");
+            //model.addAttribute("msg", msg);
             MailDTO mailDTO = new MailDTO();
             mailDTO.setName(student.getFirstname());
             mailDTO.setPassword(student.getPassword());

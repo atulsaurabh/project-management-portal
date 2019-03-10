@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/deallocatemember")
@@ -34,14 +36,21 @@ public class DeallocateMemberControlle {
     }
 
     @PostMapping
-    private String deallocateMember(@RequestParam (value = "enrollment", required = false) Long enrollment ,Model model)
+    private String deallocateMember(@RequestParam("enrollment") Long enrollment ,Model model)
     {
         if (enrollment != null)
         {
-            Student student = studentRepository.getOne(enrollment);
-            GroupDetails group = student.getProjectGroup();
 
+            Student student = studentRepository.findByEnrollment(enrollment).get();
+            GroupDetails group = student.getProjectGroup();
+            if (group != null) {
+                group.getMembers().remove(student);
+                studentRepository.saveAndFlush(student);
+                groupRepository.saveAndFlush(group);
+                return "deallocatemembernext";
+            }
         }
+
         return "welcome";
     }
     /*@PostMapping

@@ -43,4 +43,4 @@ public class DepartmentService {
         savedDepartment.setCollege(clg);
         collegeRepository.saveAndFlush(clg);
     }
-}
+    }
