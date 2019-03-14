@@ -27,16 +27,16 @@
         <div class="collapse navbar-collapse" id="navbar10">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>
-                <li class="nav-item"> <a class="nav-link" style="color:white;font-size:25px;font-weight:500;" href="templates/userLogin.html">Login</a> </li>
+                <li class="nav-item"> <a class="nav-link" style="color:white;font-size:25px;font-weight:500;" th:href="@{/account/login}">Login</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Profile</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">LogOut</a> </li>
             </ul>
         </div>
     </nav>
-    <div class="form-group">
+    <div class="form-group" >
         <h4 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">NEW USER REGISTRATION</h4>
     </div>
-    <div class="form-group ml-5 pl-5" style="">
+    <div class="form-group ml-5 pl-5"  style="">
        <!-- <button class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true"> University</button>
         <a href="#" th:each="university:${univercities}"
            th:value="${university.university_id}"
@@ -90,7 +90,6 @@
     <div class="form-group ml-5 pl-5">
         <input class="form-control w-75 ml-5" placeholder="Password" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" type="password"  th:field="*{password}">
     </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="submit" class="btn btn-secondary ml-5 w-25" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;"> Register </button>
-
 </form>
 <div class="py-3 bg-dark">
         <div class="container">

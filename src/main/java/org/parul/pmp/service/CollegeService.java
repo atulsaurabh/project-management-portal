@@ -19,13 +19,13 @@ import java.util.Optional;
 @Service
 public class CollegeService {
     @Autowired
-    CollegeRepository collegeRepository;
+    private CollegeRepository collegeRepository;
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
     @Autowired
-    RoleRepository roleRepository;
+    private RoleRepository roleRepository;
     @Autowired
-    UniversityRepository universityRepository;
+    private UniversityRepository universityRepository;
 
     @Transactional
     public void addCollege(CollegeDTO collegeDTO) throws RoleNotAvailableException
