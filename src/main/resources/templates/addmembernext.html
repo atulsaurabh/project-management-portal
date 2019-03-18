@@ -1,7 +1,13 @@
-<tr>
+<tr xmlns="http://www.w3.org/1999/html" id="member">
     <td th:text="${student.getEnrollment()}"></td>
     <td th:text="${student.getFirstname()}"></td>
     <td th:text="${student.getLastname()}"></td>
     <td th:text="${student.getEmail()}"></td>
+    <td><!--<input type="button"  th:onclick="location.href='/project/grouprequestmail?email='+${student.getEmail()}" value="ADD" >-->
+        <!--<input type="button"  th:onclick="'javascript:sendJoinInGroupRequest(\''+${student.getEmail()}+'\');'" value="ADD" /></td>
+--><!--<a th:href="'/project/grouprequestmail?email='+${student.getEmail()}">ADD</a>
+-->
+        <a th:href="@{/project/grouprequestmail(email = ${student.getEmail()}, enrollment = ${student.getEnrollment()}) }">ADD</a>
 
+    </td>
 </tr>

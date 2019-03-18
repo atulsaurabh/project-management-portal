@@ -22,3 +22,17 @@ function addmembers()
         }
     )
 }
+
+function sendJoinInGroupRequest(email){
+    $.post(
+        "/project/grouprequestmail",
+        {email:email},
+        function (data)
+        {
+            if (data === "success")
+            {
+                $("#member").css("color","green").html(data);
+            }
+        }
+    )
+}

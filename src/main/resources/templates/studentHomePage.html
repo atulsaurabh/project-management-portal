@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/studentRegistrationCss.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/studentThreg.css}" type="text/css">
+    <style>
+        .vertical-menu {
+        width: 200px;
+        height: 150px;
+        overflow-y: auto;
+
+
+    }
+
+    .vertical-menu a {
+        background-color: #eee;
+        color: black;
+        display: block;
+        padding: 12px;
+        text-decoration: none;
+        background-color: #b3ccff;
+    }
+
+    .vertical-menu a:hover {
+        background-color: #ccc;
+    }
+
+    .vertical-menu a.active {
+        background-color: #4CAF50;
+        color: white;
+    }
+    </style>
+</head>
+
+<body style="	text-shadow: 0px 0px 4px black;">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark" style="height:80px;">
+    <a class="navbar-brand" href="#">
+        <img src="/images/logo.png" alt="Logo" title="Logo" class="rounded" style="" height="50">
+    </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
+    <span class="navbar-toggler-icon"></span>
+</button>
+    <div class="collapse navbar-collapse" id="navbar10">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link " href="#" style="color:white;font-size:20px;font-weight:500;"><i class="fa fa-sign-out fa-x fa-lg" aria-hidden="true" style="color:#ffffff"></i>&nbsp;&nbsp;LogOut</a> </li>
+        </ul>
+    </div>
+</nav>
+<form ACTION="" method="post">
+    <div class="vertical-menu h-50 w-25">
+        <div>
+            <a href="#" style="color:white;" class="not-active bg-secondary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STUDENT</a>
+        </div>
+        <div> <a th:href="@{/project/projectDetails}"><i class="fa fa-info fa-x fa-lg" aria-hidden="true" style="color:#425cf4"></i>&nbsp;&nbsp;Submit Project Details</a>
+        </div>
+        <div> <a th:href="@{/project}"><i class="fa fa-user-plus fa-x fa-lg" aria-hidden="true" style="color:#425cf4"></i>&nbsp;&nbsp;Create Project Group</a>
+        </div>
+        <div> <a th:href="@{/project/addmember}"><i class="fa fa-users  fa-x" aria-hidden="true" style="color:#425cf4"></i>&nbsp;&nbsp;Add Member In Group</a>
+        </div>
+    </div>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="bg-dark ">
+    <div class="container">
+        <div class="row" style="">
+            <div class="col-md-12 text-center">
+                <p class="mb-0 text-light">Copyright © 2019 Project Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/js1.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="/js/js2.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="/js/js3.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+
+    </html>
