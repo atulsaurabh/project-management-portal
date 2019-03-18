@@ -4,6 +4,7 @@ import org.parul.pmp.dto.*;
 import org.parul.pmp.dto.mapper.StudentMapper;
 import org.parul.pmp.entity.*;
 import org.parul.pmp.repository.*;
+import org.parul.pmp.service.MailService;
 import org.parul.pmp.service.ProjectGroupService;
 import org.parul.pmp.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,6 @@ import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Controller
@@ -33,6 +33,8 @@ public class ProjectController {
     private ProjectService projectService;
     @Autowired
     private GroupRepository groupRepository;
+    @Autowired
+    private MailService mailService;
 
     @GetMapping
     public String projectGroup(Model model)
@@ -134,7 +136,29 @@ public class ProjectController {
         {
             model.addAttribute("msg","user not available");
         }
-        return "redirect:/addmember";
+        String email = student.get().getEmail();
+        model.addAttribute("mailId",email);
+        String firstname = student.get().getFirstname();
+        return "redirect:/grouprequestmail";
+    }
+    @GetMapping("/grouprequestmail")
+    public String sendgrouprequest(@RequestParam(name = "email")String email,@RequestParam("enrollment")String enrollment ,Model model,HttpSession session)
+    {
+        Student student= studentRepository.findByEnrollment(enrollment).get();
+        long userid = student.getUserid();
+        Long cordinator = (Long) session.getAttribute("userid");
+        Student student1 =studentRepository.findById(cordinator).get();
+        long groupid = student1.getProjectGroup().getGroupId();
+        MailDTO mailDTO = new MailDTO();
+        //mailDTO.setUserid(student.getUserid());
+        mailDTO.setName("reshma");
+        mailDTO.setTo(email);
+        mailDTO.setSubject("Group Member Request");
+        mailDTO.setLink("http://localhost:8080/groupjoininvitation?userid=&&groupid="+userid+""+groupid);
+        mailService.sendActivationMailWithCredential(mailDTO);
+        model.addAttribute("emailID",email);
+        return "groupjoininvitation";
+
     }
 
 }
