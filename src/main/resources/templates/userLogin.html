@@ -8,8 +8,6 @@
     <link rel="stylesheet" th:href="@{/css/userLoginCss.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/css/userThLogin.css}" type="text/css">
 </head>
-
-<body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="">
     <a class="navbar-brand" href="#">
         <img alt="Logo" title="Logo" class="rounded" style="" src="/images/logo.png">
@@ -18,10 +16,10 @@
 </button>
     <div class="collapse navbar-collapse" id="navbar10">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Login</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Profile</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">LogOut</a> </li>
+            <li class="nav-item"> <a class="nav-link" th:href="@{/university}" style="color:white;font-size:25px;font-weight:500;">University Registration</a> </li>
+            <li class="nav-item"> <a class="nav-link" th:href="@{/student/register}" style="color:white;font-size:25px;font-weight:500;">Student Registration</a> </li>
+            <!--<li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Profile</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">LogOut</a> </li>-->
         </ul>
     </div>
 </nav>
@@ -30,7 +28,7 @@
         <h4 class="text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">LOGIN</h4>
     </div>
     <div class="form-group ml-5 pl-5">
-        <input type="email" class="form-control ml-5 w-75" placeholder="Enter email" id="form9" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{username}">
+        <input type="text" class="form-control ml-5 w-75" placeholder="Enter email" id="form9" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{username}">
     </div>
     <div class="form-group ml-5 pl-5">
         <input type="password" class="form-control ml-5 w-75" placeholder="Password" id="form10" style="	font-color:blue;box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{password}">
@@ -38,14 +36,15 @@
     <div class="form-group text-right mr-5 pr-5 col-md-11">
         <a href="#" class="mr-5"> Forgotten password</a>
     </div>
-    <div class="form-group text-center col-md-12 w-75 ml-5 pl-5"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="form-group text-center col-md-12 w-75 ml-5 pl-5">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button type="submit" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;" class="btn btn-secondary w-25 text-center ml-5">SignIn</button>
     </div>
     <div class="form-group text-center">
         <label class="text-dark">Don't have an account with us?</label>
-        <button type="submit" class="btn btn-success btn-lg" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: blue;">Create an Account</button>
+        <button type="button" class="btn btn-success btn-lg"  style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: blue;"><a th:href="@{/student/register}">Create an Account</a> </button>
     </div>
 </form>
+
 <div class="py-3 bg-dark">
     <div class="container">
         <div class="row" style="">
@@ -58,6 +57,6 @@
 <script src="/js/js1.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="/js/js2.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="/js/js3.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
- </body>
+</body>
 
 </html>
