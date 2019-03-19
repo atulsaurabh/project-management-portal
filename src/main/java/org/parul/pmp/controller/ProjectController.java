@@ -154,7 +154,7 @@ public class ProjectController {
         mailDTO.setName("reshma");
         mailDTO.setTo(email);
         mailDTO.setSubject("Group Member Request");
-        mailDTO.setLink("http://localhost:8080/groupjoininvitation?userid=&&groupid="+userid+""+groupid);
+        mailDTO.setLink("http://localhost:8080/groupjoininvitation?userid="+userid+"&groupid="+groupid);
         mailService.sendActivationMailWithCredential(mailDTO);
         model.addAttribute("emailID",email);
         return "groupjoininvitation";
