@@ -18,7 +18,7 @@ function addmembers()
         "/project/addmember",
         {enrollment:enrollmentID},
         function (data) {
-            $("#member_place").html(data);
+            $("#shome").html(data);
         }
     )
 }
