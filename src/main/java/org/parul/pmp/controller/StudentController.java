@@ -73,7 +73,7 @@ public class StudentController {
             mailDTO.setPassword(student.getPassword());
             mailDTO.setTo(student.getEmail());
             mailDTO.setSubject("Account Activation");
-            mailDTO.setLink("http://localhost:8080/activate?userid=" + userid);
+            mailDTO.setLink("http://localhost:8080/activate?userid="+userid);
             mailService.sendActivationMailWithCredential(mailDTO);
             model.addAttribute("emailId",student.getEmail());
             return "successfulRegistration";

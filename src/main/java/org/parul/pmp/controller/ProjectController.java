@@ -5,6 +5,7 @@ import org.parul.pmp.dto.mapper.StudentMapper;
 import org.parul.pmp.entity.*;
 import org.parul.pmp.repository.*;
 import org.parul.pmp.service.MailService;
+import org.parul.pmp.service.Mailserviceforgroup;
 import org.parul.pmp.service.ProjectGroupService;
 import org.parul.pmp.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class ProjectController {
     @Autowired
     private GroupRepository groupRepository;
     @Autowired
-    private MailService mailService;
+    private Mailserviceforgroup mailService;
 
     @GetMapping
     public String projectGroup(Model model)
@@ -149,11 +150,15 @@ public class ProjectController {
         Long cordinator = (Long) session.getAttribute("userid");
         Student student1 =studentRepository.findById(cordinator).get();
         long groupid = student1.getProjectGroup().getGroupId();
+        String groupname = student1.getProjectGroup().getGroupName();
+        String cordinatorEnroll = student1.getProjectGroup().getCordinator().getEnrollment();
         MailDTO mailDTO = new MailDTO();
         //mailDTO.setUserid(student.getUserid());
         mailDTO.setName("reshma");
         mailDTO.setTo(email);
         mailDTO.setSubject("Group Member Request");
+        mailDTO.setGroup(groupname);
+        mailDTO.setCordinator(cordinatorEnroll);
         mailDTO.setLink("http://localhost:8080/groupjoininvitation?userid="+userid+"&groupid="+groupid);
         mailService.sendActivationMailWithCredential(mailDTO);
         model.addAttribute("emailID",email);
