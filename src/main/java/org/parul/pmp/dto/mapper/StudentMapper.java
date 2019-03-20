@@ -17,6 +17,7 @@ public class StudentMapper
         student.setSem(studentDTO.getSem());
         student.setEmail(studentDTO.getEmail());
         student.setMobile_no(studentDTO.getMobile_no());
+        student.setGroupMember(true);
         return student;
     }
 

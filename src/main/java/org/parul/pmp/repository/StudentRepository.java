@@ -13,6 +13,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     Optional<Student> findByEnrollment(Long enrollment);
     Student findByDepartment(Long department_id);
-    Optional<Student> findByEnrollment(String enrollment);
+//    Optional<Student> findByEnrollment(String enrollment);
     List<Student> findByDepartment(Department department);
 }

@@ -10,31 +10,28 @@
    Enrollment No:
    <input type="text" id="student" name="enrollment">
 
-<!--    <button type="button" onclick="fetchStudent()">Search</button><br>
-    <label for="search">Search:</label> <input name="search"
-                                                     id="search">
-
-    <div>
-        <form action="/deallocatemember" method="post"  th:object="${deallocate}">
-            <table>
-                <thead>
-                <tr>
-                    <th>Enrollment No</th>
-                    <th>Student Name</th>
-                    <th>Department</th>
-                    <th>Group Id</th>
-                    <th>Group Name</th>
-                </tr>
-                </thead>
-                <tbody id="std_place"></tbody>
-                <tfoot>
-                <tr>
-                    <td> <button type="button"> Deallocate </button> </td>
-                </tr>
-                </tfoot>
-            </table>
-        </form>
-    </div>-->
+   <button type="button" onclick="fetchStudent()">Search</button><br>
+       <div>
+           <form action="/handlemember/removemember" method="post" >
+               <table>
+                   <thead>
+                   <tr>
+                       <th>Enrollment No</th>
+                       <th>Student Name</th>
+                       <th>Department</th>
+                       <th>Group Id</th>
+  <!--                     <th>Group Name</th>-->
+                   </tr>
+                   </thead>
+                   <tbody id="std_place"></tbody>
+                   <tfoot>
+                   <tr>
+                       <td> <input type="submit"> </td>
+                   </tr>
+                   </tfoot>
+               </table>
+           </form>
+       </div>
 </form>
 </body>
 </html>

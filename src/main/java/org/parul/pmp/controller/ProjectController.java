@@ -1,8 +1,6 @@
 package org.parul.pmp.controller;
 
 import org.parul.pmp.dto.*;
-import org.parul.pmp.dto.mapper.DepartmentMapper;
-import org.parul.pmp.dto.mapper.FacultyMapper;
 import org.parul.pmp.dto.mapper.StudentMapper;
 import org.parul.pmp.entity.*;
 import org.parul.pmp.repository.*;
@@ -10,7 +8,6 @@ import org.parul.pmp.service.ProjectGroupService;
 import org.parul.pmp.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -70,6 +67,8 @@ public class ProjectController {
             }
             else
             projectGroupService.createGroup(groupDTO,student);
+            student.setGroupMember(true);
+            studentRepository.saveAndFlush(student);
         }
         return "projectGroup";
     }
@@ -125,11 +124,19 @@ public class ProjectController {
         return "addmember";
     }
     @PostMapping("/addmember")
-    public String addothormember(@RequestParam("enrollment") String enrollment,Model model)
+    public String addothormember(@RequestParam("enrollment") Long enrollment,Model model)
     {
-        Student student = studentRepository.findByEnrollment(enrollment).get();
-        model.addAttribute("student",student);
-        return "addmembernext";
+        Optional<Student> student = studentRepository.findByEnrollment(enrollment);
+        model.addAttribute("student",student.get());
+        if(student.isPresent())
+        {
+            return "addmembernext";
+        }
+        else
+        {
+            model.addAttribute("msg","user not available");
+        }
+        return "redirect:/addmember";
     }
 
 }

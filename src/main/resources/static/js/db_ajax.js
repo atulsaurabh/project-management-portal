@@ -16,7 +16,7 @@ function fetchStudent()
 {
     var enrollment = $("#student").val();
     $.post(
-        "/deallocatemember",
+        "/handlemember",
         {enrollment:enrollment},
         function (data) {
             $("#std_place").html(data);
@@ -39,9 +39,10 @@ function fetchstudents()
 function addmembers()
 {
 
-    var enrollmentID = $("#student").val();
+    var enrollmentID = $("#enroll").val();
+
     $.post(
-        "project/addmember",
+        "/project/addmember",
         {enrollment:enrollmentID},
         function (data) {
             $("#member_place").html(data);

@@ -33,9 +33,7 @@ public class Student extends User{
         isCordinator = cordinator;
     }
 
-    public boolean isGroupMember() {
-        return isGroupMember;
-    }
+    public boolean isGroupMember() { return isGroupMember; }
 
     public void setGroupMember(boolean groupMember) {
         isGroupMember = groupMember;
