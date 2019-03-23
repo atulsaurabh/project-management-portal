@@ -55,7 +55,12 @@ public class AccountController
                 break;
             case "ROLE_STUDENT":
                 if(user.isActivate())
-                uiname="studenthome";
+                {
+                    uiname="studenthome";
+                }
+                else {
+                    model.addAttribute("msg","check your account is activated or not");
+                }
 
         }
         model.addAttribute("username",credential.getUsername());

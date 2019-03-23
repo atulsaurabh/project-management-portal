@@ -51,6 +51,7 @@ public class ProjectGroupService {
         student.setProjectGroup(savedGroup);
         savedGroup.setCordinator(student);
         student.setCordinator(true);
+        student.setGroupMember(true);
         studentRepository.saveAndFlush(student);
 
 
