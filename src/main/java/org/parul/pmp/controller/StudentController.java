@@ -63,7 +63,7 @@ public class StudentController {
         try {
 
             studentService.addStudent(student);
-            Long enroll = student.getEnrollment();
+            String enroll = student.getEnrollment();
             Student student1 = studentRepository.findByEnrollment(enroll).get();
             long userid = student1.getUserid();
             model.addAttribute("userid",userid);

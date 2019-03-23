@@ -11,7 +11,7 @@ public class Student extends User{
     private String middlename;
     private String lastname;
     private String dob;
-    private Long enrollment;
+    private String enrollment;
     //private University university_id;
    // private College college_id;
     private String sem;
@@ -42,9 +42,7 @@ public class Student extends User{
     //@OneToOne(mappedBy = "members",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "groupId")
-    public GroupDetails getProjectGroup() {
-        return projectGroup;
-    }
+    public GroupDetails getProjectGroup() { return projectGroup; }
 
     public void setProjectGroup(GroupDetails projectGroup) {
         this.projectGroup = projectGroup;
@@ -79,11 +77,11 @@ public class Student extends User{
     }
 
     @Column(unique = true)
-    public Long getEnrollment() {
+    public String getEnrollment() {
         return enrollment;
     }
 
-    public void setEnrollment(Long enrollment) {
+    public void setEnrollment(String enrollment) {
         this.enrollment = enrollment;
     }
 

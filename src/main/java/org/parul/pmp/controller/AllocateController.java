@@ -44,7 +44,7 @@ public class AllocateController {
         return "addmember";
     }
     @PostMapping
-    public String addothormember(@RequestParam("enrollment") Long enrollment, Model model)
+    public String addothormember(@RequestParam("enrollment") String enrollment, Model model)
     {
         Optional<Student> student = studentRepository.findByEnrollment(enrollment);
         model.addAttribute("student",student.get());

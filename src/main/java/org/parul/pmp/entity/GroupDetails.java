@@ -18,6 +18,7 @@ public class GroupDetails {
     private Student cordinator;
     private Set<Student>members = new HashSet<>();
     private Instant dateOfGroupCreation;
+    private Project projectId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
@@ -79,7 +80,6 @@ public class GroupDetails {
         return cordinator;
     }
 
-
     public void setCordinator(Student cordinator) {
         this.cordinator = cordinator;
     }
@@ -93,4 +93,8 @@ public class GroupDetails {
         this.members = members;
     }
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public Project getProjectId() { return projectId; }
+
+    public void setProjectId(Project projectId) { this.projectId = projectId; }
 }

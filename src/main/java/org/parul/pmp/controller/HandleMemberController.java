@@ -38,7 +38,7 @@ public class HandleMemberController {
     }
 
     @PostMapping
-    private String deallocateMember(@RequestParam("enrollment") Long enrollment ,Model model)
+    private String deallocateMember(@RequestParam("enrollment") String enrollment ,Model model)
     {
         if (enrollment != null) {
 
@@ -51,7 +51,7 @@ public class HandleMemberController {
     }
     @PostMapping("/removemember")
     //@Transactional
-    public String remove(@RequestParam("enrollment") Long enrollment, Model model)
+    public String remove(@RequestParam("enrollment") String enrollment, Model model)
     {
         Student student = studentRepository.findByEnrollment(enrollment).get();
         GroupDetails group = student.getProjectGroup();
