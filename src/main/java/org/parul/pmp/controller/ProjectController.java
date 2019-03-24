@@ -3,6 +3,7 @@ package org.parul.pmp.controller;
 import org.parul.pmp.dto.*;
 import org.parul.pmp.dto.mapper.StudentMapper;
 import org.parul.pmp.entity.*;
+import org.parul.pmp.exception.SessionExpiredException;
 import org.parul.pmp.repository.*;
 import org.parul.pmp.service.MailService;
 import org.parul.pmp.service.Mailserviceforgroup;
@@ -150,15 +151,18 @@ public class ProjectController {
         return "redirect:/grouprequestmail";
     }
     @GetMapping("/grouprequestmail")
-    public String sendgrouprequest(@RequestParam(name = "email")String email,@RequestParam("enrollment")String enrollment ,Model model,HttpSession session)
+    public String sendgrouprequest(@RequestParam(name = "email")String email,@RequestParam("enrollment")String enrollment ,Model model,HttpSession session) throws SessionExpiredException
     {
         Student student= studentRepository.findByEnrollment(enrollment).get();
         long userid = student.getUserid();
         Long cordinator = (Long) session.getAttribute("userid");
+        if (cordinator ==null)
+            throw new SessionExpiredException();
         Student student1 =studentRepository.findById(cordinator).get();
-        long groupid = student1.getProjectGroup().getGroupId();
-        String groupname = student1.getProjectGroup().getGroupName();
-        String cordinatorEnroll = student1.getProjectGroup().getCordinator().getEnrollment();
+        GroupDetails groupDetails = student1.getProjectGroup();
+        long groupid = groupDetails.getGroupId();
+        String groupname = groupDetails.getGroupName();
+        String cordinatorEnroll = student1.getEnrollment();
         if(student.isGroupMember())
         {model.addAttribute("msg","alredy added");}
         else {
