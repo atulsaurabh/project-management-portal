@@ -6,29 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/studentRegistrationCss.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/css/studentThreg.css}" type="text/css">
+    <style> .vertical-menu {
+        width: 200px;
+        height: 150px;
+        overflow-y: auto;
+        float: left;
+    }
+
+    .vertical-menu a {
+        background-color: #eee;
+        color: black;
+        display: block;
+        padding: 12px;
+        text-decoration: none;
+        background-color: #b3ccff;
+    }
+
+    .vertical-menu a:hover {
+        background-color: #ccc;
+    }
+
+    .vertical-menu a.active {
+        background-color: #4CAF50;
+        color: white;
+    }
+    </style>
 </head>
 
-<br style="	text-shadow: 0px 0px 4px black;">
-<form>
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="">
+
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="height: 80px">
         <a class="navbar-brand" href="#">
-            <img src="/images/logo.png" alt="Logo" title="Logo" class="rounded" style="">
+            <img src="/images/logo.png" alt="Logo" title="Logo" class="rounded" height="50">
         </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
         <span class="navbar-toggler-icon"></span>
     </button>
         <div class="collapse navbar-collapse" id="navbar10">
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item" > <a class="nav-link" th:href="@{/account/login}" style="color:white;font-size:20px;font-weight:500;"><i class="fa fa-sign-out fa-x fa-lg" aria-hidden="true" style="color:#ffffff"></i>&nbsp;&nbsp;LogOut</a> </li>
+                <!--<li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>
+
                 <!--<li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>
                 <li class="nav-item"> <a class="nav-link" th:href="@{/account/login}" style="color:white;font-size:25px;font-weight:500;">Login</a> </li>
                 <li class="nav-item"> <a class="nav-link shadow" href="#" style="	color: white;	font-size: 25px;	font-weight: 500;	box-shadow: 0px 0px 4px  black, 0px 0px 4px  black;">Profile</a> </li>-->
-                <li class="nav-item"> <a class="nav-link" th:href="@{/account/login}" style="color:white;font-size:25px;font-weight:500;">LogOut</a> </li>
-            </ul>
+
+                 </ul>
         </div>
     </nav>
-    <h5 class="text-secondary w-100 text-sm-left " style="font-size: 20px;">UNIVERSITY ADMIN</h5>
-    <div class=" text-left">
-        <a class="btn btn-link text-sm-left " th:href="@{/college}" style="font-size: 20px;" >ADD COLLEGE </a></div>
+<form>
+    <div class="vertical-menu h-50 w-25">
+        <div>
+            <a href="#" class="not-active bg-secondary" style="color:white;">UNIVERSITY ADMIN</a>
+        </div>
+        <div>
+            <a th:href="@{/college}"><i class="fa fa-university  fa-x" aria-hidden="true" style="color:#425cf4"></i>&nbsp;&nbsp;ADD COLLEGE</a>
+        </div>
+    </div>
+    <div class="w-75 h-100" id="university" style=""></div>
 </form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 </br>
 </br>
 </br>

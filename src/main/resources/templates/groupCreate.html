@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/studentRegistrationCss.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/studentThreg.css}" type="text/css">
+    <script language="javascript">
+        function addRow(tableID) {
+
+
+        var table = document.getElementById(tableID);
+
+        var rowCount = table.rows.length;
+        if(rowCount>5)
+        {
+            return alert("You Can Not Create MoreThan 5 Member ");
+        }
+
+        var row = table.insertRow(rowCount);
+
+        var cell1 = row.insertCell(0);
+        var element1 = document.createElement("input");
+        element1.type = "checkbox";
+        element1.name="chkbox[]";
+        cell1.appendChild(element1);
+
+        var cell2 = row.insertCell(1);
+        cell2.innerHTML = rowCount + 0;
+
+        var cell3 = row.insertCell(2);
+        var element2 = document.createElement("input");
+        element2.type = "number";
+        cell3.appendChild(element2);
+
+        var cell4 = row.insertCell(3);
+        var element3 = document.createElement("input");
+        element3.type = "text";
+        cell4.appendChild(element3);
+
+        var cell5 = row.insertCell(4);
+        var element4 = document.createElement("input");
+        element4.type = "text";
+        cell5.appendChild(element4);
+
+        var cell6 = row.insertCell(5);
+        var element5 = document.createElement("input");
+        eleme nt4.type = "emawil";
+        cell6.appendChild(element5);
+
+
+
+
+    }
+
+
+    function deleteRow(tableID) {
+        try {
+            var table = document.getElementById(tableID);
+            var rowCount = table.rows.length;
+
+            for(var i=0; i<rowCount; i++) {
+                var row = table.rows[i];
+                var chkbox = row.cells[0].childNodes[0];
+                if(null != chkbox && true == chkbox.checked) {
+                    table.deleteRow(i);
+                    rowCount--;
+                    i--;
+                }
+
+
+            }
+        }catch(e) {
+            alert(e);
+        }
+    }
+
+    </script>
+    <style> table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(odd) {
+        border: 1px solid #dddddd;
+        background-color:#7961ff;
+    }
+    tr:nth-child(even) {
+        border: 1px solid #7961ff;
+        background-color:#dddddd;
+    }
+    </style>
+</head>
+
+<body >
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" style="height:80px;" draggable="true">
+    <a class="navbar-brand" href="#">
+        <img alt="Logo" title="Logo" class="rounded" style="" src="D:/final-year-project/src/main/resources/static/images/logo.png" height="50">
+    </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
+    <span class="navbar-toggler-icon"></span>
+</button>
+    <div class="collapse navbar-collapse" id="navbar10">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:20px;font-weight:500;">Home</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:20px;font-weight:500;">Login</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:20px;font-weight:500;">Profile</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:20px;font-weight:500;">LogOut</a> </li>
+        </ul>
+    </div>
+</nav>
+<div class="form-group">
+    <h4 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">CREATING GROUP</h4>
+</div>
+<form method="post" action="">
+    <table id="dataTable" width="350px" border="1">
+        <tbody>
+        <tr class="">
+            <th>select</th>
+            <th>no</th>
+            <th class="w-25">Enrollment Number</th>
+            <th class="w-25">First Name</th>
+            <th class="w-25">Last Name</th>
+            <th class="w-25">Email</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="chk"></td>
+            <td> 1</td>
+            <td style="-webkit-appearance: none;
+  margin: 0; "> <input type="number" required="required"> </td>
+            <td> <input type="text" required="required"> </td>
+            <td> <input type="text" required="required"> </td>
+            <td><input type="email" required="required"></td>
+        </tr>
+        </tbody>
+    </table> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" class="w-25 ml-5 mt-4" style="box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white; background-color:#7961ff; " value="Add Row" onclick="addRow('dataTable')">
+    <input type="button" value="Delete Row" onclick="deleteRow('dataTable')" class="ml-5 w-25 mt-4" style="box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;background-color:#7961ff; ">
+    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="submit" class="w-25 mt-3" style="box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;background-color:#7961ff; ">Submit</button></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class=" bg-dark">
+        <div class="container">
+            <div class="row" style="">
+                <div class="col-md-12 text-center">
+                    <p class="mb-0 text-light"> Copyright © 2019 Project Management System. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/js1.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="/js/js2.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/js/js3.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</form>
+</body>
+
+</html>

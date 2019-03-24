@@ -1,29 +1,3 @@
-
-function fetchFaculties()
-{
-   var department_id = $("#dept").val();
-   $.post(
-       "/addHod",
-       {department:department_id},
-       function (data) {
-         $("#fac_place").html(data);
-       }
-   )
-
-}
-
-function fetchStudent()
-{
-    var enrollment = $("#student").val();
-    $.post(
-        "/handlemember",
-        {enrollment:enrollment},
-        function (data) {
-            $("#std_place").html(data);
-        }
-    )
-}
-
 function fetchstudents()
 {
     var deptid = $("#dept").val();
@@ -49,4 +23,19 @@ function addmembers()
         }
     )
 }
+
+function sendJoinInGroupRequest(email){
+    $.post(
+        "/project/grouprequestmail",
+        {email:email},
+        function (data)
+        {
+            if (data === "success")
+            {
+                $("#member").css("color","green").html(data);
+            }
+        }
+    )
+}
+
 

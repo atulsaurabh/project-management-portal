@@ -32,6 +32,7 @@ public class FacultyService {
     {
         Faculty faculty = FacultyMapper.toEntity(facultyDTO);
         Department d=departmentRepository.findById(facultyDTO.getDepartment_id()).get();
+
         LocalDateTime localDateTime = LocalDateTime.now();
         faculty.setDateOfModification(localDateTime);
         faculty.setDateOfRegistration(localDateTime);

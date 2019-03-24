@@ -7,6 +7,7 @@ import org.parul.pmp.dto.mapper.FacultyMapper;
 import org.parul.pmp.entity.Credential;
 import org.parul.pmp.entity.Faculty;
 import org.parul.pmp.entity.User;
+import org.parul.pmp.entity.User;
 import org.parul.pmp.entity.enumeration.Roles;
 import org.parul.pmp.exception.UserNotExistException;
 import org.parul.pmp.repository.FacultyRepository;
@@ -44,6 +45,7 @@ public class AccountController
     public String login(LoginDTO loginDTO, Model model, HttpSession session) throws UserNotExistException
     {
         Credential credential =acountService.performLoginAndFetchRole(loginDTO);
+        User user =credential.getUser();
         session.setAttribute("userid",credential.getUser().getUserid());
         String rolename=credential.getRoles().stream().findFirst().get().getName();
         String uiname="";
@@ -66,7 +68,13 @@ public class AccountController
                     uiname="pqr";
                 break;
             case "ROLE_STUDENT":
-                uiname="studenthome";
+                if(user.isActivate())
+                {
+                    uiname="studenthome";
+                }
+                else {
+                    model.addAttribute("msg","check your account is activated or not");
+                }
 
         }
         model.addAttribute("username",credential.getUsername());

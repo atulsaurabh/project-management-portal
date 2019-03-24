@@ -1,5 +1,7 @@
 package org.parul.pmp.entity;
 
+import org.springframework.web.bind.annotation.ModelAttribute;
+
 import javax.persistence.*;
 import java.time.Instant;
 import java.time.Year;

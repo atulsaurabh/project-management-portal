@@ -37,6 +37,8 @@ public class StudentService {
         student.setUniversity(dept.getCollege().getUniversity());
         Student savedStudent = studentRepository.saveAndFlush(student);
 
+        User user = StudentMapper.toUserEntity(studentDTO);
+        User storedUser = userRepository.saveAndFlush(user);
         Credential credential = StudentMapper.toCredentialEntity(studentDTO);
 
         Optional<Role> optionalRole=roleRepository.findByName(Roles.ROLE_STUDENT.name());

@@ -7,6 +7,24 @@ public class MailDTO {
     private String password;
     private String name;
     private long userid;
+    private String cordinator;
+    private String group;
+
+    public String getCordinator() {
+        return cordinator;
+    }
+
+    public void setCordinator(String cordinator) {
+        this.cordinator = cordinator;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
 
     public String getName() {
         return name;
