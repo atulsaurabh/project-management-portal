@@ -10,7 +10,7 @@ public class HomePageController {
     @GetMapping
     public String homepage()
     {
-        return "Welcome";
+        return "redirect:/account/login";
     }
 }
 
