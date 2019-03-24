@@ -15,6 +15,7 @@ public class GroupDetails {
     private long groupId;
     private int year;
     private String groupName;
+    private String description;
     private Department department;
     private Faculty mentor;
     private Student cordinator;
@@ -93,5 +94,13 @@ public class GroupDetails {
 
     public void setMembers(Set<Student> members) {
         this.members = members;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

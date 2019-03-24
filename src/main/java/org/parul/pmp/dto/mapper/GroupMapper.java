@@ -10,7 +10,7 @@ public class GroupMapper {
     {
         GroupDetails gd = new GroupDetails();
         gd.setGroupName(dto.getGroupName());
-
+        gd.setDescription(dto.getDescription());
         return gd;
 
     }
