@@ -47,27 +47,28 @@
         </ul>
     </div>
 </nav>
-<form>
-    <div class="form-group">
+
+
         <h4 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">Add Group Member</h4>
-    </div>
+
     <div class="form-group ml-5 pl-5">
-        <input class="form-control w-75 ml-5" id="enroll" placeholder="Enrollment Number" style="	font-color:blue;box-shadow: 0px 0px 4px  blue;	" required="required" type="number">
+        <input type="search" class="form-control w-75 ml-5" id="enroll" placeholder="Enrollment Number" style="	font-color:blue;box-shadow: 0px 0px 4px  blue;	" required="required"  name="enrollment">
     </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button type="button" class="btn btn-secondary ml-5 w-25" style="box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;" onclick="addmembers()"> <i class="fa fa-search fa-x" aria-hidden="true" style="color:#ffffff"></i>&nbsp;&nbsp;Search </button>
-</form>
+    <button type="button" class="btn btn-secondary ml-5 w-25" style="box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;" onclick="addmembers()">
+        <i class="fa fa-search fa-x" aria-hidden="true" style="color:#ffffff"></i>
+        &nbsp;&nbsp;Search </button>
+
 <form action="/project/addmember">
     <table width="350px" border="1">
-        <tbody>
-        </tbody>
+
         <thead>
-        <tr>
+
             <th>Enrollment Number</th>
             <th class="w-25">First Name</th>
             <th class="w-25">Last Name</th>
             <th class="w-25">Email</th>
             <th>Action</th>
-        </tr>
+
         </thead>
         <tbody>
         <tr th:each="cordinator: ${student}">
@@ -77,9 +78,9 @@
             <td th:text="${cordinator.getEmail()}"></td>
             <td><button type="button" disabled>ADD</button></td>
         </tr>
-        </tbody>
-        <tid id="member_place">
-        </tid>
+
+        <tbody id="member_place">
+        </tbody></tbody>
     </table>
 
 </form>

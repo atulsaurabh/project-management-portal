@@ -5,6 +5,7 @@ import org.parul.pmp.dto.mapper.StudentMapper;
 import org.parul.pmp.entity.*;
 import org.parul.pmp.repository.*;
 import org.parul.pmp.service.MailService;
+import org.parul.pmp.service.Mailserviceforgroup;
 import org.parul.pmp.service.ProjectGroupService;
 import org.parul.pmp.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class ProjectController {
     @Autowired
     private GroupRepository groupRepository;
     @Autowired
-    private MailService mailService;
+    private Mailserviceforgroup mailService;
 
     @GetMapping
     public String projectGroup(Model model)
@@ -55,20 +56,27 @@ public class ProjectController {
     public String createGroup(@ModelAttribute("groupDTO")GroupDTO groupDTO, Model model, HttpSession session)
     {
         long userid = (long)session.getAttribute("userid");
-         Student student = studentRepository.findById(userid).get();
+        Student student = studentRepository.findById(userid).get();
+
         int thisyear = LocalDate.now().getYear();
-         Optional<GroupDetails> groupName = groupRepository.findByGroupNameAndYear(groupDTO.getGroupName(),thisyear);
-        if(groupName.isPresent())
+        Optional<GroupDetails> groupName = groupRepository.findByGroupNameAndYear(groupDTO.getGroupName(),thisyear);
+        if(student.isGroupMember())
         {
-            model.addAttribute("msg","Group Name is already avilable");
+            model.addAttribute("msg","you already added in another group so you can't create a group");
         }
         else {
-            if(student.getProjectGroup() != null)
+            if(groupName.isPresent())
             {
-                model.addAttribute("msg","Already created a group");
+                 model.addAttribute("msg","Group Name is already avilable");
             }
-            else
-            projectGroupService.createGroup(groupDTO,student);
+            else {
+                    if(student.getProjectGroup() != null)
+                    {
+                        model.addAttribute("msg","Already created a group");
+                    }
+                 else
+                    projectGroupService.createGroup(groupDTO,student);
+                }
         }
         return "projectGroup";
     }
@@ -149,14 +157,21 @@ public class ProjectController {
         Long cordinator = (Long) session.getAttribute("userid");
         Student student1 =studentRepository.findById(cordinator).get();
         long groupid = student1.getProjectGroup().getGroupId();
+        String groupname = student1.getProjectGroup().getGroupName();
+        String cordinatorEnroll = student1.getProjectGroup().getCordinator().getEnrollment();
+        if(student.isGroupMember())
+        {model.addAttribute("msg","alredy added");}
+        else {
         MailDTO mailDTO = new MailDTO();
         //mailDTO.setUserid(student.getUserid());
         mailDTO.setName("reshma");
         mailDTO.setTo(email);
         mailDTO.setSubject("Group Member Request");
-        mailDTO.setLink("http://localhost:8080/groupjoininvitation?userid=&&groupid="+userid+""+groupid);
+        mailDTO.setGroup(groupname);
+        mailDTO.setCordinator(cordinatorEnroll);
+        mailDTO.setLink("http://localhost:8080/groupjoininvitation?userid="+userid+"&groupid="+groupid);
         mailService.sendActivationMailWithCredential(mailDTO);
-        model.addAttribute("emailID",email);
+        model.addAttribute("emailID",email);}
         return "groupjoininvitation";
 
     }
