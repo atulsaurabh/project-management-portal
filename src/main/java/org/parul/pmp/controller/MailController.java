@@ -22,9 +22,9 @@ public class MailController
         MailDTO mailDTO = new MailDTO();
         mailDTO.setName("Shubhangini Khare");
         mailDTO.setPassword("123");
-        mailDTO.setTo("khare7shubh@gmail.com");
+        mailDTO.setTo("reshmace19@gmail.com");
         mailDTO.setSubject("Account Activation");
-        mailDTO.setLink("http://localhost:8080/activate");
+        mailDTO.setLink("http://localhost:8080/activate?");
         mailService.sendActivationMailWithCredential(mailDTO);
         return "abc";
     }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Request for PMP Group Member</title>
+</head>
+<body>
+<div align="center">
+    <img src="http://www.paruluniversity.ac.in/wp-content/themes/parul/images/logonew.png"/>
+</div>
+<div>
+    <p th:text="'Dear '+${mail.name}"></p>
+    <p>This mail is for adding members into Project Group.</p>
+    <p>To join Group Kindly<a th:href="${mail.link}"><button>Click Here</button></a> to accept group request.</p>
+    <p>Please do not share the information or email to any unauthorized body</p>
+</div>
+<div>
+    <p><i>Thanks and Regards</i></p>
+    <p>PMP Team</p>
+</div>
+</body>
+</html>

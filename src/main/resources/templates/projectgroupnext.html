@@ -1,0 +1,9 @@
+
+        <tr th:each="student : ${students}">
+            <td th:text="${student.enrollment}">
+            <td th:text="${student.firstname}">
+            <td th:text="${student.lastname}">
+            <td th:text="${student.email}">
+            <td><input type="radio" name="enrollment" th:value="${student.enrollment}" th:checked="${student.getCordinator()}"></td>
+            <td><button type="button">ADD</button></td>
+        </tr>

@@ -6,9 +6,11 @@ import org.parul.pmp.dto.mapper.DepartmentMapper;
 import org.parul.pmp.dto.mapper.UniversityMapper;
 import org.parul.pmp.entity.College;
 import org.parul.pmp.entity.Department;
+import org.parul.pmp.entity.Student;
 import org.parul.pmp.entity.University;
 import org.parul.pmp.repository.CollegeRepository;
 import org.parul.pmp.repository.DepartmentRepository;
+import org.parul.pmp.repository.StudentRepository;
 import org.parul.pmp.repository.UniversityRepository;
 import org.parul.pmp.service.MailService;
 import org.parul.pmp.service.StudentProfileService;
@@ -36,6 +38,8 @@ public class StudentController {
     private UniversityRepository universityRepository;
     @Autowired
     private MailService mailService;
+    @Autowired
+    private StudentRepository studentRepository;
 
     @GetMapping("/register")
     public String addStudent(Model model)
@@ -59,13 +63,17 @@ public class StudentController {
         try {
 
             studentService.addStudent(student);
-           // model.addAttribute("msg", "Successful");
+            String enroll = student.getEnrollment();
+            Student student1 = studentRepository.findByEnrollment(enroll).get();
+            long userid = student1.getUserid();
+            model.addAttribute("userid",userid);
             MailDTO mailDTO = new MailDTO();
+            mailDTO.setUserid(userid);
             mailDTO.setName(student.getFirstname());
             mailDTO.setPassword(student.getPassword());
             mailDTO.setTo(student.getEmail());
             mailDTO.setSubject("Account Activation");
-            mailDTO.setLink("http://localhost:8080/activate");
+            mailDTO.setLink("http://localhost:8080/activate?userid=" + userid);
             mailService.sendActivationMailWithCredential(mailDTO);
             model.addAttribute("emailId",student.getEmail());
             return "successfulRegistration";

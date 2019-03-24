@@ -7,7 +7,8 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 
-    private int userid;
+    private long userid;
+    private boolean isActivate;
 
     private Credential credential;
 
@@ -17,6 +18,13 @@ public class User {
 
     private College college;
 
+    public boolean isActivate() {
+        return isActivate;
+    }
+
+    public void setActivate(boolean activate) {
+        isActivate = activate;
+    }
 
     /*private Faculty faculty;
 
@@ -62,11 +70,11 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getUserid() {
+    public long getUserid() {
         return userid;
     }
 
-    public void setUserid(int userid) {
+    public void setUserid(long userid) {
         this.userid = userid;
     }
 

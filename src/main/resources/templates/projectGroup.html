@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/js/jquery3.3.1.js"></script>
+    <script type="text/javascript" src="/js/db_ajax.js"></script>
+</head>
+<body>
+<!--
+      <select name="department" id="dept">
+                <option value="" disabled>Select Department</option>
+                <option th:each="dept : ${depts}"
+                        th:value="${dept.deptid}" th:text="${dept.department_name}">Department</option>
+            </select>
+      <button type="button" onclick="fetchstudents()">GO</button>
+        <input type="text" placeholder="Select Year" th:field="*{year}"/><br/>
+        <input type="text" placeholder="Enter Group Name" th:field="*{groupName}"/><br/>
+        <input type="text" placeholder="Enter Enrollment Number" th:field="*{enrollment}"/><br/>
+      <div>
+      <form action="/project/promoteCordinator" method="post">
+          <table >
+              <thead>
+                <tr>
+                    <th>Enrollment</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Email</th>
+                    <th>IsCordinator</th>
+                    <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="student_place">
+              </tbody>
+              <tfoot>
+              <tr>
+                 <td><input type="submit"/></td>
+              </tr>
+              </tfoot>
+          </table>
+    </form>
+      </div>-->
+<form action="/project" method="post" th:object="${groupDTO}">
+    <!--<select th:field="*{year}" >
+        <option th:each="year : ${#numbers.sequence(2000, #dates.year(#dates.createNow()))}"
+                th:value="${year}" th:text="${year}">
+        </option>
+    </select>-->
+
+    <input type="text" placeholder="Enter group name" th:field="*{groupName}">
+    <input type="submit">
+</form>
+</body>
+</html>

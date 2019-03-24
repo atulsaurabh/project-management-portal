@@ -6,69 +6,57 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/userLoginCss.css}" type="text/css">
-    <link rel="stylesheet" th:href="@{/css/userThLogin.css}">
+    <link rel="stylesheet" th:href="@{/css/userThLogin.css}" type="text/css">
 </head>
-
-<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" style="">
+    <a class="navbar-brand" href="#">
+        <img alt="Logo" title="Logo" class="rounded" style="" src="/images/logo.png">
+    </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
+    <span class="navbar-toggler-icon"></span>
+</button>
+    <div class="collapse navbar-collapse" id="navbar10">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link" th:href="@{/university}" style="color:white;font-size:25px;font-weight:500;">University Registration</a> </li>
+            <li class="nav-item"> <a class="nav-link" th:href="@{/student/register}" style="color:white;font-size:25px;font-weight:500;">Student Registration</a> </li>
+            <!--<li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Profile</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">LogOut</a> </li>-->
+        </ul>
+    </div>
+</nav>
 <form action="/account/login" method="post" th:object="${loginDTO}">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark" draggable="true">
-        <a class="navbar-brand" href="#">
-            <img alt="Logo" title="Logo" class="rounded" style="" src="/images/download.png">
-        </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-        <div class="collapse navbar-collapse" id="navbar10">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;" th:href="@{/account/login}">Login</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Profile</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">LogOut</a> </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="text-center p-4 py-4 pt-4 pb-4" style="">
-        <div class="container">
-            <div class="row w-100" >
-                <div class="bg-white col-md-12 col-lg-10 col-10 mx-auto p-5">
-                    <h4 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	font-size: 40px;">LogIn</h4>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter Username" id="form9" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{username}">
-                    </div>
-                    <small class="form-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" id="form10" style="	font-color:blue;box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{password}">
-                        <small class="form-text text-muted text-right">
-                            <a href="#">Forgotten password</a>
-                        </small></small>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-secondary w-25" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;">
-                            <font size="4"><b>Sign In</b></font>
-                        </button>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-dark">Don't have an account with us?</label> <button type="submit" class="btn btn-success btn-lg" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: blue;"><a href="file:///D:/prmp/userRegistration.html">Create an Account</a></button>
-                    </div><a href="templates/studentRegistration.html">
-                </a>
-            </div>
-        </div>
-
+    <div class="form-group mt-4">
+        <h4 class="text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">LOGIN</h4>
+    </div>
+    <div class="form-group ml-5 pl-5">
+        <input type="text" class="form-control ml-5 w-75" placeholder="Enter email" id="form9" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{username}">
+    </div>
+    <div class="form-group ml-5 pl-5">
+        <input type="password" class="form-control ml-5 w-75" placeholder="Password" id="form10" style="	font-color:blue;box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{password}">
+    </div>
+    <div class="form-group text-right mr-5 pr-5 col-md-11">
+        <a href="#" class="mr-5"> Forgotten password</a>
+    </div>
+    <div class="form-group text-center col-md-12 w-75 ml-5 pl-5">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="submit" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;" class="btn btn-secondary w-25 text-center ml-5">SignIn</button>
+    </div>
+    <div class="form-group text-center">
+        <label class="text-dark">Don't have an account with us?</label>
+        <button type="button" class="btn btn-success btn-lg"  style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: blue;"><a th:href="@{/student/register}">Create an Account</a> </button>
     </div>
 </form>
-    <div class="py-3 bg-dark">
-        <div class="container">
-            <div class="row" style="">
-                <div class="col-md-12 text-center">
-                    <p class="mb-0 text-light">� 2014-2018 Pingendo. All rights reserved</p>
-                </div>
+
+<div class="py-3 bg-dark">
+    <div class="container">
+        <div class="row" style="">
+            <div class="col-md-12 text-center">
+                <p class="mb-0 text-light">� 2014-2018 Pingendo. All rights reserved</p>
             </div>
         </div>
     </div>
-        </div>>
-
-<script src="/js/Js1.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="/js/Js2.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="/js/Js3.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
+</div>
+<script src="/js/js1.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="/js/js2.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="/js/js3.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
 </html>
