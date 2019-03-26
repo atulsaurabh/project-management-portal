@@ -42,8 +42,7 @@ public class Student extends User {
     }
 
     //@OneToOne(mappedBy = "members",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(name = "groupId")
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public GroupDetails getProjectGroup() {
         return projectGroup;
     }

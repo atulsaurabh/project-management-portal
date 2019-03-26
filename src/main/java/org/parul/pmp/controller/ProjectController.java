@@ -3,6 +3,7 @@ package org.parul.pmp.controller;
 import org.parul.pmp.dto.*;
 import org.parul.pmp.dto.mapper.StudentMapper;
 import org.parul.pmp.entity.*;
+import org.parul.pmp.exception.SessionExpiredException;
 import org.parul.pmp.repository.*;
 import org.parul.pmp.service.MailService;
 import org.parul.pmp.service.Mailserviceforgroup;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Controller
@@ -63,16 +65,19 @@ public class ProjectController {
         if(student.isGroupMember())
         {
             model.addAttribute("msg","you already added in another group so you can't create a group");
+            return "messagetemplate";
         }
         else {
             if(groupName.isPresent())
             {
                  model.addAttribute("msg","Group Name is already avilable");
+                 return "messagetemplate";
             }
             else {
                     if(student.getProjectGroup() != null)
                     {
                         model.addAttribute("msg","Already created a group");
+                        return "messagetemplate";
                     }
                  else
                     projectGroupService.createGroup(groupDTO,student);
@@ -138,41 +143,59 @@ public class ProjectController {
         model.addAttribute("student",student.get());
         if(student.isPresent())
         {
-        return "addmembernext";
+            return "addmembernext";
         }
         else
         {
             model.addAttribute("msg","user not available");
+            return "messagetemplate";
         }
-        String email = student.get().getEmail();
-        model.addAttribute("mailId",email);
-        String firstname = student.get().getFirstname();
-        return "redirect:/grouprequestmail";
+        //String email = student.get().getEmail();
+        //model.addAttribute("mailId",email);
+       //String firstname = student.get().getFirstname();
+       // return "redirect:/grouprequestmail";
     }
     @GetMapping("/grouprequestmail")
-    public String sendgrouprequest(@RequestParam(name = "email")String email,@RequestParam("enrollment")String enrollment ,Model model,HttpSession session)
+    public String sendgrouprequest(@RequestParam(name = "email")String email,@RequestParam("enrollment")String enrollment ,Model model,HttpSession session) throws SessionExpiredException
     {
         Student student= studentRepository.findByEnrollment(enrollment).get();
+        String studentname = student.getFirstname();
         long userid = student.getUserid();
         Long cordinator = (Long) session.getAttribute("userid");
+        if (cordinator ==null)
+            throw new SessionExpiredException();
         Student student1 =studentRepository.findById(cordinator).get();
-        long groupid = student1.getProjectGroup().getGroupId();
-        String groupname = student1.getProjectGroup().getGroupName();
-        String cordinatorEnroll = student1.getProjectGroup().getCordinator().getEnrollment();
-        if(student.isGroupMember())
-        {model.addAttribute("msg","alredy added");}
-        else {
-        MailDTO mailDTO = new MailDTO();
-        //mailDTO.setUserid(student.getUserid());
-        mailDTO.setName("reshma");
-        mailDTO.setTo(email);
-        mailDTO.setSubject("Group Member Request");
-        mailDTO.setGroup(groupname);
-        mailDTO.setCordinator(cordinatorEnroll);
-        mailDTO.setLink("http://localhost:8080/groupjoininvitation?userid="+userid+"&groupid="+groupid);
-        mailService.sendActivationMailWithCredential(mailDTO);
-        model.addAttribute("emailID",email);}
-        return "groupjoininvitation";
+        GroupDetails groupDetails = student1.getProjectGroup();
+        long groupid = groupDetails.getGroupId();
+        String groupname = groupDetails.getGroupName();
+        String cordinatorEnroll = student1.getEnrollment();
+        Set<Student> groupmembers= groupDetails.getMembers();
+        long groupmembersize = groupmembers.size();
+        if(groupmembersize>=4)
+        {
+            model.addAttribute("msg","can't add members bcz group has already 4 members");
+            return "messagetemplate";
+        }
+        else
+        {
+            if(student.isGroupMember())
+            {
+                model.addAttribute("msg","alredy added");
+                return "messagetemplate";
+            }
+
+            MailDTO mailDTO = new MailDTO();
+            //mailDTO.setUserid(student.getUserid());
+            mailDTO.setName(studentname);
+            mailDTO.setTo(email);
+            mailDTO.setSubject("Group Member Request");
+            mailDTO.setGroup(groupname);
+            mailDTO.setCordinator(cordinatorEnroll);
+            mailDTO.setLink("http://localhost:8080/groupjoininvitation?userid="+userid+"&groupid="+groupid);
+            mailService.sendActivationMailWithCredential(mailDTO);
+            model.addAttribute("emailID",email);
+            return "groupjoininvitation";
+        }
 
     }
 
