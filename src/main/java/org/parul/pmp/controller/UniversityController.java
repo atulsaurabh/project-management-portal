@@ -36,7 +36,7 @@ public class UniversityController {
         catch (Exception e)
         {
             e.printStackTrace();
-            model.addAttribute("msg", "Error");
+            model.addAttribute("errmsg", "Error");
         }
         return "university";
         }
