@@ -9,8 +9,7 @@
 </head>
 <body>
 
-    <div th:if="msg" th:text="${msg}"></div>
-    <div th:if="errmsg" th:text="${errmsg}"></div>
+
     <form action="university" method="post" th:object="${university}">
                     <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="height: 80px">
                         <a class="navbar-brand" href="#">
@@ -32,6 +31,12 @@
                     <div class="form-group" >
                         <h4 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">UNIVERSITY REGISTRATION</h4>
                     </div>
+
+        <div  style="width: fit-content; height: fit-content;  " th:if="${msg}" class="alert alert-success"
+             role="alert" th:text="${msg}"></div>
+
+        <div style="width: fit-content; height: fit-content;" th:if="${errmsg}" class="alert alert-danger" role="alert"
+             th:text="${errmsg}"></div>
                 <div class="form-group ml-5 pl-5"><input type="text" class="form-control w-75 ml-5" id="form27" placeholder="university code" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{university_code}"></div>
                 <div class="form-group ml-5 pl-5"><input type="text" class="form-control w-75 ml-5" id="form28" placeholder="university Name" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{university_name}" ></div>
                 <div class="form-group ml-5 pl-5"><input type="email" class="form-control w-75 ml-5" id="form29" placeholder="Email" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{email}"></div>

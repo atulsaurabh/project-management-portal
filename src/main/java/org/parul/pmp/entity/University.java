@@ -45,6 +45,7 @@ public class University {
     }
 
     //@Column(name = "university_id" )
+    @Column(unique = true)
     public String getUniversity_code() { return university_code; }
 
     public void setUniversity_code(String university_code) { this.university_code = university_code; }
