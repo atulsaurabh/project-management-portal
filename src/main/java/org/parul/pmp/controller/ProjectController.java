@@ -64,23 +64,24 @@ public class ProjectController {
         Optional<GroupDetails> groupName = groupRepository.findByGroupNameAndYear(groupDTO.getGroupName(),thisyear);
         if(student.isGroupMember())
         {
-            model.addAttribute("msg","you already added in another group so you can't create a group");
-            return "messagetemplate";
+            model.addAttribute("errmsg","you already added in another group so you can't create a group");
+            return "projectGroup";
         }
         else {
             if(groupName.isPresent())
             {
-                 model.addAttribute("msg","Group Name is already avilable");
-                 return "messagetemplate";
+                 model.addAttribute("errmsg","Group Name is already avilable");
+                 return "projectGroup";
             }
             else {
                     if(student.getProjectGroup() != null)
                     {
-                        model.addAttribute("msg","Already created a group");
-                        return "messagetemplate";
+                        model.addAttribute("errmsg","Already created a group");
+                        return "projectGroup";
                     }
                  else
                     projectGroupService.createGroup(groupDTO,student);
+                    model.addAttribute("msg","Project Group Created Successfully!");
                 }
         }
         return "projectGroup";
