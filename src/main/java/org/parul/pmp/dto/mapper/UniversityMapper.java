@@ -2,8 +2,12 @@ package org.parul.pmp.dto.mapper;
 
 import org.parul.pmp.dto.UniversityDTO;
 import org.parul.pmp.entity.Credential;
+import org.parul.pmp.entity.Role;
 import org.parul.pmp.entity.University;
 import org.parul.pmp.entity.User;
+import org.parul.pmp.entity.enumeration.Roles;
+
+import javax.persistence.Entity;
 
 public class UniversityMapper
 {

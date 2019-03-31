@@ -54,6 +54,7 @@ public class AssignGroupToFacultyController {
         Set<GroupDTO> groupDTOS = department1.getProjectGroup().stream().map(GroupMapper::toDTO).collect(Collectors.toSet());
         model.addAttribute("groups", groupDTOS);
         return "assigngrptofactnext";
+
     }
 
     @PostMapping("showgrp")

@@ -15,6 +15,7 @@ public class GroupDTO {
     private String groupName;
     private long faculty_id;
     private String enrollment;
+    private String description;
 
     public long getGroupId() {
         return groupId;
@@ -55,13 +56,17 @@ public class GroupDTO {
         this.faculty_id = faculty_id;
     }
 
-    public String getEnrollment() {
-        return enrollment;
-    }
+    public String getEnrollment() { return enrollment; }
 
     public void setEnrollment(String enrollment) {
         this.enrollment = enrollment;
     }
 
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

@@ -12,7 +12,6 @@ public class Project {
     private String description;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
-    private GroupDetails groupId;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,9 +54,4 @@ public class Project {
     public void setDateOfModification(LocalDateTime dateOfModification) {
         this.dateOfModification = dateOfModification;
     }
-
-    @OneToOne(mappedBy = "projectId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    public GroupDetails getGroupId() { return groupId; }
-
-    public void setGroupId(GroupDetails groupId) { this.groupId = groupId; }
 }

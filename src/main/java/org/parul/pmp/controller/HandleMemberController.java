@@ -1,8 +1,9 @@
 package org.parul.pmp.controller;
 
+import org.parul.pmp.dto.GroupDTO;
 import org.parul.pmp.dto.MailDTO;
 import org.parul.pmp.dto.StudentDTO;
-import org.parul.pmp.dto.mapper.FacultyMapper;
+import org.parul.pmp.dto.mapper.GroupMapper;
 import org.parul.pmp.dto.mapper.StudentMapper;
 import org.parul.pmp.entity.*;
 import org.parul.pmp.repository.FacultyRepository;
@@ -10,13 +11,14 @@ import org.parul.pmp.repository.GroupRepository;
 import org.parul.pmp.repository.StudentRepository;
 import org.parul.pmp.service.Mailserviceforgroup;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.security.acl.Group;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -33,6 +35,8 @@ public class HandleMemberController {
     private FacultyRepository facultyRepository;
     @Autowired
     private Mailserviceforgroup mailService;
+    private String enrollment;
+    private Model model;
 
 
     @GetMapping
@@ -42,11 +46,14 @@ public class HandleMemberController {
         return "deallocatemember";
     }
 
+    @ResponseBody
     @PostMapping
-    private String deallocateMember(@RequestParam("enrollment") String enrollment ,Model model)
+    public String deallocateMember(@RequestParam(value = "enrollment") String enrollment ,Model model)
     {
-        if (enrollment != null) {
 
+        System.out.println(enrollment);
+        if (enrollment != null)
+        {
             Student student=studentRepository.findByEnrollment(enrollment).get();
             GroupDetails group = student.getProjectGroup();
             model.addAttribute("student", student);
@@ -55,7 +62,7 @@ public class HandleMemberController {
         return "removemember";
     }
     @PostMapping("/removemember")
-    //@Transactional
+    @Transactional
     public String remove(@RequestParam("enrollment") String enrollment, Model model)
     {
         Student student = studentRepository.findByEnrollment(enrollment).get();
@@ -75,22 +82,34 @@ public class HandleMemberController {
     @GetMapping("/addmember")
     public String addmember(Model model,HttpSession session)
     {
+
         Long userid = (Long) session.getAttribute("userid");
         Faculty faculty = facultyRepository.findById(userid).get();
         Department dept = faculty.getDepartment();
+
+        List<GroupDetails> groupDetails = groupRepository.findByDepartment(dept);
+        List<GroupDTO> groupDTOS = groupDetails.stream().map(GroupMapper::toDTO).collect(Collectors.toList());
+        model.addAttribute("groupList",groupDTOS);
+        model.addAttribute("groups", new GroupDTO());
+
         List<Student> students = studentRepository.findByDepartment(dept);
         List<StudentDTO> studentDTOS = students.stream().map(StudentMapper::toDTO).collect(Collectors.toList());
         model.addAttribute("students",studentDTOS);
        /* GroupDetails grpid = student.getProjectGroup();
         model.addAttribute("student",student);
         model.addAttribute("group",grpid);*/
-        return "addmember";
+        return "addmemberbyhod";
     }
     @PostMapping("/addmember")
-    public String addothormember(@RequestParam("enrollment") String enrollment,Model model)
+    public String addothormember(@RequestParam("enrollment") String enrollment,@ModelAttribute("groups") GroupDTO groups,Model model)
     {
+        GroupDetails groupDetails = groupRepository.findById(groups.getGroupId()).get();
         Optional<Student> student = studentRepository.findByEnrollment(enrollment);
+        Student std = student.get();
         model.addAttribute("student",student.get());
+        model.addAttribute("group",groupDetails);
+        groupDetails.setMembers(Collections.singleton(std));
+        groupRepository.saveAndFlush(groupDetails);
         if(student.isPresent())
         {
             return "addmembernext";

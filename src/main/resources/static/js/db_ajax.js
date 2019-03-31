@@ -16,7 +16,7 @@ function fetchStudent()
 {
     var enrollment = $("#student").val();
     $.post(
-        "/deallocatemember",
+        "/handlemember",
         {enrollment:enrollment},
         function (data) {
             $("#std_place").html(data);

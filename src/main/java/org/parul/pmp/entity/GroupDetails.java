@@ -15,12 +15,12 @@ public class GroupDetails {
     private long groupId;
     private int year;
     private String groupName;
+    private String description;
     private Department department;
     private Faculty mentor;
     private Student cordinator;
     private Set<Student>members = new HashSet<>();
     private Instant dateOfGroupCreation;
-    private Project projectId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
@@ -32,7 +32,7 @@ public class GroupDetails {
         this.department = department;
     }
 
-    public int getYear() {
+   public int getYear() {
         return year;
     }
 
@@ -95,8 +95,11 @@ public class GroupDetails {
         this.members = members;
     }
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    public Project getProjectId() { return projectId; }
+    public String getDescription() {
+        return description;
+    }
 
-    public void setProjectId(Project projectId) { this.projectId = projectId; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

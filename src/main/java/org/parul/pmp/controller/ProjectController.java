@@ -4,7 +4,6 @@ import org.parul.pmp.dto.*;
 import org.parul.pmp.dto.mapper.StudentMapper;
 import org.parul.pmp.entity.*;
 import org.parul.pmp.repository.*;
-import org.parul.pmp.service.MailService;
 import org.parul.pmp.service.Mailserviceforgroup;
 import org.parul.pmp.service.ProjectGroupService;
 import org.parul.pmp.service.ProjectService;
@@ -115,7 +114,7 @@ public class ProjectController {
             e.printStackTrace();
             model.addAttribute("msg", "Error");
         }
-        return "project";
+        return "welcome";
     }
     @GetMapping("/addmember")
     public String addmember(Model model,HttpSession session)

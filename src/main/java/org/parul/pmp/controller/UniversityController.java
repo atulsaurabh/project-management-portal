@@ -30,8 +30,6 @@ public class UniversityController {
 
             universityService.addUniversity(university);
             model.addAttribute("msg", "Successful");
-
-            
         }
         catch (Exception e)
         {
