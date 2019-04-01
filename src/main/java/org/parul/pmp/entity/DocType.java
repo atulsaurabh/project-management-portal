@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class DocType {
     private long doctypeid;
     private String documentname;
-    private Documents documents;
+    /*private Documents documents;
 
     @OneToOne
     @JoinColumn(name = "documentid")
@@ -17,7 +17,7 @@ public class DocType {
     public void setDocuments(Documents documents) {
         this.documents = documents;
     }
-
+*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getDoctypeid() {
