@@ -1,19 +1,19 @@
-package org.parul.pmp.entity;
+package org.parul.pmp.dto;
 
-import javax.persistence.*;
+import org.parul.pmp.entity.Documents;
+import org.parul.pmp.entity.GroupDetails;
+
 import java.time.Instant;
 
-@Entity
-@Table(name = "uploaddoc")
-public class UplodedDocuments {
+public class UploadDocDTO {
     private long uploaddocid;
     private Instant uploadeddate;
     private String uploadedby;
     private String docurl;
     private boolean approved;
     private String description;
-    private Documents documents;
-    private GroupDetails groupDetails;
+    private long documents;
+    private long groupDetails;
     private byte[] data;
 
     public byte[] getData() {
@@ -24,28 +24,6 @@ public class UplodedDocuments {
         this.data = data;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "projectGroup")
-    public GroupDetails getGroupDetails() {
-        return groupDetails;
-    }
-
-    public void setGroupDetails(GroupDetails groupDetails) {
-        this.groupDetails = groupDetails;
-    }
-
-    @OneToOne(cascade= CascadeType.ALL)
-    @JoinColumn(name = "documentType")
-    public Documents getDocuments() {
-        return documents;
-    }
-
-    public void setDocuments(Documents documents) {
-        this.documents = documents;
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getUploaddocid() {
         return uploaddocid;
     }
@@ -92,5 +70,21 @@ public class UplodedDocuments {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public long getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(long documents) {
+        this.documents = documents;
+    }
+
+    public long getGroupDetails() {
+        return groupDetails;
+    }
+
+    public void setGroupDetails(long groupDetails) {
+        this.groupDetails = groupDetails;
     }
 }

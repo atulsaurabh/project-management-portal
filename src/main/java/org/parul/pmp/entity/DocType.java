@@ -3,6 +3,7 @@ package org.parul.pmp.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "docType")
 public class DocType {
     private long doctypeid;
     private String documentname;

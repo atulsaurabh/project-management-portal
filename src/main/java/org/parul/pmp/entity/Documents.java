@@ -7,6 +7,7 @@ import java.time.Instant;
 import java.util.Date;
 
 @Entity
+@Table(name = "Documents")
 public class Documents {
     private long documentid;
     private Instant startuploaddate;
