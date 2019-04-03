@@ -56,15 +56,15 @@ public class CollegeController {
             mailService.sendActivationMailWithCredential(mailDTO);
             model.addAttribute("emailId",college.getEmail());
 
-            return "successfulRegistration";
+            return "welcome";
         }
         catch (Exception e)
         {
             e.printStackTrace();
-            model.addAttribute("msg", "Error");
+            model.addAttribute("errmsg", "Error");
         }
 
-       return "college";
+       return "welcome";
     }
 
 }

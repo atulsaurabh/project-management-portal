@@ -46,7 +46,7 @@ public class HandleMemberController {
         return "deallocatemember";
     }
 
-    @ResponseBody
+
     @PostMapping
     public String deallocateMember(@RequestParam(value = "enrollment") String enrollment ,Model model)
     {
@@ -58,8 +58,10 @@ public class HandleMemberController {
             GroupDetails group = student.getProjectGroup();
             model.addAttribute("student", student);
             model.addAttribute("group",group);
+            return "removemember";
         }
-        return "removemember";
+
+        return "welcome";
     }
     @PostMapping("/removemember")
     @Transactional
@@ -76,7 +78,7 @@ public class HandleMemberController {
             groupRepository.saveAndFlush(group);
             return "welcome";
         }
-        return "deallpcatemember";
+        return "deallocatemember";
     }
 
     @GetMapping("/addmember")

@@ -47,12 +47,12 @@ public class DepartmentController {
         try {
 
             departmentService.addDepartment(department);
-            model.addAttribute("msg", "Successful");
+            model.addAttribute("msg", "Department added Successfully!");
         }
         catch (Exception e)
         {
             e.printStackTrace();
-            model.addAttribute("msg", "Error");
+            model.addAttribute("errmsg", "Error!");
         }
         return "collegeAdmin";
     }

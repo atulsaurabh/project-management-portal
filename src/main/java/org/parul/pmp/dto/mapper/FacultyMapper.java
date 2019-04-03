@@ -36,6 +36,7 @@ public class FacultyMapper {
         dto.setFacultyLastname(faculty.getFacultyLastname());
         dto.setEmail(faculty.getEmail());
         dto.setHod(faculty.isHod());
+        dto.setProjectCoordinator(faculty.isProjectCoodinator());
         return dto;
     }
 

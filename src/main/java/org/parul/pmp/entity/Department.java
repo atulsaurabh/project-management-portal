@@ -18,6 +18,7 @@ public class Department {
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
     private Faculty hod;
+    private Faculty projectCoordinator;
 
     private Set<GroupDetails> projectGroup = new HashSet<>();
 
@@ -86,4 +87,13 @@ public class Department {
     public Faculty getHod() { return hod; }
 
     public void setHod(Faculty hod) { this.hod = hod; }
+
+    @OneToOne(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public Faculty getProjectCoordinator() {
+        return projectCoordinator;
+    }
+
+    public void setProjectCoordinator(Faculty projectCoordinator) {
+        this.projectCoordinator = projectCoordinator;
+    }
 }

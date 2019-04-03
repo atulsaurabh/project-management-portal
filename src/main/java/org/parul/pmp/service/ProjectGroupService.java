@@ -53,8 +53,6 @@ public class ProjectGroupService {
         student.setCordinator(true);
         student.setGroupMember(true);
         studentRepository.saveAndFlush(student);
-
-
     }
 
 

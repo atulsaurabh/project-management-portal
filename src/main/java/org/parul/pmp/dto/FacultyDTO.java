@@ -13,6 +13,7 @@ public class FacultyDTO {
     private String username;
     private String password;
     private Boolean isHod;
+    private boolean isProjectCoordinator;
     /*private List<DepartmentDTO> departmentDTOS = new ArrayList<>();
 
     public List<DepartmentDTO> getDepartmentDTOS() {
@@ -39,9 +40,7 @@ public class FacultyDTO {
         this.facultyCode = facultyCode;
     }
 
-    public String getFacultyFirstname() {
-        return facultyFirstname;
-    }
+    public String getFacultyFirstname() { return facultyFirstname; }
 
     public void setFacultyFirstname(String facultyFirstname) {
         this.facultyFirstname = facultyFirstname;
@@ -98,4 +97,10 @@ public class FacultyDTO {
     public Boolean getHod() { return isHod; }
 
     public void setHod(Boolean hod) { isHod = hod; }
+
+    public Boolean getProjectCoordinator(){ return isProjectCoordinator; }
+
+    public void setProjectCoordinator(boolean projectCoordinator) {
+        isProjectCoordinator = projectCoordinator;
+    }
 }

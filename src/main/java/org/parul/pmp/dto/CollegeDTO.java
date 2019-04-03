@@ -80,9 +80,7 @@ public class CollegeDTO {
 
     public void setUniversity_id(String university_id) { this.university_id = university_id; }
 
-    public Faculty getHod() {
-        return Hod;
-    }
+    public Faculty getHod() { return Hod; }
 
     public void setHod(Faculty hod) {
         Hod = hod;

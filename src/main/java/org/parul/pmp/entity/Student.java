@@ -40,9 +40,10 @@ public class Student extends User{
     }
 
     //@OneToOne(mappedBy = "members",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(name = "groupId")
-    public GroupDetails getProjectGroup() { return projectGroup; }
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    public GroupDetails getProjectGroup() {
+        return projectGroup;
+    }
 
     public void setProjectGroup(GroupDetails projectGroup) {
         this.projectGroup = projectGroup;
@@ -119,7 +120,7 @@ public class Student extends User{
 
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(name = "department_id")
+    @JoinColumn(name = "department")
     public Department getDepartment() {
         return department;
     }

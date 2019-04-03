@@ -24,6 +24,7 @@ public class Faculty extends User{
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
     private boolean isHod;
+    private boolean isProjectCoodinator;
     private Set<GroupDetails> projectGroup = new HashSet<>();
 
     //@OneToOne(cascade = CascadeType.ALL)
@@ -135,4 +136,12 @@ public class Faculty extends User{
     public boolean isHod() { return isHod; }
 
     public void setHod(boolean hod) { isHod = hod; }
+
+    public boolean isProjectCoodinator() {
+        return isProjectCoodinator;
+    }
+
+    public void setProjectCoodinator(boolean projectCoodinator) {
+        isProjectCoodinator = projectCoodinator;
+    }
 }

@@ -53,7 +53,7 @@
      <select th:field="*{groupId}" id="grp">
          <option th:each="grp: ${groupList}"
                  th:value="${grp.groupId}"
-                 th:name="${grp.groupName}">
+                 th:text="${grp.groupName}">
          </option>
      </select>
     </form>
@@ -79,17 +79,8 @@
             <th>Action</th>
 
         </thead>
-        <tbody>
-        <tr th:each="cordinator: ${student}">
-            <td th:text="${cordinator.getEnrollment()}"></td>
-            <td th:text="${cordinator.getFirstname()}"></td>
-            <td th:text="${cordinator.getLastname()}"></td>
-            <td th:text="${cordinator.getEmail()}"></td>
-            <td><button type="button" disabled>ADD</button></td>
-        </tr>
-
         <tbody id="member_place">
-        </tbody></tbody>
+        </tbody>
     </table>
 
 </form>

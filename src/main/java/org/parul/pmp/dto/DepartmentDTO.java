@@ -9,6 +9,7 @@ public class DepartmentDTO
     private String college_id;
     private long deptid;
     private Faculty hod;
+    private Faculty projectCoordinator;
     public String getCollege_id() {
         return college_id;
     }
@@ -43,5 +44,13 @@ public class DepartmentDTO
 
     public void setHod(Faculty hod) {
         this.hod = hod;
+    }
+
+    public Faculty getProjectCoordinator() {
+        return projectCoordinator;
+    }
+
+    public void setProjectCoordinator(Faculty projectCoordinator) {
+        this.projectCoordinator = projectCoordinator;
     }
 }

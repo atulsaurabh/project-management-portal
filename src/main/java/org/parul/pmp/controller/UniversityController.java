@@ -29,12 +29,14 @@ public class UniversityController {
         try {
 
             universityService.addUniversity(university);
-            model.addAttribute("msg", "Successful");
+            model.addAttribute("msg", "University Registration Successful");
+
+            
         }
         catch (Exception e)
         {
             e.printStackTrace();
-            model.addAttribute("msg", "Error");
+            model.addAttribute("errmsg", "Error in Registration");
         }
         return "welcome";
         }

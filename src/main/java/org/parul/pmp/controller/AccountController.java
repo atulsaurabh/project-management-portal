@@ -64,8 +64,10 @@ public class AccountController
                 Optional<Faculty> faculty = facultyRepository.findById(credential.getUser().getUserid());
                 if (faculty.get().isHod())
                     uiname="hodHomePage";
+                else if (faculty.get().isProjectCoodinator())
+                    uiname="projectcoordinatorhomepg";
                 else
-                    uiname="pqr";
+                    uiname="facultyhomepage";
                 break;
             case "ROLE_STUDENT":
                 if(user.isActivate())
@@ -73,6 +75,7 @@ public class AccountController
                     uiname="studenthome";
                 }
                 else {
+                    
                     model.addAttribute("msg","check your account is activated or not");
                 }
 

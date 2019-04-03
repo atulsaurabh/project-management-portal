@@ -77,7 +77,8 @@ public class GroupDetails {
         this.mentor = mentor;
     }
 
-    @OneToOne(mappedBy = "projectGroup",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name="pcordinator")
     public Student getCordinator() {
         return cordinator;
     }

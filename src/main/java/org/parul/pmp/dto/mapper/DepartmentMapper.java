@@ -13,6 +13,7 @@ public class DepartmentMapper
         department.setDepartmentCode(dto.getDepartmentCode());
         department.setDepartment_name(dto.getDepartment_name());
         department.setHod(dto.getHod());
+        department.setProjectCoordinator(dto.getProjectCoordinator());
         return department;
     }
     public static DepartmentDTO toDTO(Department department)
