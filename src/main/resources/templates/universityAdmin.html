@@ -10,13 +10,13 @@
     <script type="text/javascript" src="/js/db_ajax.js"></script>
     <style> .vertical-menu {
         width: 200px;
-        height: 150px;
+        height: 800px;
         overflow-y: auto;
         float: left;
     }
 
     .vertical-menu a {
-        background-color: #eee;
+
         color: black;
         display: block;
         padding: 12px;
@@ -30,7 +30,7 @@
 
     .vertical-menu a.active {
         background-color: #4CAF50;
-        color: white;
+        color: lightblue;
     }
     </style>
 </head>
@@ -57,7 +57,7 @@
 <form>
 
 <div>
-                <div style="float: left" class="vertical-menu h-50 w-25" >
+                <div style="float: left;" class="vertical-menu h-50 w-25" >
                     <div>
                         <a href="#" class="not-active bg-secondary" style="color:white;">UNIVERSITY ADMIN</a>
                     </div>
@@ -65,34 +65,18 @@
                         <a th:href="@{/college}" ><i class="fa fa-university  fa-x" aria-hidden="true" style="color:#425cf4"></i>&nbsp;&nbsp;ADD COLLEGE</a>
                     </div>
                 </div>
-<br/>
-    <br/>
-    <br/>
-                <div style="float: right" id="content"></div>
+
+                <div style="margin-left:25%;padding:1px 16px;height:800px;background-color: #f1f1f1" id="content">
+                    <div  style="width: fit-content; height: fit-content;  " th:if="${emailId}" class="alert alert-success"
+                          role="alert" th:text="'A verification email has been sent to: ' + ${emailId}"></div>
+                    <div style="width: fit-content; height: fit-content;" th:if="${errmsg}" class="alert alert-danger" role="alert"
+                         th:text="${errmsg}"></div>
+                </div>
 
    <!-- <div class="w-75 h-100" id="university" style=""></div>-->
 </div>
 </form>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 
 <div class="bg-dark">
     <div class="container">

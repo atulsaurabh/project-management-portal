@@ -9,7 +9,7 @@
 </head>-->
 
 
-                <form ACTION="college" method="post" th:object="${college}">
+                <form ACTION="/college" method="post" th:object="${college}">
                    <!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="height: 80px">
                         <a class="navbar-brand" href="#">
                             <img alt="Logo" title="Logo" class="rounded" style="" src="/images/logo.png" height="50">
@@ -25,13 +25,10 @@
                             </ul>
                         </div>
                     </nav>-->
-                    <div class="form-group mt-4" >
-                        <h4 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">COLLEGE</h4>
+                    <div class="form-group mt-2" >
+                        <h4 class=" text-center" style="	color: blue;	">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COLLEGE</h4>
                     </div>
-                    <div  style="width: fit-content; height: fit-content;  " th:if="${emailId}" class="alert alert-success"
-                          role="alert" th:text="'A verification email has been sent to: ' + ${emailId}"></div>
-                    <div style="width: fit-content; height: fit-content;" th:if="${errmsg}" class="alert alert-danger" role="alert"
-                         th:text="${errmsg}"></div>
+
                     <div class="form-group ml-5 pl-5"  style=""><select class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true" th:field="*{university_id}">
                         <option value="0" disabled>Select University</option>
                         <option th:each="university : ${univercities}"
@@ -46,7 +43,7 @@
                     <div class="form-group ml-5 pl-5"> <input type="text" class="form-control w-75 ml-5" id="form31" placeholder="Fax" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{fax}"></div>
                     <div class="form-group ml-5 pl-5"> <input type="text" class="form-control w-75 ml-5" id="form32" placeholder="Username" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{username}"></div>
                     <div class="form-group ml-5 pl-5"> <input type="password" class="form-control w-75 ml-5" id="form33" placeholder="Password" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{password}"></div>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="submit" class="btn btn-secondary ml-5 w-25" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;"> Register </button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="submit" class="btn btn-secondary ml-5 w-25" style="	box-shadow: 0px 0px 4px  black;	text-align: center;text-shadow: 0px 0px 4px black;	border-color: white;"> Register </button>
 
                 </form>
                 <!--<div class="bg-dark">
