@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/studentRegistrationCss.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/css/studentThreg.css}" type="text/css">
+    <script type="text/javascript" src="/js/jquery3.3.1.js"></script>
+    <script type="text/javascript" src="/js/db_ajax.js"></script>
     <style> .vertical-menu {
         width: 200px;
         height: 150px;
@@ -53,15 +55,23 @@
         </div>
     </nav>
 <form>
-    <div class="vertical-menu h-50 w-25">
-        <div>
-            <a href="#" class="not-active bg-secondary" style="color:white;">UNIVERSITY ADMIN</a>
-        </div>
-        <div>
-            <a th:href="@{/college}"><i class="fa fa-university  fa-x" aria-hidden="true" style="color:#425cf4"></i>&nbsp;&nbsp;ADD COLLEGE</a>
-        </div>
-    </div>
-    <div class="w-75 h-100" id="university" style=""></div>
+
+<div>
+                <div style="float: left" class="vertical-menu h-50 w-25" >
+                    <div>
+                        <a href="#" class="not-active bg-secondary" style="color:white;">UNIVERSITY ADMIN</a>
+                    </div>
+                    <div>
+                        <a th:href="@{/college}" ><i class="fa fa-university  fa-x" aria-hidden="true" style="color:#425cf4"></i>&nbsp;&nbsp;ADD COLLEGE</a>
+                    </div>
+                </div>
+<br/>
+    <br/>
+    <br/>
+                <div style="float: right" id="content"></div>
+
+   <!-- <div class="w-75 h-100" id="university" style=""></div>-->
+</div>
 </form>
 <br>
 <br>
