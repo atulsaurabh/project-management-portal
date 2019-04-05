@@ -21,6 +21,16 @@ public class Department {
     private Faculty projectCoordinator;
 
     private Set<GroupDetails> projectGroup = new HashSet<>();
+    private Set<Documents> documents = new HashSet<>();
+
+    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL, orphanRemoval = true)
+    public Set<Documents> getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(Set<Documents> documents) {
+        this.documents = documents;
+    }
 
 
 

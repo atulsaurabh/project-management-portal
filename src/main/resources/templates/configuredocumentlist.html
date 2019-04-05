@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>configure documents</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<form action="/projectcordinator/configureDocs" method="post" th:object="${docTypes}">
+    <table id="confi_docs" style="width:100%">
+        <tr>
+            <th>Select</th>
+            <th>Document No</th>
+            <th>Document Name</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Start Calender</th>
+            <th>End Calender</th>
+        </tr>
+        <tbody>
+        <tr th:each="docs : ${docTypeDTOS}">
+            <td><input type="checkbox" th:field="*{doctypeid}" th:value="${docs.getDoctypeid()}"></td>
+            <td th:text="${docs.getDoctypeid()}"></td>
+            <td th:text="${docs.getDocumentname()}"></td>
+            <th> </th>
+            <th> </th>
+            <td><input type="date" name="startingDate"></td>
+            <td><input type="date" name="lastDate"></td>
+        </tr>
+        </tbody>
+    </table>
+<input type="submit">
+</form>
+</body>
+</html>

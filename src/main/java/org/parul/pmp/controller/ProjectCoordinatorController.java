@@ -1,9 +1,14 @@
 package org.parul.pmp.controller;
 
+import org.parul.pmp.dto.DocTypeDTO;
 import org.parul.pmp.dto.FacultyDTO;
+import org.parul.pmp.dto.mapper.DocTypeMapper;
 import org.parul.pmp.dto.mapper.FacultyMapper;
 import org.parul.pmp.entity.Department;
+import org.parul.pmp.entity.DocType;
+import org.parul.pmp.entity.Documents;
 import org.parul.pmp.entity.Faculty;
+import org.parul.pmp.repository.DocTypeRepository;
 import org.parul.pmp.repository.FacultyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +30,8 @@ public class ProjectCoordinatorController {
 
     @Autowired
     private FacultyRepository facultyRepository;
+    @Autowired
+    private DocTypeRepository docTypeRepository;
 
     @GetMapping
     public String addCodinator(HttpSession session, Model model) {
@@ -55,5 +62,21 @@ public class ProjectCoordinatorController {
         faculty.setProjectCoodinator(true);
         facultyRepository.saveAndFlush(faculty);
         return "welcome";
+    }
+
+    @GetMapping("/configureDocs")
+    public String configureDocs(Model model)
+    {
+        List<DocType> docTypes = docTypeRepository.findAll();
+        List<DocTypeDTO> docTypeDTOS = docTypes.stream().map(DocTypeMapper::toDTO).collect(Collectors.toList());
+        model.addAttribute("docTypes",new DocTypeDTO());
+        model.addAttribute("docTypeDTOS",docTypeDTOS);
+        return "configuredocumentlist";
+    }
+
+    @PostMapping("/configureDocs")
+    public String configureDocs(@RequestParam("doctypeid") long doctypeid ,Model model)
+    {
+        return "";
     }
 }

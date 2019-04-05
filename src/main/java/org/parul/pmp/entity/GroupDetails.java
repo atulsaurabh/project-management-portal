@@ -21,6 +21,16 @@ public class GroupDetails {
     private Student cordinator;
     private Set<Student>members = new HashSet<>();
     private Instant dateOfGroupCreation;
+    private Set<UplodedDocuments> uplodedDocuments = new HashSet<>();
+
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="groupDetails",fetch = FetchType.LAZY)
+    public Set<UplodedDocuments> getUplodedDocuments() {
+        return uplodedDocuments;
+    }
+
+    public void setUplodedDocuments(Set<UplodedDocuments> uplodedDocuments) {
+        this.uplodedDocuments = uplodedDocuments;
+    }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
