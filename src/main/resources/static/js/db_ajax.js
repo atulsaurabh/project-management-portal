@@ -38,7 +38,7 @@ function sendJoinInGroupRequest(email){
 }
 
 $(document).ready(function () {
-    $('a').click(function (e) {
+    $('#menu a').click(function (e) {
         e.preventDefault();
         //var page=$(this).attr('href');
        // $('#content').load('content/' + page);
