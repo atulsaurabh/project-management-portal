@@ -18,6 +18,16 @@ public class Department {
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
     private Set<GroupDetails> projectGroup = new HashSet<>();
+    private Set<Documents> documents = new HashSet<>();
+
+    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL, orphanRemoval = true)
+    public Set<Documents> getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(Set<Documents> documents) {
+        this.documents = documents;
+    }
 
     @OneToMany(mappedBy = "department",cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<GroupDetails> getProjectGroup() {

@@ -76,13 +76,13 @@ public class StudentController {
             mailDTO.setLink("http://localhost:8080/activate?userid="+userid);
             mailService.sendActivationMailWithCredential(mailDTO);
             model.addAttribute("emailId",student.getEmail());
-            return "successfulRegistration";
+            return "studentRegistration";
 
         }
         catch (Exception e)
         {
             e.printStackTrace();
-            model.addAttribute("msg", "Error");
+            model.addAttribute("errmsg", "Error");
         }
         return "studentRegistration";
     }
@@ -105,7 +105,7 @@ public class StudentController {
         catch (Exception e)
         {
             e.printStackTrace();
-            model.addAttribute("msg", "Error");
+            model.addAttribute("errmsg", "Error");
         }
         return "Welcome";
     }

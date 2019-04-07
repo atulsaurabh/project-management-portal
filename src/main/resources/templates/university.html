@@ -8,6 +8,8 @@
    <!-- <title>University Registration</title>-->
 </head>
 <body>
+
+
     <form action="university" method="post" th:object="${university}">
                     <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="height: 80px">
                         <a class="navbar-brand" href="#">
@@ -26,14 +28,20 @@
                             </ul>
                         </div>
                     </nav>
-                    <div class="form-group" >
+                    <div class="form-group mt-4" >
                         <h4 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">UNIVERSITY REGISTRATION</h4>
                     </div>
-                <div class="form-group ml-5 pl-5"><input type="text" class="form-control w-75 ml-5" id="form27" placeholder="university code" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{university_code}"></div>
-                <div class="form-group ml-5 pl-5"><input type="text" class="form-control w-75 ml-5" id="form28" placeholder="university Name" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{university_name}" ></div>
+
+        <div  style="width: fit-content; height: fit-content;  " th:if="${msg}" class="alert alert-success"
+             role="alert" th:text="${msg}"></div>
+
+        <div style="width: fit-content; height: fit-content;" th:if="${errmsg}" class="alert alert-danger" role="alert"
+             th:text="${errmsg}"></div>
+                <div class="form-group ml-5 pl-5"><input type="text" class="form-control w-75 ml-5" id="form27" placeholder="University Code" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{university_code}"></div>
+                <div class="form-group ml-5 pl-5"><input type="text" class="form-control w-75 ml-5" id="form28" placeholder="University Name" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{university_name}" ></div>
                 <div class="form-group ml-5 pl-5"><input type="email" class="form-control w-75 ml-5" id="form29" placeholder="Email" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{email}"></div>
                 <div class="form-group ml-5 pl-5"><input type="number" class="form-control w-75 ml-5" id="form30" placeholder="Phone No" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{contact_no}"></div>
-                <div class="form-group ml-5 pl-5"> <input type="text" class="form-control w-75 ml-5" id="form31" placeholder="fax" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{fax}"> </div>
+                <div class="form-group ml-5 pl-5"> <input type="text" class="form-control w-75 ml-5" id="form31" placeholder="Fax" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{fax}"> </div>
                 <div class="form-group ml-5 pl-5"> <input type="text" class="form-control w-75 ml-5" id="form32" placeholder="Website" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{website}"></div>
                 <div class="form-group ml-5 pl-5"> <input type="text" class="form-control w-75 ml-5" id="form33" placeholder="Username" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{username}"></div>
                 <div class="form-group ml-5 pl-5"> <input type="password" class="form-control w-75 ml-5" id="form34" placeholder="Password" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{password}">

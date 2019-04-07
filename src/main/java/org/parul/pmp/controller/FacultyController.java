@@ -56,13 +56,13 @@ public class FacultyController {
             mailDTO.setLink("http://localhost:8080/activate");
             mailService.sendActivationMailWithCredential(mailDTO);
             model.addAttribute("emailId",faculty.getEmail());
-            return "successfulRegistration";
+            return "faculty";
 
         }
         catch (Exception e)
         {
             e.printStackTrace();
-            model.addAttribute("msg", "Error");
+            model.addAttribute("errmsg", "Error");
         }
         return "Welcome";
     }
