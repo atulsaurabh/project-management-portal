@@ -9,24 +9,22 @@
 
 
     <h3>Upload Document</h3>
-    <form action="/uploadFile" method="get" enctype="multipart/form-data" th:object="${uploaddoc}">
+
+    <!--<lable>Select Document Type to Upload:</lable></td><td>
+        <select class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true" id="doctype">
+            <option th:each="doc : ${doctypes}"
+                    th:value="${doc.doctypeid}" th:text="${doc.documentname}"></option>
+        </select>-->
+    <form action="/uploadFile/upload" method="post" enctype="multipart/form-data" >
         <table>
-            <tr>
-                <td> <!--<button class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="true" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;"> College</button>-->
-                    <lable>Select Document Type to Upload:</lable></td><td>
-                    <select class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true" id="doctype">
-                        <option th:each="doc : ${doctypes}"
-                                th:value="${doc.doctypeid}" th:text="${doc.documentname}"></option>
-                    </select>
-                </td>
-            </tr><tr>
+           <tr>
                 <td>Select Files:</td>
-                <td><input type="file" name="file" multiple="multiple"></td>
+                <td><input type="file" name="file"></td>
 
             </tr>
-            <tr>
+            <!--<tr>
                 <td>Enter Description:</td>
-                <td><input type="text"  th:field="*{description}"></td></tr>
+                <td><input type="text"  th:field="*{description}"></td></tr>-->
             <tr>
                 <td><button type="submit">Upload</button></td></tr>
         </table>
