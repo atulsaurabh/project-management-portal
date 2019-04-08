@@ -26,9 +26,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/uploadFile")
+@RequestMapping("/upload")
 public class FileUploadController {
-    private static String UPLOADED_FOLDER = "F://";
+    //private static String UPLOADED_FOLDER = "F://";
     @Autowired
     private DocumentRepository documentRepository;
     @Autowired
@@ -51,8 +51,8 @@ public class FileUploadController {
         return "fileUpload";
     }
 
-    @PostMapping("/upload")
-    public String uploadDocument(@RequestParam("file") MultipartFile file,Model model) {
+    @PostMapping
+    public String uploadFile(@RequestParam(name = "file") MultipartFile file,Model model) {
         //long userid = (long) session.getAttribute("userid");
         //Student student = studentRepository.findById(userid).get();
         //uploaddoc.setUploadedby(student.getEnrollment());
@@ -72,25 +72,30 @@ public class FileUploadController {
             }
             model.addAttribute("msg","File Uploaded Successfully");
         }*/
-        if (file.isEmpty()) {
-            model.addAttribute("msg", "Please select a file to upload");
-            return "fileUpload";
+        if (file.isEmpty())
+        {
+            model.addAttribute("msg","No file present");
         }
-        try {
+        else
+        {
+            try {
+                String uploadDir=getClass().getResource("/templates").getPath()+"/upload";
+                File file1=new File(uploadDir);
+                if (!file1.exists())
+                    file1.mkdir();
+                String uploadFiles = uploadDir+"/"+file.getOriginalFilename();
+                file.transferTo(new File(uploadFiles));
+                model.addAttribute("msg","Uploading done successfully");
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+                model.addAttribute("msg","Uploading not done successfully");
+            }
 
-            // Get the file and save it somewhere
-            byte[] bytes = file.getBytes();
-            Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-            Files.write(path, bytes);
-
-            model.addAttribute("msg",
-                    "You successfully uploaded '" + file.getOriginalFilename() + "'");
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
 
-        return "fileUpload";
+        return "result";
     }
 
 }

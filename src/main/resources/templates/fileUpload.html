@@ -15,19 +15,10 @@
             <option th:each="doc : ${doctypes}"
                     th:value="${doc.doctypeid}" th:text="${doc.documentname}"></option>
         </select>-->
-    <form action="/uploadFile/upload" method="post" enctype="multipart/form-data" >
-        <table>
-           <tr>
-                <td>Select Files:</td>
-                <td><input type="file" name="file"></td>
-
-            </tr>
-            <!--<tr>
-                <td>Enter Description:</td>
-                <td><input type="text"  th:field="*{description}"></td></tr>-->
-            <tr>
-                <td><button type="submit">Upload</button></td></tr>
-        </table>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <b>File Name</b><input type="file" name="file"/>
+        <br>
+        <button type="submit">Upload</button>
     </form>
 
     <div  style="width: fit-content; height: fit-content;  " th:if="${msg}" class="alert alert-success"
