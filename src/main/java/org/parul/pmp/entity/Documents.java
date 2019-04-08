@@ -45,6 +45,7 @@ public class Documents {
         this.documentid = documentid;
     }
 
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     public Instant getStartuploaddate() {
         return startuploaddate;
     }
@@ -53,6 +54,7 @@ public class Documents {
         this.startuploaddate = startuploaddate;
     }
 
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     public Instant getEnduploaddate() {
         return enduploaddate;
     }

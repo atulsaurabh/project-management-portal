@@ -15,8 +15,8 @@ public class DocTypeMapper {
     public static DocTypeDTO toDTO(DocType docType)
     {
         DocTypeDTO dto = new DocTypeDTO();
-        dto.setDoctypeid(dto.getDoctypeid());
-        dto.setDocumentname(dto.getDocumentname());
+        dto.setDoctypeid(docType.getDoctypeid());
+        dto.setDocumentname(docType.getDocumentname());
         dto.setDocumentname(docType.getDocumentname());
         return dto;
     }
