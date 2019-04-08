@@ -5,7 +5,6 @@ import org.parul.pmp.dto.mapper.StudentMapper;
 import org.parul.pmp.entity.*;
 import org.parul.pmp.exception.SessionExpiredException;
 import org.parul.pmp.repository.*;
-import org.parul.pmp.service.MailService;
 import org.parul.pmp.service.Mailserviceforgroup;
 import org.parul.pmp.service.ProjectGroupService;
 import org.parul.pmp.service.ProjectService;
@@ -84,7 +83,7 @@ public class ProjectController {
                     model.addAttribute("msg","Project Group Created Successfully!");
                 }
         }
-        return "projectGroup";
+        return "project";
     }
     /*@PostMapping("/promoteCordinator")
     @Transactional
@@ -100,7 +99,7 @@ public class ProjectController {
         }
         student.setCordinator(true);
         studentRepository.saveAndFlush(student);
-        return projectGroup(model);
+        return projectGroup (model);
     }*/
     @GetMapping("/projectDetails")
     public String projectDetails(Model model)
@@ -121,7 +120,7 @@ public class ProjectController {
             e.printStackTrace();
             model.addAttribute("msg", "Error");
         }
-        return "project";
+        return "welcome";
     }
     @GetMapping("/addmember")
     public String addmember(Model model,HttpSession session)

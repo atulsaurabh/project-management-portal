@@ -78,6 +78,7 @@ public class StudentController {
             model.addAttribute("emailId",student.getEmail());
             return "studentRegistration";
 
+
         }
         catch (Exception e)
         {

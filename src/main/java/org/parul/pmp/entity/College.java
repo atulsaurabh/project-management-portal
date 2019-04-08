@@ -24,7 +24,7 @@ public class College {
 
     private User collegeAdmin;
 
-    @OneToOne(mappedBy = "college",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToOne(mappedBy = "college",fetch = FetchType.LAZY,cascade = CascadeType.ALL,orphanRemoval = true)
     public User getCollegeAdmin() {
         return collegeAdmin;
     }
@@ -43,11 +43,9 @@ public class College {
         this.college_id = college_id;
     }
 
-
     public String getCollege_code() {
         return college_code;
     }
-
     public void setCollege_code(String college_code) {
         this.college_code = college_code;
     }
@@ -55,7 +53,6 @@ public class College {
     public String getCollege_name() {
         return college_name;
     }
-
     public void setCollege_name(String college_name) {
         this.college_name = college_name;
     }
@@ -63,7 +60,6 @@ public class College {
     public String getContact_no() {
         return contact_no;
     }
-
     public void setContact_no(String contact_no) {
         this.contact_no = contact_no;
     }
@@ -71,7 +67,6 @@ public class College {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -79,58 +74,40 @@ public class College {
     public String getWebsite() {
         return website;
     }
-
     public void setWebsite(String website) {
         this.website = website;
     }
 
-    public String getFax() {
-        return fax;
-    }
-
+    public String getFax() { return fax; }
     public void setFax(String fax) {this.fax = fax;}
 
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+
+    @OneToOne(optional = true)
     @JoinColumn(name = "addressid")
     public Address getAddress() { return address; }
 
     public void setAddress(Address address) { this.address = address; }
-
 
     @OneToMany(mappedBy = "college",cascade = CascadeType.ALL)
     public Set<Department> getDepartments() { return departments; }
 
     public void setDepartments(Set<Department> departments) { this.departments = departments; }
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "university_id")
-    public University getUniversity() {
-        return university;
-    }
+    public University getUniversity() { return university; }
 
-    public void setUniversity(University university) {
-        this.university = university;
-    }
-
-
-
-
-
+    public void setUniversity(University university) { this.university = university; }
 
     public LocalDateTime getDateOfRegistration() {
         return dateOfRegistration;
     }
 
-    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
-        this.dateOfRegistration = dateOfRegistration;
-    }
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) { this.dateOfRegistration = dateOfRegistration; }
 
     public LocalDateTime getDateOfModification() {
         return dateOfModification;
     }
 
-    public void setDateOfModification(LocalDateTime dateOfModification) {
-        this.dateOfModification = dateOfModification;
-    }
+    public void setDateOfModification(LocalDateTime dateOfModification) { this.dateOfModification = dateOfModification; }
 }

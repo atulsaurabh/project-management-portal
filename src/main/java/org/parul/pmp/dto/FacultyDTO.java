@@ -1,21 +1,19 @@
 package org.parul.pmp.dto;
 
-import org.parul.pmp.entity.Department;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class FacultyDTO {
 
     private long department_id;
-    private String faculty_code;
-    private String faculty_firstname;
-    private String faculty_middlename;
-    private String faculty_lastname;
+
+    private Long facultyCode;
+    private String facultyFirstname;
+    private String facultyMiddlename;
+    private String facultyLastname;
     private String email;
     private String phone;
     private String username;
     private String password;
+    private Boolean isHod;
+    private boolean isProjectCoordinator;
     /*private List<DepartmentDTO> departmentDTOS = new ArrayList<>();
 
     public List<DepartmentDTO> getDepartmentDTOS() {
@@ -34,36 +32,34 @@ public class FacultyDTO {
         this.department_id = department_id;
     }
 
-    public String getFaculty_code() {
-        return faculty_code;
+    public Long getFacultyCode() {
+        return facultyCode;
     }
 
-    public void setFaculty_code(String faculty_code) {
-        this.faculty_code = faculty_code;
+    public void setFacultyCode(Long facultyCode) {
+        this.facultyCode = facultyCode;
     }
 
-    public String getFaculty_firstname() {
-        return faculty_firstname;
+    public String getFacultyFirstname() { return facultyFirstname; }
+
+    public void setFacultyFirstname(String facultyFirstname) {
+        this.facultyFirstname = facultyFirstname;
     }
 
-    public void setFaculty_firstname(String faculty_firstname) {
-        this.faculty_firstname = faculty_firstname;
+    public String getFacultyMiddlename() {
+        return facultyMiddlename;
     }
 
-    public String getFaculty_middlename() {
-        return faculty_middlename;
+    public void setFacultyMiddlename(String facultyMiddlename) {
+        this.facultyMiddlename = facultyMiddlename;
     }
 
-    public void setFaculty_middlename(String faculty_middlename) {
-        this.faculty_middlename = faculty_middlename;
+    public String getFacultyLastname() {
+        return facultyLastname;
     }
 
-    public String getFaculty_lastname() {
-        return faculty_lastname;
-    }
-
-    public void setFaculty_lastname(String faculty_lastname) {
-        this.faculty_lastname = faculty_lastname;
+    public void setFacultyLastname(String facultyLastname) {
+        this.facultyLastname = facultyLastname;
     }
 
     public String getEmail() {
@@ -96,5 +92,15 @@ public class FacultyDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Boolean getHod() { return isHod; }
+
+    public void setHod(Boolean hod) { isHod = hod; }
+
+    public Boolean getProjectCoordinator(){ return isProjectCoordinator; }
+
+    public void setProjectCoordinator(boolean projectCoordinator) {
+        isProjectCoordinator = projectCoordinator;
     }
 }

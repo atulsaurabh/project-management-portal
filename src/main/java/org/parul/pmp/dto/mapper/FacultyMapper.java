@@ -2,18 +2,18 @@ package org.parul.pmp.dto.mapper;
 
 import org.parul.pmp.dto.FacultyDTO;
 import org.parul.pmp.entity.*;
-import org.parul.pmp.entity.enumeration.Roles;
 
 public class FacultyMapper {
     public static Faculty toEntity(FacultyDTO dto)
     {
         Faculty register = new Faculty();
-        register.setFaculty_code(dto.getFaculty_code());
-        register.setFaculty_firstname(dto.getFaculty_firstname());
-        register.setFaculty_middlename(dto.getFaculty_middlename());
-        register.setFaculty_lastname(dto.getFaculty_lastname());
+        register.setFacultyCode(dto.getFacultyCode());
+        register.setFacultyFirstname(dto.getFacultyFirstname());
+        register.setFacultyMiddlename(dto.getFacultyMiddlename());
+        register.setFacultyLastname(dto.getFacultyLastname());
         register.setEmail(dto.getEmail());
         register.setPhone(dto.getPhone());
+        //register.setHod(true);
         return register;
     }
     public static User toUserEntity(FacultyDTO facultyDTO)
@@ -31,10 +31,12 @@ public class FacultyMapper {
     public static FacultyDTO toDTO(Faculty faculty)
     {
         FacultyDTO dto = new FacultyDTO();
-        dto.setFaculty_code(faculty.getFaculty_code());
-        dto.setFaculty_firstname(faculty.getFaculty_firstname());
-        dto.setFaculty_lastname(faculty.getFaculty_lastname());
+        dto.setFacultyCode(faculty.getFacultyCode());
+        dto.setFacultyFirstname(faculty.getFacultyFirstname());
+        dto.setFacultyLastname(faculty.getFacultyLastname());
         dto.setEmail(faculty.getEmail());
+        dto.setHod(faculty.isHod());
+        dto.setProjectCoordinator(faculty.isProjectCoodinator());
         return dto;
     }
 

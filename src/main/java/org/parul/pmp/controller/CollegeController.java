@@ -60,7 +60,7 @@ public class CollegeController {
             model.addAttribute("errmsg", "Error");
         }
 
-       return "college";
+       return "universityAdmin";
     }
 
 }

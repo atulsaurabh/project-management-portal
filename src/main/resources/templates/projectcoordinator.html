@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>promot project coordinator</title>
+</head>
+<body>
+<form action="/projectcordinator" method="post" th:object="${faculty}" >
+<h3> promot project coordinator </h3>
+<table id = "project coordinator">
+    <tr>
+        <th>faculty code</th>
+        <th>faculty name</th>
+        <th>project coordinatore</th>
+    </tr>
+    <tbody>
+    <tr th:each="faculty : ${faculties}">
+            <td th:text="${faculty.getFacultyCode()}"></td>
+            <td th:text="${faculty.getFacultyFirstname()}"></td>
+        <td><input type="radio" name="facultycode" th:value="${faculty.facultyCode}"
+                   th:checked="${faculty.getProjectCoordinator()}" class="center middle"></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td> <input type="submit"> </td>
+    </tr>
+    </tfoot>
+</table>
+</form>
+</body>
+</html>

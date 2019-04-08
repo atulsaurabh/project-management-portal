@@ -7,21 +7,24 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Faculty")
-public class Faculty extends User  {
+public class Faculty extends User{
 
-    private String faculty_code;
-    private String faculty_firstname;
-    private String faculty_middlename;
-    private String faculty_lastname;
+
+    private Long facultyCode;
+    private String facultyFirstname;
+    private String facultyMiddlename;
+    private String facultyLastname;
     private String email;
     private String phone;
     private Department department;
     private String education;
     private String skill;
-    private String Published_papers;
+    private String publishedPapers;
     private Address address;
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
+    private boolean isHod;
+    private boolean isProjectCoodinator;
     private Set<GroupDetails> projectGroup = new HashSet<>();
 
     //@OneToOne(cascade = CascadeType.ALL)
@@ -36,38 +39,33 @@ public class Faculty extends User  {
         this.projectGroup = projectGroup;
     }
 
+    @Column(unique = true)
+    public Long getFacultyCode() { return facultyCode; }
 
-
-    public String getFaculty_code() {
-        return faculty_code;
+    public void setFacultyCode(Long facultyCode) {
+        this.facultyCode = facultyCode;
     }
 
-    public void setFaculty_code(String faculty_code) {
-        this.faculty_code = faculty_code;
+    public String getFacultyFirstname() {
+        return facultyFirstname;
     }
 
-    public String getFaculty_firstname() {
-        return faculty_firstname;
+    public void setFacultyFirstname(String facultyFirstname) {
+        this.facultyFirstname = facultyFirstname;
     }
 
-    public void setFaculty_firstname(String faculty_firstname) {
-        this.faculty_firstname = faculty_firstname;
+    public String getFacultyMiddlename() {
+        return facultyMiddlename;
     }
 
-    public String getFaculty_middlename() {
-        return faculty_middlename;
+    public void setFacultyMiddlename(String facultyMiddlename) {
+        this.facultyMiddlename = facultyMiddlename;
     }
 
-    public void setFaculty_middlename(String faculty_middlename) {
-        this.faculty_middlename = faculty_middlename;
-    }
+    public String getFacultyLastname() { return facultyLastname; }
 
-    public String getFaculty_lastname() {
-        return faculty_lastname;
-    }
-
-    public void setFaculty_lastname(String faculty_lastname) {
-        this.faculty_lastname = faculty_lastname;
+    public void setFacultyLastname(String facultyLastname) {
+        this.facultyLastname = facultyLastname;
     }
 
     public String getEmail() { return email; }
@@ -78,9 +76,7 @@ public class Faculty extends User  {
 
     public String getPhone() { return phone; }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+    public void setPhone(String phone) { this.phone = phone; }
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
@@ -107,25 +103,25 @@ public class Faculty extends User  {
         this.skill = skill;
     }
 
-    public String getPublished_papers() {
-        return Published_papers;
+    public String getPublishedPapers() {
+        return publishedPapers;
     }
 
-    public void setPublished_papers(String published_papers) {
-        Published_papers = published_papers;
+    public void setPublishedPapers(String publishedPapers) {
+        this.publishedPapers = publishedPapers;
     }
 
     public LocalDateTime getDateOfRegistration() {
         return dateOfRegistration;
     }
 
-    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
-        this.dateOfRegistration = dateOfRegistration;
-    }
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) { this.dateOfRegistration = dateOfRegistration; }
 
     public LocalDateTime getDateOfModification() {
         return dateOfModification;
     }
+
+    public void setDateOfModification(LocalDateTime dateOfModification) { this.dateOfModification = dateOfModification; }
 
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "addressid")
@@ -137,8 +133,15 @@ public class Faculty extends User  {
         this.address = address;
     }
 
-    public void setDateOfModification(LocalDateTime dateOfModification) {
-        this.dateOfModification = dateOfModification;
+    public boolean isHod() { return isHod; }
 
+    public void setHod(boolean hod) { isHod = hod; }
+
+    public boolean isProjectCoodinator() {
+        return isProjectCoodinator;
+    }
+
+    public void setProjectCoodinator(boolean projectCoodinator) {
+        isProjectCoodinator = projectCoodinator;
     }
 }

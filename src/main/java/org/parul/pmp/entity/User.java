@@ -17,6 +17,7 @@ public class User {
     private University university;
 
     private College college;
+    private String password;
 
     public boolean isActivate() {
         return isActivate;
@@ -86,4 +87,13 @@ public class User {
     public void setCredential(Credential credential) {
         this.credential = credential;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 }

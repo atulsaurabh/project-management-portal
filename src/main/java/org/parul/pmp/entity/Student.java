@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Student")
-public class Student extends User {
+@Table(name = "student")
+public class Student extends User{
 
     private String firstname;
     private String middlename;
@@ -33,9 +33,7 @@ public class Student extends User {
         isCordinator = cordinator;
     }
 
-    public boolean isGroupMember() {
-        return isGroupMember;
-    }
+    public boolean isGroupMember() { return isGroupMember; }
 
     public void setGroupMember(boolean groupMember) {
         isGroupMember = groupMember;
@@ -51,13 +49,9 @@ public class Student extends User {
         this.projectGroup = projectGroup;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
+    public String getFirstname() { return firstname; }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
+    public void setFirstname(String firstname) { this.firstname = firstname; }
 
     public String getMiddlename() {
         return middlename;

@@ -7,12 +7,16 @@ public class DocTypeMapper {
     public static DocType toEntity(DocTypeDTO dto)
     {
         DocType docType = new DocType();
+        docType.setDoctypeid(docType.getDoctypeid());
+        docType.setDocumentname(docType.getDocumentname());
         docType.setDocumentname(dto.getDocumentname());
         return docType;
     }
     public static DocTypeDTO toDTO(DocType docType)
     {
         DocTypeDTO dto = new DocTypeDTO();
+        dto.setDoctypeid(docType.getDoctypeid());
+        dto.setDocumentname(docType.getDocumentname());
         dto.setDocumentname(docType.getDocumentname());
         return dto;
     }

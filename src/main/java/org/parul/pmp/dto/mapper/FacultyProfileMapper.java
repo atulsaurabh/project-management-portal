@@ -8,7 +8,7 @@ public class FacultyProfileMapper {
         Faculty profile=new Faculty();
         profile.setEducation(facultyProfileDTO.getEducation());
         profile.setSkill(facultyProfileDTO.getSkill());
-        profile.setPublished_papers(facultyProfileDTO.getPublished_papers());
+        profile.setPublishedPapers(facultyProfileDTO.getPublished_papers());
 
         return profile;
     }

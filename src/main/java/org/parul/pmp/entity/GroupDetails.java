@@ -93,7 +93,6 @@ public class GroupDetails {
         return cordinator;
     }
 
-
     public void setCordinator(Student cordinator) {
         this.cordinator = cordinator;
     }

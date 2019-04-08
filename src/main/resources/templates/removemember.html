@@ -1,0 +1,10 @@
+<tr>
+    <td th:text="${student.getEnrollment()}">
+    <td th:text="${student.getFirstname() + student.getMiddlename() + student.getLastname()}">
+    <td th:text="${student.getDepartment().getDepartment_name()}">
+    <td><input type="radio" name="enrollment"
+           th:value="${student.enrollment}">
+        <!--    <td th:text="${group.getProjectGroup}">
+    <td><input type="checkbox" th:field="*{enrollment}"
+               th:value="${student.getEnrollment()}"></td>-->
+</tr>

@@ -25,23 +25,23 @@
 </nav>
 <form action="/account/login" method="post" th:object="${loginDTO}">
     <div class="form-group mt-4">
-        <h4 class="text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">LOGIN</h4>
+        <h4 class="text-center" style="	color: blue; text-shadow: 0px 0px 4px black; box-shadow: 0px 0px 4px  white;">LOGIN</h4>
     </div>
     <div class="form-group ml-5 pl-5">
-        <input type="text" class="form-control ml-5 w-75" placeholder="Enter email" id="form9" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{username}">
+        <input type="text" class="form-control ml-5 w-75" placeholder="Enter email" id="form9" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;" required="required" th:field="*{username}">
     </div>
     <div class="form-group ml-5 pl-5">
-        <input type="password" class="form-control ml-5 w-75" placeholder="Password" id="form10" style="	font-color:blue;box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{password}">
+        <input type="password" class="form-control ml-5 w-75" placeholder="Password" id="form10" style="	font-color:blue;box-shadow: 0px 0px 4px  blue;" required="required" th:field="*{password}">
     </div>
     <div class="form-group text-right mr-5 pr-5 col-md-11">
-        <a href="#" class="mr-5"> Forgotten password</a>
+        <a href="/forgetpswd" class="mr-5"> Forgotten password</a>
     </div>
     <div class="form-group text-center col-md-12 w-75 ml-5 pl-5">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button type="submit" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;" class="btn btn-secondary w-25 text-center ml-5">SignIn</button>
     </div>
     <div class="form-group text-center">
         <label class="text-dark">Don't have an account with us?</label>
-        <button type="button" class="btn btn-success btn-lg"  style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: blue;"><a th:href="@{/student/register}">Create an Account</a> </button>
+        <button type="button" class="btn btn-success btn-lg"  style="	box-shadow: 0px 0px 4px  black;		border-color: blue;"><a th:href="@{/student/register}">Create an Account</a> </button>
     </div>
 </form>
 <br/>

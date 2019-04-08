@@ -87,13 +87,9 @@ public class StudentDTO {
         this.lastname = lastname;
     }
 
-    public String getEnrollment() {
-        return enrollment;
-    }
+    public String getEnrollment() { return enrollment; }
 
-    public void setEnrollment(String enrollment) {
-        this.enrollment = enrollment;
-    }
+    public void setEnrollment(String enrollment) { this.enrollment = enrollment; }
 
     public String getSem() {
         return sem;
