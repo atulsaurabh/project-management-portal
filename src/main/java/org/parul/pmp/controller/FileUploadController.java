@@ -19,9 +19,12 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.Instant;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,19 +47,26 @@ public class FileUploadController {
     public String uploadPage(Model model) {
 
 
-        /*List<DocType> documents = docTypeRepository.findAll();
+        List<DocType> documents = docTypeRepository.findAll();
         List<DocTypeDTO> doctypes = documents.stream().map(DocTypeMapper::toDTO).collect(Collectors.toList());
         model.addAttribute("doctypes", doctypes);
-        model.addAttribute("uploaddoc", new UploadDocDTO());*/
+       // model.addAttribute("uploaddoc", new UploadDocDTO());
+        return "document";
+    }
+    @PostMapping
+    public String document(Model model,@RequestParam(name = "doctype") DocType doctype)
+    {
+        Documents document = documentRepository.findByDocType(doctype).get();
+        model.addAttribute("uploaddoc", new UploadDocDTO());
         return "fileUpload";
     }
-
-    @PostMapping
-    public String uploadFile(@RequestParam(name = "file") MultipartFile file,Model model) {
-        //long userid = (long) session.getAttribute("userid");
-        //Student student = studentRepository.findById(userid).get();
+    @PostMapping("/file")
+    public String uploadFile(@RequestParam(name = "file") MultipartFile file,Model model,@ModelAttribute("uploaddoc") UploadDocDTO uploaddoc,HttpSession session,Documents document) {
+        long userid = (long) session.getAttribute("userid");
+        Student student = studentRepository.findById(userid).get();
+        GroupDetails group = student.getProjectGroup();
         //uploaddoc.setUploadedby(student.getEnrollment());
-        //Documents documents = documentRepository.findByDocType(doctype).get();
+
 
        /* if (fileUpload != null && fileUpload.length > 0) {
             for (CommonsMultipartFile file : fileUpload) {
@@ -85,6 +95,15 @@ public class FileUploadController {
                     file1.mkdir();
                 String uploadFiles = uploadDir+"/"+file.getOriginalFilename();
                 file.transferTo(new File(uploadFiles));
+                //URL url = file.getResource().getURL();
+                uploaddoc.setUploadedby(student.getEnrollment());
+//                uploaddoc.setData(file.getBytes());
+                //uploaddoc.setDocurl(url);
+                UplodedDocuments uplodedDocuments = UploadDocMapper.toEntity(uploaddoc);
+                uplodedDocuments.setDocuments(document);
+                uplodedDocuments.setGroupDetails(group);
+                uplodedDocuments.setUploadeddate(Instant.now());
+                uploadDocRepository.saveAndFlush(uplodedDocuments);
                 model.addAttribute("msg","Uploading done successfully");
             }
             catch (Exception ex)

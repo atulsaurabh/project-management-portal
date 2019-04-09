@@ -1,6 +1,7 @@
 package org.parul.pmp.entity;
 
 import javax.persistence.*;
+import java.net.URL;
 import java.time.Instant;
 
 @Entity
@@ -9,7 +10,7 @@ public class UplodedDocuments {
     private long uploaddocid;
     private Instant uploadeddate;
     private String uploadedby;
-    private String docurl;
+    private URL docurl;
     private boolean approved;
     private String description;
     private Documents documents;
@@ -70,11 +71,11 @@ public class UplodedDocuments {
         this.uploadedby = uploadedby;
     }
 
-    public String getDocurl() {
+    public URL getDocurl() {
         return docurl;
     }
 
-    public void setDocurl(String docurl) {
+    public void setDocurl(URL docurl) {
         this.docurl = docurl;
     }
 
