@@ -11,6 +11,9 @@
 <div>
     <p th:text="'Dear '+${mail.name}"></p>
     <p>This mail is for adding members into Project Group.</p>
+    <p>Group details are as below:</p>
+    <p>Group Name : <b th:text="${mail.group}"></b></p>
+    <p>Cordinator Enrollment : <b th:text="${mail.cordinator}"></b></p>
     <p>To join Group Kindly<a th:href="${mail.link}"><button>Click Here</button></a> to accept group request.</p>
     <p>Please do not share the information or email to any unauthorized body</p>
 </div>

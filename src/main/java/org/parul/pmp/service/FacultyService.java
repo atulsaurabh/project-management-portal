@@ -36,16 +36,17 @@ public class FacultyService {
         faculty.setDateOfModification(localDateTime);
         faculty.setDateOfRegistration(localDateTime);
 
-        User user = FacultyMapper.toUserEntity(facultyDTO);
-        User storedUser = userRepository.saveAndFlush(user);
+        //User user = FacultyMapper.toUserEntity(facultyDTO);
+        //User storedUser = userRepository.saveAndFlush(user);
+        Faculty savedfaculty = facultyRepository.saveAndFlush(faculty) ;
         Credential credential = FacultyMapper.toCredentialEntity(facultyDTO);
 
         Optional<Role> optionalRole=roleRepository.findByName(Roles.ROLE_FACULTY.name());
         Role role = optionalRole.orElseThrow(()-> new RoleNotAvailableException());
         credential.getRoles().add(role);
         role.getCredential().add(credential);
-        credential.setUser(storedUser);
-        storedUser.setCredential(credential);
+        credential.setUser(savedfaculty);
+        savedfaculty.setCredential(credential);
        // faculty.setUserfaculty(storedUser);
        // storedUser.setFaculty(faculty);
         Faculty savedFaculty=facultyRepository.saveAndFlush(faculty);

@@ -33,16 +33,17 @@ public class StudentService {
         student.setDateOfModification(localDateTime);
         student.setDateOfRegistration(localDateTime);
 
-        User user = StudentMapper.toUserEntity(studentDTO);
-        User storedUser = userRepository.saveAndFlush(user);
+       // User user = StudentMapper.toUserEntity(studentDTO);
+        //User storedUser = userRepository.saveAndFlush(user);
+        Student savedstudent = studentRepository.saveAndFlush(student);
         Credential credential = StudentMapper.toCredentialEntity(studentDTO);
 
         Optional<Role> optionalRole=roleRepository.findByName(Roles.ROLE_STUDENT.name());
         Role role = optionalRole.orElseThrow(()-> new RoleNotAvailableException());
         credential.getRoles().add(role);
         role.getCredential().add(credential);
-        credential.setUser(storedUser);
-        storedUser.setCredential(credential);
+        credential.setUser(savedstudent);
+        savedstudent.setCredential(credential);
         Student savedStudent=studentRepository.saveAndFlush(student);
         dept.getStudents().add(savedStudent);
         savedStudent.setDepartment(dept);

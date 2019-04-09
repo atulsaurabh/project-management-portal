@@ -17,6 +17,6 @@ public class MailContentBuilderUtil {
     {
         Context context = new Context();
         context.setVariable("mail",dto);
-        return templateEngine.process("mailtemplateforgroupmember",context);
+        return templateEngine.process("mailtemplate",context);
     }
 }
