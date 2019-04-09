@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script type="text/javascript" src="/js/jquery3.3.1.js"></script>
+    <script type="text/javascript" src="/js/db_ajax.js"></script>
 </head>
 <body>
+<h3>Upload Document</h3>
 <form action="/upload" method="post">
 <lable>Select Document Type to Upload:</lable>
-    <select class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true" name="doctype">
+    <select class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true" name="doctype" id="docid">
         <option th:each="doc : ${doctypes}"
                 th:value="${doc.doctypeid}" th:text="${doc.documentname}"></option>
     </select>
-    <button type="submit">GO</button>
+    <button type="button" onclick="uploaddoc()">GO</button>
 </form>
+<div id="upload_place"></div>
 </body>
 
 </html>

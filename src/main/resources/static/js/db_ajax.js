@@ -49,7 +49,19 @@ function addmembers()
         }
     )
 }
+function uploaddoc() {
+    var docid = $("#docid").val();
+    $.post(
+        "/upload",
+        {
+            doctype: docid
+        },
+        function (data) {
+            $("#upload_place").html(data);
+        }
+    )
 
+}
 function sendJoinInGroupRequest(email){
     $.post(
         "/project/grouprequestmail",
