@@ -11,7 +11,7 @@ public class UploadDocMapper
         uplodedDocs.setDescription(dto.getDescription());
         uplodedDocs.setDocurl(dto.getDocurl());
         uplodedDocs.setUploadedby(dto.getUploadedby());
-        uplodedDocs.setData(dto.getData());
+
         return uplodedDocs;
     }
 }

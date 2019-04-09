@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/studentRegistrationCss.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/studentThreg.css}" type="text/css">
+    <script type="text/javascript" src="/js/jquery3.3.1.js"></script>
+    <script type="text/javascript" src="/js/db_ajax.js"></script>
+    <style> .vertical-menu {
+        width: 200px;
+        height: 800px;
+        overflow-y: auto;
+        float: left;
+    }
+
+    .vertical-menu a {
+
+        color: black;
+        display: block;
+        padding: 12px;
+        text-decoration: none;
+        background-color: #b3ccff;
+    }
+
+    .vertical-menu a:hover {
+        background-color: #ccc;
+    }
+
+    .vertical-menu a.active {
+        background-color: #4CAF50;
+        color: lightblue;
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="height: 80px">
+        <a class="navbar-brand" href="#">
+            <img src="/images/logo.png" alt="Logo" title="Logo" class="rounded" height="50">
+        </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbar10">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" > <a class="nav-link" th:href="@{/account/login}" style="color:white;font-size:20px;font-weight:500;"><i class="fa fa-sign-out fa-x fa-lg" aria-hidden="true" style="color:#ffffff"></i>&nbsp;&nbsp;LogOut</a> </li>
+                <!--<li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>
+
+                <!--<li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>
+                <li class="nav-item"> <a class="nav-link" th:href="@{/account/login}" style="color:white;font-size:25px;font-weight:500;">Login</a> </li>
+                <li class="nav-item"> <a class="nav-link shadow" href="#" style="	color: white;	font-size: 25px;	font-weight: 500;	box-shadow: 0px 0px 4px  black, 0px 0px 4px  black;">Profile</a> </li>-->
+
+                 </ul>
+        </div>
+    </nav>
+<form>
+
+<div>
+                <div style="float: left;" class="vertical-menu h-50 w-25" >
+                    <div>
+                        <a href="#" class="not-active bg-secondary" style="color:white;">UNIVERSITY ADMIN</a>
+                    </div>
+                    <div id="menu">
+                        <a th:href="@{/college}" ><i class="fa fa-university  fa-x" aria-hidden="true" style="color:#425cf4"></i>&nbsp;&nbsp;ADD COLLEGE</a>
+                    </div>
+                </div>
+
+                <div style="margin-left:25%;padding:1px 16px;height:800px;background-color: #f1f1f1" id="content">
+                    <div  style="width: fit-content; height: fit-content;  " th:if="${emailId}" class="alert alert-success"
+                          role="alert" th:text="'A verification email has been sent to: ' + ${emailId}"></div>
+                    <div style="width: fit-content; height: fit-content;" th:if="${errmsg}" class="alert alert-danger" role="alert"
+                         th:text="${errmsg}"></div>
+                </div>
+
+   <!-- <div class="w-75 h-100" id="university" style=""></div>-->
+</div>
+</form>
+
+
+<div class="bg-dark">
+    <div class="container">
+        <div class="row" style="">
+            <div class="col-md-12 text-center">
+                <p class="mb-0 text-light">Copyright © 2019 Project Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/js1.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="/js/js2.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="/js/js3.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+
+
+
+
+
+
+
+
+.........................................................................................................................
+</html>

@@ -56,9 +56,7 @@ public class GroupDTO {
         this.faculty_id = faculty_id;
     }
 
-    public String getEnrollment() {
-        return enrollment;
-    }
+    public String getEnrollment() { return enrollment; }
 
     public void setEnrollment(String enrollment) {
         this.enrollment = enrollment;

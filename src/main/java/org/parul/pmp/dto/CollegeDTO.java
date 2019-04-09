@@ -1,6 +1,7 @@
 package org.parul.pmp.dto;
 
 
+import org.parul.pmp.entity.Faculty;
 
 public class CollegeDTO {
     private long college_id;
@@ -13,18 +14,13 @@ public class CollegeDTO {
     private long university_id;
     private String username;
     private String password;
+    private Faculty Hod;
 
-    public long getCollege_id() {
-        return college_id;
-    }
+    public long getCollege_id() { return college_id; }
 
-    public void setCollege_id(long college_id) {
-        this.college_id = college_id;
-    }
+    public void setCollege_id(long college_id) { this.college_id = college_id; }
 
-    public String getUsername() {
-        return username;
-    }
+    public String getUsername() { return username; }
 
     public void setUsername(String username) {
         this.username = username;
@@ -38,9 +34,7 @@ public class CollegeDTO {
         this.password = password;
     }
 
-    public String getCollege_code() {
-        return college_code;
-    }
+    public String getCollege_code() { return college_code; }
 
     public void setCollege_code(String college_code) {
         this.college_code = college_code;
@@ -54,9 +48,7 @@ public class CollegeDTO {
         this.college_name = college_name;
     }
 
-    public String getContact_no() {
-        return contact_no;
-    }
+    public String getContact_no() { return contact_no; }
 
     public void setContact_no(String contact_no) {
         this.contact_no = contact_no;
@@ -70,9 +62,7 @@ public class CollegeDTO {
         this.email = email;
     }
 
-    public String getWebsite() {
-        return website;
-    }
+    public String getWebsite() { return website; }
 
     public void setWebsite(String website) {
         this.website = website;
@@ -86,12 +76,13 @@ public class CollegeDTO {
         this.fax = fax;
     }
 
+    public long getUniversity_id() { return university_id; }
 
-    public long getUniversity_id() {
-        return university_id;
-    }
+    public void setUniversity_id(long university_id) { this.university_id = university_id; }
 
-    public void setUniversity_id(long university_id) {
-        this.university_id = university_id;
+    public Faculty getHod() { return Hod; }
+
+    public void setHod(Faculty hod) {
+        Hod = hod;
     }
 }

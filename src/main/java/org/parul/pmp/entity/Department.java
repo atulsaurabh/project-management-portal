@@ -9,7 +9,7 @@ import java.util.Set;
 @Table(name = "Department")
 public class Department {
 
-    private long deptid;
+    private Long department_id;
     private String department_code;
     private String department_name;
     private College college;
@@ -17,6 +17,9 @@ public class Department {
     private Set<Faculty>faculties=new HashSet<>();
     private LocalDateTime dateOfRegistration;
     private LocalDateTime dateOfModification;
+    private Faculty hod;
+    private Faculty projectCoordinator;
+
     private Set<GroupDetails> projectGroup = new HashSet<>();
     private Set<Documents> documents = new HashSet<>();
 
@@ -28,6 +31,8 @@ public class Department {
     public void setDocuments(Set<Documents> documents) {
         this.documents = documents;
     }
+
+
 
     @OneToMany(mappedBy = "department",cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<GroupDetails> getProjectGroup() {
@@ -48,9 +53,9 @@ public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getDeptid() { return deptid; }
+    public Long getDepartment_id() { return department_id; }
 
-    public void setDeptid(long deptid) { this.deptid = deptid; }
+    public void setDepartment_id(Long department_id) { this.department_id = department_id; }
 
     public String getDepartment_name() { return department_name; }
 
@@ -58,13 +63,9 @@ public class Department {
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "college_id")
-    public College getCollege() {
-        return college;
-    }
+    public College getCollege() { return college; }
 
-    public void setCollege(College college) {
-        this.college = college;
-    }
+    public void setCollege(College college) { this.college = college; }
 
     @OneToMany(mappedBy = "department",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public Set<Faculty> getFaculties() { return faculties; }
@@ -84,15 +85,25 @@ public class Department {
         return dateOfRegistration;
     }
 
-    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
-        this.dateOfRegistration = dateOfRegistration;
-    }
+    public void setDateOfRegistration(LocalDateTime dateOfRegistration) { this.dateOfRegistration = dateOfRegistration; }
 
     public LocalDateTime getDateOfModification() {
         return dateOfModification;
     }
 
-    public void setDateOfModification(LocalDateTime dateOfModification) {
-        this.dateOfModification = dateOfModification;
+    public void setDateOfModification(LocalDateTime dateOfModification) { this.dateOfModification = dateOfModification; }
+
+    @OneToOne(mappedBy = "department",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    public Faculty getHod() { return hod; }
+
+    public void setHod(Faculty hod) { this.hod = hod; }
+
+    @OneToOne(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public Faculty getProjectCoordinator() {
+        return projectCoordinator;
+    }
+
+    public void setProjectCoordinator(Faculty projectCoordinator) {
+        this.projectCoordinator = projectCoordinator;
     }
 }

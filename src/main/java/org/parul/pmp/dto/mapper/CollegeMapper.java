@@ -3,7 +3,6 @@ package org.parul.pmp.dto.mapper;
 import org.parul.pmp.dto.CollegeDTO;
 import org.parul.pmp.entity.College;
 import org.parul.pmp.entity.Credential;
-import org.parul.pmp.entity.University;
 import org.parul.pmp.entity.User;
 
 public class CollegeMapper {
@@ -16,6 +15,7 @@ public class CollegeMapper {
         register.setEmail(dto.getEmail());
         register.setWebsite(dto.getWebsite());
         register.setFax(dto.getFax());
+
 
         return register;
     }

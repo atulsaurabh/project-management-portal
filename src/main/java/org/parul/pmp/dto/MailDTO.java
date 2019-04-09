@@ -42,6 +42,7 @@ public class MailDTO {
         this.password = password;
     }
 
+
     public String getTo() {
         return to;
     }

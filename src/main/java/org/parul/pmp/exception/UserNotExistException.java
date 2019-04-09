@@ -4,7 +4,6 @@ public class UserNotExistException extends Exception {
 
 
     public UserNotExistException() {
-        super("User is not available in the system");
     }
 
     public UserNotExistException(String message) {
@@ -13,5 +12,13 @@ public class UserNotExistException extends Exception {
 
     public UserNotExistException(String message, Throwable cause) {
         super(message, cause);
+    }
+
+    public UserNotExistException(Throwable cause) {
+        super(cause);
+    }
+
+    public UserNotExistException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
     }
 }

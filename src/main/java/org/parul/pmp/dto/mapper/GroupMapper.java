@@ -24,4 +24,12 @@ public class GroupMapper {
         Faculty faculty = new Faculty();
         return faculty;
     }
+
+    public static GroupDTO toDTO(GroupDetails groupDetails)
+    {
+        GroupDTO groupDTO = new GroupDTO();
+        groupDTO.setGroupId(groupDetails.getGroupId());
+        groupDTO.setGroupName(groupDetails.getGroupName());
+        return groupDTO;
+    }
 }

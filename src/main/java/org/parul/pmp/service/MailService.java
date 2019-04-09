@@ -44,4 +44,5 @@ public class MailService
         javaMailSender.send(mimeMessagePreparator);
 
     }
-}
+
+   }
