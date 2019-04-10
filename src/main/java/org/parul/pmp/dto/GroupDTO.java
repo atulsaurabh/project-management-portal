@@ -16,6 +16,8 @@ public class GroupDTO {
     private long faculty_id;
     private String enrollment;
     private String description;
+    private Instant dateOfGroupCreation;
+
 
     public long getGroupId() {
         return groupId;
@@ -68,5 +70,13 @@ public class GroupDTO {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Instant getDateOfGroupCreation() {
+        return dateOfGroupCreation;
+    }
+
+    public void setDateOfGroupCreation(Instant dateOfGroupCreation) {
+        this.dateOfGroupCreation = dateOfGroupCreation;
     }
 }

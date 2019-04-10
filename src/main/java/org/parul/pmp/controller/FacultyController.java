@@ -1,16 +1,11 @@
 package org.parul.pmp.controller;
 
-import org.parul.pmp.dto.DepartmentDTO;
-import org.parul.pmp.dto.FacultyDTO;
-import org.parul.pmp.dto.FacultyProfileDTO;
-import org.parul.pmp.dto.MailDTO;
-import org.parul.pmp.dto.mapper.DepartmentMapper;
-import org.parul.pmp.dto.mapper.FacultyMapper;
-import org.parul.pmp.dto.mapper.StudentMapper;
-import org.parul.pmp.entity.Department;
-import org.parul.pmp.entity.Faculty;
+import org.parul.pmp.dto.*;
+import org.parul.pmp.dto.mapper.*;
+import org.parul.pmp.entity.*;
 import org.parul.pmp.repository.DepartmentRepository;
 import org.parul.pmp.repository.FacultyRepository;
+import org.parul.pmp.repository.GroupRepository;
 import org.parul.pmp.service.FacultyProfileService;
 import org.parul.pmp.service.FacultyService;
 import org.parul.pmp.service.MailService;
@@ -20,10 +15,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
-import java.util.Optional;
+import java.time.Instant;
+import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Controller
 @RequestMapping("/faculty")
@@ -38,6 +34,8 @@ public class FacultyController {
     private DepartmentRepository departmentRepository;
     @Autowired
     private MailService mailService;
+    @Autowired
+    private GroupRepository groupRepository;
 
     @GetMapping
     public String addFaculty(Model model) {
@@ -89,6 +87,35 @@ public class FacultyController {
         }
         return "Welcome";
     }
+
+    @GetMapping("/assignedgroups")
+    public String groups(Model model, HttpSession session)
+    {
+        Long userid = (Long) session.getAttribute("userid");
+        Faculty faculty = facultyRepository.findById(userid).get();
+        GroupDetails gpd = new GroupDetails();
+        Instant year = gpd.getDateOfGroupCreation();
+        List<GroupDetails> groupDetails = groupRepository.findByMentor(faculty);
+        model.addAttribute("grp",new GroupDTO());
+        model.addAttribute("groups",groupDetails);
+        return "assignedgroups";
+    }
+
+    @PostMapping("/assignedgroups")
+    public String groups(@RequestParam("groupId") Long groupId ,Model model)
+    {
+        GroupDetails groupDetails = groupRepository.findByGroupId(groupId).get();
+        Set<Student> members = groupDetails.getMembers();
+        model.addAttribute("grp",new GroupDTO());
+        model.addAttribute("grpdetils",groupDetails);
+        model.addAttribute("members",members);
+
+
+        return "detailsofgrp";
+
+    }
+
+
 
 }
 

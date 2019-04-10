@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        .vertical-menu {
+            width: 500px;
+            height: 300px;
+            overflow-y: auto;
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+<form action="/faculty/assignedgroups" method="post" th:object="${grp}">
+<div class="vertical-menu h-500 w-250">
+    <table style="width:50%">
+        <tr>
+            <th>Group name</th>
+            <th>memebrs</th>
+            <th>contact</th>
+        </tr>
+        <tbody>
+        <tr th:each="member : ${members}">
+           <td th:text="${grpdetils.getGroupName()}"></td>
+           <td th:text="${member.getFirstname()}"></td>
+           <td th:text="${member.getEmail()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="vertical-menu h-500 w-250">
+    <table style="width:50%" th:name="activity">
+        <tr>
+            <th>document no</th>
+            <th>document name</th>
+            <th>action</th>
+        </tr>
+    </table>
+</div>
+</form>
+</body>
+</html>

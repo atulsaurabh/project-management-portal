@@ -64,4 +64,14 @@ function sendJoinInGroupRequest(email){
     )
 }
 
-
+function grpDetails()
+{
+    var grpdetails = $("#groups").val();
+    $.post(
+        "/faculty/assignedgroups",
+        {group:groupId},
+        function (data) {
+            $("#grpDetails").html(data);
+        }
+    )
+}

@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        .vertical-menu {
+            width: 200px;
+            height: 150px;
+            overflow-y: auto;
+            float: left;
+        }
+    </style>
 </head>
 <body>
+<div class="vertical-menu h-50 w-25">
+<form action="/faculty/assignedgroups" method="post" th:object="${grp}" >
+    <table id="grps" style="width:50%">
+        <tr>
+            <th>select</th>
+            <th>Group Id</th>
+            <th>visit</th>
+        </tr>
 
+        <tbody>
+        <tr th:each="grp : ${groups}">
+            <td><input type="checkbox" th:field="*{groupId}" th:value="${grp.getGroupId()}"></td>
+            <td th:text="${grp.getGroupId()}"></a></td>
+            <td><input type="submit"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</form>
+</div>
 </body>
 </html>

@@ -11,6 +11,7 @@ public class GroupMapper {
         GroupDetails gd = new GroupDetails();
         gd.setGroupName(dto.getGroupName());
         gd.setDescription(dto.getDescription());
+        gd.setDateOfGroupCreation(dto.getDateOfGroupCreation());
         return gd;
 
     }
@@ -30,6 +31,7 @@ public class GroupMapper {
         GroupDTO groupDTO = new GroupDTO();
         groupDTO.setGroupId(groupDetails.getGroupId());
         groupDTO.setGroupName(groupDetails.getGroupName());
+        groupDTO.setDateOfGroupCreation(groupDetails.getDateOfGroupCreation());
         return groupDTO;
     }
 }
