@@ -11,7 +11,7 @@ public class CollegeDTO {
     private String email;
     private String website;
     private String fax;
-    private String university_id;
+    private long university_id;
     private String username;
     private String password;
     private Faculty Hod;
@@ -76,9 +76,9 @@ public class CollegeDTO {
         this.fax = fax;
     }
 
-    public String getUniversity_id() { return university_id; }
+    public long getUniversity_id() { return university_id; }
 
-    public void setUniversity_id(String university_id) { this.university_id = university_id; }
+    public void setUniversity_id(long university_id) { this.university_id = university_id; }
 
     public Faculty getHod() { return Hod; }
 

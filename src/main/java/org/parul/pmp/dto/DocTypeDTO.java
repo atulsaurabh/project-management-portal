@@ -10,9 +10,7 @@ public class DocTypeDTO {
         this.doctypeid = doctypeid;
     }
 
-    public String getDocumentname() {
-        return documentname;
-    }
+    public String getDocumentname() { return documentname; }
 
     public void setDocumentname(String documentname) {
         this.documentname = documentname;

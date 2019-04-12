@@ -1,67 +1,66 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" th:href="@{/css/fac1.css}" type="text/css">
-    <link rel="stylesheet" th:href="@{/css/fac2.css}">
-    <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" th:href="@{/css/studentRegistrationCss.css}" type="text/css">
+  <link rel="stylesheet" th:href="@{/css/studentThreg.css}" type="text/css">
 </head>
-
-<div class="" style="">
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<body>
+<form action="faculty" method="post" th:object="${faculty}">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="height: 80px">
     <a class="navbar-brand" href="#">
-        <img src="http://www.paruluniversity.ac.in/wp-content/themes/parul/images/logonew.png" alt="Logo" title="Logo" class="rounded" style="">
-    </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
-    <span class="navbar-toggler-icon"></span>
-</button>
+      <img alt="Logo" title="Logo" class="rounded" style="" src="/images/logo.png" height="50">
+    </a>
+    <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbar10">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Login</a> </li>
-        </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"> <a class="nav-link" style="color:white;font-size:25px;font-weight:500;" th:href="@{/collegeAdmin}">Home</a> </li>
+      </ul>
     </div>
-</nav>
-    <form action="faculty" method="post" th:object="${faculty}">
-<div class="align-items-center d-flex section-primary py-2 bg-light" style="">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12" style="">
-                <!--<form class="section-light bg-light" method="post" action="https://formspree.io/" style="">
-                    --><h3 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">Faculty Registration</h3>
+  </nav>
+  <div class="form-group mt-4" >
+    <h4 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;"> FACULTY REGISTRATION</h4>
+  </div>
+  <div  style="width: fit-content; height: fit-content;  " th:if="${emailId}" class="alert alert-success"
+        role="alert" th:text="'A verification email has been sent to: ' + ${emailId}"></div>
+  <div style="width: fit-content; height: fit-content;" th:if="${errmsg}" class="alert alert-danger" role="alert"
+       th:text="${errmsg}"></div>
+  <div class="form-group ml-5 pl-5"  style="">
+  <select class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true" th:field="*{department_id}">
+    <option value="0" disabled>Select Department</option>
+    <option th:each="dept: ${depts}"
+              th:value="${dept.deptid}" th:text="${dept.department_name}"></option>
+  </select></div>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" class="form-control w-75 ml-5" placeholder="Faculty Code" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{facultyCode}"></div>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" class="form-control w-75 ml-5" placeholder="First Name" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{facultyFirstname}"></div>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" class="form-control w-75 ml-5" placeholder="Middle Name" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{facultyMiddlename}"></div>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" class="form-control w-75 ml-5" placeholder="Last Name" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{facultyLastname}"></div>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" class="form-control w-75 ml-5" placeholder="Email" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{email}"></div>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" class="form-control w-75 ml-5" placeholder="Contact Number" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{phone}"></div>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" class="form-control w-75 ml-5" placeholder="Username" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{username}"></div>
+  <div class="form-group ml-5 pl-5">
+    <input type="text" class="form-control w-75 ml-5" placeholder="Password" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{password}">
+  </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="submit" class="btn btn-secondary ml-5 w-25" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;"> Register </button>
 
-                <select class="btn dropdown-toggle w-75 ml-5 btn-secondary py-2" data-toggle="dropdown" aria-expanded="false" th:field="*{department_id}">
-                    <option th:each="dept: ${depts}"
-                            th:value="${dept.deptid}" th:text="${dept.department_name}"></option>
-                </select>
-                    <div class="form-group">&nbsp;&nbsp;
-                        <input class="form-control w-75 form-control-lg mx-5 py-3" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="facultyCode" th:field="*{facultyCode}" required="required"> </div>
-                    <div class="form-group">
-                        <input class="form-control w-75 form-control-lg mx-5 py-3" placeholder="Firstname" th:field="*{facultyFirstname}" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required"> </div>
-                    <div class="form-group">
-                        <input class="form-control w-75 form-control-lg mx-5" placeholder="Middlename" th:field="*{facultyMiddlename}" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required"> </div>
-                    <div class="form-group">
-                        <input class="form-control w-75 form-control-lg mx-5" placeholder="Lastname" th:field="*{facultyLastname}" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required"> </div>
-                    <div class="form-group">
-                        <input class="form-control w-75 form-control-lg mx-5" placeholder="Email" th:field="*{email}" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required"> </div>
-                    <div class="form-group">
-                        <input class="form-control w-75 form-control-lg mx-5" placeholder="Mobile Number" th:field="*{phone}" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required"> </div>
-                    <div class="form-group">
-                        <input class="form-control w-75 form-control-lg mx-5" placeholder="username" th:field="*{username}"style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required"> </div>
-                    <div class="form-group">
-                        <input class="form-control w-75 form-control-lg mx-5" placeholder="password" th:field="*{password}"style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required"> </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-secondary ml-3" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;">
-                    <b class="" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;">Register</b>
-            </button></div>
-</form>     </div>
-    </form>
-            </div>
-        </div>
+</form>
+<div class="bg-dark">
+  <div class="container">
+    <div class="row" style="">
+      <div class="col-md-12 text-center">
+        <p class="mb-0 text-light">Copyright © 2019 Project Management System. All rights reserved.</p>
+      </div>
     </div>
-</div>
-<div class="row bg-dark">
-    <div class="col-md-12 mt-3">
-        <p class="text-center bg-dark text-light">© 2019 Project Management Portal. </p>
-    </div>
+  </div>
 </div>
 <script src="/js/js1.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="/js/js2.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

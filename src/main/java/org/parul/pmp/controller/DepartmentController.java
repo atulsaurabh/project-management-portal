@@ -54,6 +54,6 @@ public class DepartmentController {
             e.printStackTrace();
             model.addAttribute("errmsg", "Error!");
         }
-        return "collegeAdmin";
+        return "department";
     }
 }

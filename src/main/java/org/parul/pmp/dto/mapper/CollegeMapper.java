@@ -9,7 +9,7 @@ public class CollegeMapper {
     public static College toEntity(CollegeDTO dto)
     {
         College register = new College();
-        register.setCollegeCode(dto.getCollege_code());
+        register.setCollege_code(dto.getCollege_code());
         register.setCollege_name(dto.getCollege_name());
         register.setContact_no(dto.getContact_no());
         register.setEmail(dto.getEmail());
@@ -22,8 +22,9 @@ public class CollegeMapper {
     public static CollegeDTO toDTO(College college)
     {
         CollegeDTO dto = new CollegeDTO();
-        dto.setCollege_code(college.getCollegeCode());
+        dto.setCollege_code(college.getCollege_code());
         dto.setCollege_name(college.getCollege_name());
+        dto.setCollege_id(college.getCollege_id());
         return dto;
     }
 

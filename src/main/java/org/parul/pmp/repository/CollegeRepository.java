@@ -10,5 +10,5 @@ import java.util.Map;
 @Repository
 public interface CollegeRepository extends JpaRepository<College, Long> {
 
-    College findByCollegeCode(String college_id);
+   // College findByCollegeCode(String college_id);
 }

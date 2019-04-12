@@ -10,5 +10,5 @@ import java.util.List;
 public interface UniversityRepository extends JpaRepository<University, Long>{
 
 
-    University findByUniversityCode(String university_id);
+    //University findByUniversityCode(String university_id);
 }

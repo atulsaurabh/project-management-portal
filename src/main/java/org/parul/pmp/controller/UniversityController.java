@@ -38,7 +38,7 @@ public class UniversityController {
             e.printStackTrace();
             model.addAttribute("errmsg", "Error in Registration");
         }
-        return "welcome";
+        return "university";
         }
     }
 

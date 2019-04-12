@@ -49,7 +49,19 @@ function addmembers()
         }
     )
 }
+function uploaddoc() {
+    var docid = $("#docid").val();
+    $.post(
+        "/upload",
+        {
+            doctype: docid
+        },
+        function (data) {
+            $("#upload_place").html(data);
+        }
+    )
 
+}
 function sendJoinInGroupRequest(email){
     $.post(
         "/project/grouprequestmail",
@@ -75,3 +87,13 @@ function grpDetails()
         }
     )
 }
+$(document).ready(function () {
+    $('#menu a').click(function (e) {
+        e.preventDefault();
+        //var page=$(this).attr('href');
+       // $('#content').load('content/' + page);
+        $('#content').load($(this).attr('href'));
+        //return false;
+    });
+});
+

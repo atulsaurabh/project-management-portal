@@ -45,7 +45,4 @@ public class MailService
 
     }
 
-    public void setEmail(SimpleMailMessage email) {
-        javaMailSender.send(email);
-    }
-}
+   }

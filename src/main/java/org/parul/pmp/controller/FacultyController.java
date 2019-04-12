@@ -3,9 +3,7 @@ package org.parul.pmp.controller;
 import org.parul.pmp.dto.*;
 import org.parul.pmp.dto.mapper.*;
 import org.parul.pmp.entity.*;
-import org.parul.pmp.repository.DepartmentRepository;
-import org.parul.pmp.repository.FacultyRepository;
-import org.parul.pmp.repository.GroupRepository;
+import org.parul.pmp.repository.*;
 import org.parul.pmp.service.FacultyProfileService;
 import org.parul.pmp.service.FacultyService;
 import org.parul.pmp.service.MailService;
@@ -36,6 +34,10 @@ public class FacultyController {
     private MailService mailService;
     @Autowired
     private GroupRepository groupRepository;
+    @Autowired
+    private UploadDocRepository uploadDocRepository;
+    @Autowired
+    private DocTypeRepository docTypeRepository;
 
     @GetMapping
     public String addFaculty(Model model) {
@@ -65,7 +67,7 @@ public class FacultyController {
             e.printStackTrace();
             model.addAttribute("errmsg", "Error");
         }
-        return "collegeAdmin";
+        return "faculty";
     }
 
     @GetMapping("/profile")
@@ -98,24 +100,46 @@ public class FacultyController {
         List<GroupDetails> groupDetails = groupRepository.findByMentor(faculty);
         model.addAttribute("grp",new GroupDTO());
         model.addAttribute("groups",groupDetails);
+
         return "assignedgroups";
     }
 
     @PostMapping("/assignedgroups")
     public String groups(@RequestParam("groupId") Long groupId ,Model model)
     {
+        //Optional<GroupDetails> groupDetailsOptional = groupRepository.findByGroupId(groupId).get();
         GroupDetails groupDetails = groupRepository.findByGroupId(groupId).get();
         Set<Student> members = groupDetails.getMembers();
         model.addAttribute("grp",new GroupDTO());
         model.addAttribute("grpdetils",groupDetails);
         model.addAttribute("members",members);
 
+        Set<UplodedDocuments> documents = groupDetails.getUplodedDocuments();
+        model.addAttribute("documents",documents);
+        model.addAttribute("docs",new DocumentDTO());
+        model.addAttribute("doctypes",new DocTypeDTO());
 
         return "detailsofgrp";
-
     }
 
+    @PostMapping("grpdocs")
+    public String grpdocs(@RequestParam("groupId") Long groupId ,@RequestParam("docId") long docId , Model model, HttpSession session)
+    {
+        GroupDetails grpId = groupRepository.findByGroupId(groupId).get();
+        UplodedDocuments uplodedDocuments = uploadDocRepository.findById(docId).get();
+ /*       Stream<UplodedDocuments> uplodedDoc = grpId.getUplodedDocuments().stream().filter(uplodedDocuments1 ->
+        {
+            status.replace("NA","Approve");
+            return uplodedDocuments1.isApproved();
 
+        } );
+        model.addAttribute("uplodeDoc",uplodedDoc);*/
+        uplodedDocuments.setGroupDetails(grpId);
+        uplodedDocuments.setApproved(true);
+        groupRepository.saveAndFlush(grpId);
+        uploadDocRepository.saveAndFlush(uplodedDocuments);
+        return "welcome";
+    }
 
 }
 

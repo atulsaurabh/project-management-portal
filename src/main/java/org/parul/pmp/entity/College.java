@@ -10,7 +10,7 @@ import java.util.Set;
 @Table(name = "College")
 public class College {
     private long college_id;
-    private String collegeCode;
+    private String college_code;
     private String college_name;
     private String contact_no;
     private String email;
@@ -43,11 +43,11 @@ public class College {
         this.college_id = college_id;
     }
 
-    public String getCollegeCode() {
-        return collegeCode;
+    public String getCollege_code() {
+        return college_code;
     }
-    public void setCollegeCode(String collegeCode) {
-        this.collegeCode = collegeCode;
+    public void setCollege_code(String college_code) {
+        this.college_code = college_code;
     }
 
     public String getCollege_name() {

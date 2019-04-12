@@ -4,17 +4,18 @@ import org.parul.pmp.entity.Faculty;
 
 public class DepartmentDTO
 {
-    private String departmentCode;
+
+    private String department_code;
     private String department_name;
-    private String college_id;
+    private long college_id;
     private long deptid;
-    private Faculty hod;
-    private Faculty projectCoordinator;
-    public String getCollege_id() {
+    //private Faculty hod;
+    //private Faculty projectCoordinator;
+    public long getCollege_id() {
         return college_id;
     }
 
-    public void setCollege_id(String college_id) {
+    public void setCollege_id(long college_id) {
         this.college_id = college_id;
     }
 
@@ -26,10 +27,10 @@ public class DepartmentDTO
         this.deptid = deptid;
     }
 
-    public String getDepartmentCode() { return departmentCode; }
+    public String getDepartment_code() { return department_code; }
 
-    public void setDepartmentCode(String departmentCode) {
-        this.departmentCode = departmentCode;
+    public void setDepartment_code(String department_code) {
+        this.department_code = department_code;
     }
 
     public String getDepartment_name() { return department_name; }
@@ -38,7 +39,7 @@ public class DepartmentDTO
         this.department_name = department_name;
     }
 
-    public Faculty getHod() {
+    /*public Faculty getHod() {
         return hod;
     }
 
@@ -52,5 +53,5 @@ public class DepartmentDTO
 
     public void setProjectCoordinator(Faculty projectCoordinator) {
         this.projectCoordinator = projectCoordinator;
-    }
+    }*/
 }

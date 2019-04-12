@@ -1,91 +1,63 @@
-
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/studentRegistrationCss.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/css/studentThreg.css}" type="text/css">
     <title>College Details</title>
-</head>
-<br>
+</head>-->
 
-<body class="bg-light" style="">
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark" draggable="true">
-    <a class="navbar-brand" href="#">
-        <img src="/image/logonew.png" alt="Logo" title="Logo" class="rounded" style="">
-    </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
-    <span class="navbar-toggler-icon"></span>
-</button>
-    <div class="collapse navbar-collapse" id="navbar10">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Login</a> </li>
-        </ul>
-    </div>
-</nav>
-<form action="/college" method="post" th:object="${college}">
-    <div class="align-items-center d-flex section-primary py-2 bg-light" style="">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12" style="">
-                <h2 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;" contenteditable="true">College</h2>
-                    <div class="btn-group mr-auto ml-auto w-100"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <select class="btn dropdown-toggle w-75 ml-5 btn-secondary py-2" data-toggle="dropdown" aria-expanded="false" th:field="*{university_id}">
-                            <option th:each="uni: ${univercities}"
-                                    th:value="${uni.getUniversity_code()}" th:text="${uni.university_name}"></option>
-                        </select>
+                <form ACTION="/college" method="post" th:object="${college}">
+                   <!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="height: 80px">
+                        <a class="navbar-brand" href="#">
+                            <img alt="Logo" title="Logo" class="rounded" style="" src="/images/logo.png" height="50">
+                        </a>
+                        <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbar10">
+                            <ul class="navbar-nav ml-auto">
+
+                                <li class="nav-item"> <a class="nav-link" style="color:white;font-size:25px;font-weight:500;" th:href="@{/universityAdmin}">Home</a> </li>
+
+                            </ul>
+                        </div>
+                    </nav>-->
+                    <div class="form-group mt-2" >
+                        <h4 class=" text-center" style="	color: blue;	">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COLLEGE</h4>
                     </div>
-                    <div class="form-group">
-                        <div class="form-group"><label></label>
-                            <div class="form-group">
-                                <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="college code" required="required" th:field="*{college_code}" > </div>
-                            <div class="form-group">
-                                <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="Name" required="required" th:field="*{college_name}" > </div>
-                            <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="Email" required="required" th:field="*{email}" >
+
+                    <div class="form-group ml-5 pl-5"  style=""><select class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true" th:field="*{university_id}">
+                        <option value="0" disabled>Select University</option>
+                        <option th:each="university : ${univercities}"
+                                th:value="${university.university_id}" th:text="${university.university_name}"></option>
+                    </select></div>
+                    <div class="form-group ml-5 pl-5"><input type="text" class="form-control w-75 ml-5" id="form27" placeholder="College Code" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{college_code}"></div>
+                    <div class="form-group ml-5 pl-5"><input type="text" class="form-control w-75 ml-5" id="form28" placeholder="College Name" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{college_name}"></div>
+                    <!--<div class="form-group"><input type="email" class="form-control my-2" id="form29" placeholder="Email" th:field="*{email}"></div>-->
+                    <div class="form-group ml-5 pl-5"> <input type="email" class="form-control w-75 ml-5" id="form34" placeholder="Email" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{email}">
+                    </div>
+                    <div class="form-group ml-5 pl-5"><input type="text" class="form-control w-75 ml-5" id="form30" placeholder="Phone No" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{contact_no}"></div>
+                    <div class="form-group ml-5 pl-5"> <input type="text" class="form-control w-75 ml-5" id="form31" placeholder="Fax" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{fax}"></div>
+                    <div class="form-group ml-5 pl-5"> <input type="text" class="form-control w-75 ml-5" id="form32" placeholder="Username" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{username}"></div>
+                    <div class="form-group ml-5 pl-5"> <input type="password" class="form-control w-75 ml-5" id="form33" placeholder="Password" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{password}"></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="submit" class="btn btn-secondary ml-5 w-25" style="	box-shadow: 0px 0px 4px  black;	text-align: center;text-shadow: 0px 0px 4px black;	border-color: white;"> Register </button>
+
+                </form>
+                <!--<div class="bg-dark">
+                    <div class="container">
+                        <div class="row" style="">
+                            <div class="col-md-12 text-center">
+                                <p class="mb-0 text-light">Copyright © 2019 Project Management System. All rights reserved.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="Phone No" th:field="*{contact_no}" required="required"> </div>
-                    <div class="form-group">
-                        <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="fax" th:field="*{fax}" required="required"> </div>
-                    <div class="form-group">
-                        <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="website"th:field="*{website}" required="required"> </div>
-                    <div class="form-group">
-                        <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="user" th:field="*{username}" required="required"> </div>
-                        <div class="form-group">
-                            <input class="form-control w-75 form-control-lg mx-auto" style="	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" placeholder="password" th:field="*{password}" required="required"> </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button type="submit" class="btn btn-secondary ml-5" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;">Save</button>
-
-            </div>
-        </div>
-    </div>
-</div>
-</form>
-<div class="row bg-light">
-    <div class="col-md-12 mt-3">
-    </div>
-</div>
-<div class="row bg-light">
-    <div class="col-md-12 mt-3">
-    </div>
-</div>
-<div class="row bg-light">
-    <div class="col-md-12 mt-3">
-    </div>
-</div>
-<div class="row bg-dark">
-    <div class="col-md-12 mt-3">
-        <p class="text-center bg-dark text-light">© 2019 Project Management Portal. </p>
-    </div>
-</div>
-
+                </div>
 
 <script src="/js/js1.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="/js/js2.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="/js/js3.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
-
-</html>
+</html>-->

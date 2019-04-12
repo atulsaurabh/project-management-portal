@@ -11,7 +11,17 @@ public class UploadDocMapper
         uplodedDocs.setDescription(dto.getDescription());
         uplodedDocs.setDocurl(dto.getDocurl());
         uplodedDocs.setUploadedby(dto.getUploadedby());
-        uplodedDocs.setData(dto.getData());
+
         return uplodedDocs;
+    }
+    public static UploadDocDTO toDto(UplodedDocuments uplodedDocuments)
+    {
+        UploadDocDTO dto = new UploadDocDTO();
+        dto.setUploaddocid(uplodedDocuments.getUploaddocid());
+        dto.setDescription(uplodedDocuments.getDescription());
+        dto.setDocurl(uplodedDocuments.getDocurl());
+        dto.setUploadedby(uplodedDocuments.getUploadedby());
+
+        return dto;
     }
 }

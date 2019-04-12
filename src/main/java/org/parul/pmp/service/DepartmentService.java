@@ -32,7 +32,7 @@ public class DepartmentService {
     public void addDepartment(DepartmentDTO departmentDTO)
     {
         Department department = DepartmentMapper.toEntity(departmentDTO);
-        College clg = collegeRepository.findByCollegeCode(departmentDTO.getCollege_id());
+        College clg = collegeRepository.findById(departmentDTO.getCollege_id()).get();
         LocalDateTime localDateTime = LocalDateTime.now();
         department.setDateOfModification(localDateTime);
         department.setDateOfRegistration(localDateTime);

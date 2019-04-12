@@ -7,6 +7,8 @@ public class DocumentMapper {
     public static Documents toEntity(DocumentDTO documentDTO)
     {
         Documents docs = new Documents();
+        docs.setStartuploaddate(documentDTO.getStartuploaddate());
+        docs.setEnduploaddate(documentDTO.getEnduploaddate());
         return docs;
     }
 }

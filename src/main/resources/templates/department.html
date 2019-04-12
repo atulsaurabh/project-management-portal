@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="htttp://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" th:href="@{/css/dep1.css}" type="text/css">
-    <link rel="stylesheet" th:href="@{/css/dep2.css}">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" th:href="@{/css/studentRegistrationCss.css}" type="text/css">
+  <link rel="stylesheet" th:href="@{/css/studentThreg.css}" type="text/css">
 </head>
 <body>
           <form action="department" method="post" th:object="${department}">
@@ -23,7 +22,7 @@
                 </ul>
               </div>
             </nav>
-            <div class="form-group" >
+            <div class="form-group mt-4" >
               <h4 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">DEPARTMENT</h4>
             </div>
             <div  style="width: fit-content; height: fit-content;  " th:if="${msg}" class="alert alert-success"
@@ -35,10 +34,10 @@
             <select class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true" th:field="*{college_id}">
               <option value="0" disabled>Select College</option>
               <option th:each="college : ${colleges}"
-                    th:value="${college.college_code}" th:text="${college.college_name}"></option>
+                    th:value="${college.college_id}" th:text="${college.college_name}"></option>
             </select></div>
-            <div class="form-group ml-5 pl-5"><input type="text" class="form-control w-75 ml-5" id="form27" placeholder="Department Id" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{departmentCode}" ></div>
-            <div class="form-group ml-5 pl-5"><input type="text" class="form-control w-75 ml-5" id="form28" placeholder="Name" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{department_name}">
+            <div class="form-group ml-5 pl-5"><input type="text" class="form-control w-75 ml-5" id="form27" placeholder="Department Code" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{department_code}" ></div>
+            <div class="form-group ml-5 pl-5"><input type="text" class="form-control w-75 ml-5" id="form28" placeholder="Department Name" style="font-color:blue;	box-shadow: 0px 0px 4px  blue;	text-shadow: 0px 0px 4px blue;" required="required" th:field="*{department_name}">
             </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="submit" class="btn btn-secondary ml-5 w-25" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;"> Register </button>
 
           </form>

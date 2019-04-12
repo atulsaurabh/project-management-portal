@@ -83,7 +83,7 @@ public class ProjectController {
                     model.addAttribute("msg","Project Group Created Successfully!");
                 }
         }
-        return "project";
+        return "projectGroup";
     }
     /*@PostMapping("/promoteCordinator")
     @Transactional
