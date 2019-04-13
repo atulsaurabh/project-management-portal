@@ -16,6 +16,7 @@ public interface GroupRepository extends JpaRepository<GroupDetails,Long> {
 
     Optional<GroupDetails> findByGroupNameAndYear(String groupName, int thisyear);
 
+    List<GroupDetails> findByYear(int thisyear);
     List<GroupDetails> findByDepartment(Department dept);
 
     List<GroupDetails> findByMentor(Faculty mentor);

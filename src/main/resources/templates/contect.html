@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/js/jquery3.3.1.js"></script>
+    <script type="text/javascript" src="/js/db_ajax.js"></script>
+</head>
+<body>
+<form action="/contect/selectgroup" method="get">
+<select name="year" id="yearid">
+    <option th:each="year : ${#numbers.sequence(2010, #dates.year(#dates.createNow()))}"
+            th:value="${year}" th:text="${year}">
+    </option>
+</select>
+    <button type="submit">Submit</button>
+    <!--<button type="button" onclick="selectgroup()">Go</button>
+    <div id="group_place"></div>-->
+</form>
+</body>
+</html>
