@@ -57,6 +57,7 @@ function uploaddoc() {
             doctype: docid
         },
         function (data) {
+            alert(data);
             $("#upload_place").html(data);
         }
     )

@@ -57,14 +57,17 @@ public class FileUploadController {
     public String document(Model model,@RequestParam(name = "doctype") DocType doctype)
     {
         Documents document = documentRepository.findByDocType(doctype).get();
-        model.addAttribute("uploaddoc", new UploadDocDTO());
+        UploadDocDTO uploadDocDTO = new UploadDocDTO();
+        uploadDocDTO.setUploaddocid(document.getDocumentid());
+        model.addAttribute("uploaddoc", uploadDocDTO);
         return "fileUpload";
     }
     @PostMapping("/file")
-    public String uploadFile(@RequestParam(name = "file") MultipartFile file,Model model,@ModelAttribute("uploaddoc") UploadDocDTO uploaddoc,HttpSession session,Documents document) {
+    public String uploadFile(@RequestParam(name = "file") MultipartFile file,Model model,@ModelAttribute("uploaddoc") UploadDocDTO uploaddoc,HttpSession session) {
         long userid = (long) session.getAttribute("userid");
         Student student = studentRepository.findById(userid).get();
         GroupDetails group = student.getProjectGroup();
+        Documents documents = documentRepository.findById(uploaddoc.getUploaddocid()).get();
         //uploaddoc.setUploadedby(student.getEnrollment());
 
 
@@ -82,7 +85,18 @@ public class FileUploadController {
             }
             model.addAttribute("msg","File Uploaded Successfully");
         }*/
-        if (file.isEmpty())
+       Instant startdate = documents.getStartuploaddate();
+       Instant enddate = documents.getEnduploaddate();
+       Instant now = Instant.now();
+       if (now.isBefore(startdate))
+       {
+           model.addAttribute("msg","not upload document before starting date");
+       }
+       else if(now.isAfter(enddate))
+        {
+            model.addAttribute("msg","not upload document after end uploading date");
+        }
+        else if (file.isEmpty())
         {
             model.addAttribute("msg","No file present");
         }
@@ -102,7 +116,7 @@ public class FileUploadController {
 //                uploaddoc.setData(file.getBytes());
                 //uploaddoc.setDocurl(url);
                 UplodedDocuments uplodedDocuments = UploadDocMapper.toEntity(uploaddoc);
-                uplodedDocuments.setDocuments(document);
+                uplodedDocuments.setDocuments(documents);
                 uplodedDocuments.setGroupDetails(group);
                 uplodedDocuments.setUploadeddate(Instant.now());
                 uplodedDocuments.setDocurl(url);

@@ -6,6 +6,7 @@
                     th:value="${doc.doctypeid}" th:text="${doc.documentname}"></option>
         </select>-->
     <form action="/upload/file" method="post" enctype="multipart/form-data" th:object="${uploaddoc}" >
+        <input type="hidden" th:value="${uploaddoc.uploaddocid}" th:field="*{uploaddocid}">
         <b>File Name</b><input type="file" name="file"/>
         <br>
         <b>Description</b><input type="text" th:field="*{description}"/>
