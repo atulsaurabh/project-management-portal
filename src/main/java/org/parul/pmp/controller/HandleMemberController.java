@@ -50,8 +50,7 @@ public class HandleMemberController {
     @PostMapping
     public String deallocateMember(@RequestParam(value = "enrollment") String enrollment ,Model model)
     {
-
-        System.out.println(enrollment);
+        model.addAttribute("std",new StudentDTO());
         if (enrollment != null)
         {
             Student student=studentRepository.findByEnrollment(enrollment).get();
@@ -60,7 +59,6 @@ public class HandleMemberController {
             model.addAttribute("group",group);
             return "removemember";
         }
-
         return "welcome";
     }
     @PostMapping("/removemember")
@@ -69,7 +67,9 @@ public class HandleMemberController {
     {
         Student student = studentRepository.findByEnrollment(enrollment).get();
         GroupDetails group = student.getProjectGroup();
-
+        model.addAttribute("student", student);
+        model.addAttribute("group",group);
+        model.addAttribute("std",new StudentDTO());
         if (group != null) {
             group.getMembers().remove(student);
             student.setGroupMember(false);

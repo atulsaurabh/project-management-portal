@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.net.URL;
 import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collector;
@@ -115,9 +116,17 @@ public class FacultyController {
         model.addAttribute("members",members);
 
         Set<UplodedDocuments> documents = groupDetails.getUplodedDocuments();
+        documents.stream().map(UplodedDocuments::getDescription).collect(Collectors.toList());
+        documents.stream().map(UplodedDocuments::getGroupDetails).collect(Collectors.toList());
+        documents.stream().map(UplodedDocuments::getUploaddocid).collect(Collectors.toList());
+        documents.stream().map(UplodedDocuments::getDescription).collect(Collectors.toList());
+        documents.stream().map(UplodedDocuments::getUploadedby).collect(Collectors.toList());
+        documents.stream().map(UplodedDocuments::getData).collect(Collectors.toList());
+        documents.stream().map(UplodedDocuments::isApproved).collect(Collectors.toList());
+        documents.stream().map(UplodedDocuments::getDocurl).collect(Collectors.toList());
         model.addAttribute("documents",documents);
-        model.addAttribute("docs",new DocumentDTO());
-        model.addAttribute("doctypes",new DocTypeDTO());
+        //model.addAttribute("docs",new DocumentDTO());
+        //model.addAttribute("doctypes",new DocTypeDTO());
 
         return "detailsofgrp";
     }

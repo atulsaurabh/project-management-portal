@@ -59,9 +59,7 @@ public class MailDTO {
         this.subject = subject;
     }
 
-    public String getLink() {
-        return link;
-    }
+    public String getLink() { return link; }
 
     public void setLink(String link) {
         this.link = link;

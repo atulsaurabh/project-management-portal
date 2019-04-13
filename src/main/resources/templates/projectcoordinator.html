@@ -1,32 +1,88 @@
-<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>promot project coordinator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/addhod1.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/addhod2.css}" type="text/css">
+    <style> table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+
+    th,td{
+        text-align: left;
+        padding: 16px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+    </style>
 </head>
-<body>
-<form action="/projectcordinator" method="post" th:object="${faculty}" >
-<h3> promot project coordinator </h3>
-<table id = "project coordinator">
-    <tr>
-        <th>faculty code</th>
-        <th>faculty name</th>
-        <th>project coordinatore</th>
-    </tr>
-    <tbody>
-    <tr th:each="faculty : ${faculties}">
-            <td th:text="${faculty.getFacultyCode()}"></td>
-            <td th:text="${faculty.getFacultyFirstname()}"></td>
-        <td><input type="radio" name="facultycode" th:value="${faculty.facultyCode}"
-                   th:checked="${faculty.getProjectCoordinator()}" class="center middle"></td>
-    </tr>
-    </tbody>
-    <tfoot>
-    <tr>
-        <td> <input type="submit"> </td>
-    </tr>
-    </tfoot>
-</table>
-</form>
+
+<body class="bg-light" style="">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" style="height: 80px;">
+    <a class="navbar-brand" href="#">
+        <img src="/image/logonew.png"alt="Logo" title="Logo" class="rounded" height="50px">
+    </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
+    <span class="navbar-toggler-icon"></span>
+</button>
+    <div class="collapse navbar-collapse" id="navbar10">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:20px;font-weight:500;">Home</a> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:20px;font-weight:500;">Login</a> </li>
+        </ul>
+    </div>
+</nav>
+<div class="align-items-center d-flex section-primary py-2 bg-light mx-2" style="box-shadow: black 0px 0px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 p-3" style="">
+                <form class="section-light bg-light" method="post" action="/projectcordinator" th:object="${faculty}" style="	color: blue; font-size: 20px;	box-shadow: 0px 0px 4px  white;">
+                    <br><br><br>
+                    <h3 class="mb-3 text-center" style="	color: blue;"><b>Promot Project Coordinator</b></h3>
+                    <center><b></b></center><b><br><br>
+                    <center>
+                        <table id = "project coordinator">
+                            <tbody>
+                            <tr>
+                                <th class="table-secondary">Faculty Code</th>
+                                <th class="table-secondary">Faculty Name</th>
+                                <th class="table-secondary">Project Coordinator</th>
+                            </tr>
+
+                        <tr th:each="faculty : ${faculties}">
+                                <td th:text="${faculty.getFacultyCode()}" class=""></td>
+                                <td th:text="${faculty.getFacultyFirstname()}" class=""></td>
+                                <td class=""><input type="radio" name="facultycode" th:value="${faculty.facultyCode}"
+                                                    th:checked="${faculty.getProjectCoordinator()}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <br><br><br><br><br><br>
+                        <input type="submit" class="btn btn-secondary ml-auto" style="	box-shadow: 0px 0px 4px  black;		border-color: white;"><b >Submit</b>
+                        </input>
+                    </center>
+                </b>
+                </form>
+            </div><b>
+        </b>
+        </div><b>
+    </b>
+    </div><b>
+</b>
+</div><b><br><br><br><br>
+    <br><br>
+    <div class=" bg-dark">
+        <div class="col-md-12 ">
+            <p class="text-center bg-dark text-light">� 2019 Project Management Portal. </p>
+        </div>
+    </div>
+    <script src="/js/js1.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="/js/js2.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/js/js3.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
-</html>
+
+        </html>

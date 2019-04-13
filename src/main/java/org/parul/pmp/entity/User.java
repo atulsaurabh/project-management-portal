@@ -18,6 +18,7 @@ public class User {
 
     private College college;
     private String password;
+    private String resetPassword;
 
     public boolean isActivate() {
         return isActivate;
@@ -96,4 +97,11 @@ public class User {
         this.password = password;
     }
 
+    public String getResetPassword() {
+        return resetPassword;
+    }
+
+    public void setResetPassword(String resetPassword) {
+        this.resetPassword = resetPassword;
+    }
 }

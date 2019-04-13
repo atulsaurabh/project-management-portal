@@ -25,6 +25,7 @@ public class Student extends User{
     private boolean isCordinator;
     private boolean isGroupMember;
 
+
     public boolean isCordinator() {
         return isCordinator;
     }

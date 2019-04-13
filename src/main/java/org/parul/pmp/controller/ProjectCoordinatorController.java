@@ -51,6 +51,7 @@ public class ProjectCoordinatorController {
         List<FacultyDTO> facultyDTOSet = faculties.stream().map(FacultyMapper::toDTO).collect(Collectors.toList());
         model.addAttribute("faculties", facultyDTOSet);
         model.addAttribute("faculty", faculty);
+        model.addAttribute("fact",new FacultyDTO());
         return "projectcoordinator";
     }
 
