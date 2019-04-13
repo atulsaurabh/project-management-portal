@@ -94,8 +94,10 @@ public class FileUploadController {
                 if (!file1.exists())
                     file1.mkdir();
                 String uploadFiles = uploadDir+"/"+file.getOriginalFilename();
-                file.transferTo(new File(uploadFiles));
-                //URL url = file.getResource().getURL();
+                File fileToUpload=new File(uploadFiles);
+                file.transferTo(fileToUpload);
+
+                URL url = fileToUpload.toURI().toURL();
                 uploaddoc.setUploadedby(student.getEnrollment());
 //                uploaddoc.setData(file.getBytes());
                 //uploaddoc.setDocurl(url);
@@ -103,6 +105,7 @@ public class FileUploadController {
                 uplodedDocuments.setDocuments(document);
                 uplodedDocuments.setGroupDetails(group);
                 uplodedDocuments.setUploadeddate(Instant.now());
+                uplodedDocuments.setDocurl(url);
                 uploadDocRepository.saveAndFlush(uplodedDocuments);
                 model.addAttribute("msg","Uploading done successfully");
             }

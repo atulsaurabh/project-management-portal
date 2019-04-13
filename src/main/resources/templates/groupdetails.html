@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/contect/sendemail" method="post">
+    <table hidden="hidden">
+        <thead>
+        <!--<th>Enrollment Number</th>
+        <th>FirstName</th>
+        <th>lastName</th>-->
+        <th>email</th>
+        </thead>
+        <tbody>
+        <tr th:each="student: ${students}" name="emails">
+            <!--<td th:text="${student.getEnrollment()}"></td>
+            <td th:text="${student.getFirstname()}"></td>
+            <td th:text="${student.getLastname()}"></td>-->
+            <td th:text="${student.getEmail()}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+    <input type="text" placeholder="Enter message" name="message"/>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
