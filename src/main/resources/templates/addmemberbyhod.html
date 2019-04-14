@@ -44,43 +44,48 @@
     </button>
     <div class="collapse navbar-collapse" id="navbar10">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item"> <a class="nav-link" th:href="@{/account/login}" style="color:white;font-size:20px;font-weight:500;"><i class="fa fa-sign-out fa-x" aria-hidden="true" style="color:#ffffff"></i>&nbsp;&nbsp;LogOut</a> </li>
-        </ul>
+            <li class="nav-item"> <a class="nav-link" th:href="@{/addHod/hodHomePage}" style="color:white;font-size:15px;font-weight:500;">Home</a> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item"> <a class="nav-link" th:href="@{/account/login}"  style="color:white;font-size:15px;font-weight:500;"><img aria-hidden="true" style="color:#F0E9E9" src="/images/logout.png" width="15" > Login</a> </li>        </ul>
     </div>
 </nav>
- <form action="/handlemember/addmember" method="post" th:object="${groups}">
-     <label for="grp">select Group</label>
-     <select th:field="*{groupId}" id="grp">
-         <option th:each="grp: ${groupList}"
-                 th:value="${grp.groupId}"
-                 th:text="${grp.groupName}">
-         </option>
-     </select>
-    </form>
 
         <h4 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">Add Group Member</h4>
+<br>
+<form action="/handlemember/addmember" method="post" th:object="${groups}">
+<div class="form-group ml-5 pl-5"  style="">
+    <select class="btn dropdown-toggle btn-secondary w-75 ml-5" data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px;" draggable="true"  th:field="*{groupId}"  id="grpId">
+        <option th:each="grp: ${groupList}"
+                th:value="${grp.groupId}"
+                th:text="${grp.groupName}">
+        </option>
+    </select>
+</div>
+</form>
 
     <div class="form-group ml-5 pl-5">
         <input type="search" class="form-control w-75 ml-5" id="enroll" placeholder="Enrollment Number" style="	font-color:blue;box-shadow: 0px 0px 4px  blue;	" required="required"  name="enrollment">
     </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button type="button" class="btn btn-secondary ml-5 w-25" style="box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;" onclick="addmembers()">
+    <button type="button" class="btn btn-secondary ml-5 w-25" style="box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;" onclick="addmembersbyhod()">
         <i class="fa fa-search fa-x" aria-hidden="true" style="color:#ffffff"></i>
         &nbsp;&nbsp;Search </button>
 
-<form action="/project/addmember">
+<form action="/handlemember/addmember">
     <table width="350px" border="1">
 
         <thead>
-
+            <th></th>
             <th>Enrollment Number</th>
             <th class="w-25">First Name</th>
             <th class="w-25">Last Name</th>
             <th class="w-25">Email</th>
             <th>Action</th>
 
-        </thead>
-        <tbody id="member_place">
-        </tbody>
+
+
+    <tbody id="member_place_byhod">
+
+
+    </tbody>
     </table>
 
 </form>

@@ -90,11 +90,11 @@ public class FileUploadController {
        Instant now = Instant.now();
        if (now.isBefore(startdate))
        {
-           model.addAttribute("msg","not upload document before starting date");
+           model.addAttribute("msg","can't upload document before starting date");
        }
        else if(now.isAfter(enddate))
         {
-            model.addAttribute("msg","not upload document after end uploading date");
+            model.addAttribute("msg","can't upload document after end uploading date");
         }
         else if (file.isEmpty())
         {
@@ -126,7 +126,7 @@ public class FileUploadController {
             catch (Exception ex)
             {
                 ex.printStackTrace();
-                model.addAttribute("msg","Uploading not done successfully");
+                model.addAttribute("msg","Uploading fail");
             }
 
         }

@@ -73,4 +73,10 @@ public class HodController {
 
         return addHod(model);
     }
+    @GetMapping("/hodHomePage")
+    public String hodHomePage(Model model)
+    {
+        return "hodHomePage";
+    }
+
 }

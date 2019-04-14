@@ -9,6 +9,7 @@ public class GroupMapper {
     public static GroupDetails toEntity(GroupDTO dto)
     {
         GroupDetails gd = new GroupDetails();
+        gd.setGroupId(dto.getGroupId());
         gd.setGroupName(dto.getGroupName());
         gd.setDescription(dto.getDescription());
         gd.setDateOfGroupCreation(dto.getDateOfGroupCreation());

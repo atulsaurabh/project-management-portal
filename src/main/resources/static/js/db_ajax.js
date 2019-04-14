@@ -38,9 +38,7 @@ function fetchstudents()
 
 function addmembers()
 {
-
     var enrollmentID = $("#enroll").val();
-
     $.post(
         "/project/addmember",
         {enrollment:enrollmentID},
@@ -49,6 +47,19 @@ function addmembers()
         }
     )
 }
+
+function addmembersbyhod()
+{
+    var enrollmentID = $("#enroll").val();
+    $.post(
+        "/handlemember/addmember",
+        {enrollment:enrollmentID},
+        function (data) {
+            $("#member_place_byhod").html(data);
+        }
+    )
+}
+
 function uploaddoc() {
     var docid = $("#docid").val();
     $.post(

@@ -19,7 +19,7 @@
 </button>
     <div class="collapse navbar-collapse" id="navbar10">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:20px;font-weight:500;">Home</a> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:20px;font-weight:500;">Login</a> </li>
+            <li class="nav-item"> <a class="nav-link"  th:href="@{/collegeAdmin}" style="color:white;font-size:15px;font-weight:500;">Home</a> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </ul>
     </div>
 </nav>
@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-12 p-3" style="">
                 <form class="section-light bg-light" method="post" action="/addHod/promote" style="">
-                    <br><br><br>
+                    <br>
                     <h3 class="mb-3 text-center" style="	color: blue;" ><b>Add Hod</b></h3><b><br>
                     <center>
                         <select name="departmnt" id="dept" class="btn dropdown-toggle w-75 ml-5 btn-secondary py-2 text-left" data-toggle="dropdown" aria-expanded="false">
@@ -39,7 +39,7 @@
                         <button type="button" onclick="fetchFaculties()" class="btn btn-secondary ml-3" style="	box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;">
                             <b class="" style="text-shadow: 0px 0px 4px black;">Go</b>
                         </button></center>
-                    <br><br><br><br>
+                    <br>
                     <center>
                         <form action="/addHod/promote" method="post">
                         <table id="myTable">
@@ -59,7 +59,7 @@
                             <tbody id="fac_place" style="	color: blue; fontsize:20p; 	box-shadow: 0px 0px 4px  white;"  class="mx-2 p-3 table-blue" colspan="1" rowspan=" class=" ></tbody>
                         </table>
                     </center>
-                    <br><br><br><br><br><br>
+                    <br><br>
                     <center>
                         <button type="submit" class="btn btn-secondary ml-5" style="	box-shadow: 0px 0px 4px  black;		border-color: white;"><b class="" style="	">Submit</b>
                         </button></center>

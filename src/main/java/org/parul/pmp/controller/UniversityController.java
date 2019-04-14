@@ -29,7 +29,7 @@ public class UniversityController {
         try {
 
             universityService.addUniversity(university);
-            model.addAttribute("msg", "University Registration Successful");
+            model.addAttribute("msg", "University Registered Successfully");
 
             
         }

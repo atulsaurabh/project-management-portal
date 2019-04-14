@@ -72,6 +72,12 @@ public class ProjectCoordinatorController {
         return "welcome";
     }
 
+    @GetMapping("/pchomepg")
+    public String pchomepg(Model model)
+    {
+        return "projectcoordinatorhomepg";
+    }
+
     @GetMapping("/configureDocs")
     public String configureDocs(Model model, HttpSession  session)
     {
@@ -94,7 +100,7 @@ public class ProjectCoordinatorController {
         DocType docType = docTypeRepository.findById(doctypeid).get();
         Documents documents = new Documents();
         //DateTimeFormatter dateTimeFormatter = new DateTimeFormatter(DateTimeFormatter.BASIC_ISO_DATE);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        //SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String format_start_date=startDate.replace(",","");
         String format_end_date=endDate.replace(",","");
         Instant startInstant= LocalDate.from(DateTimeFormatter.ofPattern("yyyy-MM-dd").parse(format_start_date)).atStartOfDay(ZoneId.systemDefault()).toInstant();
@@ -111,6 +117,7 @@ public class ProjectCoordinatorController {
             documents.setStartuploaddate(startInstant);
             documents.setEnduploaddate(endDateInstant);
             documentRepository.saveAndFlush(documents);
+            model.addAttribute("document",documents);
             return "welcome";
         }
 

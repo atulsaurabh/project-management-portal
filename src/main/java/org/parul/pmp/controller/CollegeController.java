@@ -51,13 +51,13 @@ public class CollegeController {
             mailDTO.setLink("http://localhost:8080/activate");
             mailService.sendActivationMailWithCredential(mailDTO);
             model.addAttribute("emailId",college.getEmail());
-
+            model.addAttribute("msg","College Registered Successfully");
             return "universityAdmin";
         }
         catch (Exception e)
         {
             e.printStackTrace();
-            model.addAttribute("errmsg", "Error");
+            model.addAttribute("errmsg", "Error in Registration");
         }
 
        return "universityAdmin";

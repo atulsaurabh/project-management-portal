@@ -7,7 +7,7 @@
         <!--<input type="button"  th:onclick="'javascript:sendJoinInGroupRequest(\''+${student.getEmail()}+'\');'" value="ADD" /></td>
 --><!--<a th:href="'/project/grouprequestmail?email='+${student.getEmail()}">ADD</a>
 -->
-        <a th:href="@{/handlemember/grouprequestmail(email = ${student.getEmail()}, enrollment = ${student.getEnrollment()}) }">ADD</a>
+        <a th:href="@{/handlemember/grouprequestmail(email = ${student.getEmail()}, enrollment = ${student.getEnrollment()}), groupId = ${groupId.getGroupId()}">ADD</a>
 
     </td>
 </tr>

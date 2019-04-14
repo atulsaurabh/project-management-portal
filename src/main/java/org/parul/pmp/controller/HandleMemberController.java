@@ -91,6 +91,7 @@ public class HandleMemberController {
 
         List<GroupDetails> groupDetails = groupRepository.findByDepartment(dept);
         List<GroupDTO> groupDTOS = groupDetails.stream().map(GroupMapper::toDTO).collect(Collectors.toList());
+        groupDTOS.stream().map(GroupDTO::getGroupId).collect(Collectors.toList());
         model.addAttribute("groupList",groupDTOS);
         model.addAttribute("groups", new GroupDTO());
 
@@ -103,18 +104,21 @@ public class HandleMemberController {
         return "addmemberbyhod";
     }
     @PostMapping("/addmember")
-    public String addothormember(@RequestParam("enrollment") String enrollment,@ModelAttribute("groups") GroupDTO groups,Model model)
+    public String addothormember(@RequestParam("enrollment") String enrollment,
+                                 @RequestParam("groupId") Long groupId,
+                                 Model model)
     {
-        GroupDetails groupDetails = groupRepository.findById(groups.getGroupId()).get();
+        GroupDetails groupDetails = groupRepository.findByGroupId(groupId).get();
         Optional<Student> student = studentRepository.findByEnrollment(enrollment);
         Student std = student.get();
-        model.addAttribute("student",student.get());
+        model.addAttribute("std",std);
+        model.addAttribute("student",student);
         model.addAttribute("group",groupDetails);
         groupDetails.setMembers(Collections.singleton(std));
         groupRepository.saveAndFlush(groupDetails);
         if(student.isPresent())
         {
-            return "addmembernext";
+            return "addmemberbyhodnext";
         }
         else
         {
@@ -126,25 +130,27 @@ public class HandleMemberController {
         return "redirect:/grouprequestmail";
     }
     @GetMapping("/grouprequestmail")
-    public String sendgrouprequest(@RequestParam(name = "email")String email,@RequestParam("enrollment")String enrollment ,Model model,HttpSession session)
+    public String sendgrouprequest(@RequestParam(name = "email")String email,
+                                   @RequestParam("enrollment")String enrollment ,
+                                   @RequestParam("groupId") Long groupId,
+                                   Model model,HttpSession session)
     {
         Student student= studentRepository.findByEnrollment(enrollment).get();
-        long userid = student.getUserid();
-        Long cordinator = (Long) session.getAttribute("userid");
-        Student student1 =studentRepository.findById(cordinator).get();
-        long groupid = student1.getProjectGroup().getGroupId();
-        String groupname = student1.getProjectGroup().getGroupName();
-        String cordinatorEnroll = student1.getProjectGroup().getCordinator().getEnrollment();
+
+        GroupDetails groupid = groupRepository.findByGroupId(groupId).get();
+        model.addAttribute("grp", groupid);
+        String groupname = groupid.getGroupName();
+        Long userid = (Long) session.getAttribute("userid");
+
         if(student.isGroupMember())
         {model.addAttribute("msg","alredy added");}
         else {
             MailDTO mailDTO = new MailDTO();
-            //mailDTO.setUserid(student.getUserid());
             mailDTO.setName("reshma");
             mailDTO.setTo(email);
             mailDTO.setSubject("Group Member Request");
             mailDTO.setGroup(groupname);
-            mailDTO.setCordinator(cordinatorEnroll);
+            //mailDTO.setCordinator(cordinatorEnroll);
             mailDTO.setLink("http://localhost:8080/groupjoininvitation?userid="+userid+"&groupid="+groupid);
             mailService.sendActivationMailWithCredential(mailDTO);
             model.addAttribute("emailID",email);}
