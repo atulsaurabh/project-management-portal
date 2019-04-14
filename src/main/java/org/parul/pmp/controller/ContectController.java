@@ -62,14 +62,27 @@ public class ContectController {
 
     }
     @PostMapping("/groupmember")
-    public String contectTo(@RequestParam("groupid") long groupid,Model model){
+    public String contectTo(@RequestParam("groupid") long groupid,@RequestParam("subject") String subject ,@RequestParam("message") String message,Model model){
         GroupDetails group= groupRepository.findById(groupid).get();
         Set<Student> students = group.getMembers();
-        model.addAttribute("students",students);
-        return "groupdetails";
+        for (Student student:students
+             ) {
+            MimeMessagePreparator mimeMessagePreparator = mimeMessage -> {
+                MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);
+                mimeMessageHelper.setFrom(email);
+                mimeMessageHelper.setTo(student.getEmail());
+                mimeMessageHelper.setSubject(subject);
+                mimeMessageHelper.setText(message);
+            };
+            javaMailSender.send(mimeMessagePreparator);
+        }
+        //model.addAttribute("students",students);
+        //return "groupdetails";
+        model.addAttribute("msg","suceesfully send email");
+        return "result";
 
     }
-    @PostMapping("sendemail")
+    /*@PostMapping("sendemail")
     public String sendemail(@RequestParam("emails")String[] emails,@RequestParam("message")String message,Model model)
     {
         MimeMessagePreparator mimeMessagePreparator = mimeMessage -> {
@@ -81,6 +94,6 @@ public class ContectController {
         };
         javaMailSender.send(mimeMessagePreparator);
         model.addAttribute("msg","suceesfully send email");
-        return "result";
-    }
+        return "result";*/
+
 }
