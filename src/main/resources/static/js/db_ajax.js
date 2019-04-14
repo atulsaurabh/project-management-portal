@@ -57,11 +57,22 @@ function uploaddoc() {
             doctype: docid
         },
         function (data) {
+            alert(data);
             $("#upload_place").html(data);
         }
     )
 
 }
+/*function selectgroup() {
+    var year = $("#yearid").val();
+    $.post(
+        "/contect",
+        {year:year},
+        function () {
+            $("#group_place").html(data);
+        }
+    )
+}*/
 function sendJoinInGroupRequest(email){
     $.post(
         "/project/grouprequestmail",
