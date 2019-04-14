@@ -57,12 +57,20 @@ function uploaddoc() {
             doctype: docid
         },
         function (data) {
-            alert(data);
+
             $("#upload_place").html(data);
         }
     )
 
 }
+$(document).ready(function(){
+    $("#submitButton").on("click",function()
+    {
+        alert(data);
+        //alert($(errmsg));
+    });
+
+});
 /*function selectgroup() {
     var year = $("#yearid").val();
     $.post(
@@ -92,6 +100,24 @@ $(document).ready(function () {
         e.preventDefault();
         //var page=$(this).attr('href');
        // $('#content').load('content/' + page);
+        $('#content').load($(this).attr('href'));
+        //return false;
+    });
+});
+$(document).ready(function () {
+    $('#menu1 a').click(function (e) {
+        e.preventDefault();
+        //var page=$(this).attr('href');
+        // $('#content').load('content/' + page);
+        $('#content').load($(this).attr('href'));
+        //return false;
+    });
+});
+$(document).ready(function () {
+    $('#menu2 a').click(function (e) {
+        e.preventDefault();
+        //var page=$(this).attr('href');
+        // $('#content').load('content/' + page);
         $('#content').load($(this).attr('href'));
         //return false;
     });
