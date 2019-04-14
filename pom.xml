@@ -65,13 +65,7 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>5.1.3.RELEASE</version>
 		</dependency>
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>1.3.2</version>
-		</dependency>
 
-	</dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>

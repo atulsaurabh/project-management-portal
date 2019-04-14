@@ -51,7 +51,21 @@ public class StudentService {
         dept.getStudents().add(finalSavedFaculty);
         finalSavedFaculty.setDepartment(dept);
         departmentRepository.saveAndFlush(dept);
+
     }
 
+    public Optional findByEmail(String email)
+    {
+        return studentRepository.findByEmail(email);
+    }
 
+    public Optional findByToken(String Token)
+    {
+        return studentRepository.findByToken(Token);
+    }
+
+    public void save(Student student)
+    {
+        studentRepository.save(student);
+    }
 }

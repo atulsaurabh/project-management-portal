@@ -13,12 +13,12 @@ public class User {
     private Credential credential;
 
     private Address address;
-
     private University university;
-
     private College college;
     private String password;
     private String resetPassword;
+
+
 
     public boolean isActivate() {
         return isActivate;

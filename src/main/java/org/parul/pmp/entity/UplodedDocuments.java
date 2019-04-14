@@ -12,7 +12,6 @@ public class UplodedDocuments {
     private String uploadedby;
     private URL docurl;
     private boolean approved;
-    private boolean decline;
     private String description;
     private Documents documents;
     private GroupDetails groupDetails;

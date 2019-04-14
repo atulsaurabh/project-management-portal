@@ -98,24 +98,23 @@ public class HandleMemberController {
         List<Student> students = studentRepository.findByDepartment(dept);
         List<StudentDTO> studentDTOS = students.stream().map(StudentMapper::toDTO).collect(Collectors.toList());
         model.addAttribute("students",studentDTOS);
+        model.addAttribute("student", new StudentDTO());
        /* GroupDetails grpid = student.getProjectGroup();
         model.addAttribute("student",student);
         model.addAttribute("group",grpid);*/
         return "addmemberbyhod";
     }
     @PostMapping("/addmember")
-    public String addothormember(@RequestParam("enrollment") String enrollment,
-                                 @RequestParam("groupId") Long groupId,
-                                 Model model)
+    public String addothormember(@RequestParam("enrollment") String enrollment, Model model)
     {
-        GroupDetails groupDetails = groupRepository.findByGroupId(groupId).get();
+        //GroupDetails groupDetails = groupRepository.findByGroupId(groupId).get();
         Optional<Student> student = studentRepository.findByEnrollment(enrollment);
         Student std = student.get();
         model.addAttribute("std",std);
         model.addAttribute("student",student);
-        model.addAttribute("group",groupDetails);
-        groupDetails.setMembers(Collections.singleton(std));
-        groupRepository.saveAndFlush(groupDetails);
+        //model.addAttribute("group",groupDetails);
+        //groupDetails.setMembers(Collections.singleton(std));
+        //groupRepository.saveAndFlush(groupDetails);
         if(student.isPresent())
         {
             return "addmemberbyhodnext";

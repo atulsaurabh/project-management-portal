@@ -24,6 +24,7 @@ public class Student extends User{
     private GroupDetails projectGroup;
     private boolean isCordinator;
     private boolean isGroupMember;
+    private String token;
 
 
     public boolean isCordinator() {
@@ -144,7 +145,14 @@ public class Student extends User{
 
     public void setDateOfModification(LocalDateTime dateOfModification) {
         this.dateOfModification = dateOfModification;
+    }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }
 

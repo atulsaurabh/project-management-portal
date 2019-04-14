@@ -51,7 +51,7 @@
         <tr th:each="document : ${documents}">
             <td><input type="checkbox" th:field="*{groupId}" th:value="${grpdetils.getGroupId()}"></td>
             <td th:text="${document.getUploaddocid()}"></td>
-            <td th:text="${file}"></td>
+            <td th:text="${}"></td>
             <td th:text="${document.getDescription()}"></td>
             <td><input type="radio" name="docId" th:value="${document.getUploaddocid()}" th:checked="${document.isApproved()}"></td>
 
