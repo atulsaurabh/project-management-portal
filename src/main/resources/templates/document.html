@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/studentRegistrationCss.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/css/studentThreg.css}" type="text/css">
+    <script type="text/javascript" src="/js/jquery3.3.1.js"></script>
+    <script type="text/javascript" src="/js/db_ajax.js"></script>
 </head>
 
 <body>
@@ -25,15 +27,15 @@
     <div class="form-group">
         <h4 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 6px black;	box-shadow: 0px 0px 4px  white;">UPLOAD DOCUMENT</h4>
     </div>
-    <div class="form-group ml-5 pl-5 ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong style="color:blue;">
+    <div class="form-group ml-5 pl-5 ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <strong style="color:blue;">
         <label style="font-size:20px">Select Document Format To Upload :</label>
     </strong> &nbsp;&nbsp;
         <select data-toggle="dropdown" aria-expanded="false" style="box-shadow: black 0px 0px 6px; border-color: white; text-shadow: black 0px 0px 4px; " class="btn dropdown-toggle btn-secondary w-25" name="doctype" id="docid" required="required">
-        <option value="" disabled="" hidden="" selected="" style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT TYPE</option>
             <option th:each="doc : ${doctypes}"
                     th:value="${doc.doctypeid}" th:text="${doc.documentname}"></option>
     </select>
-        <button type="submit" class="btn btn-secondary pl-5 pr-5 ml-2" style="box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;" onclick="uploaddoc()"> GO </button>
+        <button type="button" class="btn btn-secondary pl-5 pr-5 ml-2" style="box-shadow: 0px 0px 4px  black;	text-shadow: 0px 0px 4px black;	border-color: white;" onclick="uploaddoc()"> GO </button>
     </div>
     <br><br>
     <br>
