@@ -1,13 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html><!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -23,20 +14,16 @@
         overflow-y: auto;
         float: left;
     }
-
     .vertical-menu a {
-
         color: black;
         display: block;
         padding: 12px;
         text-decoration: none;
         background-color: #b3ccff;
     }
-
     .vertical-menu a:hover {
         background-color: #ccc;
     }
-
     .vertical-menu a.active {
         background-color: #4CAF50;
         color: lightblue;
@@ -55,7 +42,6 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item" > <a class="nav-link" th:href="@{/account/login}" style="color:white;font-size:20px;font-weight:500;"><img aria-hidden="true" style="color:#F0E9E9" src="/images/logout.png" width="25" >&nbsp;&nbsp;LogOut</a> </li>
             <!--<li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>
-
             <!--<li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>
             <li class="nav-item"> <a class="nav-link" th:href="@{/account/login}" style="color:white;font-size:25px;font-weight:500;">Login</a> </li>
             <li class="nav-item"> <a class="nav-link shadow" href="#" style="	color: white;	font-size: 25px;	font-weight: 500;	box-shadow: 0px 0px 4px  black, 0px 0px 4px  black;">Profile</a> </li>-->
@@ -76,9 +62,9 @@
         </div>
 
         <div style="margin-left:25%;padding:1px 16px;height:800px;background-color: #f1f1f1" id="content">
-            <div  style="width: fit-content; height: fit-content; left: 20% " th:if="${emailId}" class="alert alert-success"
+            <div  style="width: fit-content; height: fit-content; left: 25% " th:if="${emailId}" class="alert alert-success"
                   role="alert" th:text="'A verification email has been sent to: ' + ${emailId}"></div>
-            <div style="width: fit-content; height: fit-content; left: 20%" th:if="${errmsg}" class="alert alert-danger" role="alert"
+            <div style="width: fit-content; height: fit-content; left: 25%" th:if="${errmsg}" class="alert alert-danger" role="alert"
                  th:text="${errmsg}"></div>
         </div>
 
@@ -100,13 +86,4 @@
 <script src="/js/js2.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="/js/js3.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
-
-
-
-
-
-
-
-
-
-.........................................................................................................................
+</html>
