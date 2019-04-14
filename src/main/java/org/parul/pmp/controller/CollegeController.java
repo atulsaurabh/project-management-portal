@@ -52,7 +52,7 @@ public class CollegeController {
             mailService.sendActivationMailWithCredential(mailDTO);
             model.addAttribute("emailId",college.getEmail());
 
-            return "universityAdmin";
+            return "universityadmin";
         }
         catch (Exception e)
         {
@@ -60,7 +60,7 @@ public class CollegeController {
             model.addAttribute("errmsg", "Error");
         }
 
-       return "universityAdmin";
+       return "universityadmin";
     }
 
 }

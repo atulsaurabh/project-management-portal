@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -36,45 +45,45 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="height: 80px">
-        <a class="navbar-brand" href="#">
-            <img src="/images/logo.png" alt="Logo" title="Logo" class="rounded" height="50">
-        </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-        <div class="collapse navbar-collapse" id="navbar10">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item" > <a class="nav-link" th:href="@{/account/login}" style="color:white;font-size:20px;font-weight:500;"><img aria-hidden="true" style="color:#F0E9E9" src="/images/logout.png" width="25" >&nbsp;&nbsp;LogOut</a> </li>
-                <!--<li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark" style="height: 80px">
+    <a class="navbar-brand" href="#">
+        <img src="/images/logo.png" alt="Logo" title="Logo" class="rounded" height="50">
+    </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
+    <span class="navbar-toggler-icon"></span>
+</button>
+    <div class="collapse navbar-collapse" id="navbar10">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" > <a class="nav-link" th:href="@{/account/login}" style="color:white;font-size:20px;font-weight:500;"><img aria-hidden="true" style="color:#F0E9E9" src="/images/logout.png" width="25" >&nbsp;&nbsp;LogOut</a> </li>
+            <!--<li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>
 
-                <!--<li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>
-                <li class="nav-item"> <a class="nav-link" th:href="@{/account/login}" style="color:white;font-size:25px;font-weight:500;">Login</a> </li>
-                <li class="nav-item"> <a class="nav-link shadow" href="#" style="	color: white;	font-size: 25px;	font-weight: 500;	box-shadow: 0px 0px 4px  black, 0px 0px 4px  black;">Profile</a> </li>-->
+            <!--<li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:25px;font-weight:500;">Home</a> </li>
+            <li class="nav-item"> <a class="nav-link" th:href="@{/account/login}" style="color:white;font-size:25px;font-weight:500;">Login</a> </li>
+            <li class="nav-item"> <a class="nav-link shadow" href="#" style="	color: white;	font-size: 25px;	font-weight: 500;	box-shadow: 0px 0px 4px  black, 0px 0px 4px  black;">Profile</a> </li>-->
 
-                 </ul>
-        </div>
-    </nav>
+        </ul>
+    </div>
+</nav>
 <form>
 
-<div>
-                <div style="float: left;" class="vertical-menu h-50 w-25" >
-                    <div>
-                        <a href="#" class="not-active bg-secondary" style="color:white;">UNIVERSITY ADMIN</a>
-                    </div>
-                    <div id="menu">
-                        <a th:href="@{/college}" ><img src="/images/adduniversity.png" height="25" width="25" >&nbsp;&nbsp;ADD COLLEGE</a>
-                    </div>
-                </div>
+    <div>
+        <div style="float: left;" class="vertical-menu h-50 w-25" >
+            <div>
+                <a href="#" class="not-active bg-secondary" style="color:white;">UNIVERSITY ADMIN</a>
+            </div>
+            <div id="menu">
+                <a th:href="@{/college}" ><img src="/images/adduniversity.png" height="25" width="25" >&nbsp;&nbsp;ADD COLLEGE</a>
+            </div>
+        </div>
 
-                <div style="margin-left:25%;padding:1px 16px;height:800px;background-color: #f1f1f1" id="content">
-                    <div  style="width: fit-content; height: fit-content;  " th:if="${emailId}" class="alert alert-success"
-                          role="alert" th:text="'A verification email has been sent to: ' + ${emailId}"></div>
-                    <div style="width: fit-content; height: fit-content;" th:if="${errmsg}" class="alert alert-danger" role="alert"
-                         th:text="${errmsg}"></div>
-                </div>
+        <div style="margin-left:25%;padding:1px 16px;height:800px;background-color: #f1f1f1" id="content">
+            <div  style="width: fit-content; height: fit-content;  " th:if="${emailId}" class="alert alert-success"
+                  role="alert" th:text="'A verification email has been sent to: ' + ${emailId}"></div>
+            <div style="width: fit-content; height: fit-content;" th:if="${errmsg}" class="alert alert-danger" role="alert"
+                 th:text="${errmsg}"></div>
+        </div>
 
-   <!-- <div class="w-75 h-100" id="university" style=""></div>-->
-</div>
+        <!-- <div class="w-75 h-100" id="university" style=""></div>-->
+    </div>
 </form>
 
 
@@ -101,4 +110,3 @@
 
 
 .........................................................................................................................
-</html>

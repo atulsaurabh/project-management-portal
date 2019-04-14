@@ -10,6 +10,6 @@ public class UniversityAdminController {
     @GetMapping
     public String universityAdminPage()
     {
-        return "universityAdmin";
+        return "universityadmin";
     }
 }
