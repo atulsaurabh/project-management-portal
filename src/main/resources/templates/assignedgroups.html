@@ -1,25 +1,56 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
 
-        .vertical-menu {
-            width: 200px;
-            height: 150px;
-            overflow-y: auto;
-            float: left;
-        }
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/studentRegistrationCss.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/studentThreg.css}" type="text/css">
+    <script type="text/javascript" src="/js/jquery3.3.1.js"></script>
+    <script type="text/javascript" src="/js/db_ajax.js"></script>
+    <style> table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 75%;
+        align-self: center;
+    }
+
+    td, th {
+
+        text-align: center;
+        padding: 8px;
+    }
+
+    tr:nth-child(odd) {
+        border: 1px solid #dddddd;
+        background-color:#7961ff;
+    }
+    tr:nth-child(even) {
+        border: 1px solid #7961ff;
+        background-color:#dddddd;
+    }
     </style>
 </head>
-<body>
-<div class="vertical-menu h-50 w-25">
+
+<body >
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" style="height:80px;">
+    <a class="navbar-brand" href="#">
+        <img alt="Logo" title="Logo" class="rounded" style="" src="/images/logo.png" height="50">
+    </a>
+    <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar10">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" > <a class="nav-link" th:href="@{/account/login}" style="color:white;font-size:15px;font-weight:500;"><img aria-hidden="true" style="color:#F0E9E9" src="/images/logout.png" width="25" >&nbsp;&nbsp;LogOut</a> </li>
+        </ul>
+    </div>
+</nav>
+<h4 class="mb-3 text-center" style="	color: blue;	text-shadow: 0px 0px 2px black;	box-shadow: 0px 0px 4px  white;">ASSIGNED GROUPS</h4>
+<br>
+<br>
 <form action="/faculty/assignedgroups" method="post" th:object="${grp}" >
-    <table id="grps" style="width:50%">
+    <table width="250px" border="1" class="mt-3">
         <tr>
             <th>select</th>
             <th>Group Id</th>
@@ -36,6 +67,31 @@
     </table>
 
 </form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class=" bg-dark">
+    <div class="container">
+        <div class="row" style="">
+            <div class="col-md-12 text-center">
+                <p class="text-light mb-0">Copyright � 2019 Project Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
 </div>
+<script src="/js/js1.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="/js/js2.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="/js/js3.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </body>
 </html>

@@ -1,65 +1,108 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/addhod1.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/addhod2.css}" type="text/css">
 
-        .vertical-menu {
-            width: 500px;
-            height: 300px;
-            overflow-y: auto;
-            float: left;
-        }
+    <style> table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
 
+    td, th {
+
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(odd) {
+        border: 1px solid #dddddd;
+        background-color:#7961ff;
+    }
+    tr:nth-child(even) {
+        border: 1px solid #7961ff;
+        background-color:#dddddd;
+    }
     </style>
 </head>
-<body>
+<body class="bg-light" style="">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" style="height:80px">
+    <a class="navbar-brand" href="#">
+        <img src="/image/logonew.png"alt="Logo" title="Logo" class="rounded" height="50px">
+    </a><button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10" style="">
+    <span class="navbar-toggler-icon"></span>
+</button>
+    <div class="collapse navbar-collapse" id="navbar10">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link" href="#" style="color:white;font-size:20px;font-weight:500;">Home</a> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <li class="nav-item" > <a class="nav-link" href="#" style="color:white;font-size:20px;font-weight:500;">Logout</a> </li>
+        </ul>
+    </div>
+</nav>
+<br><br><br>
 <form action="/faculty/assignedgroups" method="post" th:object="${grp}">
-<div class="vertical-menu h-500 w-250">
-    <table style="width:50%">
-        <tr>
-            <th>Group name</th>
-            <th>memebrs</th>
-            <th>contact</th>
-        </tr>
-        <tbody>
+    <b>
+        <h3 class="text-center text-secondary">Group Details</h3><br>
+    </b>
+    <center>
+        <div class="vertical-menu h-500 w-250">
+            <table style="width:50%">
+                <tbody>
+                <tr>
+                    <th>Group name</th>
+                    <th>memebrs</th>
+                    <th>contact</th>
+                </tr>
+                </tbody>
+                <tbody>
+
         <tr th:each="member : ${members}">
            <td th:text="${grpdetils.getGroupName()}"></td>
            <td th:text="${member.getFirstname()}"></td>
            <td th:text="${member.getEmail()}"></td>
         </tr>
-        </tbody>
-    </table>
-</div>
+                </tbody>
+            </table>
+        </div>
+    </center>
 </form>
+<br><br>
+<center>
 
 <form action="/faculty/grpdocs" method="post" th:object="${grp}" >
-<div class="vertical-menu h-500 w-500">
-    <table style="width:70%" th:name="activity">
-        <tr>
-            <th>select</th>
-            <th>document no</th>
-            <th>document name</th>
-            <th>description</th>
-            <th>approve</th>
-        </tr>
-        <tbody>
+    <div class="vertical-menu h-500 w-500">
+        <table style="width:70%" th:name="activity">
+            <thead>
+            <tr>
+                <th>select</th>
+                <th>document no</th>
+                <th>document name</th>
+                <th>description</th>
+                <th>approve</th>
+            </tr>
+            </thead>
+            <tbody>
         <tr th:each="document : ${documents}">
             <td><input type="checkbox" th:field="*{groupId}" th:value="${grpdetils.getGroupId()}"></td>
             <td th:text="${document.getUploaddocid()}"></td>
-            <td th:text="${}"></td>
+            <td>
+                <form action="/download" method="get">
+                    <a href="C:/Users/shubh/report1.pdf" onclick="location.href='/download'">report</a>
+                </form>
+            </td>
             <td th:text="${document.getDescription()}"></td>
-            <td><input type="radio" name="docId" th:value="${document.getUploaddocid()}" th:checked="${document.isApproved()}"></td>
-
+            <td>
+                <input type="radio" name="docId" th:value="${document.getUploaddocid()}" th:checked="${document.isApproved()}"></td>
         </tr>
         </tbody>
     </table>
-    <input type="submit">
-</div>
+
+    <input type="submit" class="btn btn-secondary ml-5" style="	box-shadow: 0px 0px 4px  black;	border-color: white;">
+    </div>
 </form>
+</center>
 </body>
 </html>
